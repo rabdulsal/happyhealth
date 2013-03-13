@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your Service Eligibility!</h1>
+<fieldset class="dashAppointments">
+	<table class="show-table">
+		<p>
+			<%= @eligibility %>
+		</p>
+		<tr>
+			<th>
+				Plan: 
+			</th>
+			<td>
+				<%#= @eligibility["comments"][0] %>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Timestamp:
+			</th> 
+			<td>
+				<%#= @eligibility["timestamp"] %>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Coverage status: 
+			</th>
+			<td>
+				<%#= @eligibility["coverage_status"] %>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Covered Service Type: 
+			</th>
+			<td>
+				<%#= @eligibility["visits_in_network"]["individual"]["comments"][0] %>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Total Visits Allowed: 
+			</th>
+			<td>
+				<%#= @eligibility["visits_in_network"]["individual"]["total"] %>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				Total Visits Remaining: 
+			</th>
+			<td>
+				<%#= @eligibility["visits_in_network"]["individual"]["remaining"] %>
+			</td>
+		</tr>		
+	</table>
+</fieldset>
+
+<%#= link_to 'Edit', edit_insurance_query_path(@insurance_query, id: 1) %>
+<%= link_to 'Back', insurance_query_path(@ins_qry) %>

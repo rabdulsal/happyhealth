@@ -1,0 +1,109 @@
+<% @form.insurances.each do |insurance| %>
+				
+     <fieldset class="demoBackground">
+        <legend><%= "#{insurance.title} Insurance" %></legend>
+       
+        <table class="show-table">
+                <tr>
+                        <th class="right-align">Relationship To Patient: </th>
+                        <td class="left-align"> <%= insurance.relationship_to_patient %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Insurer: </th>
+                        <td class="left-align"> <%= insurance.payer %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Insurance Address: </th>
+                        <td class="left-align"><%= insurance.address %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">City: </th>
+                        <td class="left-align"><%= insurance.city %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">State: </th>
+                        <td class="left-align"><%= insurance.state %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">
+                                Zip:
+                        </th>
+                        <td class="left-align">
+                                <%= insurance.zipcode %>        
+                        </td>
+                </tr>
+                <tr>
+                        <th class="right-align">
+                                Group #:
+                        </th>
+                        <td class="left-align">
+                                 <%= insurance.group_number %>
+                        </td>
+                </tr>
+                <tr>
+                        <th class="right-align">Group Name: </th>
+                        <td class="left-align"><%= insurance.group_name %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Policy #: </th>
+                        <td class="left-align"><%= insurance.policy_number %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Subscriber's Last Name: </th>
+                        <td class="left-align"><%= insurance.subscribers_last_name %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">MI:  </th>
+                        <td class="left-align"><%= insurance.middle_initial %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Subscriber's First Name: </th>
+                        <td class="left-align"><%= insurance.subscribers_first_name %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Subscriber's Address: </th>
+                        <td class="left-align"><%= insurance.subscribers_address %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">City: </th>
+                        <td class="left-align"><%= insurance.subscribers_city %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">State: </th>
+                        <td class="left-align"> <%= insurance.subscribers_state %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Zip: </th>
+                        <td class="left-align"><%= insurance.subscribers_zipcode %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Social Security #: </th>
+                        <td class="left-align"><%= insurance.social_security %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Gender: </th>
+                        <td class="left-align"><%= insurance.sex %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">
+                                Birth date: 
+                        </th>
+                        <td class="left-align">
+                                <%= insurance.birthdate %>      
+                        </td>
+                </tr>
+                <tr>
+                        <th class="right-align">
+                                Subscriber's Phone:
+                        </th>
+                        <td class="left-align">
+                                 <%= insurance.subscribers_phone %>
+                        </td>
+                </tr>
+                <tr>
+                        <th class="right-align">Subscriber Employer: </th>
+                        <td class="left-align"><%= insurance.subscribers_employer %></td>
+                </tr>
+        </table>                  
+		</fieldset>
+<% end %>

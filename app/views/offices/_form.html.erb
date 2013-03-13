@@ -1,0 +1,63 @@
+<%= form_for @office do |f| %>
+  <% if @office.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@office.errors.count, "error") %> prohibited this office from being saved:</h2>
+
+      <ul>
+      <% @office.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset class="demoBackground">
+    <table> 
+      <tr>
+        <td class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </td>
+        <td class="field">
+          <%= f.label :address %>
+          <%= f.text_field :address %>
+        </td>
+      </tr>
+      <tr>
+        <td class="field">
+          <%= f.label :city %>
+          <%= f.text_field :city %>
+        </td>
+        <td class="field">
+          <%= f.label :state %>
+          <%= f.text_field :state %>
+        </td>
+      </tr>
+      <tr>
+        <td class="field">
+          <%= f.label :zipcode %>
+          <%= f.text_field :zipcode %>
+        </td>      
+        <td class="field">
+          <%= f.label :phone %>
+          <%= f.text_field :phone %>
+        </td>
+      </tr>  
+      <tr>
+        <td class="field">
+          <%= f.label :fax %>
+          <%= f.text_field :fax %>
+        </td>      
+        <td class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </td>
+      </tr>
+      <tr>
+        <td class="actions">
+          <%= f.submit "Add PDF to Office!", class: "submit-button eligibility margin-top" %>
+        </td>
+      </tr>
+    </table>  
+  </fieldset>
+<% end %>

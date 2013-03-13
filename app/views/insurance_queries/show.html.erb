@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Eligibility Query #<%= @insurance_query.id %> Report</h1>
+<fieldset class="dashAppointments">
+	<p class="dot-bottom">
+		  <%= @insurance_query.api_key %> <br />
+  		<%= @insurance_query.payer_code %> <br /> 
+  		<%= @insurance_query.payer_name %> <br /> 
+      <%= @insurance_query.provider_npi %> <br /> 
+  		<%= @insurance_query.physician_first_name %> <br /> 
+  		<%= @insurance_query.physician_last_name %> <br />   		
+      <%= @insurance_query.subscriber_id %> <br />   		
+  		<%= @insurance_query.subscriber_first_name %> <br />   		
+  		<%= @insurance_query.subscriber_last_name %> <br />  
+      <%= @insurance_query.subscriber_dob %> <br /> 	  		
+  	</p>
+  	<p class="margin-bottom">
+  		<strong>Click below to verify insurance eligibility</strong>
+    </p>    
+    <p class="dot-bottom">
+  		<%= link_to 'Verify eligibility', eligibility_insurance_query_url(@insurance_query), class: "action-button eligibility" %>
+  	</p>
+  	<p class="margin-bottom">
+    	<strong>Input a service code, then click to verify service eligibility</strong>
+    </p>
+    <p>
+    	<%= form_for @insurance_query, url: service_insurance_query_url(@insurance_query) do |f| %>
+    		<%= f.text_field :service_type_code, placeholder: "i.e. 33", class: "margin-bottom" %>
+    		<%= f.submit "Verify service", class: "action-button eligibility" %>
+    	<% end %>	
+    </p>
+</fieldset>
+
+<%= link_to 'Edit', edit_insurance_query_path(@insurance_query), class: "button navi" %>
+<% if current_user.is_admin == true %>
+  <%= link_to 'See all Queries', insurance_queries_path, class: "button navi" %> 
+<% else %>
+
+<% end %>

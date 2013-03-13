@@ -1,0 +1,46 @@
+<h1>HappyHealth's Affiliate Offices</h1>
+<div id="accordion">
+    <% @offices.each do |office| %>        
+        <h3>
+            <a href="#"><%= office.name %></a>
+        </h3>
+        <div>
+          <p>
+            <b>Address:</b>
+            <%= office.address %>
+          </p>
+          <p>
+            <b>City:</b>
+            <%= office.city %>
+          </p>
+          <p>
+            <b>State:</b>
+            <%= office.state %>
+          </p>
+          <p>
+            <b>Zipcode:</b>
+            <%= office.zipcode %>
+          </p>
+          <p>
+            <b>Phone Number:</b>
+            <%= office.phone %>
+          </p>
+          <p>
+            <b>Fax Number:</b>
+            <%= office.fax %>
+          </p>
+          <p>
+             <i><%= link_to 'Go to Office Details >>', office %></i>
+          </p>
+          
+        </div>
+         
+    <% end %>
+</div>
+<br />  
+
+<% if current_user.is_admin != true %>
+
+<% else %>
+  <%= link_to 'Add a New Office', new_office_path %>
+<% end %> 

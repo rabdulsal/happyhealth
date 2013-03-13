@@ -1,0 +1,21 @@
+<h1>Notes</h1>
+
+<h2>Add notes as reminders for yourself, a summary of your last visit, or questions for your next visit</h2>
+
+<%= link_to 'Add New Note', '#', :class=> 'createButton' %>                              
+
+<br /><br /><br />
+	<%= render 'form', :note => @note %>
+
+<%= paginate(@notes)%>
+
+<ul id="notes">
+	<% if @notes != [] %>
+			<br />
+			<% @notes.each do |note| %>
+				<%= render 'note', :note => note%>
+			<% end %>		
+	<% else %>
+		<i class="reminder">You do not have any current notes. Make one now!</i>
+	<% end %>
+</ul>

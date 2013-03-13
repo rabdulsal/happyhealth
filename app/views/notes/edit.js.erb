@@ -1,0 +1,4 @@
+$(".note_field").hide();
+
+$("p#note_<%= @note.id %>").replaceWith("<%= j(render('note_edit')) %>")
+$("a#note-buttons").hide();

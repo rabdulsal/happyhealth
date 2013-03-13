@@ -1,0 +1,14 @@
+<fieldset class="dashBackground" id="appointment_<%= appointment.id %>">
+	<legend><%= "#{appointment.appt_date.strftime("%B %d, %Y")}" %></legend>
+	
+	<dl>
+		<dt>Location:</dt>
+		<dd><%= appointment.office.name %></dd>
+	
+		<dt>Physician:</dt>
+		<dd><%= appointment.doctor.title %></dd>
+	</dl>
+	
+	<%= link_to "See more", user_appointment_path(current_user.id, appointment.id), :class => 'see-more'%>
+	
+</fieldset>

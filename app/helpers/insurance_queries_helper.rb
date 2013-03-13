@@ -1,0 +1,2 @@
+module InsuranceQueriesHelper
+end

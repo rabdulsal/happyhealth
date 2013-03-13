@@ -1,0 +1,10 @@
+<h1>Editing insurance_query</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', @insurance_query, class: "button navi" %>
+<% if current_user.is_admin == true %>
+	<%= link_to 'See all Queries', insurance_queries_path, class: "button navi" %>
+<% else %>
+
+<% end %>

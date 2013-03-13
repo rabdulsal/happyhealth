@@ -1,0 +1,29 @@
+<fieldset class="demoBackground">
+	<legend>Medical Information</legend>
+
+
+	<%= f.fields_for :medical do |medical| %>
+		<b>Allergies</b><br />
+		<%= medical.fields_for :allergies, form.medical.allergies do |builder| %>
+			<li>Info: <%= builder.text_field :info %></li>
+		<% end %><br />
+		<%= link_to "Add allergy", '#'%><br /><br />
+	
+		<b>Medications</b>
+		<table>
+			<tr>
+				<th>Medication/Dose</th>
+				<th>Reason For Taking</th>
+			</tr>
+		
+			<%= medical.fields_for :medications, form.medical.medications do |builder| %>
+				<tr>
+					<td><%= builder.text_field :info, :size => "25"%></td>
+					<td><%= builder.text_field :reason, :size => "25" %></td>
+				</tr>
+			<% end %>
+		</table>
+		<%= link_to "Add medication", '#'%><br />
+	<% end %>
+
+</fieldset>

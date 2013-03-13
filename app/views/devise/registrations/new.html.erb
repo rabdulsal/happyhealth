@@ -1,0 +1,51 @@
+<style type="text/css">
+
+</style>
+
+<div class="signup">	
+	<h2>Sign up</h2>
+	<div class="box">
+	    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		  <%= devise_error_messages! %>
+		  
+		  <div>
+		  	<label class="sign">Name</label>
+		  	<%= f.text_field :name, class: "fluid-form" %>
+		  </div>
+		  <div>
+		  	<label class="sign">Email</label>
+		  	<%= f.email_field :email, class: "fluid-form" %>
+		  </div>
+		  <div>
+		  	<label class="sign">Password</label>
+		  	<%= f.password_field :password, class: "fluid-form" %>
+		  </div>
+		  <div>
+		  	<label class="sign">Confirm Password</label>
+		  	<%= f.password_field :password_confirmation, class: "fluid-form" %>
+		  </div>
+		  <div class="margin-top">
+		  	<p>
+		  		We need some quick proof that you're human. Tell us what you see like at the eye-doctor.
+		  	</p>
+		  	<p class="margin-top">
+		  		<%= captcha_tag %>
+		  	</p>
+		  	<p>
+				<%= text_field_tag :captcha %>
+			</p>
+		  </div>
+		  <div class="margin-top">
+		  	<%= f.submit "Sign up!", :class => 'createButton signin-button' %>
+		  </div>		  
+		<% end %>
+	</div>
+</div>
+
+	<p class="signup-title">
+		Registering for a scheduled doctor's appointment has never been easier.
+	</p>
+	<%= image_tag('cloudstorage.jpg').html_safe %>
+	<p class="signup-description">
+		Stop dealing with excessive paperwork each time you visit a new doctor. Create an account, store everything online in a safe, centralized location, and register with individual physician offices using one simple form. 
+	</p>

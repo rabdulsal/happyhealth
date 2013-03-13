@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  reason: MyString
+  medical_id: 1
+
+two:
+  type: 
+  reason: MyString
+  medical_id: 1

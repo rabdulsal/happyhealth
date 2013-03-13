@@ -1,0 +1,21 @@
+<h1>All Insurance Queries</h1>
+
+<table class="dashAppointments">
+  <tr>
+    <th>Query Number</th>
+    <th>Payer Name</th>
+    <th></th>
+  </tr>
+
+<% @insurance_queries.each do |insurance_query| %>
+  <tr>
+    <td><%= insurance_query.id %></td>
+    <td><%= insurance_query.payer_name %></td>
+    <td><%= link_to 'Show', insurance_query %></td>
+    <td><%= link_to 'Edit', edit_insurance_query_path(insurance_query) %></td>
+    <td><%= link_to 'Destroy', insurance_query, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New Insurance query', new_insurance_query_path, class: "button navi" %>

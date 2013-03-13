@@ -1,0 +1,16 @@
+<h1><%= "#{@office.name}\'s #{@pdf.form_name.titleize} Form" %></h1>
+
+<div class="dashAppointments margin-top">
+
+	<p>
+		<%= link_to 'Edit', edit_office_pdf_path(@office, @pdf) %> |
+		<%= link_to "Delete", [@office, @pdf], method: :delete, confirm: "Are you sure you want to delete the #{@pdf.form_name.titleize} Form?" %> |
+		<%= link_to "All Office Forms", office_pdfs_path(@office) %> |
+		<%= link_to "#{@office.name} Main Page", office_path(@office) %>
+	</p>
+	<br />
+	<p>
+		<%= image_tag @pdf.pdf_form.url(:medium) %>
+	</p>	
+
+</div>

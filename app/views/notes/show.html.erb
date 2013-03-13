@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Info:</b>
+  <%= @note.info %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_note_path(@note.user_id, @note) %> |
+<%= link_to 'Back', current_user %>
+
+<%= link_to 'Remove Note', user_note_path(@note.id), :method => "delete"%>

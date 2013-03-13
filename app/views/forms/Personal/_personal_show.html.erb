@@ -1,0 +1,165 @@
+
+<fieldset id="personal-info" class="demoBackground">
+    <legend>Personal</legend>
+        <table class="show-table">
+            <tr>
+                <th class="right-align">First Name: </th>
+                <td class="left-align"> <%= form.personal.first_name %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Last Name: </th>
+                <td class="left-align"><%= form.personal.last_name %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Middle Initial: </th>
+                <td class="left-align"><%= form.personal.middle_initial %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Date of Birth: </th>
+                <td class="left-align"><%= form.personal.date_of_birth %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Age: </th>
+                <td class="left-align">
+                    <%= @user.age %>       
+                </td>
+            </tr>
+            <tr>
+                <th class="right-align">
+                    Social Security Number:
+                </th>
+                <td class="left-align">
+					<% if form.personal.ss_number != "" %>
+                        <%= "xxx-xx-#{form.personal.ss_number.to_s[7..10]}" %>
+					<% end %>
+                </td>
+            </tr>
+            <tr>
+                <th class="right-align">Gender: </th>
+                <td class="left-align"><%= form.personal.gender %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Address: </th>
+                <td class="left-align"><%= form.personal.address %></td>
+            </tr>
+            <tr>
+                <th class="right-align">City:</th>
+                <td class="left-align"><%= form.personal.city %></td>
+            </tr>
+            <tr>
+                <th class="right-align">State: </th>
+                <td class="left-align"><%= form.personal.state %></td>
+            </tr>
+            <tr>
+                <th class="right-align">
+                    Zipcode: 
+                </th>
+                <td class="left-align">
+                    <%= form.personal.zip_code %>  
+                </td>
+            </tr>
+            <tr>
+                <th class="right-align">
+                    Cell Phone:
+                </th>
+                <td class="left-align">
+                    <%= form.personal.cell_phone %>
+                </td>
+            </tr>
+            <tr>
+                <th class="right-align">
+                    Home phone:
+                </th>
+                <td class="left-align">
+                    <%= form.personal.home_phone %>
+                </td>
+            </tr>
+            <tr>
+                <th class="right-align">Work Phone:</th>
+                <td class="left-align"><%= form.personal.work_phone %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Email: </th>
+                <td class="left-align"><%= form.personal.email_address %></td>
+            </tr>
+            <tr>
+                <th class="right-align">
+                            Marital Status:
+                </th>
+                <td class="left-align">
+                    <%= form.personal.marital_status %>
+                </td>
+            </tr>
+            <tr>
+                <th class="right-align">
+                    Ethnicity:
+                </th>
+                <td class="left-align">
+                    <%= form.personal.ethnicity %>
+                </td>
+            </tr>
+            <tr>
+                <th class="right-align">Race:</th>
+                <td class="left-align"> <%= form.personal.race %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Employer:</th>
+                <td class="left-align"><%= form.personal.employer %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Employment Status:</th>
+                <td class="left-align"><%= form.personal.employment_status %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Occupation: </th>
+                <td class="left-align"><%= form.personal.occupation %></td>
+            </tr>
+            <tr>
+                <th class="right-align">
+                    Number of Dependents
+                </th>
+                <td class="left-align">
+                    <%= form.personal.number_of_dependents %>
+                </td>
+            </tr>
+            <tr>
+                <th class="right-align">
+                    Work Address
+                </th>
+                <td class="left-align">
+                    <%= form.personal.work_address %>      
+                </td>
+            </tr>
+            <tr>
+                <th class="right-align">Employer Phone:</th>
+                <td class="left-align"><%= form.personal.employer_phone %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Employer City:</th>
+                <td class="left-align"><%= form.personal.employer_city %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Employer State:</th>
+                <td class="left-align"><%= form.personal.employer_state %></td>
+            </tr>
+            <tr>
+                <th class="right-align">Employer zipcode: </th>
+                <td class="left-align"><%= form.personal.employer_zipcode %></td>
+            </tr>
+            <tr>
+                <th class="right-align">
+                    Relationship to responsible party: 
+                </th>
+                <td class="left-align">
+                    <%= form.personal.relationship_to_responsible_party %>
+                </td>
+            </tr>
+            <tr>
+                <th class="right-align">
+                    Referred by (dental):
+                </th>
+                <td class="left-align">
+                    <%= form.personal.referred_by %>
+                </td>
+        </table>
+</fieldset>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  api_key: MyString
+  payer_name: MyString
+  payer_id: 1
+  physician_last_name: MyString
+  physician_first_name: MyString
+  provider_npi: 1
+  subscriber_id: 1
+  subscriber_last_name: MyString
+  subscriber_first_name: MyString
+  subscriber_dob: MyString
+  service_type_code: 1
+
+two:
+  api_key: MyString
+  payer_name: MyString
+  payer_id: 1
+  physician_last_name: MyString
+  physician_first_name: MyString
+  provider_npi: 1
+  subscriber_id: 1
+  subscriber_last_name: MyString
+  subscriber_first_name: MyString
+  subscriber_dob: MyString
+  service_type_code: 1

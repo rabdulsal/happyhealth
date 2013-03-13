@@ -1,0 +1,45 @@
+<% index = 1%>
+        <% @form.emergencies.each do |emergency| %>
+        <fieldset class="demoBackground">
+		        <legend>Emergency Contact #<%= index %></legend>
+        <table class="show-table">
+                <tr>
+                        <th class="right-align">Emergency Contact Name: </th>
+                        <td class="left-align"> <%= emergency.name %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Relationship To Patient: </th>
+                        <td class="left-align"><%= emergency.relationship_to_patient %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Phone Number:</th>
+                        <td class="left-align"><%= emergency.phone_number %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">Address: </th>
+                        <td class="left-align"><%= emergency.address %></td>
+                </tr>
+                <tr>
+                        <th class="right-align">
+                                City:
+                        </th>
+                        <td class="left-align">
+                                <%= emergency.city %>
+                        </td>
+                </tr>
+                <tr>
+                        <th class="right-align">
+                                State:
+                        </th>
+                        <td class="left-align">
+                                 <%= emergency.state %>
+                        </td>
+                </tr>
+                <tr>
+                        <th class="right-align">Zipcode: </th>
+                        <td class="left-align"><%= emergency.zipcode %></td>
+                </tr>
+        </table>
+		</fieldset>	
+		<% index+=1%>
+        <% end %>

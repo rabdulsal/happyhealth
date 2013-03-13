@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  relationship_to_patient: MyString
+  company: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  group_number: MyString
+  group_name: MyString
+  eff_date: 2012-08-24
+  policy_number: MyString
+  subscribers_last_name: MyString
+  subscribers_first_name: MyString
+  middle_initial: MyString
+  subscribers_address: MyString
+  subscribers_city: MyString
+  subscribers_state: MyString
+  subscribers_zipcode: MyString
+  social_security: MyString
+  birthdate: MyString
+  sex: MyString
+  subscribers_phone: MyString
+  subscribers_employer: MyString
+
+two:
+  title: MyString
+  relationship_to_patient: MyString
+  company: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zipcode: MyString
+  group_number: MyString
+  group_name: MyString
+  eff_date: 2012-08-24
+  policy_number: MyString
+  subscribers_last_name: MyString
+  subscribers_first_name: MyString
+  middle_initial: MyString
+  subscribers_address: MyString
+  subscribers_city: MyString
+  subscribers_state: MyString
+  subscribers_zipcode: MyString
+  social_security: MyString
+  birthdate: MyString
+  sex: MyString
+  subscribers_phone: MyString
+  subscribers_employer: MyString

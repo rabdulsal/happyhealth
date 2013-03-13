@@ -1,0 +1,411 @@
+<!-- ******************************************* 
+
+	HTML FOR PDF DOWNLOAD FILE => _FormName.html.erb
+
+	******************************************** -->
+
+<%= wicked_pdf_stylesheet_link_tag "#{@abrv}_pdf" %>
+<% user = current_user %>
+
+<%#= wicked_pdf_stylesheet_link_tag Rails.root.join('app','assets','stylesheets',"#{@abrv}_pdf.css.erb").to_s %>
+<%#= render :file => Rails.root.join('app','assets','stylesheets',"#{@abrv}_pdf.css.erb").to_s %>
+
+
+	<div class="container">
+		<!-- PATIENT INFORMATION -->
+		<div class="pos personal first-name">
+			<p>
+				<%= user.form.personal.first_name %>
+			</p>
+		</div>
+		<div class="pos personal middle-init">
+			<p>
+				<%= user.form.personal.middle_initial %>
+			</p>
+		</div>
+		<div class="pos personal last-name">
+			<p>
+				<%= user.form.personal.last_name %>
+			</p>
+		</div>
+		<div class="pos personal dob">
+			<p>
+				<%= user.form.personal.date_of_birth %>
+			</p>
+		</div>
+		<div class="pos personal user-address">
+			<p>
+				<%= user.form.personal.address %>
+			</p>
+		</div>
+		<div class="pos personal user-email">
+			<p>
+				<%= user.form.personal.email_address %>
+			</p>
+		</div>
+		<div class="pos personal city">
+			<p>
+				<%= user.form.personal.city %>
+			</p>
+		</div>
+		<div class="pos personal state">
+			<p>
+				<%= user.form.personal.state %>
+			</p>
+		</div>
+		<div class="pos personal zip">
+			<p>
+				<%= user.form.personal.zip_code %>
+			</p>
+		</div>
+		<div class="pos personal phone">
+			<p>
+				<%= user.form.personal.home_phone %>
+			</p>
+		</div>
+		<div class="pos personal cell-phone">
+			<p>
+				<%= user.form.personal.cell_phone %>
+			</p>
+		</div>
+		<div class="pos personal sex">
+			<p>
+				<%= user.form.personal.gender %>
+			</p>
+		</div>
+		<div class="pos personal marital-status">
+			<p>
+				<% if user.form.personal.marital_status %>
+					<%= user.form.personal.marital_status[0] %>
+				<% end %>
+			</p>
+		</div>
+		<div class="pos personal ethnicity">
+			<p>
+				<%= user.form.personal.ethnicity %>
+			</p>
+		</div>
+		<div class="pos personal race">
+			<p>
+				<%= user.form.personal.race %>
+			</p>
+		</div>
+		<div class="pos personal referring-physician">
+			<p>
+				<%= user.form.personal.referred_by %>
+			</p>
+		</div>
+		<div class="pos personal primary-care-physician">
+			<p>
+				<%#= user.form.primary-care-physician %>
+			</p>
+		</div>
+		<div class="pos personal ss-number">
+			<p>
+				<%= user.form.personal.ss_number %>
+			</p>
+		</div>
+		<div class="pos personal drivers-license">
+			<p>
+				<%#= user.form.drivers-license %>
+			</p>
+		</div>
+		<div class="pos personal age">
+			<p>
+				<%= user.form.personal.age %>
+			</p>
+		</div>
+		<div class="pos personal work-phone">
+			<p>
+				<%= user.form.personal.work_phone %>
+			</p>
+		</div>
+		<div class="pos personal employer-name">
+			<p>
+				<%= user.form.personal.employer %>
+			</p>
+		</div>
+		
+		<div class="pos personal employer-address">
+			<p>
+				<%= user.form.personal.work_address %>
+			</p>
+		</div>
+		<div class="pos personal employer-phone">
+			<p>
+				<%= user.form.personal.employer_phone %>
+			</p>
+		</div>
+		<div class="pos personal employer-city">
+			<p>
+				<%= user.form.personal.employer_city %>
+			</p>
+		</div>
+		<div class="pos personal employer-state">
+			<p>
+				<%= user.form.personal.employer_state %>
+			</p>
+		</div>
+		<div class="pos personal employer-zip">
+			<p>
+				<%= user.form.personal.employer_zipcode %>
+			</p>
+		</div>
+		<div class="pos personal employment-status">
+			<p>
+				<%= user.form.personal.employment_status %>
+			</p>
+		</div>
+		<div class="pos personal occupation">
+			<p>
+				<%= user.form.personal.occupation %>
+			</p>
+		</div>
+		<div class="pos personal number-of-dependents">
+			<p>
+				<%= user.form.personal.number_of_dependents %>
+			</p>
+		</div>
+		<div class="pos personal relationship_to_responsible_party">
+			<p>
+				<%= user.form.personal.relationship_to_responsible_party %>
+			</p>
+		</div>
+		
+<!--****************** PATIENT'S INSURANCE *********************-->
+		
+		
+		<div class="pos insurance insurance-company" id="one">
+			<p>
+				<%= user.form.insurances[0].group_name %>
+			</p>
+		</div>
+		<div class="pos insurance insurer-address" id="one">
+			<p>
+				<%= user.form.insurances[0].address %>
+			</p>
+		</div>
+		<div class="pos insurance policy-holder-last-name" id="one">
+			<p>
+				<%= "#{user.form.insurances[0].subscribers_last_name}"  %>
+			</p>
+		</div>
+		<div class="pos insurance policy-holder-first-name" id="one">
+			<p>
+				<%= "#{user.form.insurances[0].subscribers_first_name}"  %>
+			</p>
+		</div>
+		<div class="pos insurance insurer-coverage" id="one">
+			<p>
+				<%#= user.form.insurances[0]. %>
+			</p>
+		</div>
+		<div class="pos insurance insurance-policy-employer" id="one">
+			<p>
+				<%= user.form.insurances[0].subscribers_employer %>
+			</p>
+		</div>
+		<div class="pos insurance insured-soc-number" id="one">
+			<p>
+				<%= user.form.insurances[0].social_security %>
+			</p>
+		</div>
+		<div class="pos insurance insurance-birthdate" id="one">
+			<p>
+				<%= user.form.insurances[0].birthdate %>
+			</p>
+		</div>
+		<div class="pos insurance-city" id="one">
+			<p>
+				<%= user.form.insurances[0].city %>
+			</p>
+		</div>
+		<div class="pos insurance eff-date" id="one">
+			<p>
+				<%= user.form.insurances[0].eff_date %>
+			</p>
+		</div>
+		<div class="pos insurance insurer-relationship" id="one">
+			<p>
+				<%= user.form.insurances[0].relationship_to_patient %>
+			</p>
+		</div>
+		<div class="pos insurance group-number" id="one">
+			<p>
+				<%= user.form.insurances[0].group_number %>
+			</p>
+		</div>
+		
+		<!-- Secondary Insurance -->
+		
+		<div class="pos insurance insurance-company" id="two">
+			<p>
+				<%= user.form.insurances[1].group_name %>
+			</p>
+		</div>
+		<div class="pos insurance insurer-address" id="two">
+			<p>
+				<%= user.form.insurances[1].address %>
+			</p>
+		</div>
+		<div class="pos insurance policy-holder-last-name" id="two">
+			<p>
+				<%= "#{user.form.insurances[1].subscribers_last_name}"  %>
+			</p>
+		</div>
+		<div class="pos insurance policy-holder-first-name" id="two">
+			<p>
+				<%= "#{user.form.insurances[1].subscribers_first_name}"  %>
+			</p>
+		</div>
+		<div class="pos insurance insurer-coverage" id="two">
+			<p>
+				<%#= user.form.insurances[1]. %>
+			</p>
+		</div>
+		<div class="pos insurance insurance-policy-employer" id="two">
+			<p>
+				<%= user.form.insurances[1].subscribers_employer %>
+			</p>
+		</div>
+		<div class="pos insurance insured-soc-number" id="two">
+			<p>
+				<%= user.form.insurances[1].social_security %>
+			</p>
+		</div>
+		<div class="pos insurance insurance-birthdate" id="two">
+			<p>
+				<%= user.form.insurances[1].birthdate %>
+			</p>
+		</div>
+		<div class="pos insurance insurance-city" id="two">
+			<p>
+				<%= user.form.insurances[1].city %>
+			</p>
+		</div>
+		<div class="pos insurance eff-date" id="two">
+			<p>
+				<%= user.form.insurances[1].eff_date %>
+			</p>
+		</div>
+		<div class="pos insurance insurer-relationship" id="two">
+			<p>
+				<%= user.form.insurances[1].relationship_to_patient %>
+			</p>
+		</div>
+		<div class="pos insurance group-number" id="two">
+			<p>
+				<%= user.form.insurances[1].group_number %>
+			</p>
+		</div>
+		
+		
+		<!-- SPOUSE'S INSURANCE -->
+		<!--<div class="pos pos line-thirteen spouse-insurance-company">
+		<p><%#= user.form.spouse-insurance-company %></p>
+	</div>
+
+	<div class="pos line-thirteen spouse-insurer-address">
+		<p><%#= user.form.spouse-insurer-address %></p>
+	</div>
+
+	<div class="pos line-fourteen spouse-insurer-policy-holder">
+		<p><%#= user.form.spouse-insurer-policy-holder %></p>
+	</div>
+
+	<div class="pos line-fourteen spouse-insurer-coverage">
+		<p><%#= user.form.spouse-insurer-policy-holder %></p>
+	</div>
+
+	<div class="pos line-fifteen spouse-employer-name">
+		<p><%#= user.form.spouse-employer-name %></p>
+	</div>
+
+	<div class="pos pos line-fifteen spouse-employer-address">
+		<p><%#= user.form.spouse-employer-address %></p>
+	</div>
+
+	<div class="pos pos line-fifteen spouse-employer-phone">
+		<p><%#= user.form.spouse-employer-phone %></p>
+	</div>
+
+	<div class="pos pos line-sixteen spouse-employer-city">
+		<p><%#= user.form.spouse-employer-city %></p>
+	</div>
+
+	<div class="pos pos line-sixteen spouse-employer-zip">
+		<p><%#= user.form.spouse-employer-zip %></p>
+	</div>-->
+	
+<!--****************** EMERGENCY INFORMATION **********************-->
+		
+		
+		<div class="pos emergency emergency-name" id="one">
+			<p>
+				<%= user.form.emergencies[0].name %>
+			</p>
+		</div>
+		<div class="pos emergency emergency-address" id="one">
+			<p>
+				<%= user.form.emergencies[0].address %>
+			</p>
+		</div>
+		<div class="pos emergency emergency-relationship" id="one">
+			<p>
+				<%= user.form.emergencies[0].relationship_to_patient %>
+			</p>
+		</div>
+		<div class="pos emergency emergency-phone" id="one">
+			<p>
+				<%= user.form.emergencies[0].phone_number %>
+			</p>
+		</div>
+		<div class="pos emergency emergency-name" id="two">
+			<p>
+				<%= user.form.emergencies[1].name %>
+			</p>
+		</div>
+		<div class="pos emergency emergency-address" id="two">
+			<p>
+				<%= user.form.emergencies[1].address %>
+			</p>
+		</div>
+		<div class="pos emergency emergency-relationship" id="two">
+			<p>
+				<%= user.form.emergencies[1].relationship_to_patient %>
+			</p>
+		</div>
+		<div class="pos emergency emergency-phone" id="two">
+			<p>
+				<%= user.form.emergencies[1].phone_number %>
+			</p>
+		</div>
+		<div class= "pos date">
+			<p>
+				<%= Date.today.strftime("%m/%d/%Y")%>
+			</p>
+		</div>
+
+<!--***************** PRIVACY AND HIPAA AGREEMENT ********************* -->
+
+	</div>
+	
+	<div class="container-two">
+	
+	</div>
+
+	<div class="container-three">
+	
+	</div>
+
+	<div class="container-four">
+	
+	</div>
+
+	<div class="container-five">
+	
+	</div>
+
+	<div class="container-six">
+	
+	</div>

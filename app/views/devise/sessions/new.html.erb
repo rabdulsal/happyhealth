@@ -1,0 +1,28 @@
+<style type="text/css">
+
+.container_12{	
+background: url('/images/signin.jpg') no-repeat;
+background-size: 100%;
+height: 500px;
+}
+
+</style>
+
+<div class="signin">
+	<h2>Sign in</h2>
+	<div class="box">
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		  <div><label class="sign">Email</label><%= f.email_field :email, class: "fluid-form" %></div>
+
+		  <div><label class="sign">Password</label><%= f.password_field :password, class: "fluid-form" %></div>
+
+		  <% if devise_mapping.rememberable? -%>
+		    <div> <label><input type="checkbox" /> Remember me</label></div>
+		  <% end -%>
+
+		  <div><%= f.submit "Sign in" , :class => 'createButton signin-button'%></div>
+		<% end %>
+		<br />
+		<%= render "devise/shared/links" %>
+	</div>
+</div>

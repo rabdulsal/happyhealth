@@ -1,0 +1,10 @@
+<h1>New Appointment</h1>
+
+<% if current_user.form %>
+	<%= render 'form' %>
+<% else %>
+	<br />
+	<br />
+	<p>Please fill out the Happy Health form before you begin to create appointments</p>
+<% end %>
+

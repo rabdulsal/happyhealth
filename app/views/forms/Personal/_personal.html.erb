@@ -1,0 +1,134 @@
+<fieldset id="personal-info" class="demoBackground">
+<legend>Personal Information</legend>
+<%= f.fields_for :personal do |builder| %>
+	<ul>
+		<li>
+			<label>First Name</label>
+			<%= builder.text_field :first_name, :placeholder => "John", :class => "first-name" %>
+		</li>
+		<li>
+			<label>Middle Init.</label>
+			<%= builder.text_field :middle_initial, :placeholder => "M", :class => "middle-initial" %>
+		</li>
+		<li>
+			<label>Last Name</label>
+			<%= builder.text_field :last_name, :placeholder => "Doe", :class => "last-name" %>
+		</li>
+		<li>
+			<label>Date of Birth</label>
+			<%= builder.text_field :date_of_birth, :placeholder => "01/01/2000", :class => "DOB" %>
+		</li>
+		<li>
+			<label>Age</label>
+			<%= builder.number_field :age, :in => 1...99 %>
+		</li>
+		<li>
+			<label>Social Security #</label>
+			<%= builder.text_field :ss_number, :placeholder => "123-45-6789" %>
+		</li>
+		<li class="gender">
+			<%= builder.label :gender %> 
+			M: <%= builder.radio_button :gender, "Male" %>
+			F: <%= builder.radio_button :gender,  "Female" %>
+		</li>
+		<li><%= builder.label :address %><%= builder.text_field :address, :class => "address" %></li>	
+		<li>
+			<%= builder.label :city %>
+			<%= builder.text_field :city, :class => "city" %>
+		</li>
+		<li>
+			<%= builder.label :state %>
+			<%= builder.select :state, options_for_select(us_states.each.map { |state| [state[:abrv]]}, form.personal.state), :class => "state" %>
+		</li>
+		<li>
+			<%= builder.label :zip_code %>
+			<%= builder.text_field :zip_code, :class => "zipcode" %>
+		</li>
+		<li>
+			<%= builder.label :home_phone %>
+			<%= builder.text_field :home_phone, :class => "home-phone" %>
+		</li>
+		<li>
+			<%= builder.label :cell_phone %>
+			<%= builder.text_field :cell_phone, :class => "cell-phone" %>
+		</li>
+		<li>
+			<%= builder.label :work_phone %>
+			<%= builder.text_field :work_phone, :class => "work-phone" %>
+		</li>
+		<li>
+			<label>Email Address</label>
+			<%= builder.text_field :email_address, :class => "email" %>
+		</li>
+		<li>
+			<%= builder.label :marital_status %>
+			<%= builder.radio_button :marital_status,  "Single" %>Single
+			<%= builder.radio_button :marital_status,  "Married" %>Married
+			<%= builder.radio_button :marital_status,  "Widowed" %>Widowed
+			<%= builder.radio_button :marital_status,  "Divorced" %>Divorced
+		</li>
+		<li>
+			<%= builder.label :ethnicity %>
+			<%= builder.radio_button :ethnicity,  "Hispanic" %>Hispanic
+			<%= builder.radio_button :ethnicity,  "Non-Hispanic" %>Non-Hispanic<br />
+			<%= builder.radio_button :ethnicity,  "Unknown" %>Unknown
+			<%= builder.radio_button :ethnicity,  "I prefer not to answer" %>I prefer not to answer
+		</li>
+		<li>
+			<%= builder.label :race %>
+			<%= builder.radio_button :race,  "American Indian/Alaskan Native" %>American Indian/Alaskan Native<br />
+			<%= builder.radio_button :race,  "Black or African American" %>Black or African American<br />
+			<%= builder.radio_button :race,  "Native American/Other Pacific Islander" %>Native American/Other Pacific Islander<br />
+			<%= builder.radio_button :race,  "Asian" %>Asian<%= builder.radio_button :race,  "Other" %>Other<br />
+			<%= builder.radio_button :race,  "I prefer not to answer" %>I prefer not to answer
+		</li>
+		<li>
+			<%= builder.label :employer %>
+			<%= builder.text_field :employer, :class => "employer" %>
+		</li>
+		<li>
+			<%= builder.label :occupation %>
+			<%= builder.text_field :occupation, :class => "occupation" %>
+		</li>
+		<li>
+			<label>Employment Status</label>
+			<%= builder.radio_button :employment_status,  "Full-time" %>Full-time
+			<%= builder.radio_button :employment_status,  "Part-time" %>Part-time
+			<%= builder.radio_button :employment_status,  "Not-employed" %>Not-employed
+		</li>
+		<li>
+			<label>Work Address</label>
+			<%= builder.text_field :work_address, :class => "employer-address" %>
+		</li>
+		<li>
+			<label>Employer Phone</label>
+			<%= builder.text_field :employer_phone, :class => "employer-phone" %>
+		</li>
+		<li>
+			<label>Employer City</label>
+			<%= builder.text_field :employer_city, :class => "employer-city" %>
+		</li>
+		<li>
+			<label>Employer State</label>
+			<%= builder.select :employer_state, options_for_select(us_states.each.map { |state| [state[:abrv]]}, form.personal.employer_state) %>
+		</li>
+		<li>
+			<label>Employer Zipcode</label>
+			<%= builder.text_field :employer_zipcode, :class => "employer-zipcode" %>
+		</li>
+		<li>
+			<%= builder.label :referring_physician %>
+			<%= builder.text_field :referred_by, :class => "referring-physician" %>
+		</li>
+		<!--<li>
+			<label>Number of Dependents</label>
+			<%= builder.text_field :number_of_dependents, :class => "dependents" %>
+		</li>
+		<li>
+			<%= builder.label :relationship_to_responsible_party %>
+			<%= builder.text_field :relationship_to_responsible_party %>
+	</li> MOVE TO 'RESPONSIBLE PARTY PAGE'-->
+	
+	</ul>
+<% end %>
+</fieldset>

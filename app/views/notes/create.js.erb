@@ -1,0 +1,3 @@
+$("ul#notes").prepend("<%= escape_javascript(render('note', :note => @note)) %>"); // ## Adds newly constructed Note container to the top of the Notes Index
+
+$("#note_info").val(""); // ** Clears out

@@ -1,0 +1,12 @@
+<h1>Browse Through Our Doctors</h1>
+<br />
+<div id="accordion">
+	<% @offices.each do |office| %>
+		<h3><a href="#"><%= office.name %></a></h3>
+		<div>
+			<% office.sorted_doctors.each do |doctor| %>
+				<p><%= doctor.title %></p>
+			<% end %>
+		</div>
+	<% end %>
+</div>

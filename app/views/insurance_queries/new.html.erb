@@ -1,0 +1,9 @@
+<h1>Fill out this form, to view your patient's Insurance eligibility.</h1>
+
+<%= render 'form' %>
+
+<% if current_user.is_admin == true %>
+	<%= link_to 'Back', insurance_queries_url, class: "button navi" %>
+<% else %>
+
+<% end %>

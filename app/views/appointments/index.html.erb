@@ -1,0 +1,20 @@
+<h1>Scheduled Appointments</h1>
+
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-%d") %>
+    <%=h @date.strftime("%B %Y") %>
+    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-%d") %>
+  </h2>
+  <%= calendar_for @appointments, :year => @date.year, :month => @date.month do |calendar| %>
+    <%= calendar.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday') %>
+    <% calendar.day(:day_method => :appt_date) do |date, appointments| %>
+      <%= date.day %>
+      <ul>
+        <% appointments.each do |appointment| %>
+          <li><%= link_to h(appointment.office.name), user_appointment_path(current_user.id, appointment.id) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

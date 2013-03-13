@@ -1,0 +1,12 @@
+<%= form_for [@office, @pdf], html: { multipart: true } do |f| %>
+	<div class="signup pdf-upload">
+		<%= f.hidden_field :office_id, value: params[:office_id] %>
+		<%= f.label :form_name, class: "sign" %>
+	    <%= f.text_field :form_name %>
+	    <br /><br />
+	    <%= f.file_field :pdf_form %>  
+	    <br /><br />
+	    <%= f.submit "Submit Office Form!", class: "submit-button eligibility" %><br />
+	    <%= link_to "Cancel", offices_path, class: "removeButton signin-button" %>
+	</div>
+<% end %>

@@ -1,0 +1,51 @@
+<fieldset class="demoBackground">
+  <table class="show-table">
+    
+    <%= form_for @insurance_query do |f| %>
+      <h3>Note: all fields are required.</h3>
+      <!-- <tr>
+        <td><label>API Key</label></td>
+        <td><%= f.text_field :api_key %></td>
+      </tr>       -->
+      <tr>
+        <td><label>Payer/Insurer name</label></td>
+        <td><%= f.collection_select :payer_id, Payer.all, :id, :payer_name, {prompt: 'Select Insurance'}, {style: 'width:240px'} %>
+          <%#= f.collection_select :director_id, @directors, :id, :name %>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Physician's Last Name</label></td>
+        <td><%= f.text_field :physician_last_name %></td>
+      </tr>
+      <tr>
+        <td><label>Physician's First Name</label></td>
+        <td><%= f.text_field :physician_first_name %></td>
+      </tr>
+      <tr>
+        <td><label>Provider NPI Number</label></td>
+        <td><%= f.text_field :provider_npi %></td>
+      </tr>
+      <tr>
+        <td><label>Insurance ID Number</label></td>
+        <td><%= f.text_field :subscriber_id %></td>
+      </tr>
+      <tr>
+        <td><label>Subscriber's Last Name</label></td>
+        <td><%= f.text_field :subscriber_last_name %></td>
+      </tr>
+      <tr>
+        <td><label>Subscriber First Name</label></td>
+        <td><%= f.text_field :subscriber_first_name %></td>
+      </tr>
+      <tr>
+        <td><label>Subscriber DOB</label></td>
+        <td><%= f.text_field :subscriber_dob, placeholder: "format: YYYY-MM-DD" %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= f.submit "Save Insurance Information", class: "submit-button eligibility" %></td>
+      </tr> 
+    <% end %> <!-- Form End -->      
+  </table>
+</fieldset>
+

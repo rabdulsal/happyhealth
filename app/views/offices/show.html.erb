@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<div class="dashAppointments margin-top">
+  <section class="right">
+    <p>
+      <%= link_to "Add a new form", new_office_pdf_path(@office) %>
+    </p>
+    <p>
+      <% @pdfs.each do |pdf| %>
+        <%= image_tag pdf.pdf_form.url(:small) %><br />
+        <%= link_to pdf.form_name, office_pdf_path(@office, pdf) %><br />
+      <% end %>
+    </p>    
+  </section>
+  <section>
+    <p>
+      <b>Office Name:</b>
+      <%= @office.name %>
+    </p>
+
+    <p>
+      <b>Address:</b>
+      <%= @office.address %>
+    </p>
+
+    <p>
+      <b>City:</b>
+      <%= @office.city %>
+    </p>
+
+    <p>
+      <b>State:</b>
+      <%= @office.state %>
+    </p>
+
+    <p>
+      <b>Zipcode:</b>
+      <%= @office.zipcode %>
+    </p>
+
+    <p>
+      <b>Phone Number:</b>
+      <%= @office.phone %>
+    </p>
+
+    <p>
+      <b>Fax Number:</b>
+      <%= @office.fax %>
+    </p>
+    <dl>
+      <dt>Physicians:</dt>
+        <% @office.sorted_doctors.each do |doctor| %>
+          <dd><%= doctor.title %></dd>
+        <% end %>
+    </dl>
+
+    <% if current_user.is_admin != true %>
+      <%= link_to 'Back to Office List', offices_path %>
+    <% else %>
+      <%= link_to 'Edit Details', edit_office_path(@office) %> |
+      <%= link_to 'Delete Office', @office, method: :delete, data: { confirm: 'Are you sure?' } %> |
+      <%= link_to 'Back to Office List', offices_path %>
+    <% end %>
+  </section>
+</div>

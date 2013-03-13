@@ -1,0 +1,180 @@
+.mada {
+
+p {
+padding: 0;
+margin: 0;
+}
+
+body {
+font-family: Arial;
+font-size: 14.9px;
+background: #000;
+}
+
+#container {
+/*        margin: 0 auto;*/
+		left: -30px;
+height: 1650px;
+width: 1270px;
+/*		left: 100px;*/
+        background: url('/images/doctor1.jpg') no-repeat;
+color: #000;
+font-size: 20px;
+position: relative;
+}
+
+.pos {
+position: relative;
+}
+.circle {
+width: 20px;
+height: 20px;
+border-radius: 20px;
+border: 1px solid #000;
+}
+
+.line-one {
+position: absolute;
+top: 455px;
+}
+
+.first-name {
+left: 170px;
+}
+
+.middle-init, .state {
+left: 350px;
+}
+
+.last-name, .zip {
+left: 480px;
+}
+
+.age, .phone, .referring-physician {
+left: 764px;
+}
+
+.dob {
+left: 1000px;
+}
+
+.line-two {
+position: absolute;
+top: 520px;
+}
+
+.user-address, .city, .insurance-company, .insurer-policy-holder, .insurance-policy-employer, .spouse-insurance-company,
+.spouse-insurer-policy-holder, .spouse-employer-name {
+left: 50px;
+}
+
+.user-email, .employer-address, .employer-city, .insurer-address, .insurer-coverage, .insured-soc-number, 
+.spouse-insurer-address, .spouse-insurer-coverage, .spouse-employer-address, .spouse-employer-city {
+left: 650px;
+}
+
+.line-three {
+position: absolute;
+top: 560px;
+}
+
+.social-security-number, .employer-phone, .spouse-employer-phone, .employer-zip, .spouse-employer-zip {
+left: 1050px;
+}
+
+.line-four {
+position: absolute;
+top: 610px;
+}
+
+.employer-name {
+left: 50px;
+}
+
+.line-five {
+position: absolute;
+top: 650px;
+}
+
+.employer-state, .spouse-employer-state {
+left: 900px;
+}
+
+.line-six {
+position: absolute;
+top: 700px;
+}
+
+/* PATIENT INSURANCE */
+
+.line-ten {
+position: absolute;
+top: 1010px;
+}
+
+.line-eleven {
+position: absolute;
+top: 1055px;
+}
+
+.line-twelve {
+position: absolute;
+top: 1100px;
+}
+
+.line-thirteen {
+position: absolute;
+top: 1190px;
+}
+
+.line-fourteen {
+position: absolute;
+top: 1230px;
+}
+
+.line-fifteen {
+position: absolute;
+top: 1280px;
+}
+
+.line-sixteen {
+position: absolute;
+top: 1325px;
+}
+
+/* MISCELLANEOUS INFORMATION */
+
+.line-eighteen {
+position: absolute;
+bottom: 217px;
+font-size: 16px;
+}
+
+.emergency-name, .emergency-name-2 {
+left: 250px;
+}
+
+.emergency-address, .emergency-address-2 {
+left: 550px;
+}
+
+.emergency-relationship, .emergency-relationship-2 {
+left: 880px;
+}
+
+.emergency-phone, .emergency-phone-2 {
+left: 1050px;
+}
+
+.line-nineteen {
+position: absolute;
+bottom: 170px;
+font-size: 16px;
+}
+
+}
+
+
+
+
+

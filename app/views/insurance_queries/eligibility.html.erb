@@ -1,0 +1,101 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your Eligibility Summary!</h1>
+<fieldset class="dashAppointments">
+	
+	<table class="show-table">
+		<p class="dot-bottom">
+			<%= @eligibility %>
+		</p>
+
+		<% if @eligibility["error"].present? %> 
+
+			<h2>An error occured with the query, please try again later</h2>
+
+		<% else %>		
+			<tr>
+				<th>
+					Timestamp:
+				</th> 
+				<td>
+					<%= @eligibility["timestamp"] %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Primary Insurance: 
+				</th>
+				<td>
+					<%= @eligibility["primary_insurance"]["name"] %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Group Name: 
+				</th>
+				<td>
+					<%= @eligibility["primary_insurance"]["group_name"] %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Plan: 
+				</th>
+				<td>
+					<%= @eligibility["primary_insurance"]["comments"][0] %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Deductible Total (In): 
+				</th>
+				<td>
+					<%= number_to_currency(@eligibility["deductible_in_network"]["individual"]["base_period"]) %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Deductible Remaining (In): 
+				</th>
+				<td>
+					<%= number_to_currency(@eligibility["deductible_in_network"]["individual"]["remaining"]) %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Incidentals (In): 
+				</th>
+				<td>
+					<%= @eligibility["deductible_in_network"]["individual"]["comments"] %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Deductible Total (Out): 
+				</th>
+				<td>
+					<%= number_to_currency(@eligibility["stop_loss_in_network"]["individual"]["base_period"]) %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Deductible Remaining (Out): 
+				</th>
+				<td>
+					<%= number_to_currency(@eligibility["stop_loss_in_network"]["individual"]["remaining"]) %>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Incidentals (Out): 
+				</th>
+				<td>
+					<%= @eligibility["stop_loss_in_network"]["individual"]["comments"] %>
+				</td>
+			</tr>
+		<% end %>
+	</table>	
+</fieldset>
+
+<%#= link_to 'Edit', edit_insurance_query_path(@insurance_query, id: 1) %>
+<%= link_to 'Back', new_insurance_query_path, class: "button back-length" %>

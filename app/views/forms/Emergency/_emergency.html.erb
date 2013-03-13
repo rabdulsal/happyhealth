@@ -1,0 +1,33 @@
+<% index = 1%>
+<%= f.fields_for :emergencies, form.emergencies do |builder| %>
+	<fieldset class="demoBackground">
+	<legend>Emergency Contact #<%= index %></legend>	
+	<li>
+		<%= builder.label :name %>
+		<%= builder.text_field :name, :class => "emergency-name" %>
+	</li>
+	<li>
+		<%= builder.label :relationship_to_patient %>
+		<%= builder.text_field :relationship_to_patient, :class => "emergency-relationship" %>
+	</li>
+	<li>
+		<%= builder.label :phone_number %>
+		<%= builder.text_field :phone_number, :class => "emergency-phone" %>
+	</li>
+	<li>
+		<%= builder.label :address %>
+		<%= builder.text_field :address, :class => "emergency-address" %>
+	</li>
+	<li>
+		<%= builder.label :city %><%= builder.text_field :city, :class => "emergency-city" %>
+	</li>
+	<li><%= builder.label :state %><%= builder.select :state, options_for_select(us_states.each.map { |state| [state[:abrv]]}, form.emergencies[index-1].state) %>
+	</li>
+	<li>
+		<%= builder.label :zipcode %>
+		<%= builder.text_field :zipcode, :class => "emergency-zipcode" %>
+	</li>
+	</fieldset>
+	<% index+=1%>
+<% end %>
+
