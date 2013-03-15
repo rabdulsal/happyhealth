@@ -50,6 +50,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments/new
   # GET /appointments/new.json
   def new
+    @offices = Office.all
     @user = User.find_by_id(params[:user_id])
     @appointment = Appointment.new
     #@appointment.doctor = Doctor.new

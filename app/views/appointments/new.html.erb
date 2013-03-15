@@ -1,7 +1,7 @@
 <h1>New Appointment</h1>
 
 <% if current_user.form %>
-	<%= render 'form' %>
+	<%= render 'form', :offices => @offices %>
 <% else %>
 	<br />
 	<br />

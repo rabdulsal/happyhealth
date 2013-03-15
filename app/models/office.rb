@@ -13,6 +13,8 @@ class Office < ActiveRecord::Base
   accepts_nested_attributes_for :doctors
   
   has_one :pdf
+
+  delegate :form_name, to: :pdf, allow_nil: true
   
   def sorted_doctors
     self.doctors.sort {|a,b| a.title <=> b.title}

@@ -19,6 +19,6 @@ class Form < ActiveRecord::Base
                                 :responsible,
                                 :medical
   
-delegate :first_name, :last_name, to: :personal, allow_nil: true
+  delegate :first_name, :last_name, to: :personal, allow_nil: true
 
 end
