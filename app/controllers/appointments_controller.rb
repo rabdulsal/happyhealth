@@ -1,32 +1,32 @@
 class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
-  
-  before_filter :correct_user   
-  
+
+  before_filter :correct_user
+
   def doctors
     @offices = Office.all
   end
-  
+
   def get_doctors
     office_id = params[:office_id].to_i
-    
+
     @doctors = Office.find_by_id(office_id).doctors
     respond_to do |format|
       format.json {render :json => @doctors}
     end
   end
-  
+
   def get_pdf
     office_id = params[:office_id].to_i
-    
+
     pdf = Office.find_by_id(office_id).pdf.form_name
     name = "." + pdf # => .mada or .Demographics etc.
     respond_to do |format|
       format.json {render :json => name.to_json} # => Controlled by Jscript in application.js
     end
   end
-  
+
   def index
     @appointments = Appointment.find_all_by_user_id(current_user.id).sort!{|a,b|a.appt_date <=> b.appt_date}
     @date = params[:month] ? Date.parse(params[:month]) : Date.today
@@ -120,14 +120,14 @@ class AppointmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def show_pdf
     appointment = Appointment.find_by_id(params[:appointment_id])
     @office = Office.find_by_id(appointment.office_id)
     @pdf = @office.pdf
     @abrv = params[:office] # => yields name of PDF form, _pdf.css.erb file must match this name
     logger.debug "ABRV: #{@abrv}"
-    
+
     respond_to do |format|
       format.pdf do
           @file = render_to_string :pdf => "#{@office.name}", #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
@@ -138,10 +138,10 @@ class AppointmentsController < ApplicationController
                  :encoding => "UTF-8",
                  :show_as_html => params[:debug].present?
 
-          send_data(@file, :filename => @office.name,  :type=>"application/pdf") #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF         
-          
+          send_data(@file, :filename => @office.name,  :type=>"application/pdf") #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
 
-          # For debugging, use 
+
+          # For debugging, use
           # http://localhost:3000/appointments/9.pdf?office=mada&debug=1
 
       end

@@ -1,6 +1,6 @@
 <h1>HappyHealth's Affiliate Offices</h1>
   <div id="accordion">
-      <% @offices.each do |office| %>        
+      <% @offices.each do |office| %>
         <h3>
             <a href="#"><%= office.name %></a>
         </h3>
@@ -31,18 +31,26 @@
           </p>
           <p>
              <i><%= link_to 'Go to Office Details >>', office %></i>
-          </p> 
-          <button id="appt" class="createButton">View Form</button>
+          </p>
+          <button value=<%= office.id %> id="appt" class="createButton">View Form</button>
           <p>
             <%#= link_to "Download PDF", pdf_path(@appointment.id, :office => @appointment.office.pdf.form_name, :format => "pdf"), :class => "pdfButton" %>
-          </p>         
+          </p>
         </div>
       <% end %>
   </div>
-<br />  
+<br />
 
 <% if current_user.is_admin != true %>
 
 <% else %>
   <%= link_to 'Add a New Office', new_office_path %>
-<% end %> 
+<% end %>
+
+<%= render 'appointments/forms/html/clsma', :user => current_user %>
+
+<%= render 'appointments/forms/html/mada', :user => current_user %>
+
+<%= render 'appointments/forms/html/mhc', :user => current_user %>
+
+<%= render 'appointments/forms/html/sawlani_demographics', user: current_user %>
