@@ -11,7 +11,7 @@ class Office < ActiveRecord::Base
   
   has_many :doctors
   accepts_nested_attributes_for :doctors
-  
+  has_many :users, through: :appointments
   has_one :pdf
 
   delegate :form_name, to: :pdf, allow_nil: true

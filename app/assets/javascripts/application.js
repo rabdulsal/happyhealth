@@ -106,6 +106,8 @@ $(function() {
 		modal: true
 	});
 	
+	// ************** JQUERY PDF FETCH ******************
+
 	// GET http-request for pdf name and opens it
 	
 	function getPdf(val){
@@ -135,6 +137,8 @@ $(function() {
     	getPdf(officeId);
 		return false;
 	});
+
+	// ****************************************************
 	
 
 });				

@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # and :omniauthable
@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :doctors, through: :appointments
   has_many :insurance_queries, through: :appointments
   has_one :form
+  has_many :offices, through: :appointments
 
   def to_s
     if self.form != nil
