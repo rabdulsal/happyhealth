@@ -131,18 +131,51 @@ $(function() {
 	// When View Form is clicked, find the id and render the pdf
 
 	$("button#appt.createButton").on("click", function() {
-		$('#edit-form').fadeIn("slow");
-		$('input#appt.createButton').fadeIn("slow");
+		$('p#edit-form').fadeIn("slow");
+		$('.appt_tab').fadeIn("slow");
+		// $('input#appt.createButton').fadeIn("slow");
 		if($('select#appointment_office_id').val() != null){
 			var officeId = $('select#appointment_office_id').val();
 			// Used in the form process
 		}
 		else{
+			$('#edit-form').fadeIn("slow");
 			var officeId = this.value; // Accessing value attribute of button
 		}
     	getPdf(officeId);
 		return false;
 	});
+
+	// PDF 'Continue' button functionality
+
+	// $("pdf-close").on("click", function () {
+	// 	{
+	// 	$.ajax({
+	// 	        url: "/users/:id/appointment/new",
+	// 	        dataType:'json', // => .mada.to_json or ._office_form.to_json etc.
+	// 	        data: {'office_id': val},
+	// 	 		type: 'POST',
+	// 	    success: function(data){
+	// 			$(this).dialog("close");
+	// 	    },
+	// 	    error: function(){
+	// 	        alert('error');
+	// 	    }
+	// 	});
+	//   }
+
+	// $( "<div>Confirmation</div>" ).dialog({
+	// 	   modal:true,
+	// 	   buttons: {
+	// 	        "OK": function() {
+	// 	             sendAjax(); //Your ajax function
+	// 	             $(this).dialog( "close" );
+	// 	         },
+	// 	         "Cancel": function() {
+	// 	             $(this).dialog( "close" );
+	// 	         }
+	// 	   }
+	// 	});
 
 	// ****************************************************
 

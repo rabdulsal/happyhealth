@@ -6,8 +6,14 @@
 
 <%= stylesheet_link_tag "sawlani_demographics" %>
 
-<div class="sawlani_demographics" title="">  
+<div class="sawlani_demographics" title=""> 
+
 	<div id="container">
+		<!-- <span class="form-button">
+			<%#= link_to "Edit Health Form", edit_user_form_path(current_user.id, current_user.form.id), class: "submit-button on-pdf" %>
+		</span> -->
+		<%= render 'appointments/forms/html/pdf_form_buttons' %>
+
 		<div class="pos line-one last-name row-one">
 			<p>
 				<%= user.form.personal.last_name %>
@@ -132,22 +138,27 @@
 	</div>
 
 	<div id="container_two">
+		<%= render 'appointments/forms/html/pdf_form_buttons' %>
 
 	</div>
 
 	<div id="container_three">
+		<%= render 'appointments/forms/html/pdf_form_buttons' %>
 
 	</div>
 
 	<div id="container_four">
+		<%= render 'appointments/forms/html/pdf_form_buttons' %>
 
 	</div>
 
 	<div id="container_five">
+		<%= render 'appointments/forms/html/pdf_form_buttons' %>
 
 	</div>
 
 	<div id="container_six">
+		<%= render 'appointments/forms/html/pdf_form_buttons' %>
 
 	</div>
 </div>  

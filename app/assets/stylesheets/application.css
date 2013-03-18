@@ -13,7 +13,7 @@
  *= require jquery
 */
 
-.mada, .clsma, .mhc, .sawlani_demographics, .row2, .row3, .row4, p#edit-form, input#appt.createButton{
+.mada, .clsma, .mhc, .sawlani_demographics, .row2, .row3, .row4, p#edit-form, input#appt.createButton, .appt_tab {
 	display: none;
 }
 

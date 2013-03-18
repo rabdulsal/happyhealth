@@ -32,7 +32,16 @@
           <p>
              <i><%= link_to 'Go to Office Details >>', office %></i>
           </p>
-          <button value=<%= office.id %> id="appt" class="createButton">View Form</button>
+          <ul class="inline-block">
+            <li>
+              <button value=<%= office.id %> id="appt" class="createButton inline">View Office Form</button>       
+            </li>
+            <li>
+              <p id="edit-form">
+                <%= link_to "Download PDF", office_pdf_path(office.id, :office => office.form_name, :format => "pdf"), :class => "pdfButton inline" %>
+              </p>
+            </li>
+          </ul>
           <p>
             <%#= link_to "Download PDF", pdf_path(@appointment.id, :office => @appointment.office.pdf.form_name, :format => "pdf"), :class => "pdfButton" %>
           </p>
