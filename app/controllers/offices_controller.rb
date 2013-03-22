@@ -8,6 +8,7 @@ class OfficesController < ApplicationController
   
   def index
     @offices = Office.all
+    @appointment = Appointment.new
 
     respond_to do |format|
       format.html # index.html.erb

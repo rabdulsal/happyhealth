@@ -538,8 +538,8 @@ p.signup-title {
 
 /* ------------------------- SHAAN'S BUTTONS ---------------------- */
 
-.createButton, .backButton, p a.pdfButton, .removeButton {
-    /*display: block;*/
+.createButton, .backButton, .pdfButton, #edit-form.pdfButton, .removeButton {
+    display: block;
     background-color: #3366FF;
     color: white;
     font-weight: bold;
@@ -553,7 +553,11 @@ p.signup-title {
     box-shadow: 0 1px 1px #444;    
 }
 
-#appt.createButton, input.createButton, .pdfButton {
+#edit-form.pdfButton {
+    color: white;
+}
+
+#appt.createButton, input.createButton {
 	cursor: pointer;
 	font-size: 13px;    
     height: 34px;
@@ -921,8 +925,8 @@ a.appt-title{
 }
 
 .greeting {
-    font-size: 14px;
-    line-height: 215%;
+    /*font-size: 14px;*/
+    /*line-height: 215%;*/
 }
 
 #site-name a:hover, .nav-links a:hover {
@@ -1101,8 +1105,7 @@ aside .form-save {
 }
 
 #TOS  {
-        font-size: 10px;
-        font-style: italic;
+    font-style: italic;
 }
 
 .formsBackground dd {

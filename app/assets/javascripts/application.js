@@ -131,7 +131,17 @@ $(function() {
 	// When View Form is clicked, find the id and render the pdf
 
 	$("button#appt.createButton").on("click", function() {
-		$('p#edit-form').fadeIn("slow");
+		// Real Button 
+		// $('p#edit-form').fadeIn("slow");
+		// ********************
+
+		// Test Button
+		$(this).after(function () {
+			var dnldBtn = $('p#edit-form');
+			$(dnldBtn).fadeIn("slow");
+		}); // Why does this open the Download button in all Accordions?!?
+		// ********************
+
 		$('.appt_tab').fadeIn("slow");
 		// $('input#appt.createButton').fadeIn("slow");
 		if($('select#appointment_office_id').val() != null){
@@ -139,12 +149,32 @@ $(function() {
 			// Used in the form process
 		}
 		else{
-			$('#edit-form').fadeIn("slow");
+			// Real
+			//$('p#edit-form').fadeIn("slow");
+			// Test
+
 			var officeId = this.value; // Accessing value attribute of button
 		}
     	getPdf(officeId);
 		return false;
 	});
+
+	// TOS and Privacy Policy Dialog -> Opens annoying ghost backgrounds :-(
+
+	// $("button.pdfButton.office-form-download").click(function() {
+	//     $( "p#TOS.legal" ).dialog({
+	//       	// autoOpen: false,
+	//       	modal: true,
+	//       	buttons: [
+	// 	      	{
+	// 	        	text: "I agree",
+	// 	        	click: function() {
+	// 	          		$( this ).dialog( "close" );
+	// 	          	}
+	// 	        }
+	// 	    ]	     
+	//     });
+	// });
 
 	// PDF 'Continue' button functionality
 
