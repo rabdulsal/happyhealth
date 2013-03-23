@@ -21,7 +21,7 @@
 					<%=link_to "Dashboard", root_path %>
 				</li>
 				<li class="nav-links greeting">
-					Hello <%= current_user.to_s %>
+					<%= link_to "Hello #{current_user.to_s}", edit_user_registration_path  %>
 				</li>
 			<% end %>				
 	     </ul>   

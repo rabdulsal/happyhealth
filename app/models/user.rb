@@ -27,7 +27,7 @@
   has_many :offices, through: :appointments
 
   def to_s
-    if self.form != nil
+    if self.form.first_name.present?
       self.form.first_name
     else
       "New User"
@@ -37,9 +37,14 @@
   def age #=> Intended to make age calculation automatic based on self.date_of_birth
   #=> Must create .date_of_birth form format-validation => "dd-mm-yyyy"
     dob = self.form.personal.date_of_birth
-    bday = Date::strptime(dob, "%m-%d-%Y")
-    now = Time.now.utc.to_date
-    now.year - bday.year - ((now.month > bday.month || (now.month == bday.month && now.day >= bday.day)) ? 0 : 1)
+
+    if dob.nil?
+      nil
+    else
+      bday = Date::strptime(dob, "%m-%d-%Y")
+      now = Time.now.utc.to_date
+      now.year - bday.year - ((now.month > bday.month || (now.month == bday.month && now.day >= bday.day)) ? 0 : 1)
+    end
   end
 
 end

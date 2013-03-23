@@ -33,7 +33,10 @@ HappyHealth::Application.routes.draw do
     put 'service', on: :member
   end
   
+  #********************** DOWNLOAD PDF BUTTON ****************************
+
   get "/appointments/:appointment_id" => 'appointments#show_pdf', :as => :pdf
+  get "/offices/appointment/:office_id" => 'offices#show_pdf', :as => :office_pdf
   
   #########################################################################  
   # AJAX get requests

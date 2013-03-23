@@ -246,7 +246,7 @@ ul#static.inline-block{
     display: inline-block;
 }
 
-.inline li {
+.inline, .inline li {
     display: inline;
 }
 
@@ -434,7 +434,7 @@ p.signup-title {
 .button, .submit-button, .button a, .remove-form, .action-button, .create, #new_user_submit, #login_submit, 
 #skinclick-submit, .splash a, .saveButton a, .nextButton a, 
 #print-to a {  
-    display: block;
+    /*display: block;*/
     color: white;
     font-weight: bold;
     margin-right: 10px;
@@ -538,7 +538,7 @@ p.signup-title {
 
 /* ------------------------- SHAAN'S BUTTONS ---------------------- */
 
-.createButton, .backButton, .pdfButton, .removeButton {
+.createButton, .backButton, .pdfButton, #edit-form.pdfButton, .removeButton {
     display: block;
     background-color: #3366FF;
     color: white;
@@ -553,7 +553,11 @@ p.signup-title {
     box-shadow: 0 1px 1px #444;    
 }
 
-#appt.createButton, input.createButton{
+#edit-form.pdfButton {
+    color: white;
+}
+
+#appt.createButton, input.createButton {
 	cursor: pointer;
 	font-size: 13px;    
     height: 34px;
@@ -636,7 +640,7 @@ label.remember{
 /*      *overflow: hidden;*/
 }
 
-button#appt.createButton, .appt_tab {
+#appt.appt-button, .appt_tab {
     margin-left: 129px;
     font-size: 13px; 
     width: 268px;       
@@ -921,8 +925,8 @@ a.appt-title{
 }
 
 .greeting {
-    font-size: 14px;
-    line-height: 215%;
+    /*font-size: 14px;*/
+    /*line-height: 215%;*/
 }
 
 #site-name a:hover, .nav-links a:hover {
@@ -958,6 +962,10 @@ a.appt-title{
     /*position: relative;
     bottom: 28px;*/
     margin-right: -20px;    
+}
+
+.on-pdf {
+    margin: 20px;
 }
 
 .read-more {
@@ -1097,8 +1105,7 @@ aside .form-save {
 }
 
 #TOS  {
-        font-size: 10px;
-        font-style: italic;
+    font-style: italic;
 }
 
 .formsBackground dd {
@@ -1514,7 +1521,7 @@ footer ul li:last-child {
     .demoBackground, .formsBackground, 
     .dashAppointments, .dashBackground,
     #note_info, .widget, .description, 
-    .splash-page, .signin, .signup, .fluid-form, .createButton {
+    .splash-page, .signin, .signup, .fluid-form, p a.pdfButton {
         float: none;
         width: 93.9393939393939393%;
         margin: 0 2.0833333333333333%;

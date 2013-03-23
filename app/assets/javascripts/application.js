@@ -131,18 +131,81 @@ $(function() {
 	// When View Form is clicked, find the id and render the pdf
 
 	$("button#appt.createButton").on("click", function() {
-		$('#edit-form').fadeIn("slow");
-		$('input#appt.createButton').fadeIn("slow");
+		// Real Button 
+		// $('p#edit-form').fadeIn("slow");
+		// ********************
+
+		// Test Button
+		$(this).after(function () {
+			var dnldBtn = $('p#edit-form');
+			$(dnldBtn).fadeIn("slow");
+		}); // Why does this open the Download button in all Accordions?!?
+		// ********************
+
+		$('.appt_tab').fadeIn("slow");
+		// $('input#appt.createButton').fadeIn("slow");
 		if($('select#appointment_office_id').val() != null){
 			var officeId = $('select#appointment_office_id').val();
 			// Used in the form process
 		}
 		else{
+			// Real
+			//$('p#edit-form').fadeIn("slow");
+			// Test
+
 			var officeId = this.value; // Accessing value attribute of button
 		}
     	getPdf(officeId);
 		return false;
 	});
+
+	// TOS and Privacy Policy Dialog -> Opens annoying ghost backgrounds :-(
+
+	// $("button.pdfButton.office-form-download").click(function() {
+	//     $( "p#TOS.legal" ).dialog({
+	//       	// autoOpen: false,
+	//       	modal: true,
+	//       	buttons: [
+	// 	      	{
+	// 	        	text: "I agree",
+	// 	        	click: function() {
+	// 	          		$( this ).dialog( "close" );
+	// 	          	}
+	// 	        }
+	// 	    ]	     
+	//     });
+	// });
+
+	// PDF 'Continue' button functionality
+
+	// $("pdf-close").on("click", function () {
+	// 	{
+	// 	$.ajax({
+	// 	        url: "/users/:id/appointment/new",
+	// 	        dataType:'json', // => .mada.to_json or ._office_form.to_json etc.
+	// 	        data: {'office_id': val},
+	// 	 		type: 'POST',
+	// 	    success: function(data){
+	// 			$(this).dialog("close");
+	// 	    },
+	// 	    error: function(){
+	// 	        alert('error');
+	// 	    }
+	// 	});
+	//   }
+
+	// $( "<div>Confirmation</div>" ).dialog({
+	// 	   modal:true,
+	// 	   buttons: {
+	// 	        "OK": function() {
+	// 	             sendAjax(); //Your ajax function
+	// 	             $(this).dialog( "close" );
+	// 	         },
+	// 	         "Cancel": function() {
+	// 	             $(this).dialog( "close" );
+	// 	         }
+	// 	   }
+	// 	});
 
 	// ****************************************************
 
