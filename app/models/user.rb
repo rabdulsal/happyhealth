@@ -18,7 +18,7 @@
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :name
-  
+
   has_many :notes
   has_many :appointments
   has_many :doctors, through: :appointments
@@ -27,8 +27,10 @@
   has_many :offices, through: :appointments
 
   def to_s
-    if self.form.first_name.present?
+    if self.form && self.form.first_name
       self.form.first_name
+    elsif self.name
+      self.name
     else
       "New User"
     end

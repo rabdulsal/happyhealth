@@ -1,7 +1,7 @@
 class FormsController < ApplicationController
-  
+
   before_filter :correct_user
-  
+
   def show
     @form = Form.find_by_user_id(params[:user_id])
     @user = User.find_by_id params[:user_id]
@@ -19,21 +19,14 @@ class FormsController < ApplicationController
     @user = User.find_by_id(params[:user_id])
     @form.user_id = params[:user_id]
     @form.personal = Personal.new
-    @form.emergencies << Emergency.new
-    @form.emergencies << Emergency.new
+    2.times { @form.emergencies << Emergency.new }
     @form.insurances << Insurance.create(:title => "Primary")
     @form.insurances << Insurance.create(:title => "Secondary")
     @form.responsible = Responsible.new
     @form.medical = Medical.new
-    @form.medical.allergies << Allergy.new
-    @form.medical.allergies << Allergy.new
-    @form.medical.allergies << Allergy.new
-    @form.medical.medications << Medication.new
-    @form.medical.medications << Medication.new
-    @form.medical.medications << Medication.new
-    #@form.personal.build
-    #@form.emergencies.build
-    #@form.emergencies.build
+    3.times { @form.medical.allergies << Allergy.new }
+    3.times { @form.medical.medications << Medication.new }
+    @form.save
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @form }
@@ -50,7 +43,7 @@ class FormsController < ApplicationController
   # POST /forms.json
   def create
     @form = Form.new(params[:form])
-   
+
     respond_to do |format|
       if @form.save
         format.html { redirect_to user_form_path(current_user.id, @form.id), notice: 'Form was successfully created.' }
