@@ -1,0 +1,4 @@
+<%= form_for :appointment do |f| %>
+	<%= f.check_box :tos_priv %> By checking the box and clicking "OK", you agree to abide by our Terms of Service and Privacy Policy.<br />
+	<%= f.submit "I Agree!", class: "submit-button" %>
+<% end %>

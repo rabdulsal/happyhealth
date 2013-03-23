@@ -135,10 +135,12 @@ $(function() {
 		// $('p#edit-form').fadeIn("slow");
 		// ********************
 
-		// Test Button
+		// Test Button		
 		$(this).after(function () {
-			var dnldBtn = $('p#edit-form');
-			$(dnldBtn).fadeIn("slow");
+			var dnldBtn = $('div#edit-form');
+			$(dnldBtn).fadeIn("slow").on("click", function() {
+				$('div#TOS').fadeIn("slow")
+			});
 		}); // Why does this open the Download button in all Accordions?!?
 		// ********************
 
@@ -151,8 +153,6 @@ $(function() {
 		else{
 			// Real
 			//$('p#edit-form').fadeIn("slow");
-			// Test
-
 			var officeId = this.value; // Accessing value attribute of button
 		}
     	getPdf(officeId);
