@@ -5,13 +5,16 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development do 
+group :development do
   gem 'sqlite3'
 end
 
 group :production do
   gem 'pg'
 end
+
+# Nested form
+gem "nested_form"
 
 # Sign-in / Security
 gem 'devise'
@@ -85,7 +88,7 @@ end
 # gem "bundler", "~> 1.2.0"
 # gem "jeweler", "~> 1.8.4"
 # gem "shoulda", "~> 3.1.1"
-# 
+#
 # gem 'simplecov', :platforms => :mri_19
 # gem 'rcov', :platforms => :mri_18
 

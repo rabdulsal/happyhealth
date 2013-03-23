@@ -27,7 +27,7 @@
   has_many :offices, through: :appointments
 
   def to_s
-    if self.form && self.form.first_name
+    if self.form && self.form.first_name != ""
       self.form.first_name
     elsif self.name
       self.name

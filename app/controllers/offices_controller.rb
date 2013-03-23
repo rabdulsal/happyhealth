@@ -5,7 +5,7 @@ class OfficesController < ApplicationController
   before_filter :logged_in
   before_filter :get_user
   before_filter :admin_user_access, except: [:index, :show]
-  
+
   def index
     @offices = Office.all
     @appointment = Appointment.new
@@ -57,7 +57,8 @@ class OfficesController < ApplicationController
   # GET /offices/new.json
   def new
     @office = Office.new
-    
+    @office.pdf = Pdf.new
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @office }
@@ -76,7 +77,7 @@ class OfficesController < ApplicationController
 
     respond_to do |format|
       if @office.save
-        format.html { redirect_to new_office_pdf_path(@office), notice: 'Office was successfully created. Please add some office forms.' }
+        format.html { redirect_to offices_path, notice: 'Office was successfully created. Please add some office forms.' }
         format.json { render json: @office, status: :created, location: @office }
       else
         format.html { render action: "new" }
@@ -88,7 +89,7 @@ class OfficesController < ApplicationController
   # PUT /offices/1
   # PUT /offices/1.json
   def update
-    @office = Office.find(params[:id])    
+    @office = Office.find(params[:id])
 
     respond_to do |format|
       if @office.update_attributes(params[:office])
