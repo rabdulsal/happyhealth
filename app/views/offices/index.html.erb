@@ -1,6 +1,6 @@
 <h1>HappyHealth's Affiliate Offices</h1>
-<div id="accordion">
-    <% @offices.each do |office| %>        
+  <div id="accordion">
+      <% @offices.each do |office| %>
         <h3>
             <a href="#"><%= office.name %></a>
         </h3>
@@ -32,15 +32,40 @@
           <p>
              <i><%= link_to 'Go to Office Details >>', office %></i>
           </p>
-          
+          <ul class="inline-block">
+            <li>
+              <button value=<%= office.id %> id="appt" class="createButton inline">View Office Form</button>       
+            </li>
+            <li>
+              <!-- <p id="edit-form"><!-- Real Button                
+                <%#= link_to "Download PDF", office_pdf_path(office.id, :office => office.form_name, :format => "pdf"), :class => "pdfButton inline" %>
+              </p> -->
+
+              <div id="edit-form" class="office-form-download"> <!-- Test Button -->
+                <button class="pdfButton office-form-download">
+                  Download PDF
+                </button>                
+              </div>            
+            </li>            
+          </ul> 
+          <div id="TOS" title"Terms of Service and Privacy Policy Agreement" class="legal" style="font-size:14px">
+            <%= render 'new_appointment.html.erb', appointment: @appointment %>
+          </div>         
         </div>
-         
-    <% end %>
-</div>
-<br />  
+      <% end %>
+  </div>
+<br />
 
 <% if current_user.is_admin != true %>
 
 <% else %>
   <%= link_to 'Add a New Office', new_office_path %>
-<% end %> 
+<% end %>
+
+<%#= render 'appointments/forms/html/clsma', :user => current_user %>
+
+<%#= render 'appointments/forms/html/mada', :user => current_user %>
+
+<%#= render 'appointments/forms/html/mhc', :user => current_user %>
+
+<%= render 'appointments/forms/html/sawlani_demographics', user: current_user %>

@@ -16,41 +16,41 @@
 
 
 $(function() {
-	
+
 	$("#tabs").tabs();
-	
+
 	$("#accordion").accordion({
 		collapsible: true,
 		active: false
 	});
-	
+
 	$("#new_note.new_note").hide();
 
 	$("a.createButton").on("click", function() {
 		$("form").toggle("slow");
 		$(".reminder").hide();
 	});
-	
+
 	$('select#appointment_doctor').change(function(e){
 		$('.row3').fadeIn("slow");
 	});
-	
+
 	$('#appointment_appt_date').change(function(e){
 		$('.row4').fadeIn("slow");
 	});
-	
+
 	$("#appointment_appt_date").datepicker({ minDate: +0 });
-	
+
 	$('select#appointment_office_id').change(function(e){
-	    getDoctors($(this).val());	
+	    getDoctors($(this).val());
 	});
-	
+
 	// Rendering the individual office PDFs in the background
-	
-	// GET request for list of doctors 
-	
+
+	// GET request for list of doctors
+
 	function getDoctors(val){
-	  if (val != '') 
+	  if (val != '')
 	  {
 		var doctor = [];
 		$.ajax({
@@ -75,16 +75,16 @@ $(function() {
 		});
 	  }
 	}
-	
+
 	// Auto-closes all the dialog boxes that are rendered ******** CAN BE DRYER!! ********
-	
+
 	$(".mada").dialog({
 		autoOpen: false,
 		show: "blind",
 		hide: "slide",
 		modal: true
 	});
-	
+
 	$(".clsma").dialog({
 		autoOpen: false,
 		show: "blind",
@@ -105,11 +105,13 @@ $(function() {
 		hide: "slide",
 		modal: true
 	});
-	
+
+	// ************** JQUERY PDF FETCH ******************
+
 	// GET http-request for pdf name and opens it
-	
+
 	function getPdf(val){
-	  if (val != '') 
+	  if (val != '')
 	  {
 		$.ajax({
 		        url: "/appointment/pdf",
@@ -123,18 +125,89 @@ $(function() {
 		        alert('error');
 		    }
 		});
-	  }	
+	  }
 	}
 
 	// When View Form is clicked, find the id and render the pdf
 
 	$("button#appt.createButton").on("click", function() {
-		$('#edit-form').fadeIn("slow");
-		$('input#appt.createButton').fadeIn("slow");
-		var officeId = $('select#appointment_office_id').val();
+		// Real Button 
+		// $('p#edit-form').fadeIn("slow");
+		// ********************
+
+		// Test Button		
+		$(this).after(function () {
+			var dnldBtn = $('div#edit-form');
+			$(dnldBtn).fadeIn("slow").on("click", function() {
+				$('div#TOS').fadeIn("slow")
+			});
+		}); // Why does this open the Download button in all Accordions?!?
+		// ********************
+
+		$('.appt_tab').fadeIn("slow");
+		// $('input#appt.createButton').fadeIn("slow");
+		if($('select#appointment_office_id').val() != null){
+			var officeId = $('select#appointment_office_id').val();
+			// Used in the form process
+		}
+		else{
+			// Real
+			//$('p#edit-form').fadeIn("slow");
+			var officeId = this.value; // Accessing value attribute of button
+		}
     	getPdf(officeId);
 		return false;
 	});
-	
 
-});				
+	// TOS and Privacy Policy Dialog -> Opens annoying ghost backgrounds :-(
+
+	// $("button.pdfButton.office-form-download").click(function() {
+	//     $( "p#TOS.legal" ).dialog({
+	//       	// autoOpen: false,
+	//       	modal: true,
+	//       	buttons: [
+	// 	      	{
+	// 	        	text: "I agree",
+	// 	        	click: function() {
+	// 	          		$( this ).dialog( "close" );
+	// 	          	}
+	// 	        }
+	// 	    ]	     
+	//     });
+	// });
+
+	// PDF 'Continue' button functionality
+
+	// $("pdf-close").on("click", function () {
+	// 	{
+	// 	$.ajax({
+	// 	        url: "/users/:id/appointment/new",
+	// 	        dataType:'json', // => .mada.to_json or ._office_form.to_json etc.
+	// 	        data: {'office_id': val},
+	// 	 		type: 'POST',
+	// 	    success: function(data){
+	// 			$(this).dialog("close");
+	// 	    },
+	// 	    error: function(){
+	// 	        alert('error');
+	// 	    }
+	// 	});
+	//   }
+
+	// $( "<div>Confirmation</div>" ).dialog({
+	// 	   modal:true,
+	// 	   buttons: {
+	// 	        "OK": function() {
+	// 	             sendAjax(); //Your ajax function
+	// 	             $(this).dialog( "close" );
+	// 	         },
+	// 	         "Cancel": function() {
+	// 	             $(this).dialog( "close" );
+	// 	         }
+	// 	   }
+	// 	});
+
+	// ****************************************************
+
+
+});

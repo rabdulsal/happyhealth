@@ -4,10 +4,12 @@ class Appointment < ActiveRecord::Base
                   :user_id,
                   :office_id,
                   :doctor,
-                  :doctor_id
+                  :doctor_id,
+                  :tos_priv
 
   belongs_to :user
   belongs_to :doctor
+  belongs_to :office
   has_many :insurance_queries
   
   def office
