@@ -45,6 +45,10 @@ $(function() {
 	    getDoctors($(this).val());
 	});
 
+	$('.office-form-download').on("click", function(){
+		$('.tos_agreement').fadeIn("slow");
+	});
+
 	// Rendering the individual office PDFs in the background
 
 	// GET request for list of doctors
@@ -75,6 +79,10 @@ $(function() {
 		});
 	  }
 	}
+
+	$('.continue').click(function() {
+		$('.ui-dialog-content').dialog('close');
+	});
 
 	// Auto-closes all the dialog boxes that are rendered ******** CAN BE DRYER!! ********
 
@@ -136,14 +144,14 @@ $(function() {
 		// ********************
 
 		// Test Button
-		$(this).after(function () {
-			var dnldBtn = $('p#edit-form');
-			$(dnldBtn).fadeIn("slow");
-		}); // Why does this open the Download button in all Accordions?!?
-		// ********************
+		// $(this).after(function () {
+		// 	var dnldBtn = $('p#edit-form');
+		// 	$(dnldBtn).fadeIn("slow");
+		// }); // Why does this open the Download button in all Accordions?!?
+		// // ********************
 
-		$('.appt_tab').fadeIn("slow");
-		// $('input#appt.createButton').fadeIn("slow");
+		// $('.appt_tab').fadeIn("slow");
+		// // $('input#appt.createButton').fadeIn("slow");
 		if($('select#appointment_office_id').val() != null){
 			var officeId = $('select#appointment_office_id').val();
 			// Used in the form process

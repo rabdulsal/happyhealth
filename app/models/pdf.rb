@@ -12,7 +12,7 @@ class Pdf < ActiveRecord::Base
   					# path: ":rails_root/assets/images/:attachment/:id/:style/:basename.extension",
   					# url: "/:attachment/:id/:style/:basename.:extension"
 
-  belongs_to :office, dependent: :destroy
+  # belongs_to :office, dependent: :destroy
 
   # def create_default_ul
   # 	   ActionController::Base.helpers.asset_path("/missing/:style.png", :digest => false)

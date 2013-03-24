@@ -1,12 +1,12 @@
-<!-- ************************************************* 
-	
+<!-- *************************************************
+
 	HTML FOR PDF JQERY POPUP IN 'NEW APPOINTMENTS' - CLASS NAME AND STYLESHEET LINK TAG NAMES MUST MATCH FORM NAME!!
 
 	**************************************************** -->
 
 <%= stylesheet_link_tag "sawlani_demographics" %>
 
-<div class="sawlani_demographics" title=""> 
+<div class="sawlani_demographics" title="">
 
 	<div id="container">
 		<!-- <span class="form-button">
@@ -119,12 +119,12 @@
 			<p>
 				<%= user.form.insurances[0].group_number %>
 			</p>
-		</div>			
+		</div>
 		<div class="pos line-fourteen row-one">
 			<p>
 				<%= user.form.emergencies[1].name %>
 			</p>
-		</div>		
+		</div>
 		<div class="pos line-fourteen emergency-relationship">
 			<p>
 				<%= user.form.emergencies[1].relationship_to_patient %>
@@ -134,7 +134,7 @@
 			<p>
 				<%= user.form.emergencies[1].phone_number %>
 			</p>
-		</div>		
+		</div>
 	</div>
 
 	<div id="container_two">
@@ -161,5 +161,5 @@
 		<%= render 'appointments/forms/html/pdf_form_buttons' %>
 
 	</div>
-</div>  
+</div>
 

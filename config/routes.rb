@@ -13,6 +13,8 @@ HappyHealth::Application.routes.draw do
   get "/help" => 'static_pages#help'
   get "/about" => 'static_pages#about'
 
+  post "/agree" => "offices#save_receipt", as: :receipt
+
   devise_for :users
 
   resources :users do
@@ -35,8 +37,8 @@ HappyHealth::Application.routes.draw do
 
   #********************** DOWNLOAD PDF BUTTON ****************************
 
-  get "/appointments/:appointment_id" => 'appointments#show_pdf', :as => :pdf
-  get "/offices/appointment/:office_id" => 'offices#show_pdf', :as => :office_pdf
+  get "/appointment/download/:appointment_id" => 'appointments#show_pdf', :as => :pdf
+  get "/office/download/:office_id" => 'offices#show_pdf', :as => :office_pdf
 
   #########################################################################
   # AJAX get requests

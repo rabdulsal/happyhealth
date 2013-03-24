@@ -54,6 +54,12 @@
         </td>
       </tr>
       <tr>
+        <td class="field">
+          <%= f.label :abreviation %>
+          <%= f.text_field :abrv %>
+        </td>
+      </tr>
+      <tr>
           <%= f.fields_for :pdf do |pdf| %>
             <td><%= pdf.label :form_name, class: "sign" %>
             <%= pdf.text_field :form_name %></td>

@@ -108,7 +108,7 @@ xmp {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   padding-bottom: 10px;
-  height: 100%;  
+  height: 100%;
 }
 
 ol,
@@ -154,7 +154,7 @@ aside {
     width: 300px;*/
     margin: 1.02040815326531%;  /*20px/980px = .0208081632653061 */
     width: 30.61224489795918%;  /*300px/980px = .3061224489795918 */
-    font-size: 15px;     
+    font-size: 15px;
 }
 
 article {
@@ -163,11 +163,11 @@ article {
     margin: 0 40px 20px 0; */
     margin: 0 4.08163265306122% 20px 0; /*20px 980px = .01515151 */
     width: 63.26530612244898%; /*620px 980px = .63636363 */
-    font-size: 12px; 
+    font-size: 12px;
 }
 
 article h1 {
-    color: #555;        
+    color: #555;
 }
 
 article h2 {
@@ -175,9 +175,9 @@ article h2 {
 }
 
 body {
-    font-family: 'Droid Sans', sans-serif;        
+    font-family: 'Droid Sans', sans-serif;
     padding: 0 0 20px 0px;
-    margin: 0px;    
+    margin: 0px;
 }
 
 #main {
@@ -211,7 +211,7 @@ img {
 }
 
 .right {
-    float: right;    
+    float: right;
 }
 
 .left {
@@ -263,7 +263,7 @@ ul#static.inline-block{
         border-radius: 10px;
         padding: 10px 0px 10px 0px;
         text-align: center;
-        border: 1px solid black; 
+        border: 1px solid black;
 }
 
 .splash #siteName, #splashLogin #siteName {
@@ -304,17 +304,17 @@ ul#static.inline-block{
     color: grey;
     font-weight: bold;
     text-align: center;
-    /*text-shadow: 0 2px 5px #555;*/  
-    margin-bottom: 10px;  
+    /*text-shadow: 0 2px 5px #555;*/
+    margin-bottom: 10px;
 }
 
 #splash-title {
     font-size: 50px;
-    color: #555;       
+    color: #555;
 }
 
 #subtitle {
-    font-size: 40px;    
+    font-size: 40px;
 }
 
 #splash-text, #signup-text {
@@ -324,8 +324,8 @@ ul#static.inline-block{
 
 .splash-page {
     margin: auto;
-    clear: both; 
-    width: 950px;   
+    clear: both;
+    width: 950px;
 }
 
 .explanation {
@@ -359,17 +359,17 @@ ul#static.inline-block{
     border-radius: 5px;
     width: 280px;
     height: 330px;
-    display: block; 
+    display: block;
     float: left;
     margin: 60px 0 0 50px;
-    opacity:.95;    
+    opacity:.95;
 }
 
 .signup {
     padding: 20px;
     background-color: #f5f5f5;
     height: 100%;
-    margin: 39px 0 20px 50px;        
+    margin: 39px 0 20px 50px;
 }
 
 .pdf-upload {
@@ -382,7 +382,7 @@ label.sign{
 }
 
 .box {
-    padding: 0 18px;    
+    padding: 0 18px;
 }
 
 .white-box {
@@ -390,7 +390,7 @@ label.sign{
     border-radius: 5px;
     border: 1px solid grey;
     padding: 5px;
-    margin-top: 10px;    
+    margin-top: 10px;
 }
 
 .signup-description{
@@ -417,7 +417,7 @@ p.signup-title {
 }
 
 .description h1 {
-    padding: 0;    
+    padding: 0;
 }
 
 .note_field{
@@ -431,9 +431,9 @@ p.signup-title {
 
 /* ------------------------ BUTTONS ------------------------------ */
 
-.button, .submit-button, .button a, .remove-form, .action-button, .create, #new_user_submit, #login_submit, 
-#skinclick-submit, .splash a, .saveButton a, .nextButton a, 
-#print-to a {  
+.button, .submit-button, .button a, .remove-form, .action-button, .create, #new_user_submit, #login_submit,
+#skinclick-submit, .splash a, .saveButton a, .nextButton a,
+#print-to a {
     /*display: block;*/
     color: white;
     font-weight: bold;
@@ -461,7 +461,7 @@ p.signup-title {
 .action-button {
     /*background: -webkit-linear-gradient(top, #00f, #009);*/
     background: -webkit-linear-gradient(top, #f90, #cc7a00);
-    font-size: 15px;    
+    font-size: 15px;
 }
 
 .eligibility {
@@ -479,7 +479,7 @@ p.signup-title {
 .button:hover, .submit-button:hover, .button a:hover {
     text-decoration: none;
     background: -webkit-linear-gradient(top, #ececec, #ddd);
-} 
+}
 
 .remove-form {
     background: -webkit-linear-gradient(top, #ff0000, #b20000);
@@ -492,10 +492,10 @@ p.signup-title {
 
 .action-button a {
     color: #fff;
-}      
+}
 
 .remove-form {
-    margin-top: 20px;        
+    margin-top: 20px;
 }
 
 .form-back {
@@ -550,35 +550,35 @@ p.signup-title {
     height: 100%;
     margin: 4px 10px;
     text-align: center;
-    box-shadow: 0 1px 1px #444;    
+    box-shadow: 0 1px 1px #444;
 }
 
 #edit-form.pdfButton {
     color: white;
 }
 
-#appt.createButton, input.createButton {
+#appt.createButton, input.createButton, .pdfButton {
 	cursor: pointer;
-	font-size: 13px;    
+	font-size: 13px;
     height: 34px;
     margin: 0;
     padding: 0;
 }
 
 .backButton{
-    background: #888;  
+    background: #888;
 }
 
 .pdfButton{
-    background: -webkit-linear-gradient(top, #3B0, #3A0);  
-    background:    -moz-linear-gradient(top, #3B0, #3A0);  
-    background:            -ms-gradient(top, #3B0, #3A0);  
+    background: -webkit-linear-gradient(top, #3B0, #3A0);
+    background:    -moz-linear-gradient(top, #3B0, #3A0);
+    background:            -ms-gradient(top, #3B0, #3A0);
 }
 
 .removeButton{
-    background: -webkit-linear-gradient(top, #F00, #d00); 
-    background:    -moz-linear-gradient(top, #F00, #d00); 
-    background:     -ms-linear-gradient(top, #F00, #d00); 
+    background: -webkit-linear-gradient(top, #F00, #d00);
+    background:    -moz-linear-gradient(top, #F00, #d00);
+    background:     -ms-linear-gradient(top, #F00, #d00);
 }
 
 .signin-button {
@@ -642,14 +642,14 @@ label.remember{
 
 #appt.appt-button, .appt_tab {
     margin-left: 129px;
-    font-size: 13px; 
-    width: 268px;       
+    font-size: 13px;
+    width: 268px;
 }
 
 .appt_tab {
     width: 276px;
     border-top: 1px dotted #000;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 
 a.createButton{
@@ -738,7 +738,7 @@ a.appt-title{
         /*color: -webkit-radial-gradient(circle, #545454, #3F3F3F);*/
         background: #D1E0FF;
         color: #000066;
-        margin: 0px;            
+        margin: 0px;
         padding: 10px 10px 0 10px;
 }
 
@@ -752,7 +752,7 @@ a.appt-title{
 .signInSection form, #splashSignIn form, .shadowBox p {
         color: black;
         background: white;
-        padding: 10px;  
+        padding: 10px;
 }
 
 .signInSection fieldset li {
@@ -850,7 +850,7 @@ a.appt-title{
 
 #nav-tab {
     margin: 10px 10px;
-    height: 100%;    
+    height: 100%;
 }
 
 #nav-tab a {
@@ -893,7 +893,7 @@ a.appt-title{
     margin: 0;
     margin-bottom: 20px;
     padding: 10px 0;
-    background: -webkit-linear-gradient(top, #555, #000);   
+    background: -webkit-linear-gradient(top, #555, #000);
     background:    -moz-linear-gradient(top, #555, #000);
     background:     -ms-linear-gradient(top, #555, #000);
 }
@@ -901,12 +901,12 @@ a.appt-title{
 #header-content {
     width: 980px;
     margin: 0 auto;
-    
+
     /*background-image: url('/images/retro_intro.png');*/
 }
 
 #header-content li, .nav-links a, #site-name a {
-        color: #fff;        
+        color: #fff;
         display: inline-block;
 }
 
@@ -943,7 +943,7 @@ a.appt-title{
 }
 
 #print-to li {
-        display: inline-block;  
+        display: inline-block;
         margin-right: 10px;
         color: #555;
         text-shadow: 0 1px #fff;
@@ -961,7 +961,7 @@ a.appt-title{
 .edit-form {
     /*position: relative;
     bottom: 28px;*/
-    margin-right: -20px;    
+    margin-right: -20px;
 }
 
 .on-pdf {
@@ -987,7 +987,7 @@ a.appt-title{
 }
 
 #user-image li h3{
-        text-shadow: 0 1px white;       
+        text-shadow: 0 1px white;
 }
 
 #user-image a {
@@ -1031,7 +1031,7 @@ a.appt-title{
 #form {
     position: fixed;
     top: 40%;
-    margin-left: 112px; 
+    margin-left: 112px;
     background: #ddd;
 }
 
@@ -1044,7 +1044,7 @@ a.appt-title{
 aside .form-save {
     position: fixed;
     top: 40%;
-    left: 10%;    
+    left: 10%;
 }
 
 ******************************************* */
@@ -1056,8 +1056,8 @@ aside .form-save {
         float: left;
         width: 580px;
         margin: 10px 10px;
-        /*width: 59.18367346938776%; 
-        margin: 1.02040816326531%;*/        
+        /*width: 59.18367346938776%;
+        margin: 1.02040816326531%;*/
         padding: 5px 10px 10px 10px;
 }
 
@@ -1098,7 +1098,7 @@ aside .form-save {
 .dashboard #search_bar  {
         width: 227px;
         margin: auto;
-}       
+}
 
 .dashboard select {
         width: 120px;
@@ -1116,12 +1116,12 @@ aside .form-save {
 .formsBackground td {
         padding-right: 8px;
 }
-        
+
 .formFont {
         font-size: 12px;
         color: black;
         display: inline;
-}       
+}
 
 /* --------------------- SHOW PAGES --------------------------- */
 
@@ -1153,30 +1153,30 @@ aside .form-save {
     margin-right: 5px;
 }
 
- .DOB, #pharmacy_name, #pharmacy_phone, 
- #specialist_practice, #specialist_address, 
- #specialist_address2,  #insurer, #policy_number, 
+ .DOB, #pharmacy_name, #pharmacy_phone,
+ #specialist_practice, #specialist_address,
+ #specialist_address2,  #insurer, #policy_number,
  #credit-card-address, #credit-card-address-2 {
     width: 200px;
     margin-right: 5px;
 }
 
-.city, .zipcode, .employer-city, .employer-zipcode, 
-#specialist_city, #practice_zipcode, #pharmacy_city, 
+.city, .zipcode, .employer-city, .employer-zipcode,
+#specialist_city, #practice_zipcode, #pharmacy_city,
 #pharmacy_zipcode, .subscriber-lastname, .subscriber-firstname,
 .policy-number  {
     width: 160px;
     margin-right: 5px;
 }
 
-.home-phone, .work-phone, .cell-phone, .email, .occupation, 
-.dependents, .employer, .employer-address, .employer-phone, 
-.referring-physician, .primary-insurance, .secondary-insurance, 
+.home-phone, .work-phone, .cell-phone, .email, .occupation,
+.dependents, .employer, .employer-address, .employer-phone,
+.referring-physician, .primary-insurance, .secondary-insurance,
 .patient-relationship, .group-number, .group-name, .subscriber-phone,
 .subscriber-employer {
     width: 275px;
     margin-right: 5px;
-} 
+}
 
 .state, #specialist_state, #pharmacy_state {
     width: 10px;
@@ -1193,17 +1193,17 @@ aside .form-save {
 
 .emergency-name, .emergency-city, .emergency-state, .emergency-zipcode,
 .emergency-relationship, .emergency-phone, .insurance-city,
-.insurance-state, .insurance-zipcode, .subscriber-city, 
+.insurance-state, .insurance-zipcode, .subscriber-city,
 .subscriber-state, .subscriber-zipcode, .subscriber-social-security,
 .subscriber-birthdate {
     width: 180px;
     margin-right: 5px;
 }
 
-#credit-card-zipcode, #credit-card-country, #credit-card-city, 
-#credit-card-states, #ccv-number, #card-type, #expiration-month, 
+#credit-card-zipcode, #credit-card-country, #credit-card-city,
+#credit-card-states, #ccv-number, #card-type, #expiration-month,
 #expiration-year {
-        
+
 }
 
 .yes_no {
@@ -1371,7 +1371,7 @@ input#appointment_appt_date{
 }
 
 .works-table th, .works-table td {
-    padding-bottom: 10px;    
+    padding-bottom: 10px;
 }
 
 .functionality {
@@ -1398,7 +1398,7 @@ input#appointment_appt_date{
     text-transform: uppercase;
     border-bottom: 1px dotted grey;
     margin: 10px 0;
-    padding: 0 0 10px 0;            
+    padding: 0 0 10px 0;
 }
 
 .dashAppointments {
@@ -1408,10 +1408,10 @@ input#appointment_appt_date{
     background: #eee;
     border-radius: 5px;
     margin-bottom: 10px;
-    overflow: hidden; 
+    overflow: hidden;
 }
     .dashAppointments dt {
-       font-weight: bold; 
+       font-weight: bold;
     }
     .dashAppointments dd {
         text-indent: 10px;
@@ -1434,9 +1434,9 @@ fieldset.dashBackground {
     /*color: #555;
     background: #eee;*/
     padding: 5px;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     /*border-radius: 5px;*/
-    border-bottom: 1px solid #d6d6d6;            
+    border-bottom: 1px solid #d6d6d6;
 }
 
 fieldset.dashBackground:last-child, .dashBackground p:last-child {
@@ -1453,8 +1453,8 @@ fieldset.dashBackground:last-child, .dashBackground p:last-child {
     color: #94B3C8;
     color: #37241E;
     color: grey;
-    font-size: 10px; 
-    float: right; 
+    font-size: 10px;
+    float: right;
 }
 
 .dashBackground ul {
@@ -1474,21 +1474,21 @@ a.see-more{
 footer {
   width: 980px;
   margin: 20px auto;
-}  
+}
 
 footer a {
     color: #000;
     text-decoration: none;
 }
 
-footer a:hover { 
+footer a:hover {
   color: #00B6E4;
 }
 
 footer ul li {
   float: right;
   list-style: none;
-  margin-right: 5px;  
+  margin-right: 5px;
 }
 
 footer ul li:first-child {
@@ -1507,7 +1507,7 @@ footer ul li:last-child {
 .clearfix:before, .clearfix:after {
     content: "";
     display: table;
-    
+
 }
 
 .clearfix:after {
@@ -1517,44 +1517,44 @@ footer ul li:last-child {
 /* --------------- RESPONSIVE DESIGN ------------------- */
 
 @media all and (max-width: 480px) {
-    article, aside, form, fieldset, 
-    .demoBackground, .formsBackground, 
+    article, aside, form, fieldset,
+    .demoBackground, .formsBackground,
     .dashAppointments, .dashBackground,
-    #note_info, .widget, .description, 
+    #note_info, .widget, .description,
     .splash-page, .signin, .signup, .fluid-form, p a.pdfButton {
         float: none;
         width: 93.9393939393939393%;
         margin: 0 2.0833333333333333%;
     }
     .description {
-        height: 100%;   
-        margin-bottom: 10px;     
+        height: 100%;
+        margin-bottom: 10px;
     }
     .fluid-hide {
         display: none !important;
     }
     .container_12, #header-content {
         width: 95.8333333333333333%;
-        margin: 0 2.0833333333333333%;        
+        margin: 0 2.0833333333333333%;
     }
     .container_12 {
         background: #fff !important;
     }
     .signin, .signup {
-        background: #eee; 
-        padding: 0 0 20px 0; 
-        margin-top: 20px;      
+        background: #eee;
+        padding: 0 0 20px 0;
+        margin-top: 20px;
     }
     .signin h2, .signup h2 {
         margin-top: 10px;
     }
     /*.signin {
         position: relative;
-        top: 10px;        
+        top: 10px;
     }
     .signup {
         position: relative;
-        top: 20px;        
+        top: 20px;
     }*/
     p.signup-title {
         margin: 40px 5px;

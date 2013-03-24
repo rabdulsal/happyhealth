@@ -13,7 +13,9 @@
  *= require jquery
 */
 
-#TOS, .mada, .clsma, .mhc, .sawlani_demographics, .row2, .row3, .row4, #edit-form, p#edit-form, input#appt.createButton, .appt_tab {
+#TOS, .mada, .clsma, .mhc, .sawlani_demographics,
+.row2, .row3, .row4, input#appt.createButton, .appt_tab,
+.tos_agreement {
 	display: none;
 }
 

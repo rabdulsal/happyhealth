@@ -25,6 +25,7 @@
   has_many :insurance_queries, through: :appointments
   has_one :form
   has_many :offices, through: :appointments
+  has_many :receipts
 
   def to_s
     if self.form && self.form.first_name != ""

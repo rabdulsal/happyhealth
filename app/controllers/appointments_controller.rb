@@ -20,7 +20,7 @@ class AppointmentsController < ApplicationController
   def get_pdf
     office_id = params[:office_id].to_i
 
-    pdf = Office.find_by_id(office_id).pdf.form_name
+    pdf = Office.find_by_id(office_id).abrv
     name = "." + pdf # => .mada or .Demographics etc.
     respond_to do |format|
       format.json {render :json => name.to_json} # => Controlled by Jscript in application.js
@@ -123,7 +123,7 @@ class AppointmentsController < ApplicationController
 
   def show_pdf
     appointment = Appointment.find_by_id(params[:appointment_id])
-    @office = Office.find_by_id(appointment.office_id)
+    @office = Office.find_by_id(params[:office_id])
     @pdf = @office.pdf
     @abrv = params[:office] # => yields name of PDF form, _pdf.css.erb file must match this name
     logger.debug "ABRV: #{@abrv}"

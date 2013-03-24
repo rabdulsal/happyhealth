@@ -10,7 +10,7 @@
         <%= image_tag pdf.pdf_form.url(:small) %><br />
         <%= link_to pdf.form_name, office_pdf_path(@office, pdf) %><br />
       <% end %>
-    </p>    
+    </p>
   </section>
   <section>
     <p>
@@ -55,12 +55,8 @@
     </dl>
     <ul class="inline-block">
       <li>
-        <button value=<%= @office.id %> id="appt" class="createButton inline">View Office Form</button>       
+        <button value=<%= @office.id %> id="appt" class="createButton inline">View Office Form</button>
       </li>
-      <li>
-        <p id="edit-form"><!-- Real Button -->                
-          <%#= link_to "Download PDF", office_pdf_path(office.id, :office => office.form_name, :format => "pdf"), :class => "pdfButton inline" %>
-        </p>
         <div id="edit-form" class="office-form-download"> <!-- Test Button -->
           <button class="pdfButton office-form-download">
             Download PDF
@@ -70,7 +66,7 @@
               <%#= f.check_box_tag :tos_priv %> By checking the box and clicking "OK", you agree to abide by our Terms of Service and Privacy Policy.
             <%# end %>
           </p>
-        </div>              
+        </div>
       </li>
     </ul>
 
