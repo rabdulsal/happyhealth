@@ -1,4 +1,9 @@
 <h1>HappyHealth's Affiliate Offices</h1>
+
+  <%= render "/appointments/pdf_form_buttons" %>
+
+  <br /><br /><br /><br /><br /><br />
+
   <div id="accordion">
       <% @offices.each_with_index do |office, index| %>
         <h3>
@@ -37,11 +42,11 @@
               <button value=<%= office.id %> id="appt" class="createButton inline">View Office Form</button>
             </li>
             <li>
-                <button class="pdfButton office-form-download">Download PDF</button>
+                <button value=<%=office.id%> class="pdfButton office-form-download">Download PDF</button>
             </li>
           </ul>
           <br /><br /><br />
-           <div class="tos_agreement">
+           <div class="tos_agreement" id=<%=office.id%>>
                 <%= form_for(@receipt, :url => :receipt) do |f| %>
                   <!-- <p id="TOS" title"Terms of Service and Privacy Policy Agreement" class="legal">By checking the button below, you agree to abide by our Terms of Service and Privacy Policy.</p> -->
                   <%= f.radio_button :tos_priv, :true %><br />
@@ -69,4 +74,4 @@
 
 <%#= render 'appointments/forms/html/mhc', :user => current_user %>
 
-<%= render 'appointments/forms/html/sawlani_demographics', user: current_user %>
+<%= render 'appointments/office_form.pdf.html.erb', :user => current_user %>

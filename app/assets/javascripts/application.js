@@ -27,6 +27,7 @@ $(function() {
 	$("#new_note.new_note").hide();
 
 	$("a.createButton").on("click", function() {
+		console.log('lskdjf');
 		$("form").toggle("slow");
 		$(".reminder").hide();
 	});
@@ -46,7 +47,7 @@ $(function() {
 	});
 
 	$('.office-form-download').on("click", function(){
-		$('.tos_agreement').fadeIn("slow");
+		$('.tos_agreement#' + this.value).fadeIn("slow");
 	});
 
 	// Rendering the individual office PDFs in the background
@@ -80,34 +81,14 @@ $(function() {
 	  }
 	}
 
-	$('.continue').click(function() {
-		$('.ui-dialog-content').dialog('close');
+	$('a.continue').on("click", function() {
+		console.log("trying");
+		$('.view_form').dialog('close');
 	});
 
 	// Auto-closes all the dialog boxes that are rendered ******** CAN BE DRYER!! ********
 
-	$(".mada").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
-	});
-
-	$(".clsma").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
-	});
-
-	$(".mhc").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
-	});
-
-	$(".sawlani_demographics").dialog({
+	$(".view_form").dialog({
 		autoOpen: false,
 		show: "blind",
 		hide: "slide",
@@ -127,7 +108,17 @@ $(function() {
 		        data: {'office_id': val},
 		 		type: 'GET',
 		    success: function(data){
-				$(data).dialog("open");
+		    	console.log(data);
+		    	var link = $('link#office_css')
+		    	if(link.length == 0){
+		    		$('<link id="office_css" href="/assets/'+ data + '_pdf.css.erb?body=1" media="screen" rel="stylesheet" type="text/css" />').appendTo('div.view_form');
+			    }
+		    	else{
+		    		var href = link[0].href;
+		    		link[0].href ='/assets/'+ data + '_pdf.css.erb?body=1'
+		    	}
+				$('<ul class="on-pdf right"><li><a href="/users/1/forms/3/edit" class="submit-button">Edit Health Form</a></li><li><a href="#" class="createButton continue">Continue</a></li></ul>').appendTo('div.view_form');
+				$('.view_form').dialog("open");
 		    },
 		    error: function(){
 		        alert('error');
@@ -139,28 +130,11 @@ $(function() {
 	// When View Form is clicked, find the id and render the pdf
 
 	$("button#appt.createButton").on("click", function() {
-		// Real Button
-		// $('p#edit-form').fadeIn("slow");
-		// ********************
-
-		// Test Button
-		// $(this).after(function () {
-		// 	var dnldBtn = $('p#edit-form');
-		// 	$(dnldBtn).fadeIn("slow");
-		// }); // Why does this open the Download button in all Accordions?!?
-		// // ********************
-
-		// $('.appt_tab').fadeIn("slow");
-		// // $('input#appt.createButton').fadeIn("slow");
 		if($('select#appointment_office_id').val() != null){
 			var officeId = $('select#appointment_office_id').val();
 			// Used in the form process
 		}
 		else{
-			// Real
-			//$('p#edit-form').fadeIn("slow");
-			// Test
-
 			var officeId = this.value; // Accessing value attribute of button
 		}
     	getPdf(officeId);

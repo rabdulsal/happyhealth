@@ -965,7 +965,15 @@ a.appt-title{
 }
 
 .on-pdf {
-    margin: 20px;
+    position: fixed;
+    top:  80px;
+    right: 200px;
+    width: 250px;
+    float:right;
+}
+
+ul.on-pdf li{
+    float: right;
 }
 
 .read-more {
@@ -1023,6 +1031,25 @@ a.appt-title{
         width: 70px;
         margin: 20px 0 0 20px;
 }
+
+/* --------------------- OFFICE_DIALOG --------------*/
+
+.ui-dialog .ui-widget .ui-widget-content .ui-corner-all .ui-draggable .ui-resizable{
+    width: 1070px;
+    height: 1400px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+
+
+/*.view_form{
+    width: 1070px;
+    height: 1400px;
+}*/
+
+
 
 /* --------------------- FORMS ---------------------- */
 

@@ -1,18 +1,22 @@
+<!-- *******************************************
+
+	HTML FOR PDF DOWNLOAD FILE => _FormName.html.erb
+
+	******************************************** -->
+
+<%= wicked_pdf_stylesheet_link_tag "#{@abrv}_pdf" %>
+<% user = current_user %>
+
 <!-- *************************************************
 
 	HTML FOR PDF JQERY POPUP IN 'NEW APPOINTMENTS' - CLASS NAME AND STYLESHEET LINK TAG NAMES MUST MATCH FORM NAME!!
 
 	**************************************************** -->
 
-<%= stylesheet_link_tag "sawlani_demographics" %>
-
-<div class="sawlani_demographics" title="">
+<div class="view_form" title="">
 
 	<div id="container">
-		<!-- <span class="form-button">
-			<%#= link_to "Edit Health Form", edit_user_form_path(current_user.id, current_user.form.id), class: "submit-button on-pdf" %>
-		</span> -->
-		<%= render 'appointments/forms/html/pdf_form_buttons' %>
+		<%#= render 'appointments/forms/html/pdf_form_buttons' %>
 
 		<div class="pos line-one last-name row-one">
 			<p>
@@ -137,29 +141,9 @@
 		</div>
 	</div>
 
-	<div id="container_two">
-		<%= render 'appointments/forms/html/pdf_form_buttons' %>
+	<% (Office.all.map {|o| o.pdfs.count }.max - 1).times do |num| %>
+		<div id="container_<%=num+1%>">
+		</div>
+	<% end %>
 
-	</div>
-
-	<div id="container_three">
-		<%= render 'appointments/forms/html/pdf_form_buttons' %>
-
-	</div>
-
-	<div id="container_four">
-		<%= render 'appointments/forms/html/pdf_form_buttons' %>
-
-	</div>
-
-	<div id="container_five">
-		<%= render 'appointments/forms/html/pdf_form_buttons' %>
-
-	</div>
-
-	<div id="container_six">
-		<%= render 'appointments/forms/html/pdf_form_buttons' %>
-
-	</div>
 </div>
-

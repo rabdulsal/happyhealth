@@ -20,10 +20,9 @@ class AppointmentsController < ApplicationController
   def get_pdf
     office_id = params[:office_id].to_i
 
-    pdf = Office.find_by_id(office_id).abrv
-    name = "." + pdf # => .mada or .Demographics etc.
+    abrv = Office.find_by_id(office_id).abrv
     respond_to do |format|
-      format.json {render :json => name.to_json} # => Controlled by Jscript in application.js
+      format.json {render :json => abrv.to_json} # => Controlled by Jscript in application.js
     end
   end
 
@@ -132,7 +131,7 @@ class AppointmentsController < ApplicationController
       format.pdf do
           @file = render_to_string :pdf => "#{@office.name}", #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
           #render :pdf => "#{@office.name}", #Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
-                 :template => "/appointments/office_form.pdf.erb",
+                 :template => "/appointments/_office_form.pdf.html.erb",
                  :layout => "pdf.html",
                  :page_size => "A4",
                  :encoding => "UTF-8",
