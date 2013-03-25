@@ -47,7 +47,9 @@ $(function() {
 	});
 
 	$('.office-form-download').on("click", function(){
+		$('input#tos_' + this.value)[0].checked = false;
 		$('.tos_agreement#' + this.value).fadeIn("slow");
+
 	});
 
 	// Rendering the individual office PDFs in the background
@@ -86,10 +88,11 @@ $(function() {
 		$('.view_form').dialog('close');
 	});
 
-	$('p.back').on("click", function(){
-		console.log("wtf");
-		$('.view_form').dialog('close');
-	})
+	$('input.submit_tos').on("click", function(){
+		if($('input#tos_' + this.id)[0].checked){
+			$('div#' + this.id + '.tos_agreement').hide();
+		}
+	});
 
 	// Auto-closes all the dialog boxes that are rendered ******** CAN BE DRYER!! ********
 
