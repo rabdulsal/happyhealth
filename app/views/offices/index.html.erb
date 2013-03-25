@@ -1,9 +1,5 @@
 <h1>HappyHealth's Affiliate Offices</h1>
 
-  <%= render "/appointments/pdf_form_buttons" %>
-
-  <br /><br /><br /><br /><br /><br />
-
   <div id="accordion">
       <% @offices.each_with_index do |office, index| %>
         <h3>
@@ -67,11 +63,5 @@
 <% else %>
   <%= link_to 'Add a New Office', new_office_path %>
 <% end %>
-
-<%#= render 'appointments/forms/html/clsma', :user => current_user %>
-
-<%#= render 'appointments/forms/html/mada', :user => current_user %>
-
-<%#= render 'appointments/forms/html/mhc', :user => current_user %>
 
 <%= render 'appointments/office_form.pdf.html.erb', :user => current_user %>

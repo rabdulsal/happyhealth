@@ -27,7 +27,7 @@ $(function() {
 	$("#new_note.new_note").hide();
 
 	$("a.createButton").on("click", function() {
-		console.log('lskdjf');
+		console.log("slkdjfds");
 		$("form").toggle("slow");
 		$(".reminder").hide();
 	});
@@ -81,10 +81,15 @@ $(function() {
 	  }
 	}
 
-	$('a.continue').on("click", function() {
+	$('a#continue').on("click", function() {
 		console.log("trying");
 		$('.view_form').dialog('close');
 	});
+
+	$('p.back').on("click", function(){
+		console.log("wtf");
+		$('.view_form').dialog('close');
+	})
 
 	// Auto-closes all the dialog boxes that are rendered ******** CAN BE DRYER!! ********
 
@@ -111,13 +116,14 @@ $(function() {
 		    	console.log(data);
 		    	var link = $('link#office_css')
 		    	if(link.length == 0){
-		    		$('<link id="office_css" href="/assets/'+ data + '_pdf.css.erb?body=1" media="screen" rel="stylesheet" type="text/css" />').appendTo('div.view_form');
+		    		$('<link id="office_css" href="/assets/'+ data + '.css.scss.erb?body=1" media="screen" rel="stylesheet" type="text/css" />').appendTo('div.view_form');
 			    }
 		    	else{
 		    		var href = link[0].href;
-		    		link[0].href ='/assets/'+ data + '_pdf.css.erb?body=1'
+		    		link[0].href ='/assets/'+ data + '.css.scss.erb?body=1'
 		    	}
-				$('<ul class="on-pdf right"><li><a href="/users/1/forms/3/edit" class="submit-button">Edit Health Form</a></li><li><a href="#" class="createButton continue">Continue</a></li></ul>').appendTo('div.view_form');
+				$('<ul class="on-pdf right"><li><a href="/users/1/forms/3/edit" class="submit-button">Edit Health Form</a></li><li><a href="#" class="createButton" id="continue">Continue</a></li></ul>').appendTo('div.view_form');
+				$('<script type="text/javascript">$("a#continue").on("click", function() {$(".view_form").dialog("close");})</script>').appendTo('div.view_form');
 				$('.view_form').dialog("open");
 		    },
 		    error: function(){
