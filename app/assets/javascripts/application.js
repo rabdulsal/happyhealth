@@ -110,6 +110,13 @@ $(function() {
 		modal: true
 	});
 
+	$(".view_form").dialog({
+		autoOpen: false,
+		show: "blind",
+		hide: "slide",
+		modal: true
+	});
+
 	// ************** JQUERY PDF FETCH ******************
 
 	// GET http-request for pdf name and opens it
