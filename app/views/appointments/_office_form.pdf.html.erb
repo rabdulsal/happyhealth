@@ -15,7 +15,7 @@
 
 <div class="view_form" title="">
 
-	<div id="container">
+	<div class="form_dimension" id="container">
 		<%#= render 'appointments/forms/html/pdf_form_buttons' %>
 
 		<div class="pos line-one last-name row-one">
@@ -141,9 +141,29 @@
 		</div>
 	</div>
 
-	<% (Office.all.map {|o| o.pdfs.count }.max - 1).times do |num| %>
-		<div id="container_<%=num+1%>">
-		</div>
-	<% end %>
+	<%# (Office.all.map {|o| o.pdfs.count }.max - 1).times do |num| %>
+		<!--<div id="container_<%#=num+1%>">
+		</div>-->
+	<%# end %>
+
+	<div class="form_dimension" id="container_2">
+
+	</div>
+
+	<div class="form_dimension" id="container_3">
+
+	</div>
+
+	<div class="form_dimension" id="container_4">
+
+	</div>
+
+	<div class="form_dimension" id="container_5">
+
+	</div>
+
+	<div class="form_dimension" id="container_6">
+
+	</div>
 
 </div>

@@ -9,8 +9,9 @@ class Pdf < ActiveRecord::Base
                                       }
   					# :default_url => lambda { |a| "#{a.instance.create_default_url}" }
   					# default_url: ActionController::Base.helpers.asset_path("/missing/:style.png"
-  					# path: ":rails_root/assets/images/:attachment/:id/:style/:basename.extension",
-  					# url: "/:attachment/:id/:style/:basename.:extension"
+  					#url: "/app/assets/images/:attachment/:id/:style/:basename.:extension",
+            #path: ":rails_root:url"
+  					
 
   # belongs_to :office, dependent: :destroy
 

@@ -3,97 +3,68 @@
 CSS FOR PDF DOWNLOAD HTML FILE => office_form.pdf.erb
 
 ***************************************************** */
-.view_form{
+.view_form {
 
-
-#container {
-position: relative;
-left: 0px;
-top: 0px;
-/*background: url(<%= Rails.root.join('app','assets','images','doctor3.jpg').to_s %>) no-repeat center;*/
-/*background: url(<%= Rails.root.join('public', 'system','pdfs','pdf_forms','000', '000', '005', 'large', 'demo.jpg').to_s %>) no-repeat center;*/
-background: url(<%= asset_data_uri 'demo.jpg' %>);
-/*background: url(<%= Rails.root.join('assets','images','pdf_forms', '6', 'large', 'medical.jpg').to_s %>) no-repeat center;*/
-background-size: 1062px 1500px;
-height: 1400px;
-width: 1070px;
+.form_dimension {
+	background-size: 800px 1200px;
+	height: 1200px;
+	width: 800px;
 }
 
-#container_2{
-position: absolute;
-left: 0px;
-top: 1600px;
-/*background: url(<%= Rails.root.join('app','assets','images','doctor3.jpg').to_s %>) no-repeat center;*/
-/*background: url(<%= Rails.root.join('public', 'system','pdfs','pdf_forms','000', '000', '006', 'large', 'medical.jpg').to_s %>) no-repeat center;*/
-/*background: url(<%= Rails.root.join('assets','images','pdf_forms', '6', 'large', 'medical.jpg').to_s %>) no-repeat center;*/
-background: url(<%= asset_data_uri 'medical.jpg' %>);
-background-size: 1062px 1500px;
-height: 1400px;
-width: 1070px;
+#container {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	/*background: url(<%= Rails.root.join('app','assets','images','doctor3.jpg').to_s %>) no-repeat center;*/
+	/*background: url(<%= Rails.root.join('public', 'system','pdfs','pdf_forms','000', '000', '005', 'large', 'demo.jpg').to_s %>) no-repeat center;*/
+	background: url(<%= asset_data_uri 'demo.jpg' %>);
+}
+
+#container_2 {
+	position: absolute;
+	left: 0px;
+	top: 1150px;
+	background: url(<%= asset_data_uri 'medical.jpg' %>);
 }
 
 #container_3 {
-position: absolute;
-left: 0px;
-top: 3200px;
-/*background: url(<%= Rails.root.join('app','assets','images','doctor3.jpg').to_s %>) no-repeat center;*/
-/*background: url(<%= Rails.root.join('public', 'system','pdfs','pdf_forms','000', '000', '007', 'large', 'payment.jpg').to_s %>) no-repeat center;*/
-/*background: url(<%= Rails.root.join('assets','images','pdf_forms', '6', 'large', 'medical.jpg').to_s %>) no-repeat center;*/
-background: url(<%= asset_data_uri 'payment.jpg' %>);
-background-size: 1062px 1500px;
-height: 1400px;
-width: 1070px;
+	position: absolute;
+	left: 0px;
+	top: 2300px;
+	background: url(<%= asset_data_uri 'payment.jpg' %>);
 }
 
 #container_4 {
-position: absolute;
-left: 0px;
-top: 4800px;
-/*background: url(<%= Rails.root.join('app','assets','images','doctor3.jpg').to_s %>) no-repeat center;*/
-/*background: url(<%= Rails.root.join('public', 'system','pdfs','pdf_forms','000', '000', '008', 'large', 'communication.jpg').to_s %>) no-repeat center;*/
-/*background: url(<%= Rails.root.join('assets','images','pdf_forms', '6', 'large', 'medical.jpg').to_s %>) no-repeat center;*/
-background: url(<%= asset_data_uri 'communication.jpg' %>);
-background-size: 1062px 1500px;
-height: 1400px;
-width: 1070px;
+	position: absolute;
+	left: 0px;
+	top: 3500px;
+	background: url(<%= asset_data_uri 'communication.jpg' %>);
 }
 
-#container_5{
-position: absolute;
-left: 0px;
-top: 6400px;
-/*background: url(<%= Rails.root.join('app','assets','images','doctor3.jpg').to_s %>) no-repeat center;*/
-/*background: url(<%= Rails.root.join('public', 'system','pdfs','pdf_forms','000', '000', '009', 'large', 'privacy_1.jpg').to_s %>) no-repeat center;*/
-/*background: url(<%= Rails.root.join('assets','images','pdf_forms', '6', 'large', 'medical.jpg').to_s %>) no-repeat center;*/
-background: url(<%= asset_data_uri 'privacy_1.jpg' %>);
-background-size: 1062px 1500px;
-height: 1400px;
-width: 1070px;
+#container_5 {
+	position: absolute;
+	left: 0px;
+	top: 4700px;
+	background: url(<%= asset_data_uri 'privacy_1.jpg' %>);
 }
 
 #container_6 {
-position: absolute;
-left: 0px;
-top: 7900px;
-/*background: url(<%= Rails.root.join('app','assets','images','doctor3.jpg').to_s %>) no-repeat center;*/
-/*background: url(<%= Rails.root.join('public', 'system','pdfs','pdf_forms','000', '000', '010', 'large', 'privacy_2.jpg').to_s %>) no-repeat center;*/
-/*background: url(<%= Rails.root.join('assets','images','pdf_forms', '6', 'large', 'medical.jpg').to_s %>) no-repeat center;*/
-background: url(<%= asset_data_uri 'privacy_2.jpg' %>);
-background-size: 1062px 1500px;
-height: 1400px;
-width: 1070px;
+	position: absolute;
+	left: 0px;
+	top: 5800px;
+	background: url(<%= asset_data_uri 'privacy_2.jpg' %>);
 }
 
 p {
-padding: 0;
-margin: 0;
-font-size: 20px;
+	padding: 0;
+	margin: 0;
+	font-size: 20px;
 }
 
 body {
-font-family: Arial;
-font-size: 14.9px;
-background: #000;
+	font-family: Arial;
+	font-size: 14.9px;
+	background: #000;
 }
 
 .pos {
