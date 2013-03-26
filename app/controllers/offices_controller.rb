@@ -5,6 +5,7 @@ class OfficesController < ApplicationController
   before_filter :logged_in
   before_filter :get_user
   before_filter :admin_user_access, except: [:index, :show]
+  #before_filter :get_all_offices
 
   def index
     @offices = Office.all
@@ -30,6 +31,7 @@ class OfficesController < ApplicationController
     @office = Office.find_by_id(params[:office_id])
     @pdf = @office.pdfs
     @abrv = @office.abrv # => yields name of PDF form, _pdf.css.erb => name _pdf must match this name
+    @partial = "appointments/#{@abrv}"
     logger.debug "ABRV: #{@abrv}"
 
     # respond_to do |format|

@@ -96,7 +96,14 @@ $(function() {
 
 	// Auto-closes all the dialog boxes that are rendered ******** CAN BE DRYER!! ********
 
-	$(".view_form").dialog({
+	$(".mhc").dialog({
+		autoOpen: false,
+		show: "blind",
+		hide: "slide",
+		modal: true
+	});
+
+	$(".sawlani_demographics").dialog({
 		autoOpen: false,
 		show: "blind",
 		hide: "slide",

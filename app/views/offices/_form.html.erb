@@ -60,13 +60,13 @@
         </td>
       </tr>
       <tr>
-          <%= f.fields_for :pdf do |pdf| %>
-            <td><%= pdf.label :form_name, class: "sign" %>
-            <%= pdf.text_field :form_name %></td>
+          <!-- <%#= f.fields_for :pdf do |pdf| %>
+            <td><%#= pdf.label :form_name, class: "sign" %>
+            <%#= pdf.text_field :form_name %></td>
               <br /><br />
-            <td><%= pdf.file_field :pdf_form %></td>
-        <% end %>
-      </tr>
+            <td><%#= pdf.file_field :pdf_form %></td>
+        <%# end %>
+      </tr> -->
       <tr>
         <td class="actions">
           <%= f.submit "Submit Office!", class: "submit-button eligibility margin-top" %>

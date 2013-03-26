@@ -4,13 +4,12 @@ class Pdf < ActiveRecord::Base
 
   has_attached_file :pdf_form, styles: {
                                           small: "150x150>",
-                                          medium: "800x800>",
-                                          large: "1400X1400>"
-                                      }
+                                          large: "800X1200>"
+                                      },
   					# :default_url => lambda { |a| "#{a.instance.create_default_url}" }
   					# default_url: ActionController::Base.helpers.asset_path("/missing/:style.png"
-  					#url: "/app/assets/images/:attachment/:id/:style/:basename.:extension",
-            #path: ":rails_root:url"
+  					url: "/app/assets/images/:attachment/:id/:style/:basename.:extension",
+            path: ":rails_root:url"
   					
 
   # belongs_to :office, dependent: :destroy
