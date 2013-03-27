@@ -46,6 +46,7 @@ $(function() {
 	});
 
 	$('.office-form-download').on("click", function(){
+		console.log("im here");
 		$('input#tos_' + this.value)[0].checked = false;
 		$('.tos_agreement#' + this.value).fadeIn("slow");
 	});
