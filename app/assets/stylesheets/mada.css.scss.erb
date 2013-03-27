@@ -6,7 +6,8 @@ width: 1070px;
 position: relative;
 left: 0px;
 top: 0px;
-background: url(<%= asset_data_uri 'doctor1.jpg' %>);
+/*background: url(<%= asset_data_uri 'doctor1.jpg' %>); */
+background: url(<%= Rails.root.join('app','assets','images','doctor1.jpg').to_s %>) no-repeat center;
 background-size: 1062px 1500px;
 }
 

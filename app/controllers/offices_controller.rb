@@ -21,7 +21,7 @@ class OfficesController < ApplicationController
   def save_receipt
     @receipt = Receipt.new(params[:receipt])
     if @receipt.save
-      redirect_to office_pdf_path(:office_id => @receipt.office_id)
+      redirect_to office_pdf_path(:office_id => @receipt.office_id, :debug => true)
     else
       redirect_to offices_path, :error => "Please check the terms of service agreement button"
     end
@@ -33,7 +33,7 @@ class OfficesController < ApplicationController
     @abrv = @office.abrv # => yields name of PDF form, _pdf.css.erb => name _pdf must match this name
     partial = "/appointments/forms/_#{@abrv}"
     logger.debug "ABRV: #{@abrv}"
-
+    @format = "pdf"
     # respond_to do |format|
       # format.pdf do
           # @file = render_to_string :pdf => "#{@office.name}", #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
@@ -45,7 +45,6 @@ class OfficesController < ApplicationController
                  :show_as_html => params[:debug].present?
 
           # send_data(@file, :filename => @office.name,  :type=>"application/pdf") #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
-          @format = "pdf"
           # For debugging, use
           # http://localhost:3000/appointments/9.pdf?office=mada&debug=1
           # http://localhost:3000/office/download/5?debug=1

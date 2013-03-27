@@ -4,23 +4,23 @@
 
 	**************************************************** -->
 
-<%#= wicked_pdf_stylesheet_link_tag "mada" %>
-
-<% if @format == 'pdf' %>
+<%# if @format != 'pdf' %>
+  <%#= stylesheet_link_tag 'mada' %>
+<%# else %>
   <%= wicked_pdf_stylesheet_link_tag 'mada' %>
-<% else %>
-  <%= stylesheet_link_tag 'mada' %>
-<% end %>
+<%# end %>
 
-<%= @format %>
+<%#= @format %>
 
 <% user = current_user %>
 
 <div class="mada" title="">
 	<div id="container">
-		<% if @format != "pdf" %>
-			<%= render "appointments/pdf_form_buttons" %>
-		<% end %>
+		<%# if @format != "pdf" %>
+			<%#= render "appointments/pdf_form_buttons" %>
+		<%# end %>
+
+		<%#= image_tag "doctor1.jpg" %>
 
 
 		<div class="line-one first-name">
