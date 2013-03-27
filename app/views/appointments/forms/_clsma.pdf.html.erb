@@ -1,0 +1,218 @@
+<!-- *************************************************
+
+	HTML FOR PDF JQERY POPUP IN 'NEW APPOINTMENTS'
+
+	**************************************************** -->
+
+<%= wicked_pdf_stylesheet_link_tag "clsma" %>
+<% user = current_user %>
+
+<div class="clsma" title="">
+	<div id="container">
+		<div class="line-one first-name">
+			<p>
+				<%= user.form.personal.first_name %>
+			</p>
+		</div>
+		<div class="line-one last-name">
+			<p>
+				<%= user.form.personal.last_name %>
+			</p>
+		</div>
+		<div class="line-one age">
+			<p>
+				<%= user.form.personal.age %>
+			</p>
+		</div>
+		<div class="line-one dob">
+			<p>
+				<%= user.form.personal.date_of_birth %>
+			</p>
+		</div>
+		<div class="line-two user-address">
+			<p>
+				<%= user.form.personal.address %>
+			</p>
+		</div>
+		<div class="line-two user-email">
+			<p>
+				<%= user.form.personal.email_address %>
+			</p>
+		</div>
+		<div class="line-three city">
+			<p>
+				<%= user.form.personal.city %>
+			</p>
+		</div>
+		<div class="line-three state">
+			<p>
+				<%= user.form.personal.state %>
+			</p>
+		</div>
+		<div class="line-three zip">
+			<p>
+				<%= user.form.personal.zip_code %>
+			</p>
+		</div>
+		<div class="line-three phone">
+			<p>
+				<%= user.form.personal.home_phone %>
+			</p>
+		</div>
+		<div class="line-three social-security-number">
+			<p>
+				<%= user.form.personal.ss_number %>
+			</p>
+		</div>
+		<div class="line-four employer-name">
+			<p>
+				<%= user.form.personal.employer %>
+			</p>
+		</div>
+		<div class="line-four employer-address">
+			<p>
+				<%= user.form.personal.work_address %>
+			</p>
+		</div>
+		<div class="line-four employer-phone">
+			<p>
+				<%= user.form.personal.employer_phone %>
+			</p>
+		</div>
+		<div class="line-five employer-city">
+			<p>
+				<%= user.form.personal.employer_city %>
+			</p>
+		</div>
+		<div class="line-five employer-state">
+			<p>
+				<%= user.form.personal.employer_state %>
+			</p>
+		</div>
+		<div class="line-five employer-zip">
+			<p>
+				<%= user.form.personal.employer_zipcode %>
+			</p>
+		</div>
+		<div class="line-six referring-physician">
+			<p>
+				<%= user.form.personal.referred_by %>
+			</p>
+		</div>
+		<div class="line-ten insurance-company">
+			<p>
+				<%= user.form.insurances[0].company %>
+			</p>
+		</div>
+		<div class="line-ten insurer-address">
+			<p>
+				<%= user.form.insurances[0].address %>
+			</p>
+		</div>
+		<div class="line-eleven insurer-policy-holder">
+			<p>
+				<%= "#{user.form.insurances[0].subscribers_first_name} #{user.form.insurances[0].subscribers_last_name}" %>
+			</p>
+		</div>
+		<div class="line-eleven insurer-coverage">
+			<p>
+				<%= user.form.insurances[0].title %>
+			</p>
+		</div>
+		<div class="line-twelve insurance-policy-employer">
+			<p>
+				<%= user.form.insurances[0].subscribers_employer %>
+			</p>
+		</div>
+		<div class="line-twelve insured-soc-number">
+			<p>
+				<%= user.form.insurances[0].social_security %>
+			</p>
+		</div>
+		<div class="line-thirteen spouse-insurance-company">
+			<p>
+				<%#= user.form. %>
+			</p>
+		</div>
+		<div class="line-thirteen spouse-insurer-address">
+			<p>
+				<%#= user.form.spouse-insurer-address %>
+			</p>
+		</div>
+		<div class="line-fourteen spouse-insurer-policy-holder">
+			<p>
+				<%#= user.form.spouse-insurer-policy-holder %>
+			</p>
+		</div>
+		<div class="line-fourteen spouse-insurer-coverage">
+			<p>
+				<%#= user.form.spouse-insurer-policy-holder %>
+			</p>
+		</div>
+		<div class="line-fifteen spouse-employer-name">
+			<p>
+				<%#= user.form.spouse-employer-name %>
+			</p>
+		</div>
+		<div class="line-fifteen spouse-employer-address">
+			<p>
+				<%#= user.form.spouse-employer-address %>
+			</p>
+		</div>
+		<div class="line-fifteen spouse-employer-phone">
+			<p>
+				<%#= user.form.spouse-employer-phone %>
+			</p>
+		</div>
+		<div class="line-sixteen spouse-employer-city">
+			<p>
+				<%#= user.form.spouse-employer-city %>
+			</p>
+		</div>
+		<div class="line-sixteen spouse-employer-zip">
+			<p>
+				<%#= user.form.spouse-employer-zip %>
+			</p>
+		</div>
+		<div class="line-eighteen emergency-name">
+			<p>
+				<%= user.form.emergencies[0].name %>
+			</p>
+		</div>
+		<div class="line-eighteen emergency-address">
+			<p>
+				<%= user.form.emergencies[0].address %>
+			</p>
+		</div>
+		<div class="line-eighteen emergency-relationship">
+			<p>
+				<%= user.form.emergencies[0].relationship_to_patient %>
+			</p>
+		</div>
+		<div class="line-eighteen emergency-phone">
+			<p>
+				<%= user.form.emergencies[0].phone_number %>
+			</p>
+		</div>
+		<div class="line-nineteen emergency-name-2">
+			<p>
+				<%= user.form.emergencies[1].name %>
+			</p>
+		</div>
+		<div class="line-nineteen emergency-address-2">
+			<p>
+				<%= user.form.emergencies[1].address %>
+			</p>
+		</div>
+		<div class="line-nineteen emergency-relationship-2">
+			<p>
+				<%= user.form.emergencies[1].relationship_to_patient %>
+			</p>
+		</div>
+		<div class="line-nineteen emergency-phone-2">
+			<p>
+				<%= user.form.emergencies[1].phone_number %>
+			</p>
+		</div>
+	</div>
+</div>

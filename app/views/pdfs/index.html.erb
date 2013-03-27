@@ -1,10 +1,10 @@
 <h1><%= "#{@office.name}\'s Forms Page" %></h1>
 
 <div class="dashAppointments margin-top">
-	
+
 	<p>
 		<%= link_to "<< Back to #{@office.name} Office Page", office_path(@office) %> |
-		<%= link_to "All Offices", offices_path %>		
+		<%= link_to "All Offices", offices_path %>
 	</p>
 	<br />
 	<% @pdfs.each do |pdf| %>

@@ -31,23 +31,25 @@ class OfficesController < ApplicationController
     @office = Office.find_by_id(params[:office_id])
     @pdf = @office.pdfs
     @abrv = @office.abrv # => yields name of PDF form, _pdf.css.erb => name _pdf must match this name
-    @partial = "appointments/#{@abrv}"
+    partial = "/appointments/forms/_#{@abrv}"
     logger.debug "ABRV: #{@abrv}"
 
     # respond_to do |format|
-    #   format.pdf do
-          #@file = render_to_string :pdf => "#{@office.name}", #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
+      # format.pdf do
+          # @file = render_to_string :pdf => "#{@office.name}", #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
           render :pdf => "#{@office.name}", #Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
-                 :template => "/appointments/_office_form.pdf.html.erb",
+                 :template => "#{partial}.pdf.html.erb",
                  :layout => "pdf.html",
                  :page_size => "A4",
                  :encoding => "UTF-8",
                  :show_as_html => params[:debug].present?
 
-          #send_data(@file, :filename => @office.name,  :type=>"application/pdf") #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
-
+          # send_data(@file, :filename => @office.name,  :type=>"application/pdf") #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
+          @format = "pdf"
           # For debugging, use
           # http://localhost:3000/appointments/9.pdf?office=mada&debug=1
+          # http://localhost:3000/office/download/5?debug=1
+
 
       # end
     # end
