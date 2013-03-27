@@ -335,7 +335,7 @@ ul#static.inline-block{
 }
 
 .description {
-    height: 135px;
+    height: 215px;
     padding: 10px;
     margin: 10px 6px;
     background: white;
@@ -886,6 +886,12 @@ a.appt-title{
         -webkit-transform: scale(1.07);
         color: white;
         background: #006;
+}
+
+.beta_tag {
+    text-transform: uppercase;
+    /*color: -webkit-linear-gradient(top, #f90, #cc7a00);*/
+    color: #f90;
 }
 
 #header {

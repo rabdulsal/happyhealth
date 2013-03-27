@@ -8,7 +8,7 @@ HappyHealth::Application.routes.draw do
 
   #get '/users/sign_up' => 'static_pages#home'
 
-  root to: 'static_pages#home'
+  root to: "static_pages#home"
 
   get "/help" => 'static_pages#help'
   get "/about" => 'static_pages#about'

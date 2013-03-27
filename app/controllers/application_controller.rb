@@ -80,8 +80,14 @@ class ApplicationController < ActionController::Base
     logger.debug "URI: #{uri}"
     response = open(uri).read
     @eligibility = JSON.parse(response)
-    logger.debug "Eligibility: #{@eligibility}"
-
-    
+    logger.debug "Eligibility: #{@eligibility}"    
   end
+
+  private
+
+  # Overwrite the sign_out redirect path method
+  def after_sign_out_path_for(scope)
+    "http://www.happyhealth.me"        
+  end
+
 end
