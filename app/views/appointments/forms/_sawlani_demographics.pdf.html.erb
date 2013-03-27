@@ -4,7 +4,13 @@
 
 	**************************************************** -->
 
-<%= wicked_pdf_stylesheet_link_tag "sawlani_demographics" %>
+<% if @format != 'pdf' %>
+  <%= stylesheet_link_tag 'sawlani_demographics' %>
+<% else %>
+  <%= wicked_pdf_stylesheet_link_tag 'sawlani_demographics' %>
+<% end %>
+
+
 <% user = current_user %>
 
 <div class="sawlani_demographics" title="">

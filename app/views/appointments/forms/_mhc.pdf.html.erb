@@ -4,7 +4,12 @@
 
 	**************************************************** -->
 
-<%= wicked_pdf_stylesheet_link_tag "mhc" %>
+<% if @format != 'pdf' %>
+  <%= stylesheet_link_tag 'mhc' %>
+<% else %>
+  <%= wicked_pdf_stylesheet_link_tag 'mhc' %>
+<% end %>
+
 <% user = current_user %>
 
 <div class="mhc" title="">
