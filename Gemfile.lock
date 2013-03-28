@@ -106,6 +106,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.5.0)
+    nested_form (0.3.1)
     nokogiri (1.5.6)
     nokogiri (1.5.6-x86-mingw32)
     orm_adapter (0.4.0)
@@ -200,6 +201,7 @@ DEPENDENCIES
   gs
   jquery-rails
   kaminari (= 0.13.0)
+  nested_form
   nokogiri
   paperclip!
   pg

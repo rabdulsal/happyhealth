@@ -1,5 +1,5 @@
 class Office < ActiveRecord::Base
-  attr_accessible :name, 
+  attr_accessible :name,
                   :doctors_attributes,
                   :address,
                   :city,
@@ -7,22 +7,23 @@ class Office < ActiveRecord::Base
                   :zipcode,
                   :phone,
                   :fax,
-                  :email
-  
+                  :email,
+                  :pdfs_attributes,
+                  :abrv
+
+  validates :name, :address, :city, :state, :presence => true
+
   has_many :doctors
   accepts_nested_attributes_for :doctors
-  
-  has_one :pdf
 
-  delegate :form_name, to: :pdf, allow_nil: true
-  
+  has_many :pdfs, dependent: :destroy
+  accepts_nested_attributes_for :pdfs
+
+  has_many :users, through: :appointments
+
+
   def sorted_doctors
     self.doctors.sort {|a,b| a.title <=> b.title}
   end
 
-  def abrv
-    office_abrv = self.name.split("").ary
-    #remove last 2 elements of the Array
-    office_abrv[0]
-  end
 end

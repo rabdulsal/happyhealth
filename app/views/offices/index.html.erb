@@ -1,6 +1,7 @@
-<h1>HappyHealth's Affiliate Offices</h1>
-<div id="accordion">
-    <% @offices.each do |office| %>        
+<h1>List of Doctor's Offices</h1>
+
+  <div id="accordion">
+      <% @offices.each_with_index do |office, index| %>
         <h3>
             <a href="#"><%= office.name %></a>
         </h3>
@@ -32,15 +33,40 @@
           <p>
              <i><%= link_to 'Go to Office Details >>', office %></i>
           </p>
-          
+          <ul class="inline-block">
+            <li>
+              <button value=<%= office.id %> id="appt" class="createButton inline">View Office Form</button>
+            </li>
+            <li>
+                <button value=<%=office.id%> class="pdfButton office-form-download">Download PDF</button>
+            </li>
+          </ul>
+          <br /><br /><br />
+           <div class="tos_agreement" id=<%=office.id%>>
+                <%= form_for(@receipt, :url => :receipt) do |f| %>
+                  <!-- <p id="TOS" title"Terms of Service and Privacy Policy Agreement" class="legal">By checking the button below, you agree to abide by our Terms of Service and Privacy Policy.</p> -->
+                  <%= f.check_box :tos_priv, :id => "tos_#{office.id}" %>
+                  <p>By checking the box and clicking "I Agree", you agree to abide by our <a href="http://www.happyhealth.me/terms.html" title="Go to Terms of Service Agreement" target="_blank" class="agreement_links">Terms of Service</a> and you consent to our <a href="http://www.happyhealth.me/privacy.html" title="Go to Privacy Policy" target="_blank" class="agreement_links">Privacy Policy</a>.</p>
+                  <%= f.hidden_field :office_id, :value => office.id %>
+                  <%= f.hidden_field :user_id, :value => current_user.id %>
+                  <%= f.submit 'I Agree', :class => "submit_tos submit-button", :id => office.id %>
+                <% end %>
+           </div>
         </div>
-         
-    <% end %>
-</div>
-<br />  
+      <% end %>
+  </div>
+<br />
 
 <% if current_user.is_admin != true %>
 
 <% else %>
   <%= link_to 'Add a New Office', new_office_path %>
-<% end %> 
+<% end %>
+
+<%= render 'appointments/forms/mada.pdf.html.erb' %>
+
+<%= render 'appointments/forms/clsma.pdf.html.erb' %>
+
+<%= render 'appointments/forms/mhc.pdf.html.erb' %>
+
+<%= render 'appointments/forms/sawlani_demographics.pdf.html.erb' %>

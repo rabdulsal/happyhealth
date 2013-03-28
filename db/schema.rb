@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309004411) do
+ActiveRecord::Schema.define(:version => 20130324162727) do
 
   create_table "allergies", :force => true do |t|
     t.string   "info"
@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(:version => 20130309004411) do
     t.date     "appt_date"
     t.string   "doctor_phone"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "office_id"
     t.integer  "doctor_id"
+    t.boolean  "tos_priv",     :default => false
   end
 
   create_table "doctors", :force => true do |t|
@@ -138,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20130309004411) do
     t.string   "fax"
     t.string   "email"
     t.integer  "npi"
+    t.string   "abrv"
   end
 
   create_table "old_passwords", :force => true do |t|
@@ -201,6 +203,14 @@ ActiveRecord::Schema.define(:version => 20130309004411) do
     t.string   "relationship_to_responsible_party"
     t.string   "referred_by"
     t.integer  "form_id"
+  end
+
+  create_table "receipts", :force => true do |t|
+    t.boolean  "tos_priv"
+    t.integer  "office_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "responsibles", :force => true do |t|

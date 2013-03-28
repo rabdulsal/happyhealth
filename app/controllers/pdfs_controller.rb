@@ -1,5 +1,5 @@
 class PdfsController < ApplicationController
-  
+
   before_filter :get_office
   before_filter :logged_in
   before_filter :get_user
@@ -14,7 +14,7 @@ class PdfsController < ApplicationController
   end
 
   def new
-   @pdf = Pdf.new    
+   @pdf = Pdf.new
   end
 
   def edit
@@ -25,9 +25,9 @@ class PdfsController < ApplicationController
   	@pdf = Pdf.new(params[:pdf])
 
   	if @pdf.save
-  		redirect_to office_path(@office), notice: 'New Office Added!'
+  		redirect_to office_path(@office), notice: 'New office form added!'
   	else
-  		render action: 'new', notice: 'Sorry, an error occurred. Please try again.'  		
+  		render action: 'new', notice: 'Sorry, an error occurred. Please try again.'
   	end
   end
 
@@ -35,9 +35,9 @@ class PdfsController < ApplicationController
   	@pdf = Pdf.find_by_id params[:id]
 
   	if @pdf.update_attributes params[:pdf]
-  		redirect_to office_path(@office), notice: 'New Office Added!'
+  		redirect_to office_path(@office), notice: 'Office form edited!'
   	else
-  		render action: 'new', notice: 'Sorry, an error occurred. Please try again.'  		
+  		render action: 'new', notice: 'Sorry, an error occurred. Please try again.'
   	end
   end
 
@@ -45,7 +45,7 @@ class PdfsController < ApplicationController
   	@pdf = Pdf.find params[:id]
   end
 
-  def destroy  	
+  def destroy
   	@pdf = Pdf.find_by_id params[:id]
   	@pdf.destroy
   	redirect_to office_path@office, notice: "Office form deleted"

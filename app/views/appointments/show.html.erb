@@ -4,7 +4,7 @@
 <h1>Appointment Details</h1>
 
 <ul class="appointment">
-	<li><%= link_to '<< Back to Calendar', user_appointments_path(current_user.id), :class => "backButton" %>		
+	<li><%= link_to '<< Back to Calendar', user_appointments_path(current_user.id), :class => "backButton" %>
 	</li>
 	<li>
 		<%= link_to 'Edit Appointment', edit_user_appointment_path(current_user.id, @appointment.id), :class => 'createButton' %>
@@ -13,54 +13,54 @@
 		<%= link_to "Remove Appointment", user_appointment_path(current_user.id, @appointment.id), :method => 'delete', :class => 'removeButton'%>
 	</li>
 	<!-- Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF -->
-	<li> 
-		<%= link_to "Download PDF", pdf_path(@appointment.id, :office => @appointment.office.pdf.form_name, :format => "pdf"), :class => "pdfButton" %>
+	<li>
+		<%= link_to "Download PDF", pdf_path(@appointment.id, :office => @appointment.office.abrv, :format => "pdf"), :class => "pdfButton" %>
 	</li>
 
-	<!-- Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window 		
+	<!-- Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
 	<li>
 		<%#= link_to "View PDF", pdf_path(@appointment.id, :office => @appointment.office.pdf.form_name, :format => "pdf"), :class => "pdfButton", target: "_blank" %> -->
-	</li>	
+	</li>
 </ul>
 
 <div class="widget">
 <!-- <%= image_tag('dualnote.jpg').html_safe %>-->
 	<h1>Office Details</h1>
-		<dl class="dashAppointments">		
-			<dt>Office</dt>		
+		<dl class="dashAppointments">
+			<dt>Office</dt>
 			<dd>
 				<%= Office.find_by_id(@appointment.office_id).name %>
 			</dd>
-			<dt>Doctor</dt>		
+			<dt>Doctor</dt>
 			<dd><%= @appointment.doctor.title %></dd>
-			<dt>Appointment Date</dt>  		
+			<dt>Appointment Date</dt>
 			<dd>
 				<%= @appointment.appt_date.strftime("%B %d, %Y") %>
-			</dd>		
+			</dd>
 		</dl>
 		<p>
-			<% if current_user.is_admin == true %>				
-				<%= link_to "New Insurance Query", new_insurance_query_url(controller: 'insurance_queries') %>				
+			<% if current_user.is_admin == true %>
+				<%= link_to "New Insurance Query", new_insurance_query_url(controller: 'insurance_queries') %>
 			<% else %>
 
 			<% end %>
 		</p>
 </div>
 <div class="widget">
-	<h1>Contact Information</h1>	
+	<h1>Contact Information</h1>
 	<dl class="dashAppointments">
-		<dt>Address</dt>		
+		<dt>Address</dt>
 		<dd><%= @appointment.office.address%></dd>
 		<dd>
 			<%= "#{@appointment.office.city}, #{@appointment.office.state} #{@appointment.office.zipcode}"%>
 		</dd>
-		<dt>Phone Number</dt>		
+		<dt>Phone Number</dt>
 		<dd><%= @appointment.office.phone %></dd>
-		<dt>Fax Number</dt>	
+		<dt>Fax Number</dt>
 		<dd><%= @appointment.office.fax %></dd>
 		<% if @appointment.office.email %>
-			<dt>Email</dt>		
+			<dt>Email</dt>
 			<dd><%= @appointment.office.email %></dd>
-		<% end %>		
+		<% end %>
 	</dl>
 </div>

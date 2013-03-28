@@ -1,0 +1,169 @@
+<!-- *******************************************
+
+	HTML FOR PDF DOWNLOAD FILE => _FormName.html.erb
+
+	******************************************** -->
+
+<%= wicked_pdf_stylesheet_link_tag "#{@abrv}" %>
+<% user = current_user %>
+
+<!-- *************************************************
+
+	HTML FOR PDF JQERY POPUP IN 'NEW APPOINTMENTS' - CLASS NAME AND STYLESHEET LINK TAG NAMES MUST MATCH FORM NAME!!
+
+	**************************************************** -->
+
+<div class="view_form" title="">
+
+	<div class="form_dimension" id="container">
+		<%#= render 'appointments/forms/html/pdf_form_buttons' %>
+
+		<div class="pos line-one last-name row-one">
+			<p>
+				<%= user.form.personal.last_name %>
+			</p>
+		</div>
+		<div class="pos line-one first-name">
+			<p>
+				<%= user.form.personal.first_name %>
+			</p>
+		</div>
+		<div class="pos line-one middle-init">
+			<p>
+				<%= user.form.personal.middle_initial %>
+			</p>
+		</div>
+		<div class="pos line-two row-one">
+			<p>
+				<%= user.form.personal.date_of_birth %>
+			</p>
+		</div>
+		<div class="pos line-two gender">
+			<p>
+				<%= user.form.personal.gender %>
+			</p>
+		</div>
+		<div class="pos line-three user-address row-one">
+			<p>
+				<%= user.form.personal.address %>
+			</p>
+		</div>
+		<div class="pos line-two user-email">
+			<p>
+				<%= user.form.personal.email_address %>
+			</p>
+		</div>
+		<div class="pos line-four row-one">
+			<p>
+				<%= user.form.personal.city %>
+			</p>
+		</div>
+		<div class="pos line-four state">
+			<p>
+				<%= user.form.personal.state %>
+			</p>
+		</div>
+		<div class="pos line-four zip">
+			<p>
+				<%= user.form.personal.zip_code %>
+			</p>
+		</div>
+		<div class="pos line-three phone">
+			<p>
+				<%= user.form.personal.home_phone %>
+			</p>
+		</div>
+		<div class="pos line-twelve employer-name">
+			<p>
+				<%= user.form.personal.employer %>
+			</p>
+		</div>
+		<div class="pos line-twelve employer-address">
+			<p>
+				<%= user.form.personal.work_address %>
+			</p>
+		</div>
+		<div class="pos line-four employer-phone">
+			<p>
+				<%= user.form.personal.employer_phone %>
+			</p>
+		</div>
+		<div class="pos line-twelve employer-city">
+			<p>
+				<%= user.form.personal.employer_city %>
+			</p>
+		</div>
+		<div class="pos line-twelve employer-state">
+			<p>
+				<%= user.form.personal.employer_state %>
+			</p>
+		</div>
+		<div class="pos line-twelve employer-zip">
+			<p>
+				<%= user.form.personal.employer_zipcode %>
+			</p>
+		</div>
+		<div class="pos line-ten insurance-company">
+			<p>
+				<%= user.form.insurances[0].company %>
+			</p>
+		</div>
+		<div class="pos line-ten row-one">
+			<p>
+				<%= user.form.insurances[0].subscribers_first_name %>
+				<%= user.form.insurances[0].subscribers_last_name %>
+			</p>
+		</div>
+		<div class="pos line-eleven row-one">
+			<p>
+				<%= user.form.insurances[0].policy_number %>
+			</p>
+		</div>
+		<div class="pos line-eleven insurance-group-number">
+			<p>
+				<%= user.form.insurances[0].group_number %>
+			</p>
+		</div>
+		<div class="pos line-fourteen row-one">
+			<p>
+				<%= user.form.emergencies[1].name %>
+			</p>
+		</div>
+		<div class="pos line-fourteen emergency-relationship">
+			<p>
+				<%= user.form.emergencies[1].relationship_to_patient %>
+			</p>
+		</div>
+		<div class="pos line-fourteen emergency-phone">
+			<p>
+				<%= user.form.emergencies[1].phone_number %>
+			</p>
+		</div>
+	</div>
+
+	<%# (Office.all.map {|o| o.pdfs.count }.max - 1).times do |num| %>
+		<!--<div id="container_<%#=num+1%>">
+		</div>-->
+	<%# end %>
+
+	<div class="form_dimension" id="container_2">
+
+	</div>
+
+	<!-- <div class="form_dimension" id="container_3">
+
+	</div>
+
+	<div class="form_dimension" id="container_4">
+
+	</div>
+
+	<div class="form_dimension" id="container_5">
+
+	</div>
+
+	<div class="form_dimension" id="container_6">
+
+	</div> -->
+
+</div>
