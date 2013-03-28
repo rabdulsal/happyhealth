@@ -85,8 +85,17 @@ class ApplicationController < ActionController::Base
 
   private
 
+  #Overwrite successful sign_in redirect to User's Health Form
+  def after_sign_in_path_for(resource)
+    if current_user.form
+      user_form_path(current_user.id, current_user.form.id)
+    else
+      current_user_path
+    end
+  end
+
   # Overwrite the sign_out redirect path method
-  def after_sign_out_path_for(scope)
+  def after_sign_out_path_for(resource)
     "http://www.happyhealth.me"        
   end
 

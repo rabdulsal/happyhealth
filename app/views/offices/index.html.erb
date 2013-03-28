@@ -1,4 +1,4 @@
-<h1>HappyHealth's Affiliate Offices</h1>
+<h1>List of Doctor's Offices</h1>
 
   <div id="accordion">
       <% @offices.each_with_index do |office, index| %>
@@ -46,10 +46,10 @@
                 <%= form_for(@receipt, :url => :receipt) do |f| %>
                   <!-- <p id="TOS" title"Terms of Service and Privacy Policy Agreement" class="legal">By checking the button below, you agree to abide by our Terms of Service and Privacy Policy.</p> -->
                   <%= f.check_box :tos_priv, :id => "tos_#{office.id}" %>
-                  <p>By checking the box and clicking agree, you agree to abide by our Terms of Service and Privacy Policy</p>
+                  <p>By checking the box and clicking "I Agree", you agree to abide by our <a href="http://www.happyhealth.me/terms.html" title="Go to Terms of Service Agreement" target="_blank" class="agreement_links">Terms of Service</a> and you consent to our <a href="http://www.happyhealth.me/privacy.html" title="Go to Privacy Policy" target="_blank" class="agreement_links">Privacy Policy</a>.</p>
                   <%= f.hidden_field :office_id, :value => office.id %>
                   <%= f.hidden_field :user_id, :value => current_user.id %>
-                  <%= f.submit 'I Agree', :class => "submit_tos", :id => office.id %>
+                  <%= f.submit 'I Agree', :class => "submit_tos submit-button", :id => office.id %>
                 <% end %>
            </div>
         </div>

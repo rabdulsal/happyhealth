@@ -1,13 +1,31 @@
 .mada{
 
+.form_dimension {
+	background-size: 800px 1200px;
+	height: 1200px;
+	width: 800px;
+}
+
 #container {
-height: 1400px;
-width: 1070px;
 position: relative;
 left: 0px;
 top: 0px;
-background: url(<%= asset_data_uri 'doctor1.jpg' %>);
-background-size: 1062px 1500px;
+/*background-image: url(<%= asset_data_uri 'mada_registration.jpg' %>);*/
+background-image: url(<%= asset_data_uri 'mada_registration.jpg' %>);
+}
+
+#container_2 {
+position: absolute;
+left: 0px;
+top: 1160px;
+background-image: url(<%= asset_data_uri 'mada_history1.jpg' %>);
+}
+
+#container_3 {
+position: absolute;
+left: 0px;
+top: 2300px;
+background-image: url(<%= asset_data_uri 'mada_history2.jpg' %>);
 }
 
 p {
@@ -36,6 +54,7 @@ border: 1px solid #000;
 /* ----------- LINE ONE -----------*/
 
 .first-name {
+	position: absolute;
 	top: 362px;
 	left: 140px;
 }
