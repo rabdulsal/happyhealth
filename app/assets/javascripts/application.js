@@ -81,16 +81,21 @@ $(function() {
 	});
 
 	$('.office-form-download').on("click", function(){
-		$('div.accordion_' + this.value)[0].style.height = "258px";
-		$('input#tos_' + this.value)[0].checked = false;
-		$('.tos_agreement#' + this.value).fadeIn("slow");
+		console.log(this.id);
+		id = this.id.split("_")[1]
+		$('div.accordion_' + id)[0].style.height = "258px";
+		$('input#tos_' + id)[0].checked = false;
+		$('.tos_agreement#office_' + id).fadeIn("slow");
 	});
 
 	$('input.submit_tos').on("click", function(){
-		if($('input#tos_' + this.id)[0].checked){
-			$('div#' + this.id + '.tos_agreement').hide();
+		id = this.id;
+		if($('input#tos_' + id)[0].checked){
+			$('div#office_' + id).hide();
+			$('button#office_' + id)[0].innerHTML = "Downloading...";
 		}
 		$('div.accordion_' + this.id)[0].style.height = "199px";
+
 	});
 
 	// Auto-closes all the dialog boxes that are rendered ******** CAN BE DRYER!! ********

@@ -33,16 +33,17 @@
           <p>
              <i><%= link_to 'Go to Office Details >>', office %></i>
           </p>
-          <ul class="inline-block">
+          <ul class="inline-block" id="office_<%=office.id%>">
             <li>
               <button value=<%= office.id %> id="appt" class="createButton inline">View Office Form</button>
             </li>
             <li>
-                <button value=<%=office.id%> class="pdfButton office-form-download">Download PDF</button>
+                <button id="office_<%=office.id%>" class="pdfButton office-form-download">Download PDF</button>
             </li>
           </ul>
           <br /><br /><br />
-           <div class="tos_agreement" id=<%=office.id%>>
+           <div class="tos_agreement" id="office_<%=office.id%>">
+
                 <%= form_for(@receipt, :url => :receipt) do |f| %>
                   <!-- <p id="TOS" title"Terms of Service and Privacy Policy Agreement" class="legal">By checking the button below, you agree to abide by our Terms of Service and Privacy Policy.</p> -->
                   <%= f.check_box :tos_priv, :id => "tos_#{office.id}" %>
