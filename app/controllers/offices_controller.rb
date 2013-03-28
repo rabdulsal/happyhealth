@@ -37,7 +37,7 @@ class OfficesController < ApplicationController
     # respond_to do |format|
       # format.pdf do
           @file = render_to_string :pdf => "#{@office.name}", #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
-          # render :pdf => "#{@office.name}", #Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
+          #render :pdf => "#{@office.name}", #Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
                  :template => "#{partial}.pdf.html.erb",
                  :layout => "pdf.html",
                  :page_size => "A4",

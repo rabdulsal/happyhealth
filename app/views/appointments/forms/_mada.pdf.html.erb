@@ -13,7 +13,7 @@
 <% user = current_user %>
 
 <div class="mada" title="">
-	<div id="container">
+	<div id="container" class="form_dimension">
 
 		<% if @format != "pdf" %>
 			<%= render "appointments/pdf_form_buttons" %>
@@ -223,6 +223,14 @@
 			<p>
 				<%= user.form.emergencies[1].phone_number %>
 			</p>
+		</div>
+
+		<div id="container_2" class="form_dimension">
+
+		</div>
+
+		<div id="container_3" class="form_dimension">
+
 		</div>
 	</div>
 </div>

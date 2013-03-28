@@ -14,7 +14,12 @@
 <% user = current_user %>
 
 <div class="sawlani_demographics" title="">
-	<div id="container">
+	<div id="container" class="form_dimension">
+
+		<% if @format != "pdf" %>
+			<%= render "appointments/pdf_form_buttons" %>
+		<% end %>
+		
 		<div class="line-one first-name">
 			<p>
 				<%= user.form.personal.first_name %>
@@ -222,23 +227,23 @@
 		</div>
 	</div>
 
-	<div id="container_2">
+	<div id="container_2" class="form_dimension">
 
 	</div>
 
-	<div id="container_3">
+	<div id="container_3" class="form_dimension">
 
 	</div>
 
-	<div id="container_4">
+	<div id="container_4" class="form_dimension">
 
 	</div>
 
-	<div id="container_5">
+	<div id="container_5" class="form_dimension">
 
 	</div>
 
-	<div id="container_6">
+	<div id="container_6" class="form_dimension">
 
 	</div>
 

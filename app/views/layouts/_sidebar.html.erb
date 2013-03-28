@@ -1,22 +1,22 @@
 <aside>
 	<ul id="nav-tab">
         <% if current_user.form %>
-			<li class="fluid-hide"><%= link_to "Display form", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %></li>
+			<li class="fluid-hide"><%= link_to "Display Health Form", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %></li>
 		<% else %>
 			<li class="fluid-hide"><%= link_to "Fill out form", new_user_form_path(current_user.id), :class => "new_form" %></li>
 		<% end %>
 		<li class="fluid-hide">
-			<%= link_to "New Appointment", new_user_appointment_path(current_user.id)%>
-		</li>
-      	<li class="fluid-hide">
-      		<%= link_to "Scheduled Appointments", user_appointments_path(current_user.id) %>
-      	</li>
-        <li class="fluid-hide">
         	<%= link_to "Doctor's Offices", offices_path %>
-        </li>
+        </li>       
 
 <!-- ******** COMMENT OUT FOR BETA *************
-
+		
+		<li class="fluid-hide">
+			<%#= link_to "New Appointment", new_user_appointment_path(current_user.id)%>
+		</li>
+      	<li class="fluid-hide">
+      		<%#= link_to "Scheduled Appointments", user_appointments_path(current_user.id) %>
+      	</li>
 		<li>
 			<%#= link_to "View Notes", user_notes_path(current_user.id) %>
 		</li>

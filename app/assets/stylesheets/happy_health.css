@@ -372,6 +372,10 @@ ul#static.inline-block{
     margin: 39px 0 20px 50px;
 }
 
+.signup_text {
+    font-size: 12px;
+}
+
 .pdf-upload {
     float: none;
     margin: 20px auto 0;
@@ -451,6 +455,7 @@ p.signup-title {
     color: #555;
     background: -webkit-linear-gradient(top, #fff, #ececec);
     text-shadow: 0 1px 3px white;
+    font-size: 12px;
 }
 
 .navi {
@@ -468,9 +473,9 @@ p.signup-title {
     width: 250px;
 }
 
-.submit-button {
+/*.submit-button {
     font-size: 14px;
-}
+}*/
 
 .short {
     width: 100px;
@@ -892,6 +897,10 @@ a.appt-title{
     text-transform: uppercase;
     /*color: -webkit-linear-gradient(top, #f90, #cc7a00);*/
     color: #f90;
+}
+
+.agreement_links {
+    color: #f90 !important;
 }
 
 #header {
