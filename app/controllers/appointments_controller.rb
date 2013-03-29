@@ -2,8 +2,8 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
 
-  before_filter :correct_user
-
+  before_filter :correct_user 
+  
   def doctors
     @offices = Office.all
   end

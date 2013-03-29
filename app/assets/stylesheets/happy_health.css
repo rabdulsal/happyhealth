@@ -109,6 +109,7 @@ xmp {
   border-radius: 10px;
   padding-bottom: 10px;
   height: 100%;
+  position: relative;
 }
 
 ol,
@@ -242,6 +243,10 @@ ul#static.inline-block{
     padding-bottom: 10px;
 }
 
+.block {
+    display: block;
+}
+
 .inline-block li {
     display: inline-block;
 }
@@ -250,7 +255,9 @@ ul#static.inline-block{
     display: inline;
 }
 
-
+.clear {
+    clear: both;
+}
 
 /* ------------------------ SPLASH PAGE ------------------------------ */
 
@@ -464,9 +471,13 @@ p.signup-title {
 }
 
 .action-button {
-    /*background: -webkit-linear-gradient(top, #00f, #009);*/
+    width: 50%;
     background: -webkit-linear-gradient(top, #f90, #cc7a00);
     font-size: 15px;
+}
+
+.action-button a {
+    text-decoration: none;
 }
 
 .eligibility {
@@ -602,17 +613,34 @@ div.form_buttons{
     clear: both;
 }
 
-ul.form{
-    position: relative;
-    top:  200px;
-    left: -635px;
-    width: 250px;
-    float:right;
-    margin-bottom: -200px;
+ul.form {
+    position: absolute;
+    /*top:  200px;
+    left: -635px;*/
+    top: 100px;
+    left: 55px;
+    width: 250px;    
 }
 
-ul.form li{
+ul.form li {
     float: right;
+}
+
+.new_office_request {
+    position: absolute;
+    top: 100px;
+    left: 25px;
+    width: 270px;    
+    color: grey;
+    margin-right: 10px;    
+}
+
+.new_office_request li:last-child {
+    margin-left: 55px;       
+}
+
+.office_request_text {
+    text-align: center;
 }
 
 ul.appointment{
@@ -1135,10 +1163,6 @@ aside .form-save {
 
 .dashboard select {
         width: 120px;
-}
-
-#TOS  {
-    font-style: italic;
 }
 
 .formsBackground dd {

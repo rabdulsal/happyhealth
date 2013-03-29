@@ -1,7 +1,7 @@
 .mhc{
 
 .form_dimension {
-	background-size: 800px 1200px;
+	background-size: 800px 100%;
 	height: 1200px;
 	width: 800px;
 }
@@ -27,89 +27,99 @@ top: 2300px;
 background-image: url(<%= asset_data_uri 'mhc_financial.jpg' %>);
 }
 
-p {
-padding: 0;
-margin: 0;
-font-size: 20px;
-}
-
 body {
 font-family: Arial;
 font-size: 14.9px;
 background: #000;
 }
 
-.pos {
+.line-one {
 	position: absolute;
+	top: 190px;
 }
 
 .last-name{
-	top: 190px;
-	left: 130px;
+	position: absolute;
+	left: 105px;
 }
 
 .first-name {
-	top: 190px;
-	left: 500px;
+	position: absolute;
+	left: 350px;
 }
 
 .middle-init {
+	position: absolute;
 	top: 425px;
 	left: 660px;
 }
 
 /* ------------- LINE TWO -------------- */
 
-.user-address {
-	top: 330px;
+.dob {
+	position: absolute;
+	top: 260px;
 	left: 130px;
 }
 
 /* -------------- LINE THREE  ----------- */
 
-.city {
-	top: 370px;
+.line-three {
+	position: absolute;
+	top: 300px;
+}
+
+.user-address {
+	position: absolute;
 	left: 130px;
 }
 
-.state {
-	top: 370px;
-	left: 660px;
+.phone {
+	position: absolute;
+	right: 100px;
 }
 
-.zip{
-	top: 370px;
-	right: 150px;
-}
-
-.phone{
-	top: 475px;
-	left: 560px;
-}
-
-.cell-phone{
-	top: 475px;
-	left: 765px;
+.cell-phone {
+	position: absolute;
+	right: 110px;
 }
 
 /* ------------ LINE FOUR ------------- */
 
-.dob {
-	top: 260px;
+.line-four {
+	position: absolute;
+	top: 340px;
+}
+
+.city {
+	position: absolute;
 	left: 130px;
 }
 
+.state {
+	position: absolute;
+	right: 250px;
+}
+
+.zip{
+	position: absolute;
+	right: 120px;
+}
+
 .sex{
+	position: absolute;
 	top: 260px;
 	right: 150px;
 }
 
 .marital-status{
+	position: absolute;
 	top: 500px;
 	left: 585px;
 }
 
 .user-email{
+	position: absolute;
 	top: 500px;
 	left: 665px;
 }
@@ -117,119 +127,177 @@ background: #000;
 /* ------------- LINE FIVE ------------ */
 
 .ethnicity{
+	position: absolute;
 	top: 525px;
 	left: 414px;
 }
 
 .race{
+	position: absolute;
 	top: 525px;
 	left: 595px;
 }
 
 /* -------------- LINE SIX ------------ */
 
-
+.line-six {
+	position: absolute;
+	top: 700px;
+}
 
 /* -------------- LINE SEVEN ------------ */
 
 .employer-name{
-	top: 663px;
+	position: absolute;
 	left: 295px;
+}
+
+.occupation {
+	position: absolute;
+	left: 105px;
 }
 
 /* ------------- LINE EIGHT ------------- */
 
 .employer-address{
+	position: absolute;
 	top: 685px;
 	left: 300px;
 }
 
 /* ------------- LINE NINE ------------- */
 
-.employer-city{
-	top: 713px;
-	left: 195px;
+.line-seven {
+	position: absolute;
+	top: 655px;
 }
 
-.employer-state{
-	top: 714px;
-	left: 350px;
+.policy_number {
+	position: absolute;
+	left: 105px;
 }
 
 .employer-zip{
-	top: 714px;
-	left: 450px;
+	position: absolute;
+	left: 400px;
 }
 
 .work-phone{
+	position: absolute;
 	top: 714px;
 	left: 580px;
 }
 
 /* ------------- LINE TEN ------------- */
 
-.ss-number{
-	top: 738px;
-	left: 270px;
+.line-ten {
+	position: absolute;
+	top: 540px;
+}
+
+.insurance-company {
+	position: absolute;
+	left: 220px;
 }
 
 /* -------------- LINE ELEVEN -------- */
 
+.line-five {
+	top: 585px;
+}
+.insurer-policy-holder {
+	position: absolute;
+	left: 105px;
+}
+
+.subscriber_birthday {
+	position: absolute;
+	left: 295px;
+}
+
 /* -------------- LINE TWELVE --------- */
 
-#one.emergency-name{
-	top: 808px;
-	left: 350px;
-}
 
-#one.emergency-phone{
-	top: 808px;
-	left: 650px;
-}
-
-#one.emergency-relationship{
-	top: 808px;
-	left: 860px;
-}
 
 /* ------------- LINE THIRTEEN --------- */
 
-/* ------------- LINE EIGHTEEN ---------- */
-
-
-#one.insurance-company{
-	top: 1065px;
-	left: 335px;
+.line-seventeen {
+	position: absolute;
+	bottom: 405px;		
 }
 
+.insurance_relationship {
+	position: absolute;
+	left: 220px;
+}
+/* ------------- LINE EIGHTEEN ---------- */
+
+.line-eighteen {
+	position: absolute;
+	bottom: 317px;
+}
+
+.emergency-name {
+	position: absolute;
+	left: 105px;
+}
+
+.emergency-phone {
+	position: absolute;
+	right: 150px;
+}
+
+.emergency-relationship {
+	position: absolute;
+	left: 350px;
+}
 
 /* -------------- LINE NINETEEN ---------- */
 
-#one.policy-holder-last-name{
-	top: 1091px;
-	left: 585px;
-}
 
-#one.policy-holder-first-name{
-	top: 1091px;
-	left: 700px;
-}
-
-#one.insurance-birthdate{
-	top: 1091px;
-	left: 800px;
-}
-
-#one.insurer-relationship{
-	top: 1091px;
-	left: 900px;
-}
 
 /* ---------------- LINE TWENTY ----------- */
 
-#one.group-number{
-	top: 1115px;
-	left: 320px;
+.line-twenty {
+	position: absolute;
+	bottom: 240px;
+	right: 150px;
+}
+
+/* ---------------- LINE TWENTYONE ----------- */
+
+.line-twentyone {
+	position: absolute;
+	top: 300px;
+	right: 100px;
+	/*right: 100px;*/
+}
+
+/* ---------------- LINE TWENTYTWO ----------- */
+
+.line-twentytwo {
+	position: absolute;
+	top: 500px;
+	right: 100px;
+}
+
+.line-twentythree {
+	position: absolute;
+	top: 230px;	
+}
+
+.name_2 {
+	left: 200px;
+}
+
+.date_3 {
+	right: 150px;
+}
+
+.line-twentyfour {
+	position: absolute;
+	bottom: 215px;
+	left: 260px;
 }
 
 

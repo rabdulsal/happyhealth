@@ -15,4 +15,5 @@ class Appointment < ActiveRecord::Base
   def office
     Office.find_by_id(self.office_id)
   end
+  
 end

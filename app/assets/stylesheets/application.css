@@ -17,6 +17,13 @@
 	display: none;
 }
 
+#container p, #container_2 p, #container_3 p {
+	color: #36f;
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+}
+
 .ui-accordion-content{
 	height: 200px;
 }

@@ -12,7 +12,7 @@
 
 <% user = current_user %>
 
-<div class="mhc" title="">
+<div class="form_wrapper mhc" title="">
 	<div id="container" class="form_dimension">
 
 		<% if @format != "pdf" %>
@@ -39,7 +39,7 @@
 				<%= user.form.personal.date_of_birth %>
 			</p>
 		</div>
-		<div class="line-two user-address">
+		<div class="line-three user-address">
 			<p>
 				<%= user.form.personal.address %>
 			</p>
@@ -49,17 +49,17 @@
 				<%= user.form.personal.email_address %>
 			</p>
 		</div>
-		<div class="line-three city">
+		<div class="line-four city">
 			<p>
 				<%= user.form.personal.city %>
 			</p>
 		</div>
-		<div class="line-three state">
+		<div class="line-four state">
 			<p>
 				<%= user.form.personal.state %>
 			</p>
 		</div>
-		<div class="line-three zip">
+		<div class="line-four zip">
 			<p>
 				<%= user.form.personal.zip_code %>
 			</p>
@@ -69,12 +69,17 @@
 				<%= user.form.personal.home_phone %>
 			</p>
 		</div>
+		<div class="line-three cell-phone">
+			<p>
+				<%= user.form.personal.cell_phone %>
+			</p>
+		</div>
 		<div class="line-three social-security-number">
 			<p>
 				<%= user.form.personal.ss_number %>
 			</p>
 		</div>
-		<div class="line-four employer-name">
+		<div class="line-six employer-name">
 			<p>
 				<%= user.form.personal.employer %>
 			</p>
@@ -89,24 +94,29 @@
 				<%= user.form.personal.employer_phone %>
 			</p>
 		</div>
-		<div class="line-five employer-city">
+		<div class="line-seven policy_number">
 			<p>
-				<%= user.form.personal.employer_city %>
+				<%= user.form.insurances[0].policy_number %>
 			</p>
 		</div>
-		<div class="line-five employer-state">
+		<div class="line-five subscriber_birthday">
 			<p>
 				<%= user.form.personal.employer_state %>
 			</p>
 		</div>
-		<div class="line-five employer-zip">
+		<div class="line-seven employer-zip">
 			<p>
-				<%= user.form.personal.employer_zipcode %>
+				<%= user.form.insurances[0].group_name %>
 			</p>
 		</div>
-		<div class="line-six referring-physician">
+		<div class="line-six occupation">
 			<p>
-				<%= user.form.personal.referred_by %>
+				<%= user.form.personal.occupation %>
+			</p>
+		</div>
+		<div class="line-ten ">
+			<p>
+				<%= user.form.insurances[0].company %>
 			</p>
 		</div>
 		<div class="line-ten insurance-company">
@@ -114,31 +124,12 @@
 				<%= user.form.insurances[0].company %>
 			</p>
 		</div>
-		<div class="line-ten insurer-address">
-			<p>
-				<%= user.form.insurances[0].address %>
-			</p>
-		</div>
-		<div class="line-eleven insurer-policy-holder">
+		<div class="line-five insurer-policy-holder">
 			<p>
 				<%= "#{user.form.insurances[0].subscribers_first_name} #{user.form.insurances[0].subscribers_last_name}" %>
 			</p>
 		</div>
-		<div class="line-eleven insurer-coverage">
-			<p>
-				<%= user.form.insurances[0].title %>
-			</p>
-		</div>
-		<div class="line-twelve insurance-policy-employer">
-			<p>
-				<%= user.form.insurances[0].subscribers_employer %>
-			</p>
-		</div>
-		<div class="line-twelve insured-soc-number">
-			<p>
-				<%= user.form.insurances[0].social_security %>
-			</p>
-		</div>
+		
 		<div class="line-thirteen spouse-insurance-company">
 			<p>
 				<%#= user.form. %>
@@ -184,16 +175,17 @@
 				<%#= user.form.spouse-employer-zip %>
 			</p>
 		</div>
+		<div class="line-seventeen insurance_relationship">
+			<p>
+				<%= user.form.insurances[0].relationship_to_patient %>
+			</p>
+		</div>
 		<div class="line-eighteen emergency-name">
 			<p>
 				<%= user.form.emergencies[0].name %>
 			</p>
 		</div>
-		<div class="line-eighteen emergency-address">
-			<p>
-				<%= user.form.emergencies[0].address %>
-			</p>
-		</div>
+		
 		<div class="line-eighteen emergency-relationship">
 			<p>
 				<%= user.form.emergencies[0].relationship_to_patient %>
@@ -204,33 +196,49 @@
 				<%= user.form.emergencies[0].phone_number %>
 			</p>
 		</div>
-		<div class="line-nineteen emergency-name-2">
+		
+		<div class="line-twenty">
 			<p>
-				<%= user.form.emergencies[1].name %>
+				<%= @date_today %>
 			</p>
 		</div>
-		<div class="line-nineteen emergency-address-2">
-			<p>
-				<%= user.form.emergencies[1].address %>
+		
+	</div>
+
+	<div id="container_2" class="form_dimension">
+		<% if @format != "pdf" %>
+			<%= render "appointments/pdf_form_buttons" %>
+		<% end %>
+		<div class="line-twentyone">
+			<p class>
+				<%= @date_today %>
 			</p>
 		</div>
-		<div class="line-nineteen emergency-relationship-2">
+		<div class="line-twentytwo">
 			<p>
-				<%= user.form.emergencies[1].relationship_to_patient %>
+				<%= @date_today %>
 			</p>
 		</div>
-		<div class="line-nineteen emergency-phone-2">
+	</div>
+
+	<div id="container_3" class="form_dimension">
+		<% if @format != "pdf" %>
+			<%= render "appointments/pdf_form_buttons" %>
+		<% end %>
+		<div class="line-twentythree name_2">
 			<p>
-				<%= user.form.emergencies[1].phone_number %>
+				<%= "#{user.form.personal.first_name} #{user.form.personal.last_name}" %>
 			</p>
 		</div>
-
-		<div id="container_2" class="form_dimension">
-
+		<div class="line-twentythree date_3">
+			<p>
+				<%= @date_today %>
+			</p>
 		</div>
-
-		<div id="container_3" class="form_dimension">
-
+		<div class="line-twentyfour insur_relat">
+			<p>
+				<%= user.form.insurances[0].relationship_to_patient %>
+			</p>
 		</div>
 	</div>
 </div>

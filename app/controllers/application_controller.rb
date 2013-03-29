@@ -1,12 +1,21 @@
 require 'open-uri'
 
 class ApplicationController < ActionController::Base
+
+  before_filter :date_today
+  
   # reset captcha code after each request for security
   after_filter :reset_last_captcha_code!
 
   protect_from_forgery
-  
+
   protected
+
+  force_ssl if: :ssl_configured?
+
+  def ssl_configured?
+    !Rails.env.development?
+  end
 
   def logged_in
     unless current_user.present?
@@ -41,6 +50,10 @@ class ApplicationController < ActionController::Base
       redirect_to user_path(@user), notice: "Unauthorized Access"
     end
   end 
+
+  def date_today
+    @date_today = Time.now.strftime("%m/%d/%Y")
+  end
 
   def process_insurance_query
     if params[:id] 
