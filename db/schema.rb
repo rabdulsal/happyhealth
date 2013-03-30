@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130324162727) do
+ActiveRecord::Schema.define(:version => 20130330162330) do
 
   create_table "allergies", :force => true do |t|
     t.string   "info"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(:version => 20130324162727) do
     t.integer  "office_id"
     t.integer  "doctor_id"
     t.boolean  "tos_priv",     :default => false
+  end
+
+  create_table "dentals", :force => true do |t|
+    t.integer  "insurance_id"
+    t.datetime "eff_date"
+    t.string   "dent_company"
+    t.integer  "policy_number"
+    t.integer  "group_number"
+    t.string   "group_name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "doctors", :force => true do |t|
@@ -278,5 +289,16 @@ ActiveRecord::Schema.define(:version => 20130324162727) do
   add_index "users", ["password_changed_at"], :name => "index_users_on_password_changed_at"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
+
+  create_table "visions", :force => true do |t|
+    t.integer  "insurance_id"
+    t.datetime "eff_date"
+    t.string   "dent_company"
+    t.integer  "policy_number"
+    t.integer  "group_number"
+    t.string   "group_name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
 end

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Insurance:</b>
+  <%= @vision.insurance_id %>
+</p>
+
+<p>
+  <b>Eff date:</b>
+  <%= @vision.eff_date %>
+</p>
+
+<p>
+  <b>Dent company:</b>
+  <%= @vision.dent_company %>
+</p>
+
+<p>
+  <b>Policy number:</b>
+  <%= @vision.policy_number %>
+</p>
+
+<p>
+  <b>Group number:</b>
+  <%= @vision.group_number %>
+</p>
+
+<p>
+  <b>Group name:</b>
+  <%= @vision.group_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_vision_path(@vision) %> |
+<%= link_to 'Back', visions_path %>

@@ -1,0 +1,33 @@
+<h1>Listing dentals</h1>
+
+<table>
+  <tr>
+    <th>Insurance</th>
+    <th>Eff date</th>
+    <th>Dent company</th>
+    <th>Policy number</th>
+    <th>Group number</th>
+    <th>Group name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dentals.each do |dental| %>
+  <tr>
+    <td><%= dental.insurance_id %></td>
+    <td><%= dental.eff_date %></td>
+    <td><%= dental.dent_company %></td>
+    <td><%= dental.policy_number %></td>
+    <td><%= dental.group_number %></td>
+    <td><%= dental.group_name %></td>
+    <td><%= link_to 'Show', dental %></td>
+    <td><%= link_to 'Edit', edit_dental_path(dental) %></td>
+    <td><%= link_to 'Destroy', dental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dental', new_dental_path %>

@@ -471,7 +471,7 @@ p.signup-title {
 }
 
 .action-button {
-    width: 50%;
+    
     background: -webkit-linear-gradient(top, #f90, #cc7a00);
     font-size: 15px;
 }
@@ -635,8 +635,9 @@ ul.form li {
     margin-right: 10px;    
 }
 
-.new_office_request li:last-child {
-    margin-left: 55px;       
+.new_office_request li:last-child a {
+    margin-left: 55px;  
+    width: 50%;     
 }
 
 .office_request_text {

@@ -1,0 +1,41 @@
+<%= form_for(@vision) do |f| %>
+  <% if @vision.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vision.errors.count, "error") %> prohibited this vision from being saved:</h2>
+
+      <ul>
+      <% @vision.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :insurance_id %><br />
+    <%= f.number_field :insurance_id %>
+  </div>
+  <div class="field">
+    <%= f.label :eff_date %><br />
+    <%= f.datetime_select :eff_date %>
+  </div>
+  <div class="field">
+    <%= f.label :dent_company %><br />
+    <%= f.text_field :dent_company %>
+  </div>
+  <div class="field">
+    <%= f.label :policy_number %><br />
+    <%= f.number_field :policy_number %>
+  </div>
+  <div class="field">
+    <%= f.label :group_number %><br />
+    <%= f.number_field :group_number %>
+  </div>
+  <div class="field">
+    <%= f.label :group_name %><br />
+    <%= f.text_field :group_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

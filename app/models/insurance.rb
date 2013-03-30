@@ -23,8 +23,14 @@ class Insurance < ActiveRecord::Base
                   :title, 
                   :zipcode,
                   :form_id,
-                  :payer_id
+                  :payer_id,
+                  :dental_attributes,
+                  :vision_attributes
                   
    belongs_to :form
    belongs_to :payer
+   has_one :dental
+   has_one :vision
+   accepts_nested_attributes_for :dental, :vision
+   
 end

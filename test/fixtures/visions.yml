@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  insurance_id: 1
+  eff_date: 2013-03-30 11:23:30
+  dent_company: MyString
+  policy_number: 1
+  group_number: 1
+  group_name: MyString
+
+two:
+  insurance_id: 1
+  eff_date: 2013-03-30 11:23:30
+  dent_company: MyString
+  policy_number: 1
+  group_number: 1
+  group_name: MyString

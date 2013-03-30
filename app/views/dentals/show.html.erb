@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Insurance:</b>
+  <%= @dental.insurance_id %>
+</p>
+
+<p>
+  <b>Eff date:</b>
+  <%= @dental.eff_date %>
+</p>
+
+<p>
+  <b>Dent company:</b>
+  <%= @dental.dent_company %>
+</p>
+
+<p>
+  <b>Policy number:</b>
+  <%= @dental.policy_number %>
+</p>
+
+<p>
+  <b>Group number:</b>
+  <%= @dental.group_number %>
+</p>
+
+<p>
+  <b>Group name:</b>
+  <%= @dental.group_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_dental_path(@dental) %> |
+<%= link_to 'Back', dentals_path %>
