@@ -103,6 +103,8 @@ office = Office.new(:name => "Haresh Sawlani MD PC",
 office.save
 Pdf.create(:form_name => "sawlani_demographics", :office_id => office.id)
 
+puts "Haresh Sawlani MD PC -- done"
+
 ############################################################################################
 # => Insurance company Names and Payer Codes
 
