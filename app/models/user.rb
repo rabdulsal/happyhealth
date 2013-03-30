@@ -28,10 +28,10 @@
   has_many :receipts
 
   def to_s
-    if self.form && self.form.first_name != ""
+    if self.form && self.form.personal.first_name != "" && self.form.personal.first_name != nil
       self.form.first_name
     elsif self.name
-      self.name
+      self.name.split(" ")[0]
     else
       "New User"
     end
