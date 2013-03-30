@@ -4,7 +4,7 @@ class OfficesController < ApplicationController
 
   before_filter :logged_in
   before_filter :get_user
-  before_filter :admin_user_access, except: [:index, :show]
+  before_filter :admin_user_access, except: [:index, :show, :save_receipt, :show_pdf]
   #before_filter :get_all_offices
 
   def index
