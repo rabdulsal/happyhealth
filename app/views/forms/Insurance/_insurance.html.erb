@@ -10,8 +10,14 @@
 			<%= builder.text_field :relationship_to_patient, :class => "patient-relationship" %>
 		</li>
 		<li>
-			<%= builder.label :payer_id %>
-			<%= builder.collection_select :payer_id, Payer.all, :id, :payer_name, {prompt: 'Select Insurance'}, {style: 'width:240px'} %>
+			<% if index = 0 %>
+				<%= builder.label :insurance_company %>
+				<%= builder.text_field :company, class: "primary-insurance" %>
+			<% else %>
+				<%= builder.label :insurance_company %>
+				<%= builder.text_field :company, class: "secondary-insurance" %>
+			<% end %>
+				<%#= builder.collection_select :payer_id, Payer.all, :id, :payer_name, {prompt: 'Select Insurance'}, {style: 'width:240px'} %>
 		</li>
 		<li>
 			<label>Insurance Address</label>

@@ -90,6 +90,20 @@ puts "Midwest Health Center -- done"
 
 ############################################################################################
 
+# => Haresh Sawlani MD PC
+
+office = Office.new(:name => "Haresh Sawlani MD PC",
+                    :address => "3445 N. Central Avenue, Unit C",
+                    :city => "Chicago",
+                    :state => "IL",
+                    :zipcode => "60634",
+                    :phone => "(773) 205-0800",
+                    :fax => "(773) 205-1804",
+                    :abrv => "sawlani_demographics")
+office.save
+Pdf.create(:form_name => "sawlani_demographics", :office_id => office.id)
+
+############################################################################################
 # => Insurance company Names and Payer Codes
 
 doc4 = Nokogiri::HTML(open('https://eligibleapi.com/information-sources'))

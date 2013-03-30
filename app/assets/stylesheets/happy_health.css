@@ -1193,13 +1193,11 @@ aside .form-save {
     min-width: 180px;
 }
 
-
 .show-table td {
     text-align: left;
     padding-left: 10px;
     vertical-align: top;
 }
-
 
 .first-name, .last-name {
     width: 225px;
@@ -1272,6 +1270,20 @@ aside .form-save {
         font-size: 12px;
 }
 
+/* --------------- TEST FORM WIDTHS ------------------- */
+
+.full_width, .half_width, .third_width {
+    width: 99.137931034483%; 
+    margin-right: 0.862068965517%;   
+}
+
+.half_width {
+    width: 49.568965517241%;    
+}
+
+.third_width {
+    width: 33.045977011494%;
+}
 
 /*--------------------Shaan's Appointment Edits-----------*/
 

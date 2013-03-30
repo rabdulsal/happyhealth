@@ -102,8 +102,6 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if current_user.form
       user_form_path(current_user.id, current_user.form.id)
-    else
-      current_user_path
     end
   end
 

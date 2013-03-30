@@ -16,11 +16,12 @@ height: 500px;
 
 		  <div><label class="sign">Password</label><%= f.password_field :password, class: "fluid-form" %></div>
 
-		  <% if devise_mapping.rememberable? -%>
+		  <!-- Comment-out "Remember Me" for Security
+		  <%# if devise_mapping.rememberable? -%>
 		    <div> <label><input type="checkbox" /> Remember me</label></div>
-		  <% end -%>
+		  <%# end -%> -->
 
-		  <div><%= f.submit "Sign in" , :class => 'createButton signin-button'%></div>
+		  <div class="margin-top"><%= f.submit "Sign in" , :class => 'createButton signin-button'%></div>
 		<% end %>
 		<br />
 		<%= render "devise/shared/links" %>
