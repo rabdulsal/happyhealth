@@ -66,10 +66,6 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 #AWS
 gem 'aws-sdk'
 
-# Accessing environment variables in dev and test modes
-group :development, :test do
-	gem 'foreman'
-end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
