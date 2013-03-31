@@ -24,8 +24,8 @@ class FormsController < ApplicationController
       2.times { @form.emergencies << Emergency.new }
       insurance =  Insurance.create(:title => "Primary")
       # @form.insurances << Insurance.create(:title => "Secondary")
-      insurance.dental = Dental.new #=> started adding here, but not 100% sure on getting things right
-      insurance.vision = Vision.new
+      @insurance.dental = Dental.new #=> started adding here, but not 100% sure on getting things right
+      @insurance.vision = Vision.new
       @form.insurances << insurance
       @form.responsible = Responsible.new
       @form.medical = Medical.new
