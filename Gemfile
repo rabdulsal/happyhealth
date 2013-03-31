@@ -41,6 +41,7 @@ gem 'wkhtmltopdf-binary'
 # PDF on heroku
 group :production do
   gem "wkhtmltopdf-heroku", :git => 'git://github.com/camdez/wkhtmltopdf-heroku.git'
+  gem 'thin'
 end
 
 # Gems used only for assets and not required
