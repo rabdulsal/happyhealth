@@ -55,7 +55,6 @@ module HappyHealth
 
     # Precompile Fix
     config.assets.initialize_on_precompile = false
-    config.assets.precompile += ['mada.css.scss.erb', 'clsma.css.scss.erb', 'mhc.css.scss.erb', 'sawlani_demographics.css.scss.erb']
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.debug = false
