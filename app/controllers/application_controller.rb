@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  force_ssl if: :ssl_configured?
+  # force_ssl if: :ssl_configured?
 
-  def ssl_configured?
-    !Rails.env.development?
-  end
+  # def ssl_configured?
+  #   !Rails.env.development?
+  # end
 
   def logged_in
     unless current_user.present?
