@@ -54,8 +54,8 @@ module HappyHealth
     config.active_record.whitelist_attributes = true
 
     # Precompile Fix
-    config.assets.initialize_on_precompile = false
-    
+    #config.assets.initialize_on_precompile = false
+
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.debug = false
