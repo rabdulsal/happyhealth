@@ -67,6 +67,9 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 #AWS
 gem 'aws-sdk'
 
+#Asset Pipeline Optimization
+gem "asset_sync"
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
