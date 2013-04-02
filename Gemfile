@@ -50,6 +50,9 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
+  #Asset Pipeline Optimization
+  gem "asset_sync"
+
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -66,9 +69,6 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 #AWS
 gem 'aws-sdk'
-
-#Asset Pipeline Optimization
-gem "asset_sync"
 
 
 # To use ActiveModel has_secure_password
