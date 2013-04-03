@@ -338,7 +338,6 @@ ul#static.inline-block{
 .explanation {
     margin: 0 auto;
     width: 920px;
-
 }
 
 .description {
@@ -442,9 +441,7 @@ p.signup-title {
 
 /* ------------------------ BUTTONS ------------------------------ */
 
-.button, .submit-button, .button a, .remove-form, .action-button, .create, #new_user_submit, #login_submit,
-#skinclick-submit, .splash a, .saveButton a, .nextButton a,
-#print-to a {
+.button, .submit-button, .button a, .remove-form, .create, #new_user_submit, #login_submit, .saveButton a, .nextButton a {
     /*display: block;*/
     color: white;
     font-weight: bold;
@@ -468,16 +465,6 @@ p.signup-title {
 .navi {
     display: inline-block;
     width: 150px;
-}
-
-.action-button {
-    
-    background: -webkit-linear-gradient(top, #f90, #cc7a00);
-    font-size: 15px;
-}
-
-.action-button a {
-    text-decoration: none;
 }
 
 .eligibility {
@@ -506,10 +493,6 @@ p.signup-title {
     background: -webkit-linear-gradient(top, #b20000, #990000);
 }
 
-.action-button a {
-    color: #fff;
-}
-
 .remove-form {
     margin-top: 20px;
 }
@@ -525,12 +508,7 @@ p.signup-title {
 
 .note-delete{
     float: right;
-}
-
-.splash p a:hover, .nextButton a:hover, .action-button:hover {
-    background: -webkit-linear-gradient(top, #cc7a00, #f90);
-    text-decoration: none;
-}
+} 
 
 .signUpbutton li {
         display: inline-block;
@@ -554,7 +532,7 @@ p.signup-title {
 
 /* ------------------------- SHAAN'S BUTTONS ---------------------- */
 
-.createButton, .backButton, .pdfButton, #edit-form.pdfButton, .removeButton {
+.createButton, .backButton, .pdfButton, .action-button, #edit-form.pdfButton, .removeButton {
     display: block; 
     background-color: #3366FF;
     color: white;
@@ -566,7 +544,7 @@ p.signup-title {
     height: 100%;
     margin: 4px 10px;
     text-align: center;
-    box-shadow: 0 1px 1px #444;
+    box-shadow: 0 1px 1px grey;
 }
 
 #edit-form.pdfButton {
@@ -597,9 +575,39 @@ p.signup-title {
     background:     -ms-linear-gradient(top, #F00, #d00);
 }
 
+.action-button {    
+    background: -webkit-linear-gradient(top, #f90, #cc7a00);   
+    background:    -moz-linear-gradient(top, #f90, #cc7a00);
+    background:     -ms-linear-gradient(top, #f90, #cc7a00); 
+    text-shadow: none !important;    
+}
+
+.action-button:hover {
+    background: -webkit-linear-gradient(top, #cc7a00, #f90);
+    text-decoration: none;
+}
+
 .signin-button {
     width: 230px;
     margin: 0;
+}
+
+.new_office_request {
+    position: absolute;
+    top: 100px;
+    left: 25px;
+    width: 270px;    
+    color: grey;
+    margin-right: 10px;    
+}
+
+.new_office_request li:last-child a {
+    margin: 0 auto; 
+    width: auto;         
+}
+
+.office_request_text {
+    text-align: center;
 }
 
 input#user_remember_me{
@@ -624,24 +632,6 @@ ul.form {
 
 ul.form li {
     float: right;
-}
-
-.new_office_request {
-    position: absolute;
-    top: 100px;
-    left: 25px;
-    width: 270px;    
-    color: grey;
-    margin-right: 10px;    
-}
-
-.new_office_request li:last-child a {
-    margin-left: 55px;  
-    width: 50%;     
-}
-
-.office_request_text {
-    text-align: center;
 }
 
 ul.appointment{
@@ -981,23 +971,6 @@ a.appt-title{
         display: block;
 }
 
-#print-to {
-        float: right;
-        margin-bottom: -20px;
-}
-
-#print-to li {
-        display: inline-block;
-        margin-right: 10px;
-        color: #555;
-        text-shadow: 0 1px #fff;
-}
-
-#print-to li:last-child {
-        margin-right: -8px;
-        padding-right: 0;
-}
-
 .fieldset-buttons {
         float: right;
 }
@@ -1022,58 +995,6 @@ ul.on-pdf li{
 
 .read-more {
         float: right;
-}
-
-#user-image {
-        width: 915px;
-        margin: 0;
-        padding: 0;
-        text-transform: uppercase;
-        font-weight: bold;
-}
-
-#user-image h1 {
-        text-transform: none;
-        color: black;
-        padding-left: 0;
-}
-
-#user-image li h3{
-        text-shadow: 0 1px white;
-}
-
-#user-image a {
-        color: black;
-}
-
-#user-image a:hover {
-        color: rgb(228, 108, 10);
-}
-
-#user-image li {
-        color: #555;
-        text-shadow: 0 1px #fff;
-        display: inline-block;
-        /*border: 1px solid black;*/
-        padding: 0px;
-        margin: 0 10px 10px 0px;
-        font-size: 12px;
-}
-
-#user-image li:last-child {
-        margin-right: 0;
-}
-
-#user-image img {
-        height: 70px;
-        width: 75px;
-        border: none;
-}
-
-#specialist-photo img {
-        height: 70px;
-        width: 70px;
-        margin: 20px 0 0 20px;
 }
 
 /* --------------------- OFFICE_DIALOG --------------*/
