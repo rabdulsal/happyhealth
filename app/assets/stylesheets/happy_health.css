@@ -555,7 +555,7 @@ p.signup-title {
 /* ------------------------- SHAAN'S BUTTONS ---------------------- */
 
 .createButton, .backButton, .pdfButton, #edit-form.pdfButton, .removeButton {
-    display: block;
+    display: block; 
     background-color: #3366FF;
     color: white;
     font-weight: bold;
@@ -575,7 +575,7 @@ p.signup-title {
 
 #appt.createButton, input.createButton, .pdfButton {
 	cursor: pointer;
-	font-size: 13px;
+	font-size: 12px !important;
     height: 34px;
     margin: 0;
     padding: 0;

@@ -35,7 +35,7 @@
 
 	<div class="form_buttons">
 		<ul id="form">
-			<li class="form-save"><%= f.submit "Save Progress", :class => "createButton", data: { confirm: 'Are you sure you want to save your changes?' } %>
+			<li class="form-save"><%= f.submit "Save Progress", :class => "createButton" %>
 			</li>  		
 			<% if current_user.form %>
 				<li><%#= link_to 'Back', user_form_path(@form.user_id,@form), :class => 'backButton' %></li>
