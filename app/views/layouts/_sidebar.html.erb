@@ -1,9 +1,9 @@
 <aside>
 	<ul id="nav-tab">
         <% if current_user.form %>
-			<li class="fluid-hide"><%= link_to "Display Health Form", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %></li>
+			<li class="fluid-hide"><%= link_to "Display Health Profile", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %></li>
 		<% else %>
-			<li class="fluid-hide"><%= link_to "Fill out form", new_user_form_path(current_user.id), :class => "new_form" %></li>
+			<li class="fluid-hide"><%= link_to "Fill-out Health Profile", new_user_form_path(current_user.id), :class => "new_form" %></li>
 		<% end %>
 		<li class="fluid-hide">
         	<%= link_to "View Office Registry", offices_path %>

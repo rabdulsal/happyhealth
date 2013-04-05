@@ -6,13 +6,21 @@
 	<legend><%= "#{form.insurances[0].title} Insurance "%></legend>
 	<ul>
 		<li>
+		 	<%= builder.label :insurance_company %>
+			<%= builder.text_field :company, :class => "patient-relationship" %>
+			<%#= builder.label :payer_id %>
+			<%#= builder.collection_select :payer_id, Payer.all, :id, :payer_name, {prompt: 'Select Insurance'}, {style: 'width:240px'} %>
+		</li>
+		 <li>
 			<%= builder.label :relationship_to_patient %>
 			<%= builder.text_field :relationship_to_patient, :class => "patient-relationship" %>
-		</li>
-		<li>
-			<%= builder.label :payer_id %>
-			<%= builder.collection_select :payer_id, Payer.all, :id, :payer_name, {prompt: 'Select Insurance'}, {style: 'width:240px'} %>
-		</li>
+		</li> 
+		<!--<li>
+			<%#= builder.label :insurance_holder_relationship_to_patient %>
+			Self: <%#= builder.check_box :relationship_to_patient %>
+			If other than yourself: <%#= builder.text_field :relationship_to_patient %>			
+		</li>-->
+		
 		<li>
 			<label>Insurance Address</label>
 			<%= builder.text_field :address, :class => "insurance-address" %>

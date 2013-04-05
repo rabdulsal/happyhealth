@@ -69,11 +69,7 @@
 				<%= user.form.personal.home_phone %>
 			</p>
 		</div>
-		<div class="line-three social-security-number">
-			<p>
-				<%= user.form.personal.ss_number %>
-			</p>
-		</div>
+		
 		<div class="line-four employer-name">
 			<p>
 				<%= user.form.personal.employer %>
@@ -124,19 +120,21 @@
 				<%= user.form.insurances[0].address %>
 			</p>
 		</div>
-		<div class="line-eleven insurer-policy-holder">
+		<div class="line-eleven policy-holder-name">
 			<p>
-				<%= "#{user.form.insurances[0].subscribers_first_name} #{user.form.insurances[0].subscribers_last_name}" %>
+				<%= "#{user.form.personal.first_name} #{user.form.personal.last_name}" %>
+				<%#= "#{user.form.insurances[0].subscribers_first_name} #{user.form.insurances[0].subscribers_last_name}" %>
 			</p>
 		</div>
-		<div class="line-eleven insurer-coverage">
+		<div class="line-eleven policy-holder-dob">
 			<p>
-				<%= user.form.insurances[0].title %>
+				<%= user.form.personal.date_of_birth %>
 			</p>
 		</div>
-		<div class="line-twelve insurance-policy-employer">
+		<div class="line-eleven person_covered">
 			<p>
-				<%= user.form.insurances[0].subscribers_employer %>
+				<%= "#{user.form.personal.first_name} #{user.form.personal.last_name} and #{user.form.emergencies[0].name}" %>
+				<%#= user.form.insurances[0].subscribers_employer %>
 			</p>
 		</div>
 		<div class="line-twelve insured-soc-number">
@@ -144,14 +142,14 @@
 				<%= user.form.insurances[0].social_security %>
 			</p>
 		</div>
-		<div class="line-thirteen spouse-insurance-company">
+		<div class="line-thirteen policy_holder_employer">
 			<p>
-				<%#= user.form. %>
+				<%= user.form.personal.employer %>
 			</p>
 		</div>
-		<div class="line-thirteen spouse-insurer-address">
+		<div class="line-thirteen policy_holder_soc">
 			<p>
-				<%#= user.form.spouse-insurer-address %>
+				<%= user.form.personal.ss_number %>
 			</p>
 		</div>
 		<div class="line-fourteen spouse-insurer-policy-holder">

@@ -64,14 +64,27 @@
 				<%= user.form.personal.zip_code %>
 			</p>
 		</div>
+
+		<% if @format != "pdf" %>
+					
+			<div class="line-three cell-phone">
+				<p>
+					<%= user.form.personal.cell_phone %>
+				</p>
+			</div>
+
+		<% else %>
+
+			<div class="line-three cell_pdf">
+				<p>
+					<%= user.form.personal.cell_phone %>
+				</p>
+			</div>
+
+		<% end %>
 		<div class="line-three phone">
 			<p>
 				<%= user.form.personal.home_phone %>
-			</p>
-		</div>
-		<div class="line-three cell-phone">
-			<p>
-				<%= user.form.personal.cell_phone %>
 			</p>
 		</div>
 		
