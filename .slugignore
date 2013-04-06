@@ -1,0 +1,12 @@
+*.css
+*.gz
+*.jpg
+*.scss.erb
+*.js
+*.map
+*.png
+/test
+/spec
+/app/assets
+/public/assets
+/assets
