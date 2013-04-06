@@ -14,19 +14,7 @@ class FormsController < ApplicationController
 
   def new
     @user = User.find_by_id(params[:user_id])
-<<<<<<< HEAD
-    @form.user_id = params[:user_id]
-    @form.personal = Personal.new
-    2.times { @form.emergencies << Emergency.new }
-    @form.insurances << Insurance.create(:title => "Primary")
-    @form.insurances << Insurance.create(:title => "Secondary")
-    #@form.insurance.dental = Dental.new => started adding here, but not 100% sure on getting things right
-    @form.responsible = Responsible.new
-    @form.medical = Medical.new
-    3.times { @form.medical.allergies << Allergy.new }
-    3.times { @form.medical.medications << Medication.new }
-    @form.save
-=======
+
     if @user.form
       @form = @user.form
     else
@@ -49,7 +37,7 @@ class FormsController < ApplicationController
       3.times { @form.medical.medications << Medication.new }
       @form.save
     end
->>>>>>> form_partial_test
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @form }
