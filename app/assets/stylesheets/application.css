@@ -10,9 +10,11 @@
  *
  *= require_tree
  *= require_self
- *= require happy_health
+ 
  *= require jquery
 */
+
+/* removed require happy_health from above */
 
 #TOS,.row2, .row3, .row4, input#appt.createButton, .appt_tab, .tos_agreement {
 	display: none;
