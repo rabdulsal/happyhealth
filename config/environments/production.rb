@@ -47,7 +47,7 @@ HappyHealth::Application.configure do
   config.action_controller.asset_host = "https://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w( happy_health.css.erb mada.css.scss.erb mhc.css.scss.erb sawlani_demographics.css.scss.erb )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
