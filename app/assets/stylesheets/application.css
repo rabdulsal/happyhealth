@@ -8,13 +8,10 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require_tree
  *= require_self
  *= require happy_health
  *= require jquery
- *= require mada
- *= require mhc
- *= require clsma
- *= require sawlani_demographics
 */
 
 #TOS,.row2, .row3, .row4, input#appt.createButton, .appt_tab, .tos_agreement {
