@@ -12,11 +12,9 @@ class FormsController < ApplicationController
     end
   end
 
-  # GET /forms/new
-  # GET /forms/new.json
   def new
-    @form = Form.new
     @user = User.find_by_id(params[:user_id])
+<<<<<<< HEAD
     @form.user_id = params[:user_id]
     @form.personal = Personal.new
     2.times { @form.emergencies << Emergency.new }
@@ -28,20 +26,41 @@ class FormsController < ApplicationController
     3.times { @form.medical.allergies << Allergy.new }
     3.times { @form.medical.medications << Medication.new }
     @form.save
+=======
+    if @user.form
+      @form = @user.form
+    else
+      @form = Form.new
+
+      @form.user_id = params[:user_id]
+      @form.personal = Personal.new
+      2.times { @form.emergencies << Emergency.new }
+      insurance =  Insurance.create(:title => "Primary")
+      # @form.insurances << Insurance.create(:title => "Secondary")
+      # insurance.dental = Dental.new #=> started adding here, but not 100% sure on getting things right
+      # insurance.vision = Vision.new
+      # @form.insurances << insurance
+      @form.insurances = Insurance.new
+      @form.insurances.dental << Dental.new
+      @form.insurances.vision << Vision.new 
+      @form.responsible = Responsible.new
+      @form.medical = Medical.new
+      3.times { @form.medical.allergies << Allergy.new }
+      3.times { @form.medical.medications << Medication.new }
+      @form.save
+    end
+>>>>>>> form_partial_test
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @form }
     end
   end
 
-  # GET /forms/1/edit
   def edit
     @form = Form.find(params[:id])
     @user = User.find_by_id(@form.user_id)
   end
 
-  # POST /forms
-  # POST /forms.json
   def create
     @form = Form.new(params[:form])
 
@@ -56,8 +75,6 @@ class FormsController < ApplicationController
     end
   end
 
-  # PUT /forms/1
-  # PUT /forms/1.json
   def update
     @form = Form.find(params[:id])
     @user = User.find_by_id(@form.user_id)
@@ -72,8 +89,6 @@ class FormsController < ApplicationController
     end
   end
 
-  # DELETE /forms/1
-  # DELETE /forms/1.json
   def destroy
     @form = Form.find_by_id(params[:id])
     @user = User.find_by_id(@form.user_id)

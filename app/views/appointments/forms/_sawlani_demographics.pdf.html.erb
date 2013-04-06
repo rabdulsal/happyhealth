@@ -37,7 +37,7 @@
 				<%= user.form.personal.age %>
 			</p>
 		</div>
-		<div class="line-five dob">
+		<div class="dob">
 			<p>
 				<%= user.form.personal.date_of_birth %>
 			</p>
@@ -57,17 +57,17 @@
 				<%= user.form.personal.city %>
 			</p>
 		</div>
-		<div class="line-three state">
+		<div class="state">
 			<p>
 				<%= user.form.personal.state %>
 			</p>
 		</div>
-		<div class="line-three zip">
+		<div class="zip">
 			<p>
 				<%= user.form.personal.zip_code %>
 			</p>
 		</div>
-		<div class="left_indent line-four">
+		<div class="left_indent phone">
 			<p>
 				<%= user.form.personal.home_phone %>
 			</p>
@@ -118,76 +118,24 @@
 				<%= user.form.insurances[0].company %>
 			</p>
 		</div>
-		<div class="line-ten insurer-address">
+		<div class="line-eleven left_indent">
 			<p>
 				<%= user.form.insurances[0].address %>
 			</p>
 		</div>
-		<div class="line-eleven insurer-policy-holder">
-			<p>
-				<%= "#{user.form.insurances[0].subscribers_first_name} #{user.form.insurances[0].subscribers_last_name}" %>
-			</p>
-		</div>
-		<div class="line-eleven insurer-coverage">
-			<p>
-				<%= user.form.insurances[0].title %>
-			</p>
-		</div>
-		<div class="line-twelve insurance-policy-employer">
-			<p>
-				<%= user.form.insurances[0].subscribers_employer %>
-			</p>
-		</div>
-		<div class="line-twelve insured-soc-number">
-			<p>
-				<%= user.form.insurances[0].social_security %>
-			</p>
-		</div>
-		<div class="line-thirteen spouse-insurance-company">
-			<p>
-				<%#= user.form. %>
-			</p>
-		</div>
-		<div class="line-thirteen spouse-insurer-address">
-			<p>
-				<%#= user.form.spouse-insurer-address %>
-			</p>
-		</div>
-		<div class="line-fourteen spouse-insurer-policy-holder">
-			<p>
-				<%#= user.form.spouse-insurer-policy-holder %>
-			</p>
-		</div>
-		<div class="line-fourteen spouse-insurer-coverage">
-			<p>
-				<%#= user.form.spouse-insurer-policy-holder %>
-			</p>
-		</div>
-		<div class="line-fifteen spouse-employer-name">
-			<p>
-				<%#= user.form.spouse-employer-name %>
-			</p>
-		</div>
-		<div class="line-fifteen spouse-employer-address">
-			<p>
-				<%#= user.form.spouse-employer-address %>
-			</p>
-		</div>
-		<div class="line-fifteen spouse-employer-phone">
-			<p>
-				<%#= user.form.spouse-employer-phone %>
-			</p>
-		</div>
-		<div class="line-sixteen spouse-employer-city">
-			<p>
-				<%#= user.form.spouse-employer-city %>
-			</p>
-		</div>
-		<div class="line-sixteen spouse-employer-zip">
-			<p>
-				<%#= user.form.spouse-employer-zip %>
-			</p>
-		</div>
+		<p class="line-ten policy_number">
+			<%= user.form.insurances[0].policy_number %>
+		</p>
+		<p class="line-twelve insurance_city">
+			<%= user.form.insurances[0].city %>
+		</p>
+		<p class="insurance_state">
+			<%= user.form.insurances[0].state %>
+		</p>
+		<p class="insurance_zipcode column_right">
+			<%= user.form.insurances[0].zipcode %>
+		</p>
+			
 		<div class="line-seven emergency-relationship">
 			<p>
 				<%= "#{user.form.emergencies[0].name} \/ #{user.form.emergencies[0].relationship_to_patient}" %>
@@ -224,6 +172,21 @@
 				<%= user.form.emergencies[1].phone_number %>
 			</p>
 		</div>
+		<p class="line-thirteen">
+			<% user.form.medical.medications.each do |medication| %>			
+				<%= medication.info %>		
+			<% end %>	
+		</p>
+
+		<p class="line-fifteen">
+			<% user.form.medical.allergies.each do |allergy| %>			
+				<%= allergy.info %> ;	
+			<% end %>	
+		</p>
+
+		<p class="line-sixteen">
+			<%= "Group Number: #{user.form.insurances[0].group_number}" %>
+		</p>
 	</div>
 
 	<div id="container_2" class="form_dimension">
@@ -237,13 +200,27 @@
 			</p>
 		<% end %>		
 
+		<p class="line-twenty column_right">
+			<%= @date_today %>
+		</p>
+
+		<p class="page_2_name left_indent">
+			<%= "#{user.form.personal.first_name} #{user.form.personal.last_name}" %>
+		</p>
+		<p class="page_2_bday line-twenty">
+			<%= user.form.personal.date_of_birth %>
+		</p>
+
+		<p class="line-twentyone left_indent">
+			<%= user.form.personal.referred_by %>
+		</p>
 		<div>
 			<% user.form.medical.allergies.each do |allergy| %>
 				<p class="column_right allergy_<%=allergy.id%>">
 					<%= allergy.info %>
 				</p>
 			<% end %>
-		</div>
+		</div>		
 
 		<p class="date_6">
 			<%= @date_today %>

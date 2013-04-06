@@ -2,10 +2,10 @@
 
 <ul class="form">
 	<li>
-		<%= link_to 'Edit Form', edit_user_form_path(current_user.id, current_user.form.id), :class => 'createButton' %>
+		<%= link_to 'Edit Profile', edit_user_form_path(current_user.id, current_user.form.id), :class => 'createButton' %>
 	</li><br />
 	<li>
-		<%= link_to "Remove Form", user_form_path(current_user.id, current_user.form.id), :method => 'delete',  data: { confirm: 'Are you sure you want to remove this form? You will lose all saved data.' }, :class => 'removeButton' %>
+		<%= link_to "Delete Profile", user_form_path(current_user.id, current_user.form.id), :method => 'delete',  data: { confirm: 'Are you sure you want to delete your profile #{user.form.personal.first_name}? You will lose all your saved data.' }, :class => 'removeButton' %>
 	</li><br />
 </ul>
 

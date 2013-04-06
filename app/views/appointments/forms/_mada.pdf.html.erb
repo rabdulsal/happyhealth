@@ -12,14 +12,18 @@
 
 <% user = current_user %>
 
+<<<<<<< HEAD
 <div id="pdf_container" class="mada" title="">
+=======
+<div id ="pdf_container" class="mada" title="">
+>>>>>>> form_partial_test
 	<div id="container" class="form_dimension">
 
 		<% if @format != "pdf" %>
 			<%= render "appointments/pdf_form_buttons" %>
 		<% end %>
 
-		<div class="line-one first-name">
+		<div class="line-one left_indent">
 			<p>
 				<%= user.form.personal.first_name %>
 			</p>
@@ -69,11 +73,7 @@
 				<%= user.form.personal.home_phone %>
 			</p>
 		</div>
-		<div class="line-three social-security-number">
-			<p>
-				<%= user.form.personal.ss_number %>
-			</p>
-		</div>
+		
 		<div class="line-four employer-name">
 			<p>
 				<%= user.form.personal.employer %>
@@ -104,6 +104,11 @@
 				<%= user.form.personal.employer_zipcode %>
 			</p>
 		</div>
+		<div class="line-six patient_relationship">
+			<p>
+				<%= user.form.insurances[0].relationship_to_patient %>
+			</p>
+		</div>
 		<div class="line-six referring-physician">
 			<p>
 				<%= user.form.personal.referred_by %>
@@ -119,19 +124,21 @@
 				<%= user.form.insurances[0].address %>
 			</p>
 		</div>
-		<div class="line-eleven insurer-policy-holder">
+		<div class="line-eleven policy-holder-name">
 			<p>
-				<%= "#{user.form.insurances[0].subscribers_first_name} #{user.form.insurances[0].subscribers_last_name}" %>
+				<%= "#{user.form.personal.first_name} #{user.form.personal.last_name}" %>
+				<%#= "#{user.form.insurances[0].subscribers_first_name} #{user.form.insurances[0].subscribers_last_name}" %>
 			</p>
 		</div>
-		<div class="line-eleven insurer-coverage">
+		<div class="line-eleven policy-holder-dob">
 			<p>
-				<%= user.form.insurances[0].title %>
+				<%= user.form.personal.date_of_birth %>
 			</p>
 		</div>
-		<div class="line-twelve insurance-policy-employer">
+		<div class="line-eleven person_covered">
 			<p>
-				<%= user.form.insurances[0].subscribers_employer %>
+				<%= "#{user.form.personal.first_name} #{user.form.personal.last_name} and #{user.form.emergencies[0].name}" %>
+				<%#= user.form.insurances[0].subscribers_employer %>
 			</p>
 		</div>
 		<div class="line-twelve insured-soc-number">
@@ -139,14 +146,14 @@
 				<%= user.form.insurances[0].social_security %>
 			</p>
 		</div>
-		<div class="line-thirteen spouse-insurance-company">
+		<div class="line-thirteen policy_holder_employer">
 			<p>
-				<%#= user.form. %>
+				<%= user.form.personal.employer %>
 			</p>
 		</div>
-		<div class="line-thirteen spouse-insurer-address">
+		<div class="line-thirteen policy_holder_soc">
 			<p>
-				<%#= user.form.spouse-insurer-address %>
+				<%= user.form.personal.ss_number %>
 			</p>
 		</div>
 		<div class="line-fourteen spouse-insurer-policy-holder">
@@ -184,22 +191,22 @@
 				<%#= user.form.spouse-employer-zip %>
 			</p>
 		</div>
-		<div class="line-eighteen emergency-name">
+		<div class="line-seventeen emergency-name">
 			<p>
 				<%= user.form.emergencies[0].name %>
 			</p>
 		</div>
-		<div class="line-eighteen emergency-address">
+		<div class="line-seventeen emergency-address">
 			<p>
 				<%= user.form.emergencies[0].address %>
 			</p>
 		</div>
-		<div class="line-eighteen emergency-relationship">
+		<div class="line-seventeen emergency-relationship">
 			<p>
 				<%= user.form.emergencies[0].relationship_to_patient %>
 			</p>
 		</div>
-		<div class="line-eighteen emergency-phone">
+		<div class="line-seventeen emergency-phone">
 			<p>
 				<%= user.form.emergencies[0].phone_number %>
 			</p>
@@ -225,12 +232,52 @@
 			</p>
 		</div>
 
-		<div id="container_2" class="form_dimension">
-
-		</div>
-
-		<div id="container_3" class="form_dimension">
-
-		</div>
+		<p class="date">
+			<%= @date_today %>
+		</p>
 	</div>
+		
+
+	<div id="container_2" class="form_dimension">
+		<% if @format != "pdf" %>
+			<%= render "appointments/pdf_form_buttons" %>
+		<% end %>
+
+		<p class="line-twenty last_name_2">
+			<%= user.form.personal.last_name %>
+		</p>
+
+		<p class="line-twenty first_name_2">
+			<%= user.form.personal.first_name %>
+		</p>
+
+		<p class="line-twentyone dob_2">
+			<%= user.form.personal.date_of_birth %>
+		</p>
+
+		<p class="line-twentyone phone_2">
+			<%= user.form.personal.home_phone %>
+		</p>
+
+		<p class="line-twentytwo referring_physician_2">
+			<%= user.form.personal.referred_by %>
+		</p>
+
+	</div>
+
+	<div id="container_3" class="form_dimension">
+		<% if @format != "pdf" %>
+			<%= render "appointments/pdf_form_buttons" %>
+		<% end %>
+
+		<p class="date_2">
+			<%= @date_today %>
+		</p>
+
+		<p class="date_3">
+			<%= @date_today %>
+		</p>
+
+	</div>
+	
 </div>
