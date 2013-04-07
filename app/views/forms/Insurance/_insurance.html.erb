@@ -14,27 +14,13 @@
 		 <li>
 			<%= builder.label :relationship_to_patient %>
 			<%= builder.text_field :relationship_to_patient, :class => "patient-relationship" %>
-<<<<<<< HEAD
-		</li>
-		<li>
-			<% if index = 0 %>
-				<%= builder.label :insurance_company %>
-				<%= builder.text_field :company, class: "primary-insurance" %>
-			<% else %>
-				<%= builder.label :insurance_company %>
-				<%= builder.text_field :company, class: "secondary-insurance" %>
-			<% end %>
-				<%#= builder.collection_select :payer_id, Payer.all, :id, :payer_name, {prompt: 'Select Insurance'}, {style: 'width:240px'} %>
-		</li>
-=======
 		</li> 
 		<!--<li>
 			<%#= builder.label :insurance_holder_relationship_to_patient %>
 			Self: <%#= builder.check_box :relationship_to_patient %>
 			If other than yourself: <%#= builder.text_field :relationship_to_patient %>			
-		</li>-->
-		
->>>>>>> form_partial_test
+		</li>-->		
+
 		<li>
 			<label>Insurance Address</label>
 			<%= builder.text_field :address, :class => "insurance-address" %>
