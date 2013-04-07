@@ -15,6 +15,7 @@
  *= require mhc
  *= require clsma
  *= require sawlani_demographics
+ *= require_tree .
 */
 
 #TOS,.row2, .row3, .row4, input#appt.createButton, .appt_tab, .tos_agreement {
