@@ -7,7 +7,7 @@
 <% if @format != 'pdf' %>
   <%= stylesheet_link_tag 'clsma' %>
 <% else %>
-  <%= wicked_pdf_stylesheet_link_tag 'clsma' %>
+  <%= wicked_pdf_stylesheet_link_tag 'clsma.css.scss.erb' %>
 <% end %>
 
 <% user = current_user %>
