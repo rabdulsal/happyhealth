@@ -31,7 +31,7 @@ class OfficesController < ApplicationController
     @office = Office.find_by_id(params[:office_id])
     @pdf = @office.pdfs
     @abrv = @office.abrv # => yields name of PDF form, _pdf.css.erb => name _pdf must match this name
-    partial = "/appointments/forms/_#{@abrv}"
+    partial = "appointments/forms/_#{@abrv}"
     logger.debug "ABRV: #{@abrv}"
     @format = "pdf"
     # respond_to do |format|
@@ -39,7 +39,7 @@ class OfficesController < ApplicationController
           #@file = render_to_string :pdf => "#{@office.name}", #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
           render :pdf => "#{@office.name}", #Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
                  :template => "#{partial}.pdf.html.erb",
-                 :layout => "pdf.html.erb",
+                 :layout => "pdf.html",
                  :page_size => "A4",
                  :encoding => "UTF-8",
                  :show_as_html => params[:debug].present?
