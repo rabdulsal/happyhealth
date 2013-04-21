@@ -128,6 +128,13 @@ $(function() {
 		modal: true
 	});
 
+	$(".wpd").dialog({
+		autoOpen: false,
+		show: "blind",
+		hide: "slide",
+		modal: true
+	});
+
 
 	// ************** JQUERY PDF FETCH ******************
 

@@ -1,11 +1,5 @@
 HappyHealth::Application.routes.draw do
 
-  resources :visions
-
-
-  resources :dentals
-
-
   captcha_route
 
   # get "users/show" => 'users#show'
