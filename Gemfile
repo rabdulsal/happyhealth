@@ -5,14 +5,6 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-end
-
 # Nested form
 gem "nested_form"
 
@@ -34,14 +26,20 @@ gem 'kaminari', '0.13.0'
 
 # PDF Gem
 gem 'wicked_pdf'
+gem 'pdfkit'
 
-# PDF to HTML utility
-gem 'wkhtmltopdf-binary'
+group :development do
+  gem 'sqlite3'
+
+  # PDF to HTML utility
+  gem 'wkhtmltopdf-binary'
+end
 
 # PDF on heroku
 group :production do
   gem "wkhtmltopdf-heroku"
   gem 'unicorn'
+  gem 'pg'
 end
 
 # Gems used only for assets and not required

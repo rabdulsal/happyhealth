@@ -27,7 +27,7 @@ class OfficesController < ApplicationController
     end
   end
 
-  def show_pdf
+  def show_pdf_old
     @office = Office.find_by_id(params[:office_id])
     @pdf = @office.pdfs
     @abrv = @office.abrv # => yields name of PDF form, _pdf.css.erb => name _pdf must match this name
@@ -54,6 +54,33 @@ class OfficesController < ApplicationController
     # end
   end
 
+  def show_pdf 
+    @office = Office.find_by_id(params[:office_id])
+    @pdf = @office.pdfs
+    @abrv = @office.abrv # => yields name of PDF form, _pdf.css.erb => name _pdf must match this name
+    partial = "appointments/forms/#{@abrv}"
+    logger.debug "ABRV: #{@abrv}"
+    @format = "pdf"
+    respond_to do |format|
+      format.html
+      format.pdf {
+        html = render_to_string(
+                                :layout => "pdf.html.erb" , 
+                                :action => "#{partial}.pdf.html.erb", 
+                                :formats => [:html], 
+                                :handler => [:erb]
+                                )
+        kit = PDFKit.new(html)
+        kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/application.css"
+        send_data(kit.to_pdf, 
+                  :filename => "#{@office.name}.pdf", 
+                  :type => 'application/pdf'
+                  )
+        return # to avoid double render call
+      }
+    end
+  end
+
   # GET /offices/1
   # GET /offices/1.json
   def show
@@ -61,7 +88,30 @@ class OfficesController < ApplicationController
     @pdfs = Pdf.find_all_by_office_id(params[:id])
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @office }
+      format.json { render json: @office } 
+      format.pdf {
+        html = render_to_string(
+                                :layout => "pdf.html.erb" , 
+                                :action => "show.html.erb", 
+                                :formats => [:html], 
+                                :handler => [:erb]
+                                )
+        kit = PDFKit.new(html)
+        kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/application.css"
+        send_data(kit.to_pdf, 
+                  :filename => "#{@office.name}.pdf", 
+                  :type => 'application/pdf'
+                  )
+        return # to avoid double render call
+      }     
+    end
+  end
+
+  def get_stylesheet
+    if Rails.env.production?
+      "#{Rails.root}/public/assets/application.css"
+    else
+      "#{Rails.root}/app/assets/stylesheets/application.css"
     end
   end
 

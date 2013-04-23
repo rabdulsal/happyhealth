@@ -13,6 +13,9 @@
     </p>
   </section>
   <section>
+    <h2>
+      <%= link_to "Download PDF", office_path(@office, :format => 'pdf') %>
+    </h2>
     <p>
       <b>Office Name:</b>
       <%= @office.name %>
@@ -53,11 +56,11 @@
           <dd><%= doctor.title %></dd>
         <% end %>
     </dl>
-    <ul class="inline-block">
+    <!-- <ul class="inline-block">
       <li>
         <button value=<%= @office.id %> id="appt" class="createButton inline">View Office Form</button>
       </li>
-        <div id="edit-form" class="office-form-download"> <!-- Test Button -->
+        <div id="edit-form" class="office-form-download"> <!-- Test Button
           <button class="pdfButton office-form-download">
             Download PDF
           </button>
@@ -68,7 +71,7 @@
           </p>
         </div>
       </li>
-    </ul>
+    </ul> -->
 
     <% if current_user.is_admin != true %>
       <%= link_to 'Back to Office List', offices_path %>
@@ -76,6 +79,7 @@
       <%= link_to 'Edit Details', edit_office_path(@office) %> |
       <%= link_to 'Delete Office', @office, method: :delete, data: { confirm: 'Are you sure?' } %> |
       <%= link_to 'Back to Office List', offices_path %>
-    <% end %>
+    <% end %>    
+
   </section>
 </div>
