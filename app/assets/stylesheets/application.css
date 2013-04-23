@@ -11,6 +11,9 @@
 
  *= require_self 
  *= require jquery 
+ *= require mada
+ *= require mhc
+ *= require sawlani_demographics
  *= require_tree .
 */
 
