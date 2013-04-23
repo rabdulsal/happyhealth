@@ -50,7 +50,7 @@ HappyHealth::Application.configure do
   config.action_controller.asset_host =  "https://d12g1y8tkz7wxd.cloudfront.net"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += ['mada.css.scss.erb', 'clsma.css.scss.erb', 'mhc.css.scss.erb', 'sawlani_demographics.css.scss.erb']
+  config.assets.precompile += %w( *.css.scss.erb )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
