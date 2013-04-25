@@ -113,7 +113,7 @@ class OfficesController < ApplicationController
     office = Office.find(params[:id])
     abrv = office.abrv
     if Rails.env.production?
-      "https://s3.amazonaws.com/happyhealthapp/assets/#{abrv}.css"
+      "#{Rails.root}/app/assets/stylesheets/#{abrv}.css.scss.erb"
     else
       "#{Rails.root}/app/assets/stylesheets/#{abrv}.css.scss.erb"
     end
