@@ -66,7 +66,7 @@ class OfficesController < ApplicationController
       format.pdf {
         html = render_to_string(
                                 :layout => "pdf.html.erb" , 
-                                :action => "#{partial}.pdf.html.erb", 
+                                :action => "show.html.erb", 
                                 :formats => [:html], 
                                 :handler => [:erb]
                                 )
@@ -85,7 +85,9 @@ class OfficesController < ApplicationController
   # GET /offices/1.json
   def show
     @office = Office.find(params[:id])
-    @pdfs = Pdf.find_all_by_office_id(params[:id])
+    @abrv = @office.abrv
+    @partial_abrv = "#{@abrv}.pdf.html.erb"
+    logger.debug "Partial name = #{@partial_abrv} | CSS => #{get_stylesheet}"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @office } 
@@ -97,7 +99,7 @@ class OfficesController < ApplicationController
                                 :handler => [:erb]
                                 )
         kit = PDFKit.new(html)
-        kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/application.css"
+        kit.stylesheets << get_stylesheet
         send_data(kit.to_pdf, 
                   :filename => "#{@office.name}.pdf", 
                   :type => 'application/pdf'
@@ -108,10 +110,12 @@ class OfficesController < ApplicationController
   end
 
   def get_stylesheet
+    office = Office.find(params[:id])
+    abrv = office.abrv
     if Rails.env.production?
-      "#{Rails.root}/public/assets/application.css"
+      "#{Rails.root}/public/assets/#{abrv}.css.scss.erb"
     else
-      "#{Rails.root}/app/assets/stylesheets/application.css"
+      "#{Rails.root}/app/assets/stylesheets/#{abrv}.css.scss.erb"
     end
   end
 
