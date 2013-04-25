@@ -1,0 +1,451 @@
+<!-- *************************************************
+
+	HTML FOR PDF JQERY POPUP IN 'NEW APPOINTMENTS'
+
+	**************************************************** -->
+
+<style type="text/css">	
+
+#container {
+height: 1400px;
+width: 1070px;
+position: relative;
+left: 0px;
+top: 0px;
+background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/doctor2.jpg');
+background-size: 1062px 1500px;
+}
+
+p {
+margin: 0;
+padding: 0;
+font-color: red;
+font-size: 16px;
+font-weight: bold;
+}
+
+.pos {
+   position: absolute;
+}
+
+/* --------------- LINE ONE ------------- */
+
+
+.last-name{
+	top: 425px;
+	left: 240px;
+}
+
+.first-name {
+	top: 425px;
+	left: 430px;
+}
+
+.middle-init {
+	top: 425px;
+	left: 660px;
+}
+
+/* ------------- LINE TWO -------------- */
+
+.user-address {
+	top: 450px;
+	left: 212px;
+}
+
+/* -------------- LINE THREE  ----------- */
+
+.city{
+	top: 475px;
+	left: 190px;
+}
+
+.state {
+	top: 475px;
+	left: 340px;
+}
+
+.zip{
+	top: 475px;
+	left: 410px;
+}
+
+.phone{
+	top: 475px;
+	left: 560px;
+}
+
+.cell-phone{
+	top: 475px;
+	left: 765px;
+}
+
+/* ------------ LINE FOUR ------------- */
+
+.dob {
+	top: 500px;
+	left: 245px;
+}
+
+.sex{
+	top: 500px;
+	left: 430px;
+}
+
+.marital-status{
+	top: 500px;
+	left: 585px;
+}
+
+.user-email{
+	top: 500px;
+	left: 665px;
+}
+
+/* ------------- LINE FIVE ------------ */
+
+.ethnicity{
+	top: 525px;
+	left: 414px;
+}
+
+.race{
+	top: 525px;
+	left: 595px;
+}
+
+/* -------------- LINE SIX ------------ */
+
+
+
+/* -------------- LINE SEVEN ------------ */
+
+.employer-name{
+	top: 663px;
+	left: 295px;
+}
+
+/* ------------- LINE EIGHT ------------- */
+
+.employer-address{
+	top: 685px;
+	left: 300px;
+}
+
+/* ------------- LINE NINE ------------- */
+
+.employer-city{
+	top: 713px;
+	left: 195px;
+}
+
+.employer-state{
+	top: 714px;
+	left: 350px;
+}
+
+.employer-zip{
+	top: 714px;
+	left: 450px;
+}
+
+.work-phone{
+	top: 714px;
+	left: 580px;
+}
+
+/* ------------- LINE TEN ------------- */
+
+.ss-number{
+	top: 738px;
+	left: 270px;
+}
+
+/* -------------- LINE ELEVEN -------- */
+
+/* -------------- LINE TWELVE --------- */
+
+#one.emergency-name{
+	top: 808px;
+	left: 350px;
+}
+
+#one.emergency-phone{
+	top: 808px;
+	left: 650px;
+}
+
+#one.emergency-relationship{
+	top: 808px;
+	left: 860px;
+}
+
+/* ------------- LINE THIRTEEN --------- */
+
+/* ------------- LINE EIGHTEEN ---------- */
+
+
+#one.insurance-company{
+	top: 1065px;
+	left: 335px;
+}
+
+
+/* -------------- LINE NINETEEN ---------- */
+
+#one.policy-holder-last-name{
+	top: 1091px;
+	left: 585px;
+}
+
+#one.policy-holder-first-name{
+	top: 1091px;
+	left: 700px;
+}
+
+#one.insurance-birthdate{
+	top: 1091px;
+	left: 800px;
+}
+
+#one.insurer-relationship{
+	top: 1091px;
+	left: 900px;
+}
+
+/* ---------------- LINE TWENTY ----------- */
+
+#one.group-number{
+	top: 1115px;
+	left: 320px;
+}
+
+
+#one.emergency-address, #two.emergency-name, #two.emergency-address, #two.emergency-relationship, #two.emergency-phone,
+.date, .age, .referring-physician, .employment-status, .occupation, .employer-address, #one.insurance-policy-employer,
+#one.insured-soc-number, #one.insurer-address, #two.insurance-policy-employer, #two.insured-soc-number, #two.insurer-address,
+.employer-phone, #two.insurance-city, #two.policy-holder-first-name, #two.policy-holder-last-name, #two.insurance-birthdate,
+#two.insurer-relationship, #two.group-name, #two.insured-soc-number, #two.insurance-company, #two.group-number,
+#one.insurance-city{
+	display: none;
+}
+
+</style>
+
+<% user = current_user %>
+
+<div id="pdf_container">
+	<div id="container" class="form_dimension">
+
+		<% if @format = "pdf" %>
+			<%= render "appointments/pdf_form_buttons" %>
+		<% end %>
+
+		<div class="line-one first-name">
+			<p>
+				<%= user.form.personal.first_name %>
+			</p>
+		</div>
+		<div class="line-one last-name">
+			<p>
+				<%= user.form.personal.last_name %>
+			</p>
+		</div>
+		<div class="line-one age">
+			<p>
+				<%= user.form.personal.age %>
+			</p>
+		</div>
+		<div class="line-one dob">
+			<p>
+				<%= user.form.personal.date_of_birth %>
+			</p>
+		</div>
+		<div class="line-two user-address">
+			<p>
+				<%= user.form.personal.address %>
+			</p>
+		</div>
+		<div class="line-two user-email">
+			<p>
+				<%= user.form.personal.email_address %>
+			</p>
+		</div>
+		<div class="line-three city">
+			<p>
+				<%= user.form.personal.city %>
+			</p>
+		</div>
+		<div class="line-three state">
+			<p>
+				<%= user.form.personal.state %>
+			</p>
+		</div>
+		<div class="line-three zip">
+			<p>
+				<%= user.form.personal.zip_code %>
+			</p>
+		</div>
+		<div class="line-three phone">
+			<p>
+				<%= user.form.personal.home_phone %>
+			</p>
+		</div>
+		<div class="line-three social-security-number">
+			<p>
+				<%= user.form.personal.ss_number %>
+			</p>
+		</div>
+		<div class="line-four employer-name">
+			<p>
+				<%= user.form.personal.employer %>
+			</p>
+		</div>
+		<div class="line-four employer-address">
+			<p>
+				<%= user.form.personal.work_address %>
+			</p>
+		</div>
+		<div class="line-four employer-phone">
+			<p>
+				<%= user.form.personal.employer_phone %>
+			</p>
+		</div>
+		<div class="line-five employer-city">
+			<p>
+				<%= user.form.personal.employer_city %>
+			</p>
+		</div>
+		<div class="line-five employer-state">
+			<p>
+				<%= user.form.personal.employer_state %>
+			</p>
+		</div>
+		<div class="line-five employer-zip">
+			<p>
+				<%= user.form.personal.employer_zipcode %>
+			</p>
+		</div>
+		<div class="line-six referring-physician">
+			<p>
+				<%= user.form.personal.referred_by %>
+			</p>
+		</div>
+		<div class="line-ten insurance-company">
+			<p>
+				<%= user.form.insurances[0].company %>
+			</p>
+		</div>
+		<div class="line-ten insurer-address">
+			<p>
+				<%= user.form.insurances[0].address %>
+			</p>
+		</div>
+		<div class="line-eleven insurer-policy-holder">
+			<p>
+				<%= "#{user.form.insurances[0].subscribers_first_name} #{user.form.insurances[0].subscribers_last_name}" %>
+			</p>
+		</div>
+		<div class="line-eleven insurer-coverage">
+			<p>
+				<%= user.form.insurances[0].title %>
+			</p>
+		</div>
+		<div class="line-twelve insurance-policy-employer">
+			<p>
+				<%= user.form.insurances[0].subscribers_employer %>
+			</p>
+		</div>
+		<div class="line-twelve insured-soc-number">
+			<p>
+				<%= user.form.insurances[0].social_security %>
+			</p>
+		</div>
+		<div class="line-thirteen spouse-insurance-company">
+			<p>
+				<%#= user.form. %>
+			</p>
+		</div>
+		<div class="line-thirteen spouse-insurer-address">
+			<p>
+				<%#= user.form.spouse-insurer-address %>
+			</p>
+		</div>
+		<div class="line-fourteen spouse-insurer-policy-holder">
+			<p>
+				<%#= user.form.spouse-insurer-policy-holder %>
+			</p>
+		</div>
+		<div class="line-fourteen spouse-insurer-coverage">
+			<p>
+				<%#= user.form.spouse-insurer-policy-holder %>
+			</p>
+		</div>
+		<div class="line-fifteen spouse-employer-name">
+			<p>
+				<%#= user.form.spouse-employer-name %>
+			</p>
+		</div>
+		<div class="line-fifteen spouse-employer-address">
+			<p>
+				<%#= user.form.spouse-employer-address %>
+			</p>
+		</div>
+		<div class="line-fifteen spouse-employer-phone">
+			<p>
+				<%#= user.form.spouse-employer-phone %>
+			</p>
+		</div>
+		<div class="line-sixteen spouse-employer-city">
+			<p>
+				<%#= user.form.spouse-employer-city %>
+			</p>
+		</div>
+		<div class="line-sixteen spouse-employer-zip">
+			<p>
+				<%#= user.form.spouse-employer-zip %>
+			</p>
+		</div>
+		<div class="line-eighteen emergency-name">
+			<p>
+				<%= user.form.emergencies[0].name %>
+			</p>
+		</div>
+		<div class="line-eighteen emergency-address">
+			<p>
+				<%= user.form.emergencies[0].address %>
+			</p>
+		</div>
+		<div class="line-eighteen emergency-relationship">
+			<p>
+				<%= user.form.emergencies[0].relationship_to_patient %>
+			</p>
+		</div>
+		<div class="line-eighteen emergency-phone">
+			<p>
+				<%= user.form.emergencies[0].phone_number %>
+			</p>
+		</div>
+		<div class="line-nineteen emergency-name-2">
+			<p>
+				<%= user.form.emergencies[1].name %>
+			</p>
+		</div>
+		<div class="line-nineteen emergency-address-2">
+			<p>
+				<%= user.form.emergencies[1].address %>
+			</p>
+		</div>
+		<div class="line-nineteen emergency-relationship-2">
+			<p>
+				<%= user.form.emergencies[1].relationship_to_patient %>
+			</p>
+		</div>
+		<div class="line-nineteen emergency-phone-2">
+			<p>
+				<%= user.form.emergencies[1].phone_number %>
+			</p>
+		</div>
+	</div>
+</div>
+
