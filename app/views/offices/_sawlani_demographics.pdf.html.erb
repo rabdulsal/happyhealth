@@ -3,17 +3,453 @@
 	HTML FOR PDF JQERY POPUP IN 'NEW APPOINTMENTS'
 
 	**************************************************** -->
+<style type="text/css">
 
-<% if @format != 'pdf' %>
-  <%= stylesheet_link_tag 'sawlani_demographics' %>
-<% else %>
-  <%= wicked_pdf_stylesheet_link_tag 'sawlani_demographics' %>
-<% end %>
+.form_dimension {
+	background-size: 800px 1200px;
+	height: 1200px;
+	width: 800px;
+}
+
+#container {	
+	position: relative;
+	left: 0px;
+	top: 0px;
+	/*background: url(<%= Rails.root.join('app','assets','images','doctor3.jpg').to_s %>) no-repeat center;*/
+	/*background: url(<%= Rails.root.join('public', 'system','pdfs','pdf_forms','000', '000', '005', 'large', 'demo.jpg').to_s %>) no-repeat center;*/
+	background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/demo.jpg');
+}
+
+#container_2 {	
+	position: absolute;
+	left: 0px;
+	top: 1150px;
+	background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/medical.jpg');	
+}
+
+#container_3 {	
+	position: absolute;
+	left: 0px;
+	top: 2300px;
+	background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/payment.jpg');	
+}
+
+#container_4 {	
+	position: absolute;
+	left: 0px;
+	top: 3500px;
+	background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/communication.jpg');	
+}
+
+#container_5 {	
+	position: absolute;
+	left: 0px;
+	top: 4700px;
+	background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/privacy_1.jpg');	
+}
+
+#container_6 {	
+	position: absolute;
+	left: 0px;
+	top: 5800px;
+	background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/privacy_2.jpg');	
+}
+
+p {
+	padding: 0;
+	margin: 0;
+	font-size: 20px;
+}
+
+body {
+	font-family: Arial;
+	font-size: 14.9px;
+	background: #000;
+}
+
+.left_indent {
+	position: absolute;
+	left: 195px;
+}
+
+.date_1 {
+	position: absolute;
+	top: 190px;
+	left: 130px;
+}
+
+.date_2 {
+	position: absolute;
+	bottom: 130px;
+	left: 120px;
+}
+.last-name {
+	position: absolute;
+	top: 210px;
+	left: 130px;
+}
+
+.middle-init {
+	position: absolute;
+	top: 425px;
+	left: 660px;
+}
+
+/* ------------- LINE TWO -------------- */
+
+.user-address {
+	position: absolute;
+	top: 250px;
+	left: 130px;
+}
+
+/* -------------- LINE THREE  ----------- */
+
+.line-three {
+	position: absolute;
+	top: 280px;
+}
+
+.city {
+	position: absolute;
+	
+	left: 130px;
+}
+
+.state {
+	position: absolute;
+	top: 290px; 
+	left: 490px;
+}
+
+.column_right {
+	position: absolute;
+	right: 150px;
+}
+.zip{
+	position: absolute;
+	top: 290px;
+	right: 150px;
+}
+
+.line-four {
+	position: absolute;
+	top: 320px;
+}
+
+.phone {
+	top: 310px;
+}
+.cell-phone{
+	position: absolute;
+	right: 765px;
+}
+
+/* ------------ LINE FOUR ------------- */
+
+.dob {
+	position: absolute;
+	top: 340px;
+	left: 130px;
+}
+
+.line-five {
+	position: absolute;
+	top: 350px;
+}
+
+.age {
+	position: absolute;
+	left: 200px;
+}
+.mid_column {
+	position: absolute;
+	left: 380px;
+}
+
+.marital-status{
+	position: absolute;
+	top: 500px;
+	left: 585px;
+}
+
+.user-email{
+	position: absolute;
+	top: 500px;
+	left: 665px;
+}
+
+/* ------------- LINE FIVE ------------ */
+
+/* -------------- LINE SIX ------------ */
+
+.line-six {
+	top: 440px;
+}
+
+/* -------------- LINE SEVEN ------------ */
+
+.line-seven {
+	position: absolute;
+	top: 400px;
+}
+
+.line-eight {
+	position: absolute;
+	top: 480px;
+}
+
+.employer-name {
+	position: absolute;
+	left: 195px;
+}
+
+.employer-address {
+	top: 470px;
+	left: 115px;
+}
+
+/* ------------- LINE EIGHT ------------- */
+
+
+/* ------------- LINE NINE ------------- */
+
+.employer-state{
+	position: absolute;
+	right: 270px;
+}
+
+.employer-zip{
+	position: absolute;
+	top: 714px;
+	left: 450px;
+}
+
+.work-phone{
+	position: absolute;
+	top: 714px;
+	left: 580px;
+}
+
+/* ------------- LINE TEN ------------- */
+
+.line-ten {
+	position: absolute;
+	top: 695px;	
+}
+
+.insurance-company {
+	position: absolute;
+	left: 195px;
+}
+
+/* -------------- LINE ELEVEN -------- */
+
+.line-eleven {
+	position: absolute;
+	top: 730px;
+}
+
+.insurer-address {
+	position: absolute;
+
+}
+
+.policy_number {
+	position: absolute;
+	top: 710px;
+	right: 190px;
+}
+/* -------------- LINE TWELVE --------- */
+
+.line-twelve {
+	position: absolute;
+	top: 760px;
+}
+
+.insurance_city {
+	position: absolute;
+	left: 195px;
+}
+
+.insurance_state {
+	position: absolute;
+	top: 770px;
+	right: 290px;
+}
+
+.insurance_zipcode {
+	position: absolute;
+	top: 770px;	
+}
+
+.emergency-name{
+	position: absolute;
+	top: 808px;
+	left: 350px;
+}
+
+.emergency-relationship{
+	position: absolute;	
+	left: 260px;
+}
+
+/* ------------- LINE THIRTEEN --------- */
+
+.line-thirteen {
+	position: absolute;
+	top: 610px;
+	left: 195px;
+}
+/* ------------- LINE FIFTEEN ---------- */
+
+.line-fifteen {
+	position: absolute;
+	top: 670px;
+	left: 160px;
+}
+
+.line-sixteen {
+	position: absolute;
+	bottom: 300px;
+	left: 300px;
+}
+.page_2_name {
+	position: absolute;
+	top: 150px;
+}
+
+.page_2_bday {
+	position: absolute;
+	left: 400px;
+}
+
+.line-twenty {
+	position: absolute;
+	top: 160px;
+}
+
+.line-twentyone {
+	position: absolute;
+	top: 180px;
+}
+.date_3 {
+	position: absolute;
+	bottom: 300px;
+	right: 240px;
+}
+
+.name_2 {
+	position: absolute;
+	top: 250px;
+	left: 130px;
+}
+
+.date_4 {
+	position: absolute;
+	bottom: 480px;
+	right: 240px;
+}
+
+.name_3 {
+	position: absolute;
+	top: 280px;
+	left: 130px;
+}
+
+.date_5 {
+	position: absolute;
+	top: 550px;
+	left: 195px;
+}
+
+.date_6 {
+	position: absolute;
+	bottom: 160px;
+	left: 195px;
+}
+
+.date_7 {
+	position: absolute;
+	bottom: 200px;	
+}
+
+.date_8 {
+	position: absolute;
+	bottom: 150px;	
+}
+
+.left_column {
+	position: absolute;
+	left: 80px;
+}
+
+.medication_1 {
+	position: absolute;
+	top: 490px;
+}
+
+.medication_2 {
+	position: absolute;
+	top: 515px;
+}
+
+.allergy_1 {
+	position: absolute;
+	top: 500px;	
+}
+
+.allergy_2 {
+	position: absolute;
+	top: 525px;	
+}
+
+.allergy_3 {
+	position: absolute;
+	top: 550px;	
+}
+
+
+/* -------------- LINE NINETEEN ---------- */
+
+#one.policy-holder-last-name{
+	position: absolute;
+	top: 1091px;
+	left: 585px;
+}
+
+#one.policy-holder-first-name{
+	position: absolute;
+	top: 1091px;
+	left: 700px;
+}
+
+#one.insurance-birthdate{
+	position: absolute;
+	top: 1091px;
+	left: 800px;
+}
+
+#one.insurer-relationship{
+	position: absolute;
+	top: 1091px;
+	left: 900px;
+}
+
+/* ---------------- LINE TWENTY ----------- */
+
+#one.group-number{
+	position: absolute;
+	top: 1115px;
+	left: 320px;
+}
+
+</style>
 
 
 <% user = current_user %>
 
-<div id="pdf_container" class="sawlani_demographics" title="">
+<div id="pdf_container">
 	<div id="container" class="form_dimension">
 
 		<% if @format != "pdf" %>

@@ -21,7 +21,8 @@ class OfficesController < ApplicationController
   def save_receipt
     @receipt = Receipt.new(params[:receipt])
     if @receipt.save
-      redirect_to office_pdf_path(:office_id => @receipt.office_id)
+      #redirect_to office_pdf_path(:office_id => @receipt.office_id)
+      redirect_to office_path(:id => @receipt.office_id, :format => 'pdf')
     else
       redirect_to offices_path, :error => "Please check the terms of service agreement button"
     end
