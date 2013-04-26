@@ -184,7 +184,7 @@ body {
 #main {
     /*background: url('/images/wood.png');*/
     /*background: url(<%= asset_path '/images/wood.png' %>);*/
-    background: url(<%= asset_path 'wood.png' %>);
+    background: url('https://s3.amazonaws.com/happyhealthapp/assets/wood.png');
 }
 
 label {
@@ -361,7 +361,7 @@ ul#static.inline-block{
 
 .signin, .signup {
     padding: 30px;
-    background: #aaa;
+    background-color: #f5f5f5;
     box-shadow: 0 2px 5px grey;
     border: 1px solid grey;
     border-radius: 5px;
@@ -370,15 +370,15 @@ ul#static.inline-block{
     display: block;
     /*float: left;
     margin: 60px 0 0 50px;*/
-
+    margin: 60px auto;
     opacity:.95;
 }
 
 .signup {
-    padding: 20px;
-    background-color: #f5f5f5;
+    padding: 20px;    
     height: 100%;
     margin: 39px 0 20px 50px;
+    float: left;
 }
 
 .signup_text {
