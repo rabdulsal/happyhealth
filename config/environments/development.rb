@@ -40,7 +40,7 @@ HappyHealth::Application.configure do
 
   config.serve_static_assets = false
 
-  config.assets.prefix = "app/assets"
+  config.assets.prefix = "/assets_dev"
 
   #Paperclip and AWS Storage
   # config.paperclip_defaults = {
