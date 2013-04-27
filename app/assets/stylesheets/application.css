@@ -49,14 +49,14 @@
 }
 
 .warning {
-	color: red;
+	color: #ff0000;
 	font-size: 20px;
 	font-weight: bold;
 }
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color: #ff0000;
   display: table;
 }
 
