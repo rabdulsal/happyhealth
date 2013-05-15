@@ -70,6 +70,9 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 #AWS
 gem 'aws-sdk'
 
+#Yelp
+gem 'yelpster'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

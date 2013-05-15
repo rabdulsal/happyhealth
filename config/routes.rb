@@ -27,6 +27,9 @@ HappyHealth::Application.routes.draw do
     resources :pdfs
   end
 
+  #Yelp Office Search
+  match "/yelp" => "offices#yelp_search"
+  
 
   # InsuranceQuery GET resources & requests
   resources :insurance_queries do

@@ -129,7 +129,24 @@ class OfficesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @office }
-    end
+    end    
+  end
+
+  def yelp_search
+      client = Yelp::Client.new
+      request = Yelp::V1::Review::Request::Location.new(
+        :address => '1650 W. Harrison',
+        :city => 'Chicago',
+        :state => 'IL',
+        :term => 'doctor',
+        :radius => 2,
+        :yws_id => 'IjuGGlLHcxI94_kxNNQ63w')
+      @response = client.search(request)
+
+      respond_to do |format|
+        format.html
+        format.json { render json: @response }      
+      end
   end
 
   # GET /offices/1/edit
