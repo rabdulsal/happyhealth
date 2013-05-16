@@ -12,10 +12,11 @@ background: #f6f6f6;*/
 <div class="signin">
 	<h2>Sign in</h2>
 	<div class="box">
-		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>		 
+
 		  <div><label class="sign">Email</label><%= f.email_field :email, class: "fluid-form" %></div>
 
-		  <div><label class="sign">Password</label><%= f.password_field :password, class: "fluid-form" %></div>
+		  <div><label class="sign">Password</label><%= f.password_field :password, class: "fluid-form" %></div>		 
 
 		  <!-- Comment-out "Remember Me" for Security
 		  <%# if devise_mapping.rememberable? -%>

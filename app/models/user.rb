@@ -13,7 +13,7 @@
           :password_archivable,
           :session_limitable,
           :expirable,
-          :security_questionable
+          :security_questionable          
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
