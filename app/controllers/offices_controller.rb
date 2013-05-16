@@ -87,8 +87,7 @@ class OfficesController < ApplicationController
   def show
     @office = Office.find(params[:id])
     @abrv = @office.abrv
-    # @partial_abrv = "#{@abrv}.pdf.html.erb"
-    @partial_abrv = "/appointments/forms/#{@abrv}.pdf.html.erb"
+    @partial_abrv = "#{@abrv}.pdf.html.erb"
     logger.debug "Partial name = #{@partial_abrv} | CSS => #{get_stylesheet}"
     respond_to do |format|
       format.html # show.html.erb
