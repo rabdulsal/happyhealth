@@ -13,11 +13,21 @@
           :password_archivable,
           :session_limitable,
           :expirable,
-          :security_questionable
+          :security_questionable,
+          :authentication_keys => [:login]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :name
+  attr_accessible :username,
+                  :email, 
+                  :password, 
+                  :password_confirmation, 
+                  :remember_me,
+                  :name,
+                  :login
+
+  # Virtual attribute for authenticating by either username or email
+  # This is in addition to a real persisted field like 'username'
+  attr_accessor :login
 
   has_many :notes
   has_many :appointments
@@ -26,6 +36,17 @@
   has_one :form
   has_many :offices, through: :appointments
   has_many :receipts
+
+  #Override authentication to user :username
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+      conditions = warden_conditions.dup
+      if login = conditions.delete(:login)
+        where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      else
+        where(conditions).first
+      end
+    end
 
   def to_s
     if self.form && self.form.personal.first_name != "" && self.form.personal.first_name != nil

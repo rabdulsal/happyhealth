@@ -69,7 +69,7 @@ background: #000;
 
 .line-one {
 	position: absolute;
-	top: 190px;
+	top: 85px;
 }
 
 .last-name{
@@ -405,12 +405,12 @@ background: #000;
 				<%= user.form.personal.city %>
 			</p>
 		</div>
-		<div class="line-four state">
+		<div class="line-two state">
 			<p>
 				<%= user.form.personal.state %>
 			</p>
 		</div>
-		<div class="line-four zip">
+		<div class="line-two zip">
 			<p>
 				<%= user.form.personal.zip_code %>
 			</p>
@@ -426,14 +426,14 @@ background: #000;
 
 		<% else %>
 
-			<div class="line-three cell_pdf">
+			<div class="line-four cell_pdf">
 				<p>
 					<%= user.form.personal.cell_phone %>
 				</p>
 			</div>
 
 		<% end %>
-		<div class="line-three phone">
+		<div class="line-four phone">
 			<p>
 				<%= user.form.personal.home_phone %>
 			</p>

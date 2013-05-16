@@ -50,17 +50,17 @@
 			<%= user.form.personal.gender %>
 		</p>
 
-		<div class="line-four city">
+		<div class="line-two city">
 			<p>
 				<%= user.form.personal.city %>
 			</p>
 		</div>
-		<div class="line-four state">
+		<div class="line-two state">
 			<p>
 				<%= user.form.personal.state %>
 			</p>
 		</div>
-		<div class="line-four zip">
+		<div class="line-two zip">
 			<p>
 				<%= user.form.personal.zip_code %>
 			</p>
@@ -68,7 +68,7 @@
 
 		<% if @format != "pdf" %>
 					
-			<div class="line-three cell-phone">
+			<div class="line-four cell-phone">
 				<p>
 					<%= user.form.personal.cell_phone %>
 				</p>
@@ -76,14 +76,14 @@
 
 		<% else %>
 
-			<div class="line-three cell_pdf">
+			<div class="line-four cell_pdf">
 				<p>
 					<%= user.form.personal.cell_phone %>
 				</p>
 			</div>
 
 		<% end %>
-		<div class="line-three phone">
+		<div class="line-four phone">
 			<p>
 				<%= user.form.personal.home_phone %>
 			</p>

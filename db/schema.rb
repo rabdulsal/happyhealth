@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130330192948) do
+ActiveRecord::Schema.define(:version => 20130516030416) do
 
   create_table "allergies", :force => true do |t|
     t.string   "info"
@@ -281,6 +281,7 @@ ActiveRecord::Schema.define(:version => 20130330192948) do
     t.integer  "failed_attempts",                        :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
