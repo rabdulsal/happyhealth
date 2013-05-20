@@ -31,7 +31,7 @@
 			</p>
 		</div>
 		
-		<div class="line-two dob">
+		<div class="line-six dob">
 			<p>
 				<%= user.form.personal.date_of_birth %>
 			</p>
@@ -46,10 +46,6 @@
 				<%= user.form.personal.email_address %>
 			</p>
 		</div>
-		<p class="line-two gender">
-			<%= user.form.personal.gender %>
-		</p>
-
 		<div class="line-two city">
 			<p>
 				<%= user.form.personal.city %>
@@ -89,7 +85,7 @@
 			</p>
 		</div>
 		
-		<div class="line-six employer-name">
+		<div class="line-eight employer-name">
 			<p>
 				<%= user.form.personal.employer %>
 			</p>
@@ -107,11 +103,6 @@
 		<div class="line-seven policy_number">
 			<p>
 				<%= user.form.insurances[0].policy_number %>
-			</p>
-		</div>
-		<div class="line-five subscriber_birthday">
-			<p>
-				<%= user.form.personal.date_of_birth %>
 			</p>
 		</div>
 		<div class="line-seven employer-zip">
@@ -134,18 +125,13 @@
 				<%= "#{user.form.insurances[0].subscribers_first_name} #{user.form.insurances[0].subscribers_last_name}" %>
 			</p>
 		</div>
-		<div class="line-seventeen insurance_relationship">
-			<p>
-				<%= user.form.insurances[0].relationship_to_patient %>
-			</p>
-		</div>
-		<div class="line-eighteen emergency-name">
+		<div class="line-seventeen emergency-name">
 			<p>
 				<%= user.form.emergencies[0].name %>
 			</p>
 		</div>
 		
-		<div class="line-eighteen emergency-relationship">
+		<div class="line-seventeen emergency-relationship">
 			<p>
 				<%= user.form.emergencies[0].relationship_to_patient %>
 			</p>
@@ -174,13 +160,11 @@
 			</p>
 		</div>
 		<div>
-			<p class="line-twentyone name_privacy">
-				<%= "#{user.form.personal.first_name} #{user.form.personal.last_name}" %>
-			</p>
 			<p class="line-twentyone date_2">
 				<%= @date_today %>
 			</p>
 		</div>
+		
 	</div>
 
 	<div id="container_3" class="form_dimension">
@@ -197,27 +181,32 @@
 				<%= @date_today %>
 			</p>
 		</div>
-		<div class="line-twentyfour insur_relat">
-			<p>
-				<%= user.form.insurances[0].relationship_to_patient %>
+		<div>
+			<p class="referring_physician">
+				<%= user.form.personal.referred_by %>
 			</p>
+		</div>
+		<div>
+			
+			<% user.form.medical.medications.each do |medication| %>
+				<p class="left_column medication_<%=medication.id%>">
+					<%= medication.info %>
+				</p>
+			<% end %>
+
+			<% user.form.medical.allergies.each do |allergy| %>
+				<p class="allergies allergy_<%=allergy.id%>">
+					<%= allergy.info %>
+				</p>
+			<% end %>
+			
 		</div>
 	</div>
 
 	<div id="container_4" class="form_dimension">
 		<% if @format != "pdf" %>
 			<%= render "appointments/pdf_form_buttons" %>
-		<% end %>
-
-		<div class="name_2">
-			<p>
-				<%= "#{user.form.personal.first_name} #{user.form.personal.last_name}" %>
-			</p>
-		</div>
-
-		<p class="date_4">
-			<%= @date_today %>
-		</p>
+		<% end %>		
 
 	</div>
 
@@ -225,10 +214,10 @@
 		<% if @format != "pdf" %>
 			<%= render "appointments/pdf_form_buttons" %>
 		<% end %>
-		<p class="name_3">
+		<p class="page_6 name_3">
 			<%= "#{user.form.personal.first_name} #{user.form.personal.last_name}" %>
 		</p>
-		<p class="date_5">
+		<p class="page_6 date_5">
 			<%= @date_today %>
 		</p>
 
@@ -242,6 +231,16 @@
 	</div>
 
 	<div id="container_7" class="form_dimension">
+		<% if @format != "pdf" %>
+			<%= render "appointments/pdf_form_buttons" %>
+		<% end %>
+
+		<p class="name_7">
+			<%= "#{user.form.personal.first_name} #{user.form.personal.last_name}" %>
+		</p>
+		<p class="date_7">
+			<%= @date_today %>
+		</p>
 
 	</div>
 </div>

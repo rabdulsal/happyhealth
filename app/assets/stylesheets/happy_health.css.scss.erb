@@ -188,10 +188,12 @@ body {
 }
 
 label {
-        display: block;
-        padding: 7px 0;
-        font-size: 14px;
-        color: #000066;
+    display: block;
+    padding: 7px 0;
+    font-size: 14px;
+    color: #000066;
+    color: #555;
+
 }
 
 textarea {
@@ -199,7 +201,7 @@ textarea {
 }
 
 input {
-        font-size: 16px;
+    font-size: 16px;    
 }
 
 img {
@@ -221,8 +223,16 @@ img {
     float: left;
 }
 
+.margin-left {
+    margin-left: 10px;
+}
+
 .margin-right {
     margin-right: 10px;
+}
+
+.no_right_margin {
+    margin-right: 0px;
 }
 
 .margin-top {
@@ -231,6 +241,10 @@ img {
 
 .margin-bottom {
     margin-bottom: 10px;
+}
+
+.padding-top, .padding-top th, .padding-top td {
+    padding-top: 10px;
 }
 
 ul#static.inline-block{
@@ -348,25 +362,27 @@ ul#static.inline-block{
     margin: 10px 6px;
     background: white;
     box-shadow: 0 2px 5px grey;
-    border: 1px solid grey;
+    border: 1px solid #ccc;
     border-radius: 10px;
     float: left;
     width: 280px;
 }
 
-.signin h2, .signup h2{
+.signin h2, .signup h2 {
     text-align: center;
     font-size: 20px;
+    color: #555;
 }
 
 .signin, .signup {
-    padding: 30px;
-    background-color: #f5f5f5;
+    padding: 30px 48px;
+    background-color: #f8f8f8;
     box-shadow: 0 2px 5px grey;
-    border: 1px solid grey;
+    border: 1px solid #ccc;
     border-radius: 5px;
     width: 280px;
-    height: 330px;
+    /*height: 330px;*/
+    height: 100%;
     display: block;
     /*float: left;
     margin: 60px 0 0 50px;*/
@@ -375,14 +391,14 @@ ul#static.inline-block{
 }
 
 .signup {
-    padding: 20px;    
-    height: 100%;
+    padding: 20px;     
     margin: 39px 0 20px 50px;
     float: left;
 }
 
 .signup_text {
-    font-size: 12px;
+    font-size: 14px;
+    color: #555;
 }
 
 .pdf-upload {
@@ -463,6 +479,7 @@ p.signup-title {
     background: -webkit-linear-gradient(top, #fff, #ececec);
     text-shadow: 0 1px 3px white;
     font-size: 12px !important;
+    height: 30px;
 }
 
 .navi {
@@ -473,10 +490,6 @@ p.signup-title {
 .eligibility {
     width: 250px;
 }
-
-/*.submit-button {
-    font-size: 14px;
-}*/
 
 .short {
     width: 100px;
@@ -562,6 +575,10 @@ p.signup-title {
     padding: 0;
 }
 
+.pull-right {
+    margin-right: -10px;
+}
+
 .backButton{
     background: #888;
 }
@@ -622,6 +639,7 @@ input#user_remember_me{
 div.form_buttons{
     float: right;
     clear: both;
+    margin-right: 0;
 }
 
 ul.form {
@@ -851,6 +869,10 @@ a.appt-title{
 
 /* ------------------------ SITE AND NAVIGATION ------------------------------ */
 
+#tabs ul {
+    margin-left: 25px;
+}
+
 #nav-tab {
     margin: 10px 10px;
     height: 100%;
@@ -858,12 +880,13 @@ a.appt-title{
 
 #nav-tab a {
     display: block;
-    border: 2px solid #006;
+    border: 1px solid #ccc;
     margin: 5px;
     text-transform: uppercase;
     font-weight: bold;
-    color: #006;
+    color: #555;
     background: #D1E0FF;
+    background: #f8f8f8;
     padding-left: 5px;
 }
 
@@ -878,7 +901,7 @@ a.appt-title{
 }
 
 #nav-tab a:hover {
-        text-decoration: none;
+    text-decoration: none;
 }
 
 /*#nav-tab li.selected {
@@ -1013,25 +1036,29 @@ aside .form-save {
 
 .demoBackground, .formsBackground {
         border: 1px solid #000066;
-        border-radius: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
         background: #D1E0FF;
+        background: #f8f8f8;
         float: left;
-        width: 580px;
+        width: 565px;
         margin: 10px 10px;
         /*width: 59.18367346938776%;
         margin: 1.02040816326531%;*/
-        padding: 5px 10px 10px 10px;
+        padding: 5px 10px 20px 20px;
 }
 
-.demoBackground h3 {
-    color: red;
+.demoBackground select {
+    width: 95%;
+    height: 28px;
+    background-color: #fff !important;
+    border-radius: 0px;
+
+}
+
+.formsBackground h2, .demoBackground h2 {
+    color: #555;    
     font-size: 14px;
-    margin: 5px 10px;
-}
-
-.formsBackground h2 {
-        color: #000066;
-        margin: 10px;
 }
 
 .formsBackground li, .demoBackground li {
@@ -1040,7 +1067,8 @@ aside .form-save {
 
 .formsBackground legend, .demoBackground legend {
         font-weight: bold;
-        color: #000066;
+        color: #555;
+        font-size: 16px
 }
 
 .formsBackground textarea {
@@ -1083,20 +1111,46 @@ aside .form-save {
 
 /* --------------------- SHOW PAGES --------------------------- */
 
-.show-table th {
+.show-table, .show-table-horizontal, .show-table-short {
+    font-size: 14px; 
+    border-collapse: collapse;   
+}
+
+.show-table th, .show-table-horizontal th, .show-table-short th {
     text-transform: uppercase;
+    color: #aaa;
+    font-size: 90%;    
+    font-weight: bold;
     line-height: 190%;
-    font-size: 75%;
-    color: grey;
+    vertical-align: top;    
+}
+
+.show-table th, .show-table-short th {
     text-align: right;
-    vertical-align: top;
     min-width: 180px;
+}
+
+.show-table-short th {
+    max-width: 100px;
+    padding-right: 10px;
+}
+
+.show-table-short th, .show-table-short td {
+    
+}
+
+.show-table td, .show-table-horizontal td, .show-table-short td {    
+    vertical-align: top;
+    color: #555;
 }
 
 .show-table td {
     text-align: left;
     padding-left: 10px;
-    vertical-align: top;
+}
+
+.show-table-horizontal td, .show-table-horizontal th {
+    padding: 0 10px;    
 }
 
 .first-name, .last-name {
@@ -1168,6 +1222,53 @@ aside .form-save {
 
 .med_conditions, .customer_type {
         font-size: 12px;
+}
+
+/* ------------------- FORMS TABLES -------------------- */
+
+.table_row_full {
+    width: 100%;
+}
+
+.table_row_half td {
+    width: 25%;       
+}
+
+.table_row_third td {
+    vertical-align: top;
+    width: 30%;        
+}
+
+.table_row_full, .table_data_third, .table_row_fourth td, .table_row_half td {    
+    margin-right: 10px;
+}
+
+.table_row_fourth td {
+    width: 25%;
+}
+
+.table_row_fourth td {
+    
+}
+
+.radio_button > td {
+    width: 0;
+}
+
+.form_field_length, .form_field_length_full, select {    
+    height: 25px;
+}
+
+.form_field_length {
+    width: 95%;   
+}
+
+.form_field_length_full {
+    width: 98%;
+}
+
+.fat {
+    height: 30px;
 }
 
 /* --------------- TEST FORM WIDTHS ------------------- */
@@ -1511,21 +1612,19 @@ footer ul li:last-child {
         background: #fff !important;
     }
     .signin, .signup {
-        background: #eee;
+        background: #f8f8f8;
         padding: 0 0 20px 0;
         margin-top: 20px;
     }
     .signin h2, .signup h2 {
         margin-top: 10px;
     }
-    /*.signin {
-        position: relative;
-        top: 10px;
+
+    .full_width, input.createButton {
+        width: 93.9393939393939393%;
+        margin: 0 2.08333%;
     }
-    .signup {
-        position: relative;
-        top: 20px;
-    }*/
+
     p.signup-title {
         margin: 40px 5px;
         font-size: 20px;

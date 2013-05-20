@@ -1,31 +1,45 @@
 <h1>Edit Your Profile <%= current_user.to_s %></h1>
  
  <div class="demoBackground">
+
+  <table class="show-table-short table_row_full">
   
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-    <%= devise_error_messages! %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+      <%= devise_error_messages! %>
+      
+      <tr class="padding-top">
+        <th>name</th>
+        <td><%= f.text_field :name, class: "form_field_length_full" %></td>
+      </tr>
+      <tr class="padding-top">
+        <th>email</th>
+        <td><%= f.email_field :email, class: "form_field_length_full" %></td>
+      </tr>
+      <tr class="padding-top">
+        <th>password </th>
+        <td><%= f.password_field :password, :autocomplete => "off", placeholder: "Leave blank if you don't want to change this.", class: "form_field_length_full" %></td>
+      </tr>
+      <tr class="padding-top">
+        <th>password_confirmation</th>
+        <td><%= f.password_field :password_confirmation, class: "form_field_length_full" %></td>
+      </tr>
+      <tr class="padding-top">
+        <th>current_password </th>
+        <td><%= f.password_field :current_password, placeholder: "Current password to confirm changes", class: "form_field_length_full" %></td>
+      </tr>
+        
+      <tr>
+        <th></th>
+        <td><%= f.submit "Update", class: "form_field_length_full submit-button fat margin-top" %></td>
+      </tr>
+    <% end %>
 
-    <div><%= f.label :name %>
-    <%= f.text_field :name %></div>
-    
-    <div><%= f.label :email %>
-    <%= f.email_field :email %></div>
+  </table>
 
-    <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, :autocomplete => "off" %></div>
+  <div class="right margin-top">
+    <%= link_to "Delete Account", registration_path(resource_name), :data => { :confirm => "Are you sure you want to delete your Account #{current_user.to_s}? This action CANNOT be undone." }, :method => :delete, class: "remove-form hidden" %>
+  
+    <%= link_to "Back", :back, class: "submit-button right-margin-off" %>
+  </div>
 
-    <div><%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %></div>
-
-    <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password %></div>
-
-    <div><%= f.submit "Update" %></div>
-  <% end %>
-
-  <h3 class="erase-profile">
-    <%= link_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure you want to delete your Account #{current_user.to_s}? This action CANNOT be undone." }, :method => :delete %>
-  </h3>
-
-  <%= link_to "Back", :back %>
 </div>

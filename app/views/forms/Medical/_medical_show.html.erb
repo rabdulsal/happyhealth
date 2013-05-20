@@ -1,49 +1,44 @@
 <fieldset class="demoBackground">
 	<legend>Medical Information</legend>
 	
-	<table>
+	<table class="show-table-short">
 		<tr>
-			<th>Allergies</th>
+			<th rowspan="2">Allergies</th>
+
+		<% if form.medical.allergies[0].info? %>		
+			<% form.medical.allergies.each do |allergy| %>
+				<td>
+					<%= allergy.info %>
+				</td>
 		</tr>
-	
-	<% if form.medical.allergies[0].info != "" %>
-		
-	
-			<% form.medical.allergies.each_with_index do |allergy,index| %>
-				<tr>
-					<% if allergy %>
-						<td><%= index+1%>.<%= allergy.info %></td>
-					<% end %>
-				</tr>
 			<% end %>
-	<% else %>
-		<tr><td><i>No allergies listed</i></td></tr>
-	<% end %>
-	
+		<% else %>
+			<tr><td><i>No allergies listed</i></td></tr>
+		<% end %>
+		
 	</table><br />
 	
-	<h3>Medical History</h3>
+	<table class="show-table-horizontal">
+		<thead>
+			<th>Medications</th>
+			<th>Reason for Taking</th>
+		</thead>
 	
-	<% if form.medical.medications[0].info != "" %>
-		<table>
-		<tr>
-			<th>Medication</th>
-			<th>Reason</th>
-		</tr>
-		
-		<% form.medical.medications.each do |medication| %>
-			<tr>
-				<td><%= medication.info %></td>
-				<td><%= medication.reason %></td>
-			</tr>
+		<% if form.medical.medications[0].info? %>
+			<% form.medical.medications.each do |medication| %>
+			
+				<tr>
+					<td><%= medication.info %></td>
+					<td><%= medication.reason %></td>
+				</tr>
+
+			<% end %>
+					
+		<% else %>
+			<i>No medications listed</i>
 		<% end %>
-		</table>
 	
-	<% else %>
-		<i>No medications listed</i>
-	<% end %>
-	
-	
+	</table>
 </fieldset>
 		
 	

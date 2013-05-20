@@ -4,16 +4,24 @@
 
 	<fieldset class="demoBackground">
 	<legend><%= "#{form.insurances[0].title} Insurance "%></legend>
-	<ul>
+	
 		<li>
-		 	<%= builder.label :insurance_company %>
-			<%= builder.text_field :company, :class => "patient-relationship" %>
-			<%#= builder.label :payer_id %>
-			<%#= builder.collection_select :payer_id, Payer.all, :id, :payer_name, {prompt: 'Select Insurance'}, {style: 'width:240px'} %>
-		</li>
-		 <li>
-			<%= builder.label :relationship_to_patient %>
-			<%= builder.text_field :relationship_to_patient, :class => "patient-relationship" %>
+			<table>
+				<tr class="table_row_half">
+					<td>
+					 	<%= builder.label :insurance_company %>
+						<%= builder.text_field :company, :class => "form_field_length" %>
+						<%#= builder.label :payer_id %>
+						<%#= builder.collection_select :payer_id, Payer.all, :id, :payer_name, {prompt: 'Select Insurance'}, {style: 'width:240px'} %>
+					<!-- </li>
+					 <li> -->
+					 </td>
+					 <td>
+						<%= builder.label :relationship_to_patient %>
+						<%= builder.text_field :relationship_to_patient, :class => "form_field_length" %>
+					</td>
+				</tr>
+			</table>
 		</li> 
 		<!--<li>
 			<%#= builder.label :insurance_holder_relationship_to_patient %>
@@ -21,81 +29,143 @@
 			If other than yourself: <%#= builder.text_field :relationship_to_patient %>			
 		</li>-->		
 
-		<li>
+		<li class="table_row_full">
 			<label>Insurance Address</label>
-			<%= builder.text_field :address, :class => "insurance-address" %>
+			<%= builder.text_field :address, :class => "form_field_length_full" %>
 		</li>
 		<li>
-			<%= builder.label :city %><%= builder.text_field :city, :class => "insurance-city" %>
+			<table>
+				<tr class="table_row_third">
+					<td>
+						<%= builder.label :city %><%= builder.text_field :city, :class => "form_field_length" %>
+
+					<!-- </li>
+					<li> -->
+					</td>
+					<td>
+						<%= builder.label :state %><%= builder.select :state, options_for_select(us_states.each.map { |state| [state[:abrv]]}, form.insurances[0].state), class: "form_field_length" %>
+					<!-- </li>
+					<li> -->
+					</td>
+					<td>
+						<%= builder.label :zipcode %>
+						<%= builder.text_field :zipcode, :class => "form_field_length" %>
+					</td>
+				</tr>
+			</table>
 		</li>
 		<li>
-			<%= builder.label :state %><%= builder.select :state, options_for_select(us_states.each.map { |state| [state[:abrv]]}, form.insurances[0].state) %>
+			<table>
+				<tr class="table_row_half">
+					<td>
+						<label>Group Number</label>
+						<%= builder.text_field :group_number, :class => "form_field_length" %>
+					<!-- </li>
+					<li> -->
+					</td>
+					<td>
+						<label>Group Name</label>
+						<%= builder.text_field :group_name, :class => "form_field_length" %>
+					</td>
+				</tr>
+			</table>
 		</li>
 		<li>
-			<%= builder.label :zipcode %>
-			<%= builder.text_field :zipcode, :class => "insurance-zipcode" %>
+			<table>
+				<tr class="table_row_half">
+					<td>
+						<label>Effective Date</label>
+						<%= builder.text_field :eff_date, :class => "form_field_length" %>
+					<!-- </li>
+					<li> -->
+					</td>
+					<td>
+						<label>Policy Number</label>
+						<%= builder.text_field :policy_number, :class => "form_field_length" %>
+					</td>
+				</tr>
+			</table>
 		</li>
 		<li>
-			<label>Group Number</label>
-			<%= builder.text_field :group_number, :class => "group-number" %>
+			<table>
+				<tr class="table_row_half">
+					<td>
+						<label>Subscriber's Last Name</label>
+						<%= builder.text_field :subscribers_last_name, :class => "form_field_length" %>
+					<!-- </li>
+					<li> -->
+					</td>
+					<td>
+						<label>Subscriber's First Name</label>
+						<%= builder.text_field :subscribers_first_name, :class => "form_field_length" %>
+					</td>
+				</tr>
+			</table>
+			<table>
+				<tr class="table_row_half">
+					<td>
+						<label>Social Security</label>
+						<%= builder.text_field :social_security, :class => "form_field_length" %>
+					</td>
+					<td>
+						<%= builder.label :gender %>
+						Male: <%= builder.radio_button :sex, "male" %>
+						Female: <%= builder.radio_button :sex, "female" %>
+					<!-- </li>
+					<li> -->
+					</td>
+				</tr>
+			</table>
 		</li>
-		<li>
-			<label>Group Name</label>
-			<%= builder.text_field :group_name, :class => "group-name" %>
-		</li>
-		<li>
-			<label>Effective Date</label>
-			<%= builder.text_field :eff_date, :class => "effective-date" %>
-		</li>
-		<li>
-			<label>Policy Number</label>
-			<%= builder.text_field :policy_number, :class => "policy-number" %>
-		</li>
-		<li>
-			<label>Subscriber's Last Name</label>
-			<%= builder.text_field :subscribers_last_name, :class => "subscriber-lastname" %>
-		</li>
-		<li>
-			<label>Subscriber's First Name</label>
-			<%= builder.text_field :subscribers_first_name, :class => "subscriber-firstname" %>
-		</li>
-		<li>
+		<li class="table_row_full">
 			<label>Subscriber's Address</label>
-			<%= builder.text_field :subscribers_address, :class => "subscriber-address" %>
+			<%= builder.text_field :subscribers_address, :class => "form_field_length_full" %>
 		</li>
 		<li>
-			<label>Subscriber's City</label> <%= builder.text_field :subscribers_city, :class => "subscriber-city" %>
+			<table>
+				<tr class="table_row_third">
+					<td>
+						<label>Subscriber's City</label> <%= builder.text_field :subscribers_city, :class => "form_field_length" %>
+					<!-- </li>
+					<li> -->
+					</td>
+					<td>
+						<label>Subscriber's State</label> <%= builder.select :subscribers_state, options_for_select(us_states.each.map { |state| [state[:abrv]]}, form.insurances[0].subscribers_state) %>
+					<!-- </li>
+					<li> -->
+					</td>
+					<td>
+						<label>Subscriber's Zipcode</label>
+						<%= builder.text_field :subscribers_zipcode, :class => "form_field_length" %>
+					</td>
+				</tr>
+			</table>
 		</li>
 		<li>
-			<label>Subscriber's State</label> <%= builder.select :subscribers_state, options_for_select(us_states.each.map { |state| [state[:abrv]]}, form.insurances[0].subscribers_state) %>
+			
 		</li>
 		<li>
-			<label>Subscriber's Zipcode</label>
-			<%= builder.text_field :subscribers_zipcode, :class => "subscriber-zipcode" %>
-		</li>
-		<li>
-			<label>Social Security</label>
-			<%= builder.text_field :social_security, :class => "subscriber-social-security" %>
-		</li>
-		<li>
-			<label>Date of Birth</label>
-			<%= builder.text_field :birthdate, :class => "subscriber-birthdate" %>
-		</li>
-		<li>
-			<%= builder.label :gender %>
-			M: <%= builder.radio_button :sex, "male" %>
-			F: <%= builder.radio_button :sex, "female" %>
-		</li>
-		<li>
-			<label>Subscriber's Phone</label>
-			<%= builder.text_field :subscribers_phone, :class => "subscriber-phone" %>
-		</li>
-		<li>
-			<label>Subscriber's Employer</label>
-			<%= builder.text_field :subscribers_employer, :class => "subscriber-employer" %>
-		</li>
-	</ul>
-	<hr />
+			<table>
+				<tr class="table_row_third">
+					<td>
+						<label>Date of Birth</label>
+						<%= builder.text_field :birthdate, :class => "form_field_length" %>
+					<!-- </li>
+					<li> -->
+					</td>					
+					<td>
+						<label>Subscriber's Phone</label>
+						<%= builder.text_field :subscribers_phone, :class => "form_field_length" %>
+					<!-- </li>
+					<li> -->
+					</td>
+					<td>
+						<label>Subscriber's Employer</label>
+						<%= builder.text_field :subscribers_employer, :class => "form_field_length" %>
+					</td>
+			</table>
+		</li>	
+	
 	</fieldset>
 	<%# index = 1%>
 

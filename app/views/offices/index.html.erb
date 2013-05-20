@@ -73,12 +73,18 @@
   <%= link_to 'Add a New Office', new_office_path %>
 <% end %>
 
-<%= render '/appointments/forms/mada.pdf.html.erb' %>
+<div class="hidden">
+  <%= @office_form_partials.each do |partial| %>
+    <%= render partial %>
+  <% end %>
+</div>
 
-<%= render '/appointments/forms/clsma.pdf.html.erb' %>
+<%#= render '/appointments/forms/mada.pdf.html.erb' %>
 
-<%= render '/appointments/forms/mhc.pdf.html.erb' %>
+<%#= render '/appointments/forms/clsma.pdf.html.erb' %>
 
-<%= render '/appointments/forms/sawlani_demographics.pdf.html.erb' %>
+<%#= render '/appointments/forms/mhc.pdf.html.erb' %>
 
-<%= render '/appointments/forms/wpd.pdf.html.erb' %>
+<%#= render '/appointments/forms/sawlani_demographics.pdf.html.erb' %>
+
+<%#= render '/appointments/forms/wpd.pdf.html.erb' %>

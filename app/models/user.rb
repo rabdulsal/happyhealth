@@ -13,8 +13,8 @@
           :password_archivable,
           :session_limitable,
           :expirable,
-          :security_questionable,
-          :authentication_keys => [:login]
+          :security_questionable
+          # :authentication_keys => [:login]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username,
@@ -22,8 +22,7 @@
                   :password, 
                   :password_confirmation, 
                   :remember_me,
-                  :name,
-                  :login
+                  :name                  
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'

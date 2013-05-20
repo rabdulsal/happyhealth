@@ -12,6 +12,11 @@ class OfficesController < ApplicationController
     @appointment = Appointment.new
     @receipt = Receipt.new
 
+    @office_form_partials = []
+    @offices.each do |office|
+      @office_form_partials << "appointments/forms/#{office.abrv}.pdf.html.erb"
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @offices }
@@ -87,8 +92,7 @@ class OfficesController < ApplicationController
   def show
     @office = Office.find(params[:id])
     @abrv = @office.abrv
-    # @partial_abrv = "#{@abrv}.pdf.html.erb"
-    @partial_abrv = "/appointments/forms/#{@abrv}.pdf.html.erb"
+    @partial_abrv = "#{@abrv}.pdf.html.erb"    
     logger.debug "Partial name = #{@partial_abrv} | CSS => #{get_stylesheet}"
     respond_to do |format|
       format.html # show.html.erb

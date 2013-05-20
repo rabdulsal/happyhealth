@@ -65,9 +65,9 @@
 ----------------------------------*/
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #cdc3b7; background: #ede4d4 url(images/ui-bg_glass_70_ede4d4_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #3f3731; }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #3f3731; text-decoration: none; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #f5ad66; background: #f5f0e5 url(images/ui-bg_glass_100_f5f0e5_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #a46313; }
-.ui-state-hover a, .ui-state-hover a:hover { color: #a46313; text-decoration: none; }
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 1px solid #e0cfc2; background: #f4f0ec url(images/ui-bg_highlight-hard_100_f4f0ec_1x100.png) 50% 50% repeat-x; font-weight: normal; color: #b85700; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #ccc; background: #f8f8f8 url(images/ui-bg_glass_100_f5f0e5_1x400.png) 50% 50% repeat-x; font-weight: normal; color: #a46313; }
+.ui-state-hover a, .ui-state-hover a:hover { color: #00b6e4; text-decoration: none; }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 1px solid #ccc; background: #f4f0ec url(images/ui-bg_highlight-hard_100_f4f0ec_1x100.png) 50% 50% repeat-x; font-weight: normal; color: #b85700; }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #b85700; text-decoration: none; }
 .ui-widget :active { outline: none; }
 
@@ -326,14 +326,14 @@
 /* IE/Win - Fix animation bug - #4615 */
 
 .ui-accordion { width: 100%; }
-.ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: 1px; zoom: 1; }
+.ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: 5px; zoom: 1; }
 .ui-accordion .ui-accordion-li-fix { display: inline; }
 .ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
 .ui-accordion .ui-accordion-header a { display: block; font-size: 1em; padding: .5em .5em .5em 2em; }
 .ui-accordion-icons .ui-accordion-header a { padding-left: 2.2em; }
 .ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: .5em; top: 50%; margin-top: -8px; }
 .ui-accordion .ui-accordion-content { padding: 1em 2.2em; border-top: 0; margin-top: -2px; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
-.ui-accordion .ui-accordion-content-active { display: block; }
+.ui-accordion .ui-accordion-content-active { display: block; background: #f8f8f8; border-left: 1px solid #ccc; border-right: 1px solid #ccc; border-bottom: 1px solid #ccc;}
 /*!
  * jQuery UI Autocomplete 1.8.23
  *
@@ -498,7 +498,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 /* RASHAD jQUERY EDITS */
 
 .ui-widget-header {
-	border: 1px solid #006;
+	border: 1px solid #ccc;
 	background: none;
 	border-top: none;
 	border-right: none;
@@ -512,11 +512,12 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
 	background: #d1e0ff;
+	background: #fff;
 }
 
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
-	color: white;
-	background: #006;
+	color: #000;
+	background: #f8f8f8;	
 }
 
 .ui-helper-reset {

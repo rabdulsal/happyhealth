@@ -12,17 +12,19 @@
 	    </div>
   <% end %>
 
-	<% sections = ["Personal", "Responsible Party", "Emergency", "Insurance", "Medical"] %>
+	<%# sections = ["Personal", "Responsible Party", "Emergency", "Insurance", "Medical"] %>
+
+	<% sections = ["Personal", "Emergency", "Insurance", "Medical"] %>
 	
 	<div id="tabs">
-		<ul>
+		<ul class="form-tabs">
 			<% sections.each_with_index do |section, index| %>
 				<li><a href=<%="#tabs-#{index+1}"%>><%="#{section}"%></a></li>
 			<% end %>
 		</ul>
 		
 		<% sections.each_with_index do |section, index| %>
-			<div id=<%="tabs-#{index+1}"%>>
+			<div class="form-tabs" id=<%="tabs-#{index+1}"%>>
 				<% string = "/forms"+"/#{section.split(" ")[0]}" + "/#{section.split(" ")[0].downcase}" %>
 				<%= render string, :f => f, :form => @form%>
 			</div>
@@ -33,13 +35,16 @@
   	<%= f.hidden_field :user_id %>
 
 
-	<div class="form_buttons">
-		<ul id="form">
-			<li class="form-save"><%= f.submit "Save Progress", :class => "createButton block" %>
-			</li>  		
-			<% if current_user.form %>
-				<li><%#= link_to 'Back', user_form_path(@form.user_id,@form), :class => 'backButton' %></li>
-				<% end %>
+	
+			<%= f.submit "Save Progress", :class => "createButton right" %>
+			 		
+			<!--<%# if current_user.form %>
+				<li>
+					<%#= link_to 'Back', user_form_path(@form.user_id, @form), :class => 'backButton' %>
+				</li>-->
+			<%# else %>
+
+			<%# end %>
   		</ul>
 	</div>
 <% end %>
