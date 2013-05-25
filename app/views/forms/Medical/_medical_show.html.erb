@@ -3,7 +3,7 @@
 	
 	<table class="show-table-short">
 		<tr>
-			<th rowspan="2">Allergies</th>
+			<th rowspan="<%=@total_allergies%>">Allergies</th>
 
 		<% if form.medical.allergies[0].info? %>		
 			<% form.medical.allergies.each do |allergy| %>

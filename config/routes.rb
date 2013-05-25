@@ -7,7 +7,7 @@ HappyHealth::Application.routes.draw do
   resources :notes
 
   get '/users/sign_up' => 'static_pages#home'
-
+  
   root to: "static_pages#home"
 
   get "/help" => 'static_pages#help'

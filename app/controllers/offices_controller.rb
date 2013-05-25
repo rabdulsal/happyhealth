@@ -11,6 +11,7 @@ class OfficesController < ApplicationController
     @offices = Office.all
     @appointment = Appointment.new
     @receipt = Receipt.new
+    @current_page = "office_index"
 
     @office_form_partials = []
     @offices.each do |office|
