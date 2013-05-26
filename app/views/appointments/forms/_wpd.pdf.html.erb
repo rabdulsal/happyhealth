@@ -79,6 +79,19 @@
 			</div>
 
 		<% end %>
+
+		<div class="background race">
+			<p>
+				<%= user.form.personal.race %>
+			</p>
+		</div>
+
+		<div class="background ethnicity">
+			<p>
+				<%= user.form.personal.ethnicity %>
+			</p>
+		</div>
+
 		<div class="line-four phone">
 			<p>
 				<%= user.form.personal.home_phone %>
@@ -100,24 +113,14 @@
 				<%= user.form.personal.employer_phone %>
 			</p>
 		</div>
-		<div class="line-seven policy_number">
-			<p>
-				<%= user.form.insurances[0].policy_number %>
-			</p>
-		</div>
-		<div class="line-seven employer-zip">
-			<p>
-				<%= user.form.insurances[0].group_name %>
-			</p>
-		</div>
 		
 			<p class="job">
 				<%= user.form.personal.occupation %>
 			</p>
 				
-		<div class="line-ten insurance-company">
+		<div class="line-ten marital-status">
 			<p>
-				<%= user.form.insurances[0].company %>
+				<%= user.form.personal.marital_status %>
 			</p>
 		</div>
 		<div class="line-five insurer-policy-holder">
