@@ -541,10 +541,12 @@ p.signup-title {
 .createButton, .backButton, .pdfButton, .action-button, #edit-form.pdfButton, .removeButton {
     display: block; 
     background: -webkit-linear-gradient(top, #08f, #06f);
+    background:    -moz-linear-gradient(top, #08f, #06f);
+    background:     -ms-linear-gradient(top, #08f, #06f);
     color: white;
     font-weight: bold;
     font-size: 13px;
-    border: 2px solid blue;
+    border: 1px solid blue;
     padding: 5px;
     border-radius: 5px;
     width: 150px;
@@ -580,7 +582,7 @@ p.signup-title {
     background:     -ms-linear-gradient(top, #06f, #08f);
 }
 .pdfButton{
-    border: 2px solid green;
+    border: 1px solid green;
     background: -webkit-linear-gradient(top, #3c3, #3A0);
     background:    -moz-linear-gradient(top, #3c3, #3A0);
     background:            -ms-gradient(top, #3c3, #3A0);
@@ -593,7 +595,7 @@ p.signup-title {
 }
 
 .removeButton{
-    border: 2px solid #800;
+    border: 1px solid #800;
     background: -webkit-linear-gradient(top, #F00, #c00);
     background:    -moz-linear-gradient(top, #F00, #c00);
     background:     -ms-linear-gradient(top, #F00, #c00);
@@ -607,7 +609,7 @@ p.signup-title {
 }
 
 .action-button {  
-    border: 2px solid #c00;  
+    border: 1px solid #f60;  
     background: -webkit-linear-gradient(top, #f90, #cc7a00);   
     background:    -moz-linear-gradient(top, #f90, #cc7a00);
     background:     -ms-linear-gradient(top, #f90, #cc7a00); 
@@ -616,6 +618,8 @@ p.signup-title {
 
 .action-button:hover {
     background: -webkit-linear-gradient(top, #cc7a00, #f90);
+    background:    -moz-linear-gradient(top, #cc7a00, #f90);
+    background:     -ms-linear-gradient(top, #cc7a00, #f90);
     text-decoration: none;
 }
 

@@ -152,26 +152,7 @@
 				<%= user.form.emergencies[0].phone_number %>
 			</p>
 		</div>
-		<div class="line-nineteen emergency-name-2">
-			<p>
-				<%= user.form.emergencies[1].name %>
-			</p>
-		</div>
-		<div class="line-nineteen emergency-address-2">
-			<p>
-				<%= user.form.emergencies[1].address %>
-			</p>
-		</div>
-		<div class="line-nineteen emergency-relationship-2">
-			<p>
-				<%= user.form.emergencies[1].relationship_to_patient %>
-			</p>
-		</div>
-		<div class="line-nineteen emergency-phone-2">
-			<p>
-				<%= user.form.emergencies[1].phone_number %>
-			</p>
-		</div>
+		
 		<p class="line-thirteen">
 			<% user.form.medical.medications.each do |medication| %>			
 				<%= medication.info %>		
