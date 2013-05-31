@@ -59,7 +59,7 @@ end
 
 gem 'newrelic_rpm'
 
-gem 'jquery-rails', '2.3.0'
+gem 'jquery-rails', '2.2.1'
 
 #Ghostscript
 gem 'gs'
