@@ -22,14 +22,14 @@ background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/wpd_demo_1
 #container_2 {
 position: absolute;
 left: 0px;
-top: 1150px;
+top: 1175px;
 background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/wpd_demo_2.jpg');
 }
 
 #container_3 {
 position: absolute;
 left: 0px;
-top: 2300px;
+top: 2340px;
 background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/wpd_med-hist.jpg');
 }
 
@@ -43,22 +43,22 @@ background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/wpd_med-hi
 #container_5 {	
 	position: absolute;
 	left: 0px;
-	top: 4700px;
+	top: 4690px;
 	background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/wpd_finance_2.jpg');	
 }
 
 #container_6 {	
 	position: absolute;
 	left: 0px;
-	top: 5800px;
+	top: 5825px;
 	background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/wpd_privacy_1.jpg');	
 }
 
 #container_7 {	
 	position: absolute;
 	left: 0px;
-	top: 7000px;
-	background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/wpd_privacy_2.jpg');	
+	top: 6985px;
+	background-image: url('https://s3.amazonaws.com/happyhealthapp/assets/wpd_privacy_2.jpg');
 }
 
 body {
@@ -555,11 +555,7 @@ background: #000;
 		<% if @format != "pdf" %>
 			<%= render "appointments/pdf_form_buttons" %>
 		<% end %>
-		<div class="guardian_date">
-			<p>
-				<%= @date_today %>
-			</p>
-		</div>
+		
 		<div>
 			<p class="line-twentyone date_2">
 				<%= @date_today %>
