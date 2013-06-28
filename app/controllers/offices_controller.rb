@@ -11,6 +11,12 @@ class OfficesController < ApplicationController
     @offices = Office.all
     @appointment = Appointment.new
     @receipt = Receipt.new
+    @current_page = "office_index"
+
+    @office_form_partials = []
+    @offices.each do |office|
+      @office_form_partials << "appointments/forms/#{office.abrv}.pdf.html.erb"
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -87,7 +93,7 @@ class OfficesController < ApplicationController
   def show
     @office = Office.find(params[:id])
     @abrv = @office.abrv
-    @partial_abrv = "#{@abrv}.pdf.html.erb"
+    @partial_abrv = "#{@abrv}.pdf.html.erb"    
     logger.debug "Partial name = #{@partial_abrv} | CSS => #{get_stylesheet}"
     respond_to do |format|
       format.html # show.html.erb

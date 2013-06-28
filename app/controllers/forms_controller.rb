@@ -5,6 +5,8 @@ class FormsController < ApplicationController
   def show
     @form = Form.find_by_user_id(params[:user_id])
     @user = User.find_by_id params[:user_id]
+    @current_page = "profile_show"
+    @total_allergies = @user.form.medical.allergies.count
 
     respond_to do |format|
       format.html # show.html.erb
@@ -47,6 +49,7 @@ class FormsController < ApplicationController
   def edit
     @form = Form.find(params[:id])
     @user = User.find_by_id(@form.user_id)
+    @current_page = "profile_show"
   end
 
   def create

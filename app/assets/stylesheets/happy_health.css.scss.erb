@@ -102,13 +102,13 @@ xmp {
   margin: 0 auto;
   width: 980px;
   clear: both;
-  box-shadow: 0 10px 20px black;
+  /*box-shadow: 0 10px 20px black;*/
+  min-height: 500px;
   overflow: hidden;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  border-radius: 10px;
-  padding-bottom: 10px;
-  height: 100%;
+  border-radius: 5px;
+  padding-bottom: 10px;  
   position: relative;
 }
 
@@ -127,16 +127,9 @@ table {
         padding-bottom: 10px;
 }
 
-header {
-        /*width: 960px;
-        margin: 0 auto;
-        margin-bottom: 10px;
-        padding: 0;*/
-}
-
 h1 {
     font-size: 28px;
-    padding: 10px 0px 0px 10px;
+    
     text-align: center;
 }
 
@@ -150,21 +143,22 @@ a:hover, .link a:hover {
 }
 
 aside {
-    float: left;
+    margin: 0;
    /* margin: 0 0 20px 20px;
-    width: 300px;*/
-    margin: 1.02040815326531%;  /*20px/980px = .0208081632653061 */
-    width: 30.61224489795918%;  /*300px/980px = .3061224489795918 */
+    width: 300px;
+    margin: 0 1.02040815326531%;  /*20px/980px = .0208081632653061 */
+    
+    width: 32.65306122449%;  /* 320px/980px = .3265306122449 */
     font-size: 15px;
 }
 
-article {
-    float: right;
+article {    
    /* width: 620px;
     margin: 0 40px 20px 0; */
-    margin: 0 4.08163265306122% 20px 0; /*20px 980px = .01515151 */
-    width: 63.26530612244898%; /*620px 980px = .63636363 */
-    font-size: 12px;
+    /*margin-left: 2.08081632653061%;*/ /*20px 980px = .01515151 */
+    width: 65.30612245%; /*640px 980px = .63636363 */
+    font-size: 12px; 
+    float: right;   
 }
 
 article h1 {
@@ -183,15 +177,18 @@ body {
 
 #main {
     /*background: url('/images/wood.png');
-    background-color: #e6e6e6;*/
-    background: url("https://s3.amazonaws.com/happyhealthapp/assets/wood.png");
+    background-color: #e6e6e6;
+    background: url("https://s3.amazonaws.com/happyhealthapp/assets/wood.png");*/
+    background: #fff;        
 }
 
 label {
-        display: block;
-        padding: 7px 0;
-        font-size: 14px;
-        color: #000066;
+    display: block;
+    padding: 7px 0;
+    font-size: 14px;
+    color: #000066;
+    color: #555;
+
 }
 
 textarea {
@@ -199,7 +196,7 @@ textarea {
 }
 
 input {
-        font-size: 16px;
+    font-size: 16px;    
 }
 
 img {
@@ -209,8 +206,7 @@ img {
 }
 
 .center {
-    margin: 0 auto;
-    background: red;
+    margin: 0 auto;    
 }
 
 .right {
@@ -221,8 +217,16 @@ img {
     float: left;
 }
 
+.margin-left {
+    margin-left: 10px;
+}
+
 .margin-right {
     margin-right: 10px;
+}
+
+.no_right_margin {
+    margin-right: 0px;
 }
 
 .margin-top {
@@ -231,6 +235,10 @@ img {
 
 .margin-bottom {
     margin-bottom: 10px;
+}
+
+.padding-top, .padding-top th, .padding-top td {
+    padding-top: 10px;
 }
 
 ul#static.inline-block{
@@ -348,41 +356,39 @@ ul#static.inline-block{
     margin: 10px 6px;
     background: white;
     box-shadow: 0 2px 5px grey;
-    border: 1px solid grey;
+    border: 1px solid #ccc;
     border-radius: 10px;
     float: left;
     width: 280px;
 }
 
-.signin h2, .signup h2{
+.signin h2, .signup h2 {
     text-align: center;
     font-size: 20px;
+    color: #555;
 }
 
 .signin, .signup {
-    padding: 30px;
-    background-color: #f5f5f5;
+    padding: 30px 48px;
+    background-color: #f8f8f8;
     box-shadow: 0 2px 5px grey;
-    border: 1px solid grey;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    width: 280px;
-    height: 330px;
-    display: block;
-    /*float: left;
-    margin: 60px 0 0 50px;*/
-    margin: 60px auto;
-    opacity:.95;
+    width: 280px;    
+    height: 100%;
+    display: block;    
+    margin: 170px auto;
 }
 
 .signup {
-    padding: 20px;    
-    height: 100%;
+    padding: 20px;     
     margin: 39px 0 20px 50px;
     float: left;
 }
 
 .signup_text {
-    font-size: 12px;
+    font-size: 14px;
+    color: #555;
 }
 
 .pdf-upload {
@@ -461,8 +467,11 @@ p.signup-title {
 .button, .submit-button {
     color: #555;
     background: -webkit-linear-gradient(top, #fff, #ececec);
+    background:    -moz-linear-gradient(top, #fff, #ececec);
+    background:     -ms-linear-gradient(top, #fff, #ececec);
     text-shadow: 0 1px 3px white;
     font-size: 12px !important;
+    height: 30px;
 }
 
 .navi {
@@ -474,10 +483,6 @@ p.signup-title {
     width: 250px;
 }
 
-/*.submit-button {
-    font-size: 14px;
-}*/
-
 .short {
     width: 100px;
 }
@@ -485,6 +490,8 @@ p.signup-title {
 .button:hover, .submit-button:hover, .button a:hover {
     text-decoration: none;
     background: -webkit-linear-gradient(top, #ececec, #ddd);
+    background:    -moz-linear-gradient(top, #ececec, #ddd);
+    background:     -ms-linear-gradient(top, #ececec, #ddd);
 }
 
 .remove-form {
@@ -537,12 +544,15 @@ p.signup-title {
 
 .createButton, .backButton, .pdfButton, .action-button, #edit-form.pdfButton, .removeButton {
     display: block; 
-    background-color: #3366FF;
+    background: -webkit-linear-gradient(top, #08f, #06f);
+    background:    -moz-linear-gradient(top, #08f, #06f);
+    background:     -ms-linear-gradient(top, #08f, #06f);
     color: white;
     font-weight: bold;
-    border: 1px solid #000;
+    font-size: 13px;
+    border: 1px solid blue;
     padding: 5px;
-    border-radius: 3px;
+    border-radius: 5px;
     width: 150px;
     height: 100%;
     margin: 4px 10px;
@@ -555,30 +565,55 @@ p.signup-title {
 }
 
 #appt.createButton, input.createButton, .pdfButton {
-	cursor: pointer;
-	font-size: 12px !important;
+	cursor: pointer;	
     height: 34px;
     margin: 0;
     padding: 0;
+}
+
+.pull-right {
+    margin-right: -10px;
 }
 
 .backButton{
     background: #888;
 }
 
+.createButton:hover, input.createButton:hover {
+    text-decoration: none;
+    background: -webkit-linear-gradient(top, #06f, #08f);
+    background:    -moz-linear-gradient(top, #06f, #08f);
+    background:     -ms-linear-gradient(top, #06f, #08f);
+}
 .pdfButton{
-    background: -webkit-linear-gradient(top, #3B0, #3A0);
-    background:    -moz-linear-gradient(top, #3B0, #3A0);
-    background:            -ms-gradient(top, #3B0, #3A0);
+    border: 1px solid green;
+    background: -webkit-linear-gradient(top, #3c3, #3A0);
+    background:    -moz-linear-gradient(top, #3c3, #3A0);
+    background:            -ms-gradient(top, #3c3, #3A0);
+}
+
+.pdfButton:hover {
+    background: -webkit-linear-gradient(top, #3A0, #3c3);
+    background:    -moz-linear-gradient(top, #3A0, #3c3);
+    background:            -ms-gradient(top, #3A0, #3c3);
 }
 
 .removeButton{
-    background: -webkit-linear-gradient(top, #F00, #d00);
-    background:    -moz-linear-gradient(top, #F00, #d00);
-    background:     -ms-linear-gradient(top, #F00, #d00);
+    border: 1px solid #800;
+    background: -webkit-linear-gradient(top, #F00, #c00);
+    background:    -moz-linear-gradient(top, #F00, #c00);
+    background:     -ms-linear-gradient(top, #F00, #c00);
 }
 
-.action-button {    
+.removeButton:hover {
+    text-decoration: none;    
+    background: -webkit-linear-gradient(top, #c00, #F00);
+    background:    -moz-linear-gradient(top, #c00, #F00);
+    background:     -ms-linear-gradient(top, #c00, #F00);
+}
+
+.action-button {  
+    border: 1px solid #f60;  
     background: -webkit-linear-gradient(top, #f90, #cc7a00);   
     background:    -moz-linear-gradient(top, #f90, #cc7a00);
     background:     -ms-linear-gradient(top, #f90, #cc7a00); 
@@ -587,6 +622,8 @@ p.signup-title {
 
 .action-button:hover {
     background: -webkit-linear-gradient(top, #cc7a00, #f90);
+    background:    -moz-linear-gradient(top, #cc7a00, #f90);
+    background:     -ms-linear-gradient(top, #cc7a00, #f90);
     text-decoration: none;
 }
 
@@ -597,11 +634,11 @@ p.signup-title {
 
 .new_office_request {
     position: absolute;
-    top: 100px;
-    left: 25px;
+    top: 110px;
+    left: 28px;
     width: 270px;    
-    color: grey;
-    margin-right: 10px;    
+    color: #555;
+        
 }
 
 .new_office_request li:last-child a {
@@ -622,6 +659,7 @@ input#user_remember_me{
 div.form_buttons{
     float: right;
     clear: both;
+    margin-right: 0;
 }
 
 ul.form {
@@ -629,7 +667,7 @@ ul.form {
     /*top:  200px;
     left: -635px;*/
     top: 100px;
-    left: 55px;
+    left: 0;
     width: 250px;    
 }
 
@@ -644,12 +682,6 @@ ul.appointment{
     left: -635px;
     float: right;
     margin-bottom: -200px;
-}
-
-ul.appointment li:hover, ul.form li:hover{
-    -webkit-transform: scale(1.07);
-       -moz-transform: scale(1.07);
-        -ms-transform: scale(1.07);
 }
 
 ul.appointment li{
@@ -742,57 +774,6 @@ a.appt-title{
 
 /* ------------------- SIGNUP AND SIGNIN -------------------------- */
 
-.signUp, .signInSection, #splashSignIn {
-        background: white;
-        font-size: 18px;
-        color: black;
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
-}
-
-.signInSection, #signUpImage, #splashSignIn {
-        float: left;
-        margin: 10px;
-        width: 305px;
-        border: 4px solid #E46C0A;
-        overflow: hidden;
-        border-radius: 10px;
-}
-
-.signInSection h1, .signInSection p, #splashSignIn h1, .contentSection h2, .shadowBox h2 {
-        text-align: center;
-        /*color: -webkit-radial-gradient(circle, #545454, #3F3F3F);*/
-        background: #D1E0FF;
-        color: #000066;
-        margin: 0px;
-        padding: 10px 10px 0 10px;
-}
-
-.signInSection p {
-        margin: 0;
-        padding: 0 0 5px 0;
-        font-size: 14px;
-        border-bottom: 2px solid #6699ff;
-}
-
-.signInSection form, #splashSignIn form, .shadowBox p {
-        color: black;
-        background: white;
-        padding: 10px;
-}
-
-.signInSection fieldset li {
-        display: inline;
-}
-
-#splashSignIn {
-        float: none;
-        margin: auto;
-        margin-top: 10px;
-        margin-bottom: 100px;
-}
-
 
 #login_username, #login_password, #confirm_password {
         width: 220px;
@@ -851,44 +832,44 @@ a.appt-title{
 
 /* ------------------------ SITE AND NAVIGATION ------------------------------ */
 
+#tabs ul {
+    /*margin-left: 25px;*/
+}
+
 #nav-tab {
-    margin: 10px 10px;
     height: 100%;
 }
 
 #nav-tab a {
     display: block;
-    border: 2px solid #006;
-    margin: 5px;
+    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #555;
     text-transform: uppercase;
     font-weight: bold;
-    color: #006;
-    background: #D1E0FF;
-    padding-left: 5px;
-}
-
-#nav-tab li.current{
-    font-weight:bolder;
-}
-
-#nav-tab li:hover {
-        -webkit-transform: scale(1.07);
-           -moz-transform: scale(1.07);
-            -ms-transform: scale(1.07);
+    background: #fff;
+    text-align: center;
+    padding: 3px 0;
+    
 }
 
 #nav-tab a:hover {
-        text-decoration: none;
+    text-decoration: none;
+    background: #f8f8f8;    
+    /*-webkit-transform: scale(1.07);
+       -moz-transform: scale(1.07);
+        -ms-transform: scale(1.07);*/
 }
-
-/*#nav-tab li.selected {
-        -webkit-transform: scale(1.07);
-}*/
 
 #nav-tab .tab-open {
         -webkit-transform: scale(1.07);
         color: white;
         background: #006;
+}
+
+#nav-tab .profile_show_profile a, #nav-tab .office_index_offices a {
+    background: #f5f5f5;
 }
 
 .beta_tag {
@@ -919,15 +900,15 @@ a.appt-title{
 }
 
 #header-content li, .nav-links a, #site-name a {
-        color: #fff;
-        display: inline-block;
+    color: #fff;
+    display: inline-block;
 }
 
 #site-name a {
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 20px;
-        font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .nav-links {
@@ -1012,26 +993,28 @@ aside .form-save {
 ******************************************* */
 
 .demoBackground, .formsBackground {
-        border: 1px solid #000066;
-        border-radius: 10px;
-        background: #D1E0FF;
-        float: left;
-        width: 580px;
-        margin: 10px 10px;
-        /*width: 59.18367346938776%;
-        margin: 1.02040816326531%;*/
-        padding: 5px 10px 10px 10px;
+    border: 1px solid #000066;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #D1E0FF;
+    background: #f8f8f8;    
+    width: 95%; /* 660/980 = .6734693878 */    
+    /*width: 59.18367346938776%;
+    margin: 1.02040816326531%;*/
+    padding: 5px 10px 20px 20px;
 }
 
-.demoBackground h3 {
-    color: red;
+.demoBackground select {
+    width: 95%;
+    height: 28px;
+    background-color: #fff !important;
+    border-radius: 0px;
+
+}
+
+.formsBackground h2, .demoBackground h2 {
+    color: #555;    
     font-size: 14px;
-    margin: 5px 10px;
-}
-
-.formsBackground h2 {
-        color: #000066;
-        margin: 10px;
 }
 
 .formsBackground li, .demoBackground li {
@@ -1040,7 +1023,8 @@ aside .form-save {
 
 .formsBackground legend, .demoBackground legend {
         font-weight: bold;
-        color: #000066;
+        color: #555;
+        font-size: 16px
 }
 
 .formsBackground textarea {
@@ -1083,20 +1067,46 @@ aside .form-save {
 
 /* --------------------- SHOW PAGES --------------------------- */
 
-.show-table th {
+.show-table, .show-table-horizontal, .show-table-short {
+    font-size: 14px; 
+    border-collapse: collapse;   
+}
+
+.show-table th, .show-table-horizontal th, .show-table-short th {
     text-transform: uppercase;
+    color: #aaa;
+    font-size: 90%;    
+    font-weight: bold;
     line-height: 190%;
-    font-size: 75%;
-    color: grey;
+    vertical-align: top;    
+}
+
+.show-table th, .show-table-short th {
     text-align: right;
-    vertical-align: top;
     min-width: 180px;
+}
+
+.show-table-short th {
+    max-width: 100px;
+    padding-right: 10px;
+}
+
+.show-table-short th, .show-table-short td {
+    
+}
+
+.show-table td, .show-table-horizontal td, .show-table-short td {    
+    vertical-align: top;
+    color: #555;
 }
 
 .show-table td {
     text-align: left;
     padding-left: 10px;
-    vertical-align: top;
+}
+
+.show-table-horizontal td, .show-table-horizontal th {
+    padding: 0 10px;    
 }
 
 .first-name, .last-name {
@@ -1170,6 +1180,53 @@ aside .form-save {
         font-size: 12px;
 }
 
+/* ------------------- FORMS TABLES -------------------- */
+
+.table_row_full {
+    width: 100%;
+}
+
+.table_row_half td {
+    width: 25%;       
+}
+
+.table_row_third td {
+    vertical-align: top;
+    width: 30%;        
+}
+
+.table_row_full, .table_data_third, .table_row_fourth td, .table_row_half td {    
+    margin-right: 10px;
+}
+
+.table_row_fourth td {
+    width: 25%;
+}
+
+.table_row_fourth td {
+    
+}
+
+.radio_button > td {
+    width: 0;
+}
+
+.form_field_length, .form_field_length_full, select {    
+    height: 25px;
+}
+
+.form_field_length {
+    width: 95%;   
+}
+
+.form_field_length_full {
+    width: 98%;
+}
+
+.fat {
+    height: 30px;
+}
+
 /* --------------- TEST FORM WIDTHS ------------------- */
 
 .full_width, .half_width, .third_width {
@@ -1221,7 +1278,6 @@ td.appt-column{
 .office{
     margin-bottom: 25px;
 }
-
 
 .doctor-column{
     font-variant: small-caps;
@@ -1439,35 +1495,54 @@ a.see-more{
 
 /* ----------------- FOOTER CSS ------------------------ */
 
-/* footer */
-
 footer {
-  width: 980px;
-  margin: 20px auto;
+    width: 100%;
+    background: -webkit-linear-gradient(top, #eee, #fff);
+    background:    -moz-linear-gradient(top, #eee, #fff);
+    background:     -ms-linear-gradient(top, #eee, #fff);
+    overflow: hidden;
+    margin-top: 20px;
+    max-height: 110px;
 }
 
-footer a {
+.footer-content {
+    padding: 20px 0;    
+    height: 200px;
+    width: 980px;
+    margin: 0 auto;    
+}
+
+.copywrite, footer a {
     color: #000;
     text-decoration: none;
 }
 
 footer a:hover {
-  color: #00B6E4;
+    color: #00B6E4;
 }
 
-footer ul li {
-  float: right;
-  list-style: none;
-  margin-right: 5px;
+.footer-links, .copywrite, footer a {
+    float: right;
+    list-style: none;
+    margin-left: 5px;
+    color: #888;  
 }
 
-footer ul li:first-child {
+.copywrite, #siteseal {
   float: left;
+  margin-left: 0;
 }
 
-footer ul li:last-child {
+#siteseal img {
+    height: 45px;
+    width: 197px;
+    padding-top: 10px;
+}
+
+footer ul li:last-child, footer a {
   margin-right: 0;
 }
+
 
 /* ----------------- RESET CSS ------------------------- */
 .clearfix {
@@ -1487,7 +1562,7 @@ footer ul li:last-child {
 /* --------------- RESPONSIVE DESIGN ------------------- */
 
 @media all and (max-width: 480px) {
-    article, aside, form, fieldset,
+    article, aside, form,
     .demoBackground, .formsBackground,
     .dashAppointments, .dashBackground,
     #note_info, .widget, .description,
@@ -1496,6 +1571,7 @@ footer ul li:last-child {
         width: 93.9393939393939393%;
         margin: 0 2.0833333333333333%;
     }
+
     .description {
         height: 100%;
         margin-bottom: 10px;
@@ -1509,23 +1585,22 @@ footer ul li:last-child {
     }
     .container_12 {
         background: #fff !important;
+        border: 1px solid black;
     }
     .signin, .signup {
-        background: #eee;
+        background: #f8f8f8;
         padding: 0 0 20px 0;
         margin-top: 20px;
     }
     .signin h2, .signup h2 {
         margin-top: 10px;
     }
-    /*.signin {
-        position: relative;
-        top: 10px;
+
+    .full_width, input.createButton {
+        width: 93.9393939393939393%;
+        margin: 0 2.08333%;
     }
-    .signup {
-        position: relative;
-        top: 20px;
-    }*/
+
     p.signup-title {
         margin: 40px 5px;
         font-size: 20px;

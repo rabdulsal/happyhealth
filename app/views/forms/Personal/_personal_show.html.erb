@@ -1,4 +1,3 @@
-
 <fieldset id="personal-info" class="demoBackground">
     <legend>Personal</legend>
         <table class="show-table">
@@ -24,16 +23,16 @@
                     <%= form.personal.age %>                    
                 </td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <th class="right-align">
                     Social Security Number:
                 </th>
                 <td class="left-align">
-					<% if form.personal.ss_number != "" %>
-                        <%= "xxx-xx-#{form.personal.ss_number.to_s[7..10]}" %>
-					<% end %>
+					<%# if form.personal.ss_number != "" %>
+                        <%#= "xxx-xx-#{form.personal.ss_number.to_s[7..10]}" %>
+					<%# end %>
                 </td>
-            </tr>
+            </tr> -->
             <tr>
                 <th class="right-align">Gender: </th>
                 <td class="left-align"><%= form.personal.gender %></td>

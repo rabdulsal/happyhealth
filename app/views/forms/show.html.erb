@@ -4,17 +4,17 @@
 	<li>
 		<%= link_to 'Edit Profile', edit_user_form_path(current_user.id, current_user.form.id), :class => 'createButton' %>
 	</li><br />
-	<li>
-		<%= link_to "Delete Profile", user_form_path(current_user.id, current_user.form.id), :method => 'delete',  data: { confirm: 'Are you sure you want to delete your profile #{user.form.personal.first_name}? You will lose all your saved data.' }, :class => 'removeButton' %>
-	</li><br />
+	<!--<li>
+		<%#= link_to "Delete Profile", user_form_path(current_user.id, current_user.form.id), :method => 'delete',  data: { confirm: 'Are you sure you want to delete your profile #{user.form.personal.first_name}? You will lose all your saved data.' }, :class => 'removeButton' %>
+	</li>-->
 </ul>
 
 <h1>Your HappyHealth Form</h1>
 
 <div id="tabs">
-	<ul>
+	<ul class="form-tabs">
 		<li><a href="#tabs-1">Personal</a></li>
-		<li><a href="#tabs-2">Responsible Party</a></li>
+		<!--<li><a href="#tabs-2">Responsible Party</a></li>-->
 		<li><a href="#tabs-3">Emergency</a></li>
 		<li><a href="#tabs-4">Insurance</a></li>
 		<li><a href="#tabs-5">Medical</a></li>		
@@ -23,9 +23,9 @@
 	<div id="tabs-1">
 		<%= render '/forms/Personal/personal_show', :form => @form %>
 	</div>
-	<div id="tabs-2">
-		<%= render '/forms/Responsible/responsible_show', :form => @form %>
-	</div>
+	<!-- <div id="tabs-2">
+		<%#= render '/forms/Responsible/responsible_show', :form => @form %>
+	</div> -->
 	<div id="tabs-3">
 		<%= render '/forms/Emergency/emergency_show', :form => @form %>
 	</div>
