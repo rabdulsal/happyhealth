@@ -173,6 +173,10 @@ $(function() {
 		return false;
 	});
 
+	$(".alert-close").on("click", function() {
+		$(".alert").fadeOut("slow");
+	});
+
 	// TOS and Privacy Policy Dialog -> Opens annoying ghost backgrounds :-(
 
 	// $("button.pdfButton.office-form-download").click(function() {
