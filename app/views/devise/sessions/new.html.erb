@@ -22,10 +22,13 @@ background: #f6f6f6;*/
 
 		  <div><label class="sign">Password</label><%#= f.password_field :password, class: "fluid-form fat" %></div> -->
 
-		  <!-- Development -->
-		  <%#= f.hidden_field :password, value: "Rashad1980" %> 
-		  <!-- Production -->
-		  <%= f.hidden_field :password, value: "password" %>
+		  <!-- Test Demo Passwords -->
+		 <% if Rails.env.production? %>
+		  	<%= f.hidden_field :password, value: "password" %>		   
+		<% else %>
+			<%= f.hidden_field :password, value: "Rashad1980" %>
+		<% end %>
+			  
 
 		  <!-- Comment-out "Remember Me" for Security
 		  <%# if devise_mapping.rememberable? -%>
