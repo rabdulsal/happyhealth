@@ -100,6 +100,111 @@ class ApplicationController < ActionController::Base
 
   #Overwrite successful sign_in redirect to User's Health Form
   def after_sign_in_path_for(resource)
+    user = User.find_by_id(1).form
+
+    #Test Personal
+    user.personal.update_attributes(
+      first_name: "John",
+      last_name: "Doe",
+      middle_initial: "",
+      date_of_birth: "6/11/1960",
+      age: 52,
+      gender: "Male",
+      address: "12345 Home Street",
+      city: "Cliffside Park",
+      state: "NJ",
+      zip_code: 7010, 
+      home_phone: "(555) 555-home",
+      cell_phone: "(555) 555-cell",
+      work_phone: "(555) 555-work",
+      email_address: "you@email.com",
+      marital_status: "Married",
+      ethnicity: "Non-Hispanic",
+      race: "White/Caucasian",
+      employer: "Gold's Gym",
+      employment_status: "Full-time",
+      occupation: "Personal Trainer",
+      work_address: "12345 Work Lane",
+      number_of_dependents: nil, 
+      employer_phone: "(555) job-5555",
+      employer_city: "New York",
+      employer_state: "NY",
+      employer_zipcode: "10027",
+      relationship_to_responsible_party: nil,
+      referred_by: "Dr. Oz"
+      )
+
+    #Test Insurance
+    user.insurances[0].update_attributes(
+      title: "Primary", 
+      relationship_to_patient: "Self", 
+      company: "Cigna", 
+      address: "BCBS NY Street Lane", 
+      city: "New York", 
+      state: "NY", 
+      zipcode: "10057", 
+      group_number: "BCBSNY1", 
+      group_name: "BCBSNY", 
+      eff_date: "2013-01-01", 
+      policy_number: "BCBSPolicy1", 
+      subscribers_last_name: user.personal.last_name, 
+      subscribers_first_name: user.personal.first_name, 
+      middle_initial: nil, 
+      subscribers_address: user.personal.address, 
+      subscribers_city: user.personal.city, 
+      subscribers_state: user.personal.state, 
+      subscribers_zipcode: user.personal.zip_code, 
+      social_security: "", 
+      birthdate: user.personal.date_of_birth, 
+      sex: user.personal.gender, 
+      subscribers_phone: user.personal.home_phone, 
+      subscribers_employer: user.personal.employer
+      )
+
+    #Test Emergency
+    user.emergencies[0].update_attributes(
+      name: "Jane Doe",
+      relationship_to_patient: "Wife",       
+      phone_number: "(555) wife-num", 
+      address: "12345 wife home street", 
+      city: "Cliffside Park", 
+      state: "NJ", 
+      zipcode: "07010",
+      )
+    user.emergencies[1].update_attributes( 
+      name: "Gramma Doe", 
+      relationship_to_patient: "Grandmother", 
+      phone_number: "(555) gra-ndma", 
+      address: "12345 Grandma Lane", 
+      city: "Cliffside Park", 
+      state: "NJ", 
+      zipcode: "07010"
+      )
+
+    #Test Allergies
+    user.medical.allergies[0].update_attributes(
+      info: "silk tape"       
+      ) 
+    user.medical.allergies[1].update_attributes( 
+      info: "penicillin"
+      ) 
+    user.medical.allergies[2].update_attributes( 
+      info: "latex"
+      )
+
+    #Test Medications
+    user.medical.medications[0].update_attributes(
+      reason: "sleep aid",        
+      info: "Lunesta / 3mg" 
+      )
+    user.medical.medications[1].update_attributes(
+      reason: "heart medication",       
+      info: "Nexium / 20mg"
+      ) 
+    user.medical.medications[2].update_attributes(
+      reason: "hypothyroidism",       
+      info: "Synthroid / 25mg"
+      )
     if current_user.form
       user_form_path(current_user.id, current_user.form.id)
     end

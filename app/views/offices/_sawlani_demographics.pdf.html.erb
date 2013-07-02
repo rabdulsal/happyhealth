@@ -168,15 +168,9 @@ body {
 }
 
 .marital-status{
-	position: absolute;
+	position: absolute;	
 	top: 500px;
-	left: 585px;
-}
-
-.user-email{
-	position: absolute;
-	top: 500px;
-	left: 665px;
+	left: 170px;
 }
 
 /* ------------- LINE FIVE ------------ */
@@ -488,11 +482,7 @@ body {
 				<%= user.form.personal.address %>
 			</p>
 		</div>
-		<div class="line-two user-email">
-			<p>
-				<%= user.form.personal.email_address %>
-			</p>
-		</div>
+		
 		<div class="line-three city">
 			<p>
 				<%= user.form.personal.city %>
@@ -547,6 +537,11 @@ body {
 		<div class="line-eight column_right">
 			<p>
 				<%= user.form.personal.employer_zipcode %>
+			</p>
+		</div>
+		<div class="marital-status">
+			<p>
+				<%= user.form.personal.marital_status %>
 			</p>
 		</div>		
 		<div class="line-ten insurance-company">
