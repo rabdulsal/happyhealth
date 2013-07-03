@@ -24,7 +24,7 @@ background: #f6f6f6;*/
 
 		  <!-- Test Demo Passwords -->
 		 <% if Rails.env.production? %>
-		  	<%= f.hidden_field :password, value: "password" %>		   
+		  	<%= f.hidden_field :password, value: "password" %>	   
 		<% else %>
 			<%= f.hidden_field :password, value: "Rashad1980" %>
 		<% end %>
