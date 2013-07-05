@@ -100,42 +100,44 @@ $(function() {
 
 	// Auto-closes all the dialog boxes that are rendered ******** CAN BE DRYER!! ********
 
-	$(".mada").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
+	$("#accordion a").on("click", function() {
+		var formABRV = $(this).data("abrv");	
+			$("#pdf_container." + formABRV).dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "slide",
+				modal: true
+		});
 	});
+	
+	// $(".mada").dialog({
+	// 	autoOpen: false,
+	// 	show: "blind",
+	// 	hide: "slide",
+	// 	modal: true
+	// });
 
-	$(".clsma").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
-	});
+	// $(".clsma").dialog({
+	// 	autoOpen: false,
+	// 	show: "blind",
+	// 	hide: "slide",
+	// 	modal: true
+	// });
 
-	$(".mhc").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
-	});
+	// $(".mhc").dialog({
+	// 	autoOpen: false,
+	// 	show: "blind",
+	// 	hide: "slide",
+	// 	modal: true
+	// });
 
-	$(".sawlani_demographics").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
-	});
-
-	$(".wpd").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
-	});
-
-
+	// $(".sawlani_demographics").dialog({
+	// 	autoOpen: false,
+	// 	show: "blind",
+	// 	hide: "slide",
+	// 	modal: true
+	// });
+	
 	// ************** JQUERY PDF FETCH ******************
 
 	// GET http-request for pdf name and opens it
@@ -173,59 +175,11 @@ $(function() {
 		return false;
 	});
 
+	// Close Alerts and Warnings
+
 	$(".alert-close").on("click", function() {
 		$(".alert").fadeOut("slow");
 	});
-
-	// TOS and Privacy Policy Dialog -> Opens annoying ghost backgrounds :-(
-
-	// $("button.pdfButton.office-form-download").click(function() {
-	//     $( "p#TOS.legal" ).dialog({
-	//       	// autoOpen: false,
-	//       	modal: true,
-	//       	buttons: [
-	// 	      	{
-	// 	        	text: "I agree",
-	// 	        	click: function() {
-	// 	          		$( this ).dialog( "close" );
-	// 	          	}
-	// 	        }
-	// 	    ]
-	//     });
-	// });
-
-	// PDF 'Continue' button functionality
-
-	// $("pdf-close").on("click", function () {
-	// 	{
-	// 	$.ajax({
-	// 	        url: "/users/:id/appointment/new",
-	// 	        dataType:'json', // => .mada.to_json or ._office_form.to_json etc.
-	// 	        data: {'office_id': val},
-	// 	 		type: 'POST',
-	// 	    success: function(data){
-	// 			$(this).dialog("close");
-	// 	    },
-	// 	    error: function(){
-	// 	        alert('error');
-	// 	    }
-	// 	});
-	//   }
-
-	// $( "<div>Confirmation</div>" ).dialog({
-	// 	   modal:true,
-	// 	   buttons: {
-	// 	        "OK": function() {
-	// 	             sendAjax(); //Your ajax function
-	// 	             $(this).dialog( "close" );
-	// 	         },
-	// 	         "Cancel": function() {
-	// 	             $(this).dialog( "close" );
-	// 	         }
-	// 	   }
-	// 	});
-
-	// ****************************************************
 
 
 });
