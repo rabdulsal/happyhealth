@@ -2,20 +2,25 @@
 
 <h2>Add notes as reminders for yourself, a summary of your last visit, or questions for your next visit</h2>
 
-<%= link_to 'Add New Note', '#', :class=> 'createButton' %>                              
-
-<br /><br /><br />
-	<%= render 'form', :note => @note %>
+<ul class="note-field inline margin-top">
+	<li>
+		<%= render 'form', :note => @note %>
+	</li>
+	<li>
+		<%= link_to 'Add New Note', '#', :class=> 'createButton' %>
+	</li>	
+</ul>                              
+	
 
 <%= paginate(@notes)%>
 
-<ul id="notes">
+<ul id="notes margin-top">
 	<% if @notes != [] %>
 			<br />
 			<% @notes.each do |note| %>
 				<%= render 'note', :note => note%>
 			<% end %>		
 	<% else %>
-		<i class="reminder">You do not have any current notes. Make one now!</i>
+		<h2 class="reminder">You do not have any current notes. Make one now!</h2>
 	<% end %>
 </ul>

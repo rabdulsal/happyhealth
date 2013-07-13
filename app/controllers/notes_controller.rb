@@ -20,6 +20,7 @@ class NotesController < ApplicationController
   # GET /notes/1.json
   def show
     @note = Note.find(params[:id])
+    @current_page = "notes_show"
 
     respond_to do |format|
       format.html # show.html.erb

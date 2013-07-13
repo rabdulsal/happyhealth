@@ -107,7 +107,7 @@ class ApplicationController < ActionController::Base
       first_name: "John",
       last_name: "Doe",
       middle_initial: "",
-      date_of_birth: "6/11/1960",
+      date_of_birth: "6-11-1960",
       age: 52,
       gender: "Male",
       address: "12345 Home Street",
