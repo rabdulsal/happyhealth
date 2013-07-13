@@ -40,6 +40,9 @@
 </aside>
 
 <article>
+	<% if notice.present? %>
+		<p id="notice" class="success"><%= notice %><span class="close">X</span></p>
+	<% end %>
 	<%= flash[:error] %>
 	<%= yield %>
 </article>

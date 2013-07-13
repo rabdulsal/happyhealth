@@ -31,4 +31,5 @@ class Personal < ActiveRecord::Base
                          :form_id
   
   belongs_to :form
+
 end

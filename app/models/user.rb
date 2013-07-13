@@ -1,4 +1,4 @@
- class User < ActiveRecord::Base
+class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # and :omniauthable
@@ -57,17 +57,29 @@
     end
   end
 
+  def b_day # => Convert birthday if cell is blank
+    b_day = self.form.personal.date_of_birth
+    if b_day == ""
+      b_day = Time.now.strftime("%m-%d-%Y")
+    else
+      b_day
+    end
+  end
+
   def age #=> Intended to make age calculation automatic based on self.date_of_birth
   #=> Must create .date_of_birth form format-validation => "dd-mm-yyyy"
-    dob = self.form.personal.date_of_birth
-
-    if dob.nil?
-      nil
-    else
-      bday = Date::strptime(dob, "%m-%d-%Y")
+      #dob = self.b_day
+      bday = Date::strptime(b_day, "%m-%d-%Y")
       now = Time.now.utc.to_date
-      now.year - bday.year - ((now.month > bday.month || (now.month == bday.month && now.day >= bday.day)) ? 0 : 1)
-    end
+      age = now.year - bday.year - ((now.month > bday.month || (now.month == bday.month && now.day >= bday.day)) ? 0 : 1)
+
+      if age == 0
+        
+      else
+        age
+      end
+
+      # now.year - bday.year - ((now.month > bday.month || (now.month == bday.month && now.day >= bday.day)) ? 0 : 1)
   end
 
 end

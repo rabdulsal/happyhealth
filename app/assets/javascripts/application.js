@@ -76,9 +76,13 @@ $(function() {
 	  }
 	}
 
+	// Close Form Dialog by clicking 'Continue' button
+
 	$('a#continue').on("click", function() {
 		$('.ui-dialog-content').dialog('close');
 	});
+
+	// Open up TOS and Privacy Policy Agreement when 'Download' button is clicked
 
 	$('.office-form-download').on("click", function(){
 		console.log(this.id);
@@ -87,6 +91,8 @@ $(function() {
 		$('input#tos_' + id)[0].checked = false;
 		$('.tos_agreement#office_' + id).fadeIn("slow");
 	});
+
+	// After checkbox is checked and 'I Agree' clicked, convert 'Downlaod' to 'Downloading...'
 
 	$('input.submit_tos').on("click", function(){
 		id = this.id;
@@ -98,7 +104,7 @@ $(function() {
 
 	});
 
-	// Auto-closes all the dialog boxes that are rendered ******** CAN BE DRYER!! ********
+	// Auto-closes all the Form Dialog boxes that are rendered
 
 	$("#accordion a").on("click", function() {
 		var formABRV = $(this).data("abrv");	
@@ -111,27 +117,6 @@ $(function() {
 	});
 	
 	// $(".mada").dialog({
-	// 	autoOpen: false,
-	// 	show: "blind",
-	// 	hide: "slide",
-	// 	modal: true
-	// });
-
-	// $(".clsma").dialog({
-	// 	autoOpen: false,
-	// 	show: "blind",
-	// 	hide: "slide",
-	// 	modal: true
-	// });
-
-	// $(".mhc").dialog({
-	// 	autoOpen: false,
-	// 	show: "blind",
-	// 	hide: "slide",
-	// 	modal: true
-	// });
-
-	// $(".sawlani_demographics").dialog({
 	// 	autoOpen: false,
 	// 	show: "blind",
 	// 	hide: "slide",
@@ -177,9 +162,40 @@ $(function() {
 
 	// Close Alerts and Warnings
 
-	$(".alert-close").on("click", function() {
-		$(".alert").fadeOut("slow");
+	$(".close").on("click", function() {
+		$("#notice").fadeOut("slow");
 	});
+
+	// Insurance Form logic => open Form if Profile-owner is != Insurance Policy Holder
+
+	var appended = $('<div />').text("You're appendin'!");
+	appended.id = 'appended';
+	$('input[type="radio", id="female-gender"]').change(
+    function(){
+        if ($(this).val() == 'Female') {
+            $(appended).appendTo('body');
+        }
+        else {
+            $(appended).remove();
+        }
+    });
+
+    // Generic Dropdown Panel
+    $('.panel-tab').on('click', function(event){
+	  event.preventDefault(); // Prevent jumping to top of the DOM
+	  // Fetch correct hidden .panel-stage and make visible
+	  $(this).closest('.panel').find('.panel-stage').slideToggle('slow', function(event){
+		var panel = $(this).closest('.panel').find('.panel-text');
+		var button = $(this).closest(".panel").find("#insurance-relationship-radio");
+		if($(this).is(':visible')){					
+			panel.html('Close');
+			button.attr({"disabled": true, "checked": false});
+		} else {
+			panel.html('Open');
+			button.removeAttr('disabled');			
+		}
+	  });
+	});	
 
 
 });

@@ -53,11 +53,11 @@ class FormsController < ApplicationController
   end
 
   def create
-    @form = Form.new(params[:form])
+    @form = Form.new(params[:form])     
 
     respond_to do |format|
       if @form.save
-        format.html { redirect_to user_form_path(current_user.id, @form.id), notice: 'Form was successfully created.' }
+        format.html { redirect_to user_form_path(current_user.id, @form.id), notice: 'Your HappyHealth Form was successfully created.' }
         format.json { render json: @form, status: :created, location: @form }
       else
         format.html { render action: "new" }
@@ -69,9 +69,33 @@ class FormsController < ApplicationController
   def update
     @form = Form.find(params[:id])
     @user = User.find_by_id(@form.user_id)
+
     respond_to do |format|
       if @form.update_attributes(params[:form])
-        format.html { redirect_to user_form_path(current_user.id), notice: 'Form was successfully updated.' }
+
+        # Auto-update Insurance "Self" Policy Holder with Personal Info
+        if (@form.insurances[0].relationship_to_patient).downcase === "self"
+
+          pers = @user.form.personal       
+            
+          @form.insurances[0].update_attributes(
+            subscribers_last_name: pers.last_name, 
+            subscribers_first_name: pers.first_name, 
+            middle_initial: nil, 
+            subscribers_address: pers.address, 
+            subscribers_city: pers.city, 
+            subscribers_state: pers.state, 
+            subscribers_zipcode: pers.zip_code, 
+            social_security: "", 
+            birthdate: pers.date_of_birth, 
+            sex: pers.gender, 
+            subscribers_phone: pers.home_phone, 
+            subscribers_employer: pers.employer
+          )
+
+        end
+
+        format.html { redirect_to user_form_path(current_user.id), notice: 'Your HappyHealth Form was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
