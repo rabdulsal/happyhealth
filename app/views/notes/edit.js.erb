@@ -1,3 +1,5 @@
+// ************* JS CODE FOR HIDING THEN RENDERING EDIT FORM ***************
+
 $(".note_field").hide();
 
 $("p#note_<%= @note.id %>").replaceWith("<%= j(render('note_edit')) %>")

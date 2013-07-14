@@ -7,7 +7,10 @@
 		<% end %>
 		<li class="fluid-hide <%=@current_page%>_offices">
         	<%= link_to "View Office Registry", offices_path %>
-        </li>               
+        </li>
+        <li class="<%=@current_page%>_list">
+			<%= link_to "View Notes", user_notes_path(current_user.id) %>
+		</li>               
 
 <!-- ******** COMMENT OUT FOR BETA *************
 		
@@ -17,9 +20,7 @@
       	<li class="fluid-hide">
       		<%#= link_to "Scheduled Appointments", user_appointments_path(current_user.id) %>
       	</li>
-		<li class="<%=@current_page%>_list">
-			<%#= link_to "View Notes", user_notes_path(current_user.id) %>
-		</li>
+		
 		
 		<li>
 			<%#= link_to "Query Insurance", new_insurance_query_url %>			

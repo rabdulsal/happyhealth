@@ -453,7 +453,7 @@ p.signup-title {
 
 #note_info{
     font-size: 13px;
-    width: 500px;
+    /*width: 500px;*/
 }
 
 /* ------------------------ BUTTONS ------------------------------ */
@@ -553,7 +553,7 @@ p.signup-title {
 /* ------------------------- SHAAN'S BUTTONS ---------------------- */
 
 .createButton, .backButton, .pdfButton, .action-button, #edit-form.pdfButton, .removeButton {
-    display: block; 
+    /*display: block;*/ 
     background: -webkit-linear-gradient(top, #08f, #06f);
     background:    -moz-linear-gradient(top, #08f, #06f);
     background:     -ms-linear-gradient(top, #08f, #06f);    
@@ -573,7 +573,7 @@ p.signup-title {
     color: white;
 }
 
-#appt.createButton, input.createButton, .pdfButton {
+#appt.createButton, input.createButton, .pdfButton, input.action-button{
 	cursor: pointer;	
     height: 34px;
     margin: 0;
@@ -878,9 +878,9 @@ a.appt-title{
 }
 
 #nav-tab .tab-open {
-        -webkit-transform: scale(1.07);
-        color: white;
-        background: #006;
+    -webkit-transform: scale(1.07);
+    color: white;
+    background: #006;
 }
 
 #nav-tab .profile_show_profile a, #nav-tab .office_index_offices a, #nav-tab .notes_show_list {
@@ -1010,10 +1010,10 @@ aside .form-save {
 
 ******************************************* */
 
-.demoBackground, .formsBackground {
+.demoBackground, .noteBackground  {
     border: 1px solid #ccc;
     border: 1px solid #c7d7e5;
-    border-radius: 5px;
+    border-radius: 3px;
     background: #D1E0FF;
     background: #f8f8f8;
     background: #f1f1f4;    
@@ -1021,6 +1021,10 @@ aside .form-save {
     /*width: 59.18367346938776%;
     margin: 1.02040816326531%;*/
     padding: 5px 10px 20px 20px;
+}
+
+.noteBackground {
+    background: #f8f8f8;
 }
 
 .demoBackground select {
@@ -1031,29 +1035,29 @@ aside .form-save {
 
 }
 
-.formsBackground h2, .demoBackground h2 {
+.noteBackground h2, .demoBackground h2 {
     color: #555;
     color: #4d7ca8;    
     font-size: 14px;
 }
 
-.formsBackground li, .demoBackground li {
+.noteBackground li, .demoBackground li {
         display: inline-block;
 }
 
-.formsBackground legend, .demoBackground legend {
+.noteBackground legend, .demoBackground legend {
         font-weight: bold;
         color: #555;
         color: #4d7ca8;
         font-size: 16px
 }
 
-.formsBackground textarea {
+.noteBackground textarea {
         width: 425px;
         height: 50px;
 }
 
-.formsBackground table img {
+.noteBackground table img {
         width: 150px;
         height: 63px;
 }
@@ -1071,12 +1075,12 @@ aside .form-save {
         width: 120px;
 }
 
-.formsBackground dd {
+.noteBackground dd {
         font-style: italic;
         font-size: 13px;
 }
 
-.formsBackground td {
+.noteBackground td {
         padding-right: 8px;
 }
 
@@ -1225,8 +1229,8 @@ aside .form-save {
     width: 25%;
 }
 
-.table_row_fourth td {
-    
+.table_row_two_thirds td:first-child {
+    width: 77%;
 }
 
 .radio_button > td {
@@ -1590,7 +1594,7 @@ footer ul li:last-child, footer a {
 
 @media all and (max-width: 480px) {
     article, aside, form,
-    .demoBackground, .formsBackground,
+    .demoBackground, .noteBackground,
     .dashAppointments, .dashBackground,
     #note_info, .widget, .description,
     .splash-page, .signin, .signup, .fluid-form, p a.pdfButton {

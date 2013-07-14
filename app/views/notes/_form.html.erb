@@ -13,8 +13,23 @@
     </div>
   <% end %>
 
-  <div class="note_field">
-   	<%= f.text_field :info, :placeholder => "Press enter to submit note", class: "form_field_length" %>
+  <!--<div class="note_field">-->
+  <div>
+   	
+
+    
   </div>
+
+  <table class="margin-top table_row_two_thirds">
+    <tr>
+      <td>
+        <%= f.text_field :info, :placeholder => "How do you feel right now?", class: "form_field_length_full fat" %>
+      </td>
+      <td>
+        <%#= link_to 'Add New Note', '#', :class=> 'createButton' %>
+        <%= f.submit "Post", class: "action-button inline" %>
+      </td>
+    </tr> 
+</table>  
 
 <% end %>

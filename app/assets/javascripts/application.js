@@ -24,12 +24,16 @@ $(function() {
 		active: false
 	});
 
-	$("#new_note.new_note").hide();
+	// NOTES TOGGLES *****************************
 
-	$("a.createButton").on("click", function() {
-		$("form").toggle("slow");
-		$(".reminder").hide();
-	});
+	// $("#new_note.new_note").hide();
+
+	// $("a.createButton").on("click", function() {
+	// 	$("form").toggle("slow");
+	// 	$(".reminder").hide();
+	// });
+
+	// ********************************************
 
 	$('select#appointment_doctor').change(function(e){
 		$('.row3').fadeIn("slow");

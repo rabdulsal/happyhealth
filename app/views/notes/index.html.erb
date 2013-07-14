@@ -2,14 +2,16 @@
 
 <h2>Add notes as reminders for yourself, a summary of your last visit, or questions for your next visit</h2>
 
-<ul class="note-field inline margin-top">
-	<li>
-		<%= render 'form', :note => @note %>
-	</li>
-	<li>
-		<%= link_to 'Add New Note', '#', :class=> 'createButton' %>
-	</li>	
-</ul>                              
+<!-- <table class="margin-top table_row_two_thirds">
+	<tr>
+		<td> -->
+			<%= render 'form', :note => @note %>
+		<!-- </td>
+		<td>
+			<%#= link_to 'Add New Note', '#', :class=> 'createButton' %>
+		</td>
+	</tr>	
+</table>   -->                            
 	
 
 <%= paginate(@notes)%>
