@@ -135,6 +135,7 @@ h1 {
 
 a, .link {
     color: #00B6E4;
+    color: #f25d07;
     text-decoration: none;
 }
 
@@ -150,6 +151,9 @@ aside {
     
     width: 32.65306122449%;  /* 320px/980px = .3265306122449 */
     font-size: 15px;
+    /*background: #ccc;*/
+    min-height: 500px;
+    overflow: hidden;
 }
 
 article {    
@@ -163,6 +167,7 @@ article {
 
 article h1 {
     color: #555;
+    color: #273e54;
     margin-bottom: 10px;
 }
 
@@ -170,15 +175,11 @@ article h2 {
     color: grey;
 }
 
-body {
-    padding: 0 0 20px 0px;
-    margin: 0px;
-}
-
-p {
+body, p {
     font-family: 'Droid Sans', sans-serif;
     font-size: 14px;
     color: #555;
+    color: #273e54;
 }
 
 #main {
@@ -192,23 +193,24 @@ label {
     display: block;
     padding: 7px 0;
     font-size: 14px;
-    color: #000066;
     color: #555;
+    color: #4d7ca8;   
 
 }
 
 textarea {
-        width: 90%;
+    width: 90%;
 }
 
 input {
-    font-size: 16px;    
+    font-size: 16px; 
+    color: #273e54;   
 }
 
 img {
     color: transparent;
-  font-size: 0;
-  vertical-align: middle;
+    font-size: 0;
+    vertical-align: middle;
 }
 
 .center {
@@ -465,18 +467,20 @@ p.signup-title {
     text-align: center;
     border-radius: 5px;
     cursor: pointer;
-    border: 1px solid #4d4d4d;
+    border: 1px solid #aaa;
+    border: 1px solid #c7d7e5;
     text-shadow: 0 1px 3px black;
     box-shadow: 0 2px 2px grey;
 }
 
 .button, .submit-button {
     color: #555;
+    color: #4d7ca8;
     background: -webkit-linear-gradient(top, #fff, #ececec);
     background:    -moz-linear-gradient(top, #fff, #ececec);
     background:     -ms-linear-gradient(top, #fff, #ececec);
     text-shadow: 0 1px 3px white;
-    font-size: 12px !important;
+    font-size: 13px !important;
     height: 30px;
 }
 
@@ -495,9 +499,9 @@ p.signup-title {
 
 .button:hover, .submit-button:hover, .button a:hover {
     text-decoration: none;
-    background: -webkit-linear-gradient(top, #ececec, #ddd);
-    background:    -moz-linear-gradient(top, #ececec, #ddd);
-    background:     -ms-linear-gradient(top, #ececec, #ddd);
+    background: -webkit-linear-gradient(top, #ececec, #fff);
+    background:    -moz-linear-gradient(top, #ececec, #fff);
+    background:     -ms-linear-gradient(top, #ececec, #fff);    
 }
 
 .remove-form {
@@ -552,7 +556,7 @@ p.signup-title {
     display: block; 
     background: -webkit-linear-gradient(top, #08f, #06f);
     background:    -moz-linear-gradient(top, #08f, #06f);
-    background:     -ms-linear-gradient(top, #08f, #06f);
+    background:     -ms-linear-gradient(top, #08f, #06f);    
     color: white;
     font-weight: bold;
     font-size: 13px;
@@ -594,7 +598,7 @@ p.signup-title {
     border: 1px solid green;
     background: -webkit-linear-gradient(top, #3c3, #3A0);
     background:    -moz-linear-gradient(top, #3c3, #3A0);
-    background:            -ms-gradient(top, #3c3, #3A0);
+    background:            -ms-gradient(top, #3c3, #3A0);    
 }
 
 .pdfButton:hover {
@@ -618,11 +622,15 @@ p.signup-title {
 }
 
 .action-button {  
-    border: 1px solid #f60;  
+    border: 1px solid #f60; 
+    border: 1px solid #bf3604; 
     background: -webkit-linear-gradient(top, #f90, #cc7a00);   
     background:    -moz-linear-gradient(top, #f90, #cc7a00);
-    background:     -ms-linear-gradient(top, #f90, #cc7a00); 
-    text-shadow: none !important;    
+    background:     -ms-linear-gradient(top, #f90, #cc7a00);
+    background: -webkit-linear-gradient(top, #f25d07, #bf3604);   
+    background:    -moz-linear-gradient(top, #f25d07, #bf3604);
+    background:     -ms-linear-gradient(top, #f25d07, #bf3604); 
+    text-shadow: none !important;        
 }
 
 .action-button:hover {
@@ -849,8 +857,10 @@ a.appt-title{
     display: block;
     
     border: 1px solid #ccc;
+    border: 1px solid #c7d7e5;
     border-radius: 5px;
     color: #555;
+    color: #273e54;
     text-transform: uppercase;
     font-weight: bold;
     background: #fff;
@@ -860,8 +870,8 @@ a.appt-title{
 }
 
 #nav-tab a:hover {
-    text-decoration: none;
-    background: #f8f8f8;    
+    text-decoration: none;       
+    color: #f25d07; 
     /*-webkit-transform: scale(1.07);
        -moz-transform: scale(1.07);
         -ms-transform: scale(1.07);*/
@@ -874,13 +884,14 @@ a.appt-title{
 }
 
 #nav-tab .profile_show_profile a, #nav-tab .office_index_offices a, #nav-tab .notes_show_list {
-    background: #f5f5f5;
+    background: #f1f1f4;
 }
 
 .beta_tag {
     text-transform: uppercase;
     /*color: -webkit-linear-gradient(top, #f90, #cc7a00);*/
     color: #f90;
+    color: #f25d07;
 }
 
 .agreement_links {
@@ -895,7 +906,7 @@ a.appt-title{
     background: -webkit-linear-gradient(top, #555, #000);
     background:    -moz-linear-gradient(top, #555, #000);
     background:     -ms-linear-gradient(top, #555, #000);     
-    border-bottom: 1px solid #ccc;   
+    background: #273e54;   
 }
 
 #header-content {
@@ -931,6 +942,7 @@ a.appt-title{
 
 #site-name a:hover, .nav-links a:hover {
     color: #00B6E4;
+    color: #f25d07;
 }
 
 #medications li {
@@ -999,11 +1011,12 @@ aside .form-save {
 ******************************************* */
 
 .demoBackground, .formsBackground {
-    border: 1px solid #000066;
     border: 1px solid #ccc;
+    border: 1px solid #c7d7e5;
     border-radius: 5px;
     background: #D1E0FF;
-    background: #f8f8f8;    
+    background: #f8f8f8;
+    background: #f1f1f4;    
     width: 95%; /* 660/980 = .6734693878 */    
     /*width: 59.18367346938776%;
     margin: 1.02040816326531%;*/
@@ -1019,7 +1032,8 @@ aside .form-save {
 }
 
 .formsBackground h2, .demoBackground h2 {
-    color: #555;    
+    color: #555;
+    color: #4d7ca8;    
     font-size: 14px;
 }
 
@@ -1030,6 +1044,7 @@ aside .form-save {
 .formsBackground legend, .demoBackground legend {
         font-weight: bold;
         color: #555;
+        color: #4d7ca8;
         font-size: 16px
 }
 
@@ -1081,6 +1096,7 @@ aside .form-save {
 .show-table th, .show-table-horizontal th, .show-table-short th {
     text-transform: uppercase;
     color: #aaa;
+    color: #4d7ca8;
     font-size: 90%;    
     font-weight: bold;
     line-height: 190%;
@@ -1103,7 +1119,7 @@ aside .form-save {
 
 .show-table td, .show-table-horizontal td, .show-table-short td {    
     vertical-align: top;
-    color: #555;
+    color: #273e54;
 }
 
 .show-table td {
@@ -1298,6 +1314,7 @@ td.appt-column{
     height: 34px;
     padding: 5px;
     border: 1px solid #ccc;
+    border: 1px solid #c7d7e5;
 }
 
 input#appointment_appt_date{
@@ -1307,6 +1324,7 @@ input#appointment_appt_date{
     height: 34px;
 /*  padding: 5px;*/
     border: 1px solid #ccc;
+    border: 1px solid #c7d7e5;
     border-radius: 5px;
 }
 
@@ -1506,9 +1524,10 @@ footer {
     background: -webkit-linear-gradient(top, #eee, #fff);
     background:    -moz-linear-gradient(top, #eee, #fff);
     background:     -ms-linear-gradient(top, #eee, #fff);
+    background: #4d7ca8;
     overflow: hidden;
     margin-top: 20px;
-    max-height: 110px;
+    max-height: 130px;
 }
 
 .footer-content {
@@ -1525,13 +1544,15 @@ footer {
 
 footer a:hover {
     color: #00B6E4;
+    color: #f25d07;
 }
 
 .footer-links, .copywrite, footer a {
     float: right;
     list-style: none;
     margin-left: 5px;
-    color: #888;  
+    color: #888;
+    color: #fff;  
 }
 
 .copywrite, #siteseal {
