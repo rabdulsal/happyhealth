@@ -19,7 +19,11 @@ HappyHealth::Application.routes.draw do
 
   resources :users do
     resources :notes
-    resources :forms
+    resources :forms do
+      member do 
+        get 'printout'
+      end
+    end
     resources :appointments
   end
 

@@ -170,24 +170,12 @@ $(function() {
 		$("#notice").fadeOut("slow");
 	});
 
+	// ************************* GENERIC DROPDOWN PANEL ***************************
+
 	// Insurance Form logic => open Form if Profile-owner is != Insurance Policy Holder
 
-	var appended = $('<div />').text("You're appendin'!");
-	appended.id = 'appended';
-	$('input[type="radio", id="female-gender"]').change(
-    function(){
-        if ($(this).val() == 'Female') {
-            $(appended).appendTo('body');
-        }
-        else {
-            $(appended).remove();
-        }
-    });
-
-    // Generic Dropdown Panel
     $('.panel-tab').on('click', function(event){
-	  event.preventDefault(); // Prevent jumping to top of the DOM
-	  // Fetch correct hidden .panel-stage and make visible
+	  event.preventDefault(); 
 	  $(this).closest('.panel').find('.panel-stage').slideToggle('slow', function(event){
 		var panel = $(this).closest('.panel').find('.panel-text');
 		var button = $(this).closest(".panel").find("#insurance-relationship-radio");

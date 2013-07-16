@@ -2,7 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-
+# require 'pdfkit'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -68,6 +68,10 @@ module HappyHealth
 
 
     # PDFKit Middleware
-    # config.middleware.use PDFKit::Middleware, :print_media_type => true 
+    #config.middleware.use PDFKit::Middleware, :print_media_type => true 
+
+    # PDFKit.configure do |config|
+    #   config.wkhtmltopdf = 'windows_path_to_wkhtmltopdf'
+    # end
   end
 end

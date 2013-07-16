@@ -5,3 +5,4 @@
 # Mime::Type.register_alias "text/html", :iphone
 
 Mime::Type.register_alias "application/pdf", :pdf unless Mime::Type.lookup_by_extension(:pdf)
+

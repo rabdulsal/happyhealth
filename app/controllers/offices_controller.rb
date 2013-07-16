@@ -72,11 +72,11 @@ class OfficesController < ApplicationController
       format.html
       format.pdf {
         html = render_to_string(
-                                :layout => "pdf.html.erb" , 
-                                :action => "show.html.erb", 
-                                :formats => [:html], 
-                                :handler => [:erb]
-                                )
+          :layout => "pdf.html.erb" , 
+          :action => "show.html.erb", 
+          :formats => [:html], 
+          :handler => [:erb]
+          )
         kit = PDFKit.new(html)
         kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/application.css"
         send_data(kit.to_pdf, 
@@ -100,11 +100,11 @@ class OfficesController < ApplicationController
       format.json { render json: @office } 
       format.pdf {
         html = render_to_string(
-                                :layout => "pdf.html.erb" , 
-                                :action => "show.html.erb", 
-                                :formats => [:html], 
-                                :handler => [:erb]
-                                )
+          :layout => "pdf.html.erb" , 
+          :action => "show.html.erb", 
+          :formats => [:html], 
+          :handler => [:erb]
+          )
         kit = PDFKit.new(html)
         kit.stylesheets << get_stylesheet
         send_data(kit.to_pdf, 
