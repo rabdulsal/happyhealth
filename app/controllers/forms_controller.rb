@@ -122,8 +122,11 @@ class FormsController < ApplicationController
     @form = Form.find_by_id params[:user_id]
 
     @personal = @user.form.personal
-    @medications = @user.form.medical.medications
+    @med_1 = @user.form.medical.medications[0]
+    @med_2 = @user.form.medical.medications[1]
     @allergies = @user.form.medical.allergies
+    @contact_1 = @user.form.emergencies[0]
+    @contact_2 = @user.form.emergencies[1]
 
 
     # respond_to do |format|
