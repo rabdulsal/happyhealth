@@ -162,7 +162,8 @@ article {
     /*margin-left: 2.08081632653061%;*/ /*20px 980px = .01515151 */
     width: 65.30612245%; /*640px 980px = .63636363 */
     font-size: 12px; 
-    float: right;   
+    float: right; 
+    /*background: #f1f1f4;*/  
 }
 
 article h1 {
@@ -1148,11 +1149,12 @@ aside .form-save {
  /* ----------------- FORM PRINTOUTS ------------------- */
 
  #form_printout {
-    -webkit-transform: rotate(-90deg);
-       -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
+    min-height: 1000px;    
  }
+    
+    #form_printout table:last-child {
 
+    }
     #form_printout thead {
         background: #4d7ca8;
         color: #fff;
@@ -1161,6 +1163,12 @@ aside .form-save {
         padding: 10px;
     }
 
+.printout_container { 
+    -webkit-transform-origin: 0 0;   
+    -webkit-transform: rotate(-90deg) translateX(-500px);
+       -moz-transform: rotate(-90deg) translateX(-500px);
+        -ms-transform: rotate(-90deg) translateX(-500px);    
+    }
 /* ------------------- FORMS TABLES -------------------- */
 
 .table_row_full {
