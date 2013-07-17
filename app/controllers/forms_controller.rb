@@ -121,21 +121,26 @@ class FormsController < ApplicationController
     @user = User.find_by_id params[:id]
     @form = Form.find_by_id params[:user_id]
 
-    respond_to do |format|
-      html = render_to_string(
-        :layout => "pdf.html.erb" , 
-        :action => "printout.html.erb", 
-        :formats => [:html], 
-        :handler => [:erb]
-      )
-      kit = PDFKit.new(html)
-      kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/happy_health.css.scss.erb"
-      send_data(kit.to_pdf, 
-        :filename => "#{@user.to_s}_Health_Form.pdf", 
-        :type => 'application/pdf'
-        )
-      return # to avoid double render call 
-    end  
+    @personal = @user.form.personal
+    @medications = @user.form.medical.medications
+    @allergies = @user.form.medical.allergies
+
+
+    # respond_to do |format|
+    #   html = render_to_string(
+    #     :layout => "pdf.html.erb" , 
+    #     :action => "printout.html.erb", 
+    #     :formats => [:html], 
+    #     :handler => [:erb]
+    #   )
+    #   kit = PDFKit.new(html)
+    #   kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/happy_health.css.scss.erb"
+    #   send_data(kit.to_pdf, 
+    #     :filename => "#{@user.to_s}_Health_Form.pdf", 
+    #     :type => 'application/pdf'
+    #     )
+    #   return # to avoid double render call 
+    # end  
     
   end
 end

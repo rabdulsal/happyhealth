@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    redirect_to user_form_url(@user.id, @user.id)
+    #redirect_to user_form_url(@user.id, @user.id)
     if @user.form.nil?
       redirect_to new_user_form_path(@user.id)
     end

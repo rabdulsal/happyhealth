@@ -173,12 +173,12 @@ article h1 {
 }
 
 article h2 {
-    color: grey;
+    color: #4d7ca8;    
 }
 
 body, p {
     font-family: 'Droid Sans', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     color: #555;
     color: #273e54;
 }
@@ -327,7 +327,7 @@ ul#static.inline-block{
 }
 
 #splash-title, #subtitle, #splash-text, #signup-text, .headings {
-    color: #4273e54;
+    color: #273e54;
     font-weight: bold;
     text-align: center;
     /*text-shadow: 0 2px 5px #555;*/
@@ -1047,15 +1047,19 @@ aside .form-save {
 }
 
 .noteBackground legend, .demoBackground legend {
-        font-weight: bold;
-        color: #555;
-        color: #4d7ca8;
-        font-size: 16px
+    font-weight: bold;
+    color: #555;
+    color: #4d7ca8;
+    font-size: 16px
+}
+
+.noteBackground legend {
+    font-size: 13px;
 }
 
 .noteBackground textarea {
-        width: 425px;
-        height: 50px;
+    width: 425px;
+    height: 50px;
 }
 
 .noteBackground table img {
@@ -1151,24 +1155,21 @@ aside .form-save {
  #form_printout {
     min-height: 1000px;    
  }
-    
-    #form_printout table:last-child {
-
-    }
     #form_printout thead {
         background: #4d7ca8;
         color: #fff;
     } 
     #form_printout th, #form_printout td {
         padding: 10px;
+        vertical-align: top;
     }
 
-.printout_container { 
+/*.printout_container { 
     -webkit-transform-origin: 0 0;   
     -webkit-transform: rotate(-90deg) translateX(-500px);
        -moz-transform: rotate(-90deg) translateX(-500px);
         -ms-transform: rotate(-90deg) translateX(-500px);    
-    }
+    }*/
 /* ------------------- FORMS TABLES -------------------- */
 
 .table_row_full {
@@ -1409,21 +1410,22 @@ input#appointment_appt_date{
     color: #37241E;*/
 }
 
-.widget h1{
+.widget h2 {
     text-align: left;
-    font-size: 14px;
+    font-size: 16px;
     text-transform: uppercase;
-    border-bottom: 1px dotted grey;
+    border-bottom: 1px dotted #c7d7e5;
     margin: 10px 0;
     padding: 0 0 10px 0;
+    color: #4d7ca8;    
 }
 
 .dashAppointments {
     width: 600px; /* 61.22448979591837% - responsive */
     padding: 10px;
-    color: #555;
-    background: #eee;
-    border-radius: 5px;
+    color: #273e54;
+    background: #f1f1f4;
+    border-radius: 3px;
     margin-bottom: 10px;
     overflow: hidden;
 }
