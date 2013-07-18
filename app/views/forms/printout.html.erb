@@ -1,0 +1,172 @@
+<%#= wicked_pdf_stylesheet_link_tag 'mpd' %>
+
+<div id="form_printout">
+	<div class="printout_container">
+		<table>
+			<thead>
+				<th>Demographics</th>
+				<th>Medications</th>
+				<th>Emergency Contacts</th>
+				<th>Care Plan</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= @user.to_s %> <%= @personal.last_name %></td>
+					<td rowspan="2">
+						<ul>							
+							<li>
+								<h2><%= @med_1.info %></h2>
+							</li> 
+							<li>Administration:</li>
+							<li>Start date:</li>
+							<li>Type (tablet, liquid, etc.)</li>
+						</ul>
+
+					</td>
+					<td rowspan="2">
+						<ul>							
+							<li>
+								<%= @contact_1.name %>
+							</li>
+							<li>
+								<%= @contact_1.relationship_to_patient %>
+							</li>
+							<li>
+								<%= "#{@contact_1.city}" + " " + "#{@contact_1.state}" + ", " + "#{@contact_1.zipcode}" %>
+							</li>
+							<li>
+								<%= @contact_1.phone_number %>
+							</li>								
+						</ul>
+					</td>
+					<td rowspan="2">
+						<ul>
+							Office Consult
+							<li>Instructions: Diabetes management consultation</li>
+							<li>Facility: Rush University Medical Center</li>
+							<li>Provider: Dr. George Katsoyannis</li>
+						</ul>
+					</td>
+
+				</tr>
+				<tr>
+					<td>Gender: <%= @personal.gender %></td>
+					
+					
+				</tr>
+				<tr>
+					<td>Age: <%= @user.age %></td>
+					<td rowspan="2">
+						<ul>							
+							<li>
+								<h2><%= @med_2.info %></h2>
+							</li> 
+							<li>Administration:</li>
+							<li>Start date:</li>
+							<li>Type (tablet, liquid, etc.)</li>
+						</ul>
+					</td>
+					<td rowspan="2">
+						<ul>							
+							<li><%= @contact_2.name %></li>
+							<li><%= @contact_2.relationship_to_patient %></li>
+							<li><%= @contact_2.address %></li>
+							<li>
+								<%= "#{@contact_2.city}" + " " + "#{@contact_2.state}" + ", " + "#{@contact_2.zipcode}" %>
+							</li>
+							<li><%= @contact_2.phone_number %></li>					
+						</ul>
+					</td>
+					<td rowspan="2">
+						<ul>
+							Sputuum Culture
+							<li>Date: 6/16/2012</li>
+							<li>Facility: Lutheran General</li>						
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							Allergen: Severity:
+							<% @allergies.each do |allergen| %>
+							<li>
+								<%= allergen.info %>
+							</li>
+							<% end %>
+						</ul>
+					</td>
+					
+					
+				</tr>
+				<tr>
+					<td>Conditions: </td>
+					<td></td>
+					<td> </td>
+					
+				</tr>
+			</tbody>
+			
+		</table>
+
+		<table>
+			<thead>
+				<th>Problems</th>
+				<th>Procedures</th>
+				<th>Immunizations</th>
+				<th>Encounters</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Ankle Sprain</td>
+					<td rowspan="2">
+						<ul>
+							Lumbar Fusion w/ Screws and Rods
+							<li>Date: 1/1/2013</li>
+							<li>Facility: Rush University Medical Center</li>
+							<li>Provider: Dr. Christopher Dewald</li>
+						</ul>
+
+					</td>
+					<td>Immunization type: </td>
+					<td>Encounter type: </td>
+				</tr>
+				<tr>
+					<td>Active</td>
+					
+					<td>Date: </td>
+					<td>Date: </td>
+				</tr>
+				<tr>
+					<td>Slipped on ice and fell</td>
+					<td rowspan="2">
+						<ul>
+							Cesarian Section
+							<li>Date: 1/1/2013</li>
+							<li>Facility: Rush University Medical Center</li>
+							<li>Provider: Dr. Elena Koogan</li>
+						</ul>
+
+					</td>
+					<td>Condition: </td>
+					<td>Facility: </td>
+				</tr>
+				<tr>
+					<td>Last occurence</td>
+					
+					<td>Dose: </td>
+					<td>Provider: </td>
+				</tr>
+				<tr>
+					<td></td>
+					<td> </td>
+					<td>Note: </td>
+					<td> </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
