@@ -1,3 +1,5 @@
+require 'phaxio'
+
 class FormsController < ApplicationController
 
   before_filter :correct_user
@@ -74,7 +76,7 @@ class FormsController < ApplicationController
       if @form.update_attributes(params[:form])
 
         # Auto-update Insurance "Self" Policy Holder with Personal Info
-        if (@form.insurances[0].relationship_to_patient).downcase === "self"
+        if (@form.insurances[0].relationship_to_patient).downcase == "self"
 
           pers = @user.form.personal       
             
@@ -143,7 +145,23 @@ class FormsController < ApplicationController
     #     :type => 'application/pdf'
     #     )
     #   return # to avoid double render call 
-    # end  
+    # end 
+
+    #Phaxio Configuration
+    Phaxio.config do |config|
+      config.api_key = "10987654321"
+      config.api_secret = "12345678910"
+    end
+
+    #Send Fax, receive confirmation
+    @fax = Phaxio.send_fax(to: '15555555555', string_data: "hello world")
+    Phaxio.get_fax_status(id: @fax["faxId"])
+
+    # Get a Fax and save it as a PDF
+    @pdf = Phaxio.get_fax_file(id: @fax["faxId"], type: "p")
+    File.open("received_test.pdf", "w") do |file|
+      file << @pdf
+    end 
     
   end
 end

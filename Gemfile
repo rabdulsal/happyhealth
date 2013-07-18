@@ -73,6 +73,9 @@ gem 'aws-sdk'
 #Yelp
 gem 'yelpster'
 
+#Phaxio
+gem 'phaxio'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
