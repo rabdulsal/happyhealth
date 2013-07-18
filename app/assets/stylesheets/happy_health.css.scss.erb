@@ -457,8 +457,8 @@ p.signup-title {
 }*/
 
 #note_info{
-    font-size: 13px;
-    /*width: 500px;*/
+    font-size: 14px;    
+    max-height: 30px;
 }
 
 /* ------------------------ BUTTONS ------------------------------ */
@@ -1197,8 +1197,8 @@ aside .form-save {
     width: 25%;
 }
 
-.table_row_two_thirds td:first-child {
-    width: 77%;
+.table_row_two_thirds td:first-child, .two_third_width {
+    width: 75%;
 }
 
 .radio_button > td {
@@ -1562,14 +1562,29 @@ footer ul li:last-child, footer a {
 /* --------------- RESPONSIVE DESIGN ------------------- */
 
 @media all and (max-width: 480px) {
-    article, aside, form,
-    .demoBackground, .noteBackground,
+    article, aside, form, footer,
+    .demoBackground,
     .dashAppointments, .dashBackground,
     #note_info, .widget, .description,
-    .splash-page, .signin, .signup, .fluid-form, p a.pdfButton {
+    .splash-page, .signin, .signup, .fluid-form, p a.pdfButton, 
+    .right {
         float: none;
-        width: 93.9393939393939393%;
-        margin: 0 2.0833333333333333%;
+        
+        width: 100%;
+        /*margin: 0 2.0833333333333333%;*/
+    }
+
+    .noteBackground {        
+        width: 92%;
+    }
+
+    textarea#note_info {
+        width: 98%;
+    }
+
+    footer {
+        padding: 0 2.0833333333333333%;
+        margin-top: 0;
     }
 
     .description {
@@ -1580,12 +1595,11 @@ footer ul li:last-child, footer a {
         display: none !important;
     }
     .container_12, #header-content {
-        width: 95.8333333333333333%;
-        margin: 0 2.0833333333333333%;
+        width: 95.8333333333333333%;    
     }
     .container_12 {
-        background: #fff !important;
-        border: 1px solid black;
+        background: #fff !important;  
+        margin-bottom: 0;      
     }
     .signin, .signup {
         background: #f8f8f8;
@@ -1596,9 +1610,13 @@ footer ul li:last-child, footer a {
         margin-top: 10px;
     }
 
-    .full_width, input.createButton {
+    .full_width, input.createButton, .action-button {
         width: 93.9393939393939393%;
         margin: 0 2.08333%;
+    }
+
+    .action-button, .note-field, .note-button {
+        width: 100%;
     }
 
     p.signup-title {

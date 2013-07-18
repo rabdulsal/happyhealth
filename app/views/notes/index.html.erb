@@ -16,13 +16,10 @@
 
 <%= paginate(@notes)%>
 
-<ul id="notes margin-top">
+<div id="notes" class="margin-top">
 	<% if @notes != [] %>
-			<br />
-			<% @notes.each do |note| %>
-				<%= render 'note', :note => note%>
-			<% end %>		
+			<%= render @notes %>		
 	<% else %>
 		<h2 class="reminder">You do not have any current notes. Make one now!</h2>
 	<% end %>
-</ul>
+</div>

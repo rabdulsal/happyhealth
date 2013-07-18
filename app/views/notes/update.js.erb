@@ -4,7 +4,7 @@ $("fieldset#note_<%= @note.id %>.noteBackground").remove(); // ** Removes empty 
 
 $("#edit_note_<%= @note.id %>").hide(); // ## Not sure what this is doing
 
-$("ul#notes").prepend("<%= j(render('note', :note => @note)) %>"); // ** Container with newly created Edited Note
+$("div#notes").prepend("<%= j(render(@note)) %>"); // ** Container with newly created Edited Note
 
 $("#note_info").show();
 

@@ -1,3 +1,4 @@
-$("ul#notes").prepend("<%= escape_javascript(render('note', :note => @note)) %>"); // ## Adds newly constructed Note container to the top of the Notes Index
+$("div#notes").prepend("<%= j(render @note) %>"); // ## Adds newly constructed Note container to the top of the Notes Index
+$("p#note_<%= @note.id %>").slideDown().effect('highlight');
 
-$("#note_info").val(""); // ** Clears out
+$("#note_info").val(""); // ** Clears out form

@@ -59,13 +59,13 @@ class NotesController < ApplicationController
     @note.user_id = @user.id
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @user, notice: 'Note was successfully created.' }
-        format.json { render json: @note, status: :created, location: @note }
         format.js
+        format.html { redirect_to @user, notice: 'Note was successfully created.' }
+        format.json { render json: @note, status: :created, location: @note }        
       else
         format.html { render action: "new" }
         format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
+      end      
     end
   end
 
@@ -76,13 +76,13 @@ class NotesController < ApplicationController
     
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
-        format.json { head :no_content }
         format.js
+        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        format.json { head :no_content }        
       else
         format.html { render action: "edit" }
         format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
+      end      
     end
   end
 
@@ -96,7 +96,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to user_notes_path(current_user.id) }
       format.json { head :no_content }
-      # format.js
+      format.js
     end
   end
 end
