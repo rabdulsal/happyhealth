@@ -1577,17 +1577,18 @@ footer ul li:last-child, footer a {
     .dashAppointments, .dashBackground,
     #note_info, .widget, .description,
     .splash-page, .signin, .signup, .fluid-form, 
-    p a.pdfButton, .right {
+    p a.pdfButton, .right, .left {
         float: none;
         width: 100%;
     }
 
-    .noteBackground {
+    .noteBackground, .signup, .signin {
         width: 92%;
     }
 
-    textarea#note_info {
+    textarea#note_info, input#user_login {
         width: 98%;
+        margin-bottom: 10px;
     }
 
     footer {
@@ -1612,19 +1613,19 @@ footer ul li:last-child, footer a {
     }
     .signin, .signup {
         background: #f8f8f8;
-        padding: 0 0 20px 0;
+        padding: 0 15px 20px 15px;
         margin-top: 20px;
     }
     .signin h2, .signup h2 {
         margin-top: 10px;
     }
 
-    .full_width, input.createButton, .action-button {
+    /*.full_width, input.createButton, .action-button {
         width: 93.9393939393939393%;
         margin: 0 2.08333%;
-    }
+    }*/
 
-    .action-button, .note-field, .note-button {
+    .action-button, .note-field, .note-button, .createButton {
         width: 100%;
     }
 
