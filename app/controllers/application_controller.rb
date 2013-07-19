@@ -209,7 +209,7 @@ class ApplicationController < ActionController::Base
     #Test Notes
     user = User.find(1)
 
-    if user.note.nil?
+    if user.notes.nil?
       user.notes[0].create(
         info: "Problem - Medication side-effect: I feel nauseous. don't want to think about food."
         )
