@@ -13,8 +13,12 @@
     </div>
   <% end %>
 
-  <div class="note_field">
-   	<%= f.text_field :info, :placeholder => "Press enter to submit note", class: "form_field_length" %>
+  <div class="note-field margin-top clearfix">
+    <div class="inline">
+   	  <%= f.text_area :info, :placeholder => "Post a short note for yourself.", class: "two_third_width" %>
+    </div>
+
+    <%= f.submit "Post", class: "action-button note-button right" %>
   </div>
 
 <% end %>

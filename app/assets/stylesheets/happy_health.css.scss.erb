@@ -450,8 +450,8 @@ p.signup-title {
 }*/
 
 #note_info{
-    font-size: 13px;
-    width: 500px;
+    font-size: 14px;
+    max-height: 30px;
 }
 
 /* ------------------------ BUTTONS ------------------------------ */
@@ -549,7 +549,7 @@ p.signup-title {
 /* ------------------------- SHAAN'S BUTTONS ---------------------- */
 
 .createButton, .backButton, .pdfButton, .action-button, #edit-form.pdfButton, .removeButton {
-    display: block; 
+    /*display: block;*/ 
     background: -webkit-linear-gradient(top, #08f, #06f);
     background:    -moz-linear-gradient(top, #08f, #06f);
     background:     -ms-linear-gradient(top, #08f, #06f);
@@ -569,7 +569,7 @@ p.signup-title {
     color: white;
 }
 
-#appt.createButton, input.createButton, .pdfButton {
+#appt.createButton, input.createButton, .pdfButton, input.action-button {
 	cursor: pointer;	
     height: 34px;
     margin: 0;
@@ -671,7 +671,7 @@ ul.form {
     position: absolute;
     /*top:  200px;
     left: -635px;*/
-    top: 100px;
+    top: 150px;
     left: 0;
     width: 250px;    
 }
@@ -998,7 +998,7 @@ aside .form-save {
 
 ******************************************* */
 
-.demoBackground, .formsBackground {
+.demoBackground, .noteBackground {
     border: 1px solid #000066;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -1010,6 +1010,10 @@ aside .form-save {
     padding: 5px 10px 20px 20px;
 }
 
+.noteBackground {
+    background: #f8f8f8;
+}
+
 .demoBackground select {
     width: 95%;
     height: 28px;
@@ -1018,27 +1022,27 @@ aside .form-save {
 
 }
 
-.formsBackground h2, .demoBackground h2 {
+.noteBackground h2, .demoBackground h2 {
     color: #555;    
     font-size: 14px;
 }
 
-.formsBackground li, .demoBackground li {
+.noteBackground li, .demoBackground li {
         display: inline-block;
 }
 
-.formsBackground legend, .demoBackground legend {
+.noteBackground legend, .demoBackground legend {
         font-weight: bold;
         color: #555;
         font-size: 16px
 }
 
-.formsBackground textarea {
+.noteBackground textarea {
         width: 425px;
         height: 50px;
 }
 
-.formsBackground table img {
+.noteBackground table img {
         width: 150px;
         height: 63px;
 }
@@ -1056,12 +1060,12 @@ aside .form-save {
         width: 120px;
 }
 
-.formsBackground dd {
+.noteBackground dd {
         font-style: italic;
         font-size: 13px;
 }
 
-.formsBackground td {
+.noteBackground td {
         padding-right: 8px;
 }
 
@@ -1205,12 +1209,12 @@ aside .form-save {
     margin-right: 10px;
 }
 
-.table_row_fourth td {
+.table_row_fourth td, .quarter_width {
     width: 25%;
 }
 
-.table_row_fourth td {
-    
+.table_row_two_thirds td:first-child, .two_third_width {
+    width: 75%;
 }
 
 .radio_button > td {
@@ -1572,10 +1576,23 @@ footer ul li:last-child, footer a {
     .demoBackground, .formsBackground,
     .dashAppointments, .dashBackground,
     #note_info, .widget, .description,
-    .splash-page, .signin, .signup, .fluid-form, p a.pdfButton {
+    .splash-page, .signin, .signup, .fluid-form, 
+    p a.pdfButton, .right {
         float: none;
-        width: 93.9393939393939393%;
-        margin: 0 2.0833333333333333%;
+        width: 100%;
+    }
+
+    .noteBackground {
+        width: 92%;
+    }
+
+    textarea#note_info {
+        width: 98%;
+    }
+
+    footer {
+        padding: 0 2.08333333333333%;
+        margin-top: 0;
     }
 
     .description {
@@ -1591,7 +1608,7 @@ footer ul li:last-child, footer a {
     }
     .container_12 {
         background: #fff !important;
-        border: 1px solid black;
+        margin-bottom: 0;
     }
     .signin, .signup {
         background: #f8f8f8;
@@ -1602,9 +1619,13 @@ footer ul li:last-child, footer a {
         margin-top: 10px;
     }
 
-    .full_width, input.createButton {
+    .full_width, input.createButton, .action-button {
         width: 93.9393939393939393%;
         margin: 0 2.08333%;
+    }
+
+    .action-button, .note-field, .note-button {
+        width: 100%;
     }
 
     p.signup-title {

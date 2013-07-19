@@ -96,7 +96,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to user_notes_path(current_user.id) }
       format.json { head :no_content }
-      # format.js
+      format.js
     end
   end
 end

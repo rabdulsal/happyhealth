@@ -1,11 +1,12 @@
 <!-- ************* PARTIAL FOR STATIC, COMPLETED NOTE *************** -->
 
-<fieldset class="demoBackground" id="note_<%= note.id %>">
+<fieldset id="note_<%= note.id %>" class="noteBackground" >
 	<legend><%= note.updated_at.localtime.strftime("%I:%M %P | %b %d, %Y") %></legend>
-	<p id="note_<%= note.id %>"><%= note.info %></p>   
+	<p id="note_<%= note.id %>"><%= note.info %>  
 	
-	<div id="note-buttons">
-		<%= link_to image_tag('trash-can-icon.jpg', size: '20x20' ), user_note_path(current_user.id, note.id), method: 'delete', :class => "note-delete", :id => "note-buttons" %><%= link_to image_tag('pencil.png', size: '20x20'), edit_user_note_path(current_user.id, note.id), remote: true, :class => "note-edit", :id => 'note-buttons' %> 
-	</div>
+		<span id="note-buttons">
+			<%= link_to image_tag('trash-can-icon.jpg', size: '20x20' ), user_note_path(current_user.id, note.id), method: 'delete', remote: true, :class => "note-delete", :id => "note-buttons" %><%= link_to image_tag('pencil.png', size: '20x20'), edit_user_note_path(current_user.id, note.id), remote: true, :class => "note-edit", :id => 'note-buttons' %> 
+		</span>
+	</p> 
 	
 </fieldset>

@@ -1,12 +1,12 @@
 $("#edit_note_<%= @note.id %>").replaceWith("<%= j(render('form', note: @note)) %>"); // ## Replaces current Note container with a new Note form-field
 
-$("fieldset#note_<%= @note.id %>.demoBackground").remove(); // ** Removes empty Note container following Updated Note
+$("fieldset#note_<%= @note.id %>.noteBackground").remove(); // ** Removes empty Note container following Updated Note
 
 $("#edit_note_<%= @note.id %>").hide(); // ## Not sure what this is doing
 
-$("ul#notes").prepend("<%= j(render('note', :note => @note)) %>"); // ** Container with newly created Edited Note
+$("div#notes").prepend("<%= j(render(@note)) %>"); // ** Container with newly created Edited Note
 
-//$("#note_info").show();
+$("#note_info").show();
 
 
 $("a").show();
