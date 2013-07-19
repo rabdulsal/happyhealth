@@ -1,4 +1,4 @@
-require 'phaxio'
+
 
 class FormsController < ApplicationController
 
@@ -147,12 +147,7 @@ class FormsController < ApplicationController
     #   return # to avoid double render call 
     # end 
 
-    #Phaxio Configuration
-    Phaxio.config do |config|
-      config.api_key = "10987654321"
-      config.api_secret = "12345678910"
-    end
-
+    
     #Send Fax, receive confirmation
     @fax = Phaxio.send_fax(to: '15555555555', string_data: "hello world")
     Phaxio.get_fax_status(id: @fax["faxId"])

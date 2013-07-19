@@ -2,6 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+require 'phaxio'
+
 # require 'pdfkit'
 
 if defined?(Bundler)
@@ -61,7 +63,11 @@ module HappyHealth
     # Enable the asset pipeline
     config.assets.enabled = true
     
-    
+    #Phaxio Configuration
+    Phaxio.config do |config|
+      config.api_key = "10987654321"
+      config.api_secret = "12345678910"
+    end
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
