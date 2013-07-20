@@ -54,6 +54,12 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new
     #@appointment.doctor = Doctor.new
     @appointment.user_id = @user.id
+
+    @office_form_partials = []
+    @offices.each do |office|
+      @office_form_partials << "appointments/forms/#{office.abrv}.pdf.html.erb"
+    end
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @appointment }
