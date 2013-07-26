@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vaccination: MyString
+  vaccination_date: 2013-07-20
+  status: MyString
+  medical_id: 1
+
+two:
+  vaccination: MyString
+  vaccination_date: 2013-07-20
+  status: MyString
+  medical_id: 1

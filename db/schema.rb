@@ -11,13 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130516030416) do
+ActiveRecord::Schema.define(:version => 20130720213757) do
 
   create_table "allergies", :force => true do |t|
     t.string   "info"
     t.integer  "medical_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "reaction"
+    t.string   "severity"
+    t.string   "status"
   end
 
   create_table "appointments", :force => true do |t|
@@ -32,6 +35,13 @@ ActiveRecord::Schema.define(:version => 20130516030416) do
     t.boolean  "tos_priv",     :default => false
   end
 
+  create_table "care_plans", :force => true do |t|
+    t.text     "activity"
+    t.date     "activity_date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "dentals", :force => true do |t|
     t.integer  "insurance_id"
     t.datetime "eff_date"
@@ -41,6 +51,19 @@ ActiveRecord::Schema.define(:version => 20130516030416) do
     t.string   "group_name"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "discharge_instructions", :force => true do |t|
+    t.text     "instruction"
+    t.integer  "appointment_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "discharge_medications", :force => true do |t|
+    t.integer  "appointment_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "doctors", :force => true do |t|
@@ -67,6 +90,23 @@ ActiveRecord::Schema.define(:version => 20130516030416) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "functional_statuses", :force => true do |t|
+    t.text     "functional_condition"
+    t.date     "effective_dates"
+    t.string   "status"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "immunizations", :force => true do |t|
+    t.string   "vaccination"
+    t.date     "vaccination_date"
+    t.string   "status"
+    t.integer  "medical_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "insurance_queries", :force => true do |t|
@@ -117,6 +157,14 @@ ActiveRecord::Schema.define(:version => 20130516030416) do
     t.integer  "payer_id"
   end
 
+  create_table "lab_results", :force => true do |t|
+    t.text     "lab_info"
+    t.string   "chemical_level"
+    t.date     "lab_date"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "medicals", :force => true do |t|
     t.integer  "form_id"
     t.datetime "created_at", :null => false
@@ -126,9 +174,15 @@ ActiveRecord::Schema.define(:version => 20130516030416) do
   create_table "medications", :force => true do |t|
     t.string   "reason"
     t.integer  "medical_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "info"
+    t.date     "start_date"
+    t.string   "end_date"
+    t.text     "directions"
+    t.text     "fill_instructions"
+    t.string   "status"
+    t.string   "indication"
   end
 
   create_table "notes", :force => true do |t|
@@ -216,12 +270,35 @@ ActiveRecord::Schema.define(:version => 20130516030416) do
     t.integer  "form_id"
   end
 
+  create_table "problems", :force => true do |t|
+    t.date     "age_onset"
+    t.string   "status"
+    t.string   "condition"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "procedures", :force => true do |t|
+    t.string   "procedure"
+    t.date     "procedure_date"
+    t.string   "target_site"
+    t.integer  "medical_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "receipts", :force => true do |t|
     t.boolean  "tos_priv"
     t.integer  "office_id"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "referral_reasons", :force => true do |t|
+    t.text     "visit_reason"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "responsibles", :force => true do |t|
@@ -255,6 +332,15 @@ ActiveRecord::Schema.define(:version => 20130516030416) do
   create_table "security_questions", :force => true do |t|
     t.string "locale", :null => false
     t.string "name",   :null => false
+  end
+
+  create_table "social_histories", :force => true do |t|
+    t.text     "description"
+    t.date     "start_date"
+    t.string   "end_date"
+    t.string   "behavior"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -300,6 +386,18 @@ ActiveRecord::Schema.define(:version => 20130516030416) do
     t.string   "group_name"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "vital_statistics", :force => true do |t|
+    t.integer  "height"
+    t.integer  "weight"
+    t.integer  "bmi"
+    t.string   "blood_type"
+    t.integer  "systolic_bp"
+    t.integer  "diastolic_bp"
+    t.integer  "body_temp"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end

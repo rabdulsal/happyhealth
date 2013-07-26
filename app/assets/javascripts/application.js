@@ -110,22 +110,22 @@ $(function() {
 
 	// Auto-closes all the Form Dialog boxes that are rendered
 
-	// $("#accordion a").on("click", function() {
-	// 	var formABRV = $(this).data("abrv");	
-	// 		$("#pdf_container." + formABRV).dialog({
-	// 			autoOpen: false,
-	// 			show: "blind",
-	// 			hide: "slide",
-	// 			modal: true
-	// 	});
-	// });
-	
-	$(".mada").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
+	$("#accordion a").on("click", function() {
+		var formABRV = $(this).data("abrv");	
+			$("#pdf_container." + formABRV).dialog({
+				autoOpen: false,
+				show: "blind",
+				hide: "slide",
+				modal: true
+		});
 	});
+	
+	// $(".mada").dialog({
+	// 	autoOpen: false,
+	// 	show: "blind",
+	// 	hide: "slide",
+	// 	modal: true
+	// });
 	
 	// ************** JQUERY PDF FETCH ******************
 
@@ -189,5 +189,10 @@ $(function() {
 	  });
 	});	
 
+    // TOOLTIPS
+
+    $(".tooltip").tooltip({    	
+    	content: "Awesome title!"
+    });
 
 });

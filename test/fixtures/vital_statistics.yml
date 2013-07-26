@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  height: 1
+  weight: 1
+  bmi: 1
+  blood_type: MyString
+  systolic_bp: 1
+  diastolic_bp: 1
+  body_temp: 1
+
+two:
+  height: 1
+  weight: 1
+  bmi: 1
+  blood_type: MyString
+  systolic_bp: 1
+  diastolic_bp: 1
+  body_temp: 1

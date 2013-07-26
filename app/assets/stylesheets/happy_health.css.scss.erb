@@ -100,15 +100,11 @@ xmp {
 .container_12 { /*--- id for the grand table housing all the data ---*/
   background: #fff;
   margin: 0 auto;
-  width: 980px;
+  width: 98%;
   clear: both;
   /*box-shadow: 0 10px 20px black;*/
   min-height: 500px;
-  overflow: hidden;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 5px;
-  padding-bottom: 10px;  
+  overflow: hidden;    
   position: relative;
 }
 
@@ -143,17 +139,64 @@ a:hover, .link a:hover {
         text-decoration: underline;
 }
 
-aside {
-    margin: 0;
-   /* margin: 0 0 20px 20px;
-    width: 300px;
-    margin: 0 1.02040815326531%;  /*20px/980px = .0208081632653061 */
+.top-panel {    
+    margin-bottom: 10px;
+    min-width: 100%;
+    height: 100%;
+    border: 1px solid #c7d7e5;
+    
+}
+    .top-panel thead {        
+        vertical-align: top;        
+        font-weight: bold;    
+    }
+    .top-panel tbody {
+        color: #4d7ca8;
+    }
+    .top-panel td, .top-panel th {
+        border-right: 1px solid #c7d7e5;
+        width: 14.3%;
+        text-align: center;
+    }
+    .top-panel h2 {
+        font-size: 2em;
+    }
+    
+    .top-panel h3 {
+        font-size: 16px;
+    }
+
+.normal, .mid-risk, .high-risk {
+    font-size: 1.5em;
+}
+
+.mid-risk {
+    color: orange;
+}
+
+.high-risk {
+    color: red;
+}
+
+.normal {
+    color: green;
+}
+
+.left-panel, .right-panel {
+    margin: 0;   
+    margin-right: 1%;  /*20px/980px = .0208081632653061 */
     
     width: 32.65306122449%;  /* 320px/980px = .3265306122449 */
+    width: 18%;
     font-size: 15px;
-    /*background: #ccc;*/
     min-height: 500px;
     overflow: hidden;
+    
+}
+
+.right-panel {
+    margin-right: 0;
+    margin-left: 1%;
 }
 
 article {    
@@ -161,8 +204,10 @@ article {
     margin: 0 40px 20px 0; */
     /*margin-left: 2.08081632653061%;*/ /*20px 980px = .01515151 */
     width: 65.30612245%; /*640px 980px = .63636363 */
-    font-size: 12px; 
-    float: right; 
+    width: 62%;
+    font-size: 12px;
+    margin: 0 auto; 
+    
     /*background: #f1f1f4;*/  
 }
 
@@ -187,7 +232,7 @@ body, p {
     /*background: url('/images/wood.png');
     background-color: #e6e6e6;
     background: url("https://s3.amazonaws.com/happyhealthapp/assets/wood.png");*/
-    background: #fff;        
+    background: #fff;           
 }
 
 label {
@@ -259,7 +304,11 @@ ul#static.inline-block{
 }
 
 .border-bottom {
-    border-bottom: 1px dotted #000;
+    border-bottom: 1px dotted #c7d7e5;
+}
+
+.border-top {
+    border-top: 1px dotted #c7d7e5;
 }
 
 .pad-bot, .pad-top {
@@ -270,7 +319,7 @@ ul#static.inline-block{
     display: block;
 }
 
-.inline-block li {
+.inline-block, .inline-block li {
     display: inline-block;
 }
 
@@ -1050,7 +1099,7 @@ aside .form-save {
         display: inline-block;
 }
 
-.noteBackground legend, .demoBackground legend {
+.noteBackground legend, .demoBackground legend, .dashAppointments legend {
     font-weight: bold;
     color: #555;
     color: #4d7ca8;
@@ -1409,7 +1458,7 @@ input#appointment_appt_date{
 /* ----------------- DASHBOARD CSS --------------------- */
 
 .widget{
-    width: 620px;
+    width: auto;
     /*height: 100%;
     color: #37241E;*/
 }
@@ -1425,18 +1474,21 @@ input#appointment_appt_date{
 }
 
 .dashAppointments {
-    width: 600px; /* 61.22448979591837% - responsive */
+    width: auto; /* 61.22448979591837% - responsive */
     padding: 10px;
     color: #273e54;
-    background: #f1f1f4;
+    background: #f8f8f8;
+    border: 1px solid #c7d7e5;
     border-radius: 3px;
     margin-bottom: 10px;
     overflow: hidden;
 }
     .dashAppointments dt {
        font-weight: bold;
+       font-size: 14px;
     }
     .dashAppointments dd {
+        font-size: 13px;
         text-indent: 10px;
         margin: 5px 0;
     }
@@ -1485,8 +1537,8 @@ fieldset.dashBackground:last-child, .dashBackground p:last-child {
 }
 
 a.see-more{
+    font-size: 11px;
     float: right;
-    color: #017890;
     text-decoration: underline;
 }
 

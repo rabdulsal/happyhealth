@@ -4,11 +4,15 @@
 
 	<%= f.fields_for :medical do |medical| %>
 		<h2>Allergies</h2>
-		<ul>
+		<ul class="inline">
 			<%= medical.fields_for :allergies, form.medical.allergies do |builder| %>
-				<li class="table_row_full">					
+				<li class="table_row_half">					
 					<label>Allergen:</label>
-					<%= builder.text_field :info, class: "form_field_length_full" %>					
+					<%= builder.text_field :info, class: "form_field_length_full" %>	
+				</li>
+				<li class="table_row_half">					
+					<label>Reaction:</label>
+					<%= builder.text_field :reaction, class: "form_field_length_full" %>	
 				</li>
 			<% end %>
 		</ul>

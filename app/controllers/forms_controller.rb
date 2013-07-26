@@ -149,14 +149,14 @@ class FormsController < ApplicationController
 
     
     #Send Fax, receive confirmation
-    @fax = Phaxio.send_fax(to: '15555555555', string_data: "hello world")
-    Phaxio.get_fax_status(id: @fax["faxId"])
+    # @fax = Phaxio.send_fax(to: '15555555555', string_data: "hello world")
+    # Phaxio.get_fax_status(id: @fax["faxId"])
 
-    # Get a Fax and save it as a PDF
-    @pdf = Phaxio.get_fax_file(id: @fax["faxId"], type: "p")
-    File.open("received_test.pdf", "w") do |file|
-      file << @pdf
-    end 
+    # # Get a Fax and save it as a PDF
+    # @pdf = Phaxio.get_fax_file(id: @fax["faxId"], type: "p")
+    # File.open("received_test.pdf", "w") do |file|
+    #   file << @pdf
+    # end 
     
   end
 end

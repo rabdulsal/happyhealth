@@ -1,4 +1,64 @@
-<aside class="left">
+<table class="top-panel">
+	<!-- <ul class="panel-content inline">
+		<li>Profile pic</li>
+		<li></li>
+		<li></li>
+	</ul>-->
+	<thead>
+		<th>
+			Name + Pic
+		</th>
+		<th>BMI</th>
+		<th>Weight</th>
+		<th>Cholesterol</th>
+		<th>Blood Pressure</th>
+		<th>Hemoglobin A1c</th>
+		<th>BloodType</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Test data</td>
+			<td>
+				<span class="mid-risk">26.3</span>
+			</td>
+			<td>
+				<span class="mid-risk">202.6</span> lbs
+			</td>
+			<td>	
+				<ul>
+					<li>
+						Triglycerides: 
+						<span class="normal">82</span>
+					</li>
+					<li>
+						LDL: 
+						<span class="high-risk">121</span>
+					</li>
+					<li>
+						HDL: 
+						<span class="normal">44</span>
+					</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>Systolic: <span class="normal">98</span></li>
+					<li>Diastolic: <span class="normal">60</span></li>
+				</ul>
+			</td>
+			<td>
+				<h2 class="normal">4.9</h2>
+			</td>
+			<td>
+				<h2>O+</h2>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+<aside class="left-panel left">
 	<ul id="nav-tab">
         <% if current_user.form %>
 			<li class="fluid-hide <%=@current_page%>_profile margin-bottom"><%= link_to "Display Health Profile", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %></li>
@@ -38,12 +98,75 @@
 		</ul>
 		
 	<%# end %> -->
+
+	<ul class="margin-top border-top padding-top">
+		<li>
+			<%= link_to 'Edit Profile', edit_user_form_path(current_user.id, current_user.form.id), :class => 'createButton inline-block' %>
+		</li><br />
+		<!-- <li>
+			<%#= link_to "Delete Profile", user_form_path(current_user.id, current_user.form.id), :method => 'delete',  data: { confirm: 'Are you sure you want to delete your profile #{user.form.personal.first_name}? You will lose all your saved data.' }, :class => 'removeButton block' %>
+		</li> -->
+		<li>
+			<%= link_to "Download PDF", printout_user_form_path(current_user.id, current_user.form.id), class: "submit-button inline-block margin-top" %>
+		</li>
+	</ul>
+
+	<ul class="margin-top border-top padding-top">
+	    <li class="office_request_text margin-bottom">
+	      <p>
+	      	Don't see your particular office? Contact us at least 3 days before your visit, and we'll add it to our system. Try it!
+	      </p>
+	    </li>
+	    <li>
+	      <a href="mailto:info@happyhealth.me?subject=New%20Office%20Request&amp;body=Hi%20HappyHealth.%20My%20name%20is%20[name]%0D%0A%0D%0ACan%20you%20please%20add%20the%20following%20Office%20information%20to%20your%20site?%0D%0A%0D%0AOffice%20name:%20[office_name]%0D%0AOffice%20phone%20number:%20[phone_number]%0D%0AMy%20appointment%20Date:%20[appt_date]%0D%0A%0D%0AContact%20Email:%20[email]%0D%0A%0D%0AThanks%20so%20much%20and%20keep%20rocking%20on!" title="Request adding a new Doctor's Office" class="action-button inline-block">New Office Request</a>
+	    </li>
+	  </ul>
+
 </aside>
 
-<article>
+<article class="left">
 	<% if notice.present? %>
 		<p id="notice" class="success"><%= notice %><span class="close">X</span></p>
 	<% end %>
 	<%= flash[:error] %>
 	<%= yield %>
 </article>
+
+<aside class="right-panel right">
+	<ul>
+		<h2 id="signup-text">Your Care Plan</h2>
+		<li class="widget">
+			<h2>Upcoming Appointments</h2>
+			<fieldset class="dashAppointments">
+				<legend>Saturday - August 17, 2013</legend>	
+				<dl>
+					<dt>Location:</dt>
+					<dd>Rush University Medical Center</dd>
+				
+					<dt>Physician:</dt>
+					<dd>Dr. Timothy O'Toole</dd>
+				</dl>
+				<!-- Placeholder for database-backed content -->
+				<a href="#" class="see-more">See more</a>
+	
+			</fieldset>
+		</li>
+		<li class="widget">
+			<h2>Next Medication</h2>
+			<fieldset class="dashAppointments">
+				<legend>Tonight - 9:00PM</legend>	
+				<dl>
+					<dt>Lunesta:</dt>
+					<dd>1 tablet per mouth.</dd>
+				
+					<dt>Notes:</dt>
+					<dd>Take 1 hour before bedtime.</dd>
+				</dl>
+				<!-- Placeholder for database-backed content -->
+				<a href="#" class="see-more">See more</a>
+	
+			</fieldset>
+		</li>
+		<li></li>
+	</ul>
+</aside>

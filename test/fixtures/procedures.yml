@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  procedure: MyString
+  procedure_date: 2013-07-20
+  target_site: MyString
+  medical_id: 1
+
+two:
+  procedure: MyString
+  procedure_date: 2013-07-20
+  target_site: MyString
+  medical_id: 1

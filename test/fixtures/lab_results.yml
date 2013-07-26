@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lab_info: MyText
+  chemical_lavel: MyString
+  lab_date: 2013-07-20
+
+two:
+  lab_info: MyText
+  chemical_lavel: MyString
+  lab_date: 2013-07-20

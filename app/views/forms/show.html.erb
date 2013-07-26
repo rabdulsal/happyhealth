@@ -1,17 +1,5 @@
 <!-- <p id="notice" class="success"><%= notice %><span class="close">X</span></p> -->
 
-<ul class="form">
-	<li>
-		<%= link_to 'Edit Profile', edit_user_form_path(current_user.id, current_user.form.id), :class => 'createButton block' %>
-	</li><br />
-	<!-- <li>
-		<%#= link_to "Delete Profile", user_form_path(current_user.id, current_user.form.id), :method => 'delete',  data: { confirm: 'Are you sure you want to delete your profile #{user.form.personal.first_name}? You will lose all your saved data.' }, :class => 'removeButton block' %>
-	</li> -->
-	<li>
-		<%= link_to "Download PDF", printout_user_form_path(current_user.id, current_user.form.id), class: "submit-button margin-top block" %>
-	</li>
-</ul>
-
 <h1>Your HappyHealth Form</h1>
 
 <div id="tabs">
