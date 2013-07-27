@@ -191,8 +191,6 @@ $(function() {
 
     // TOOLTIPS
 
-    $(".tooltip").tooltip({    	
-    	content: "Awesome title!"
-    });
+    $(document).tooltip();
 
 });

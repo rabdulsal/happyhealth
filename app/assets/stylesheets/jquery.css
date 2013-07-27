@@ -535,9 +535,10 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
     padding: 10px 20px;
     color: #4d8ca8;
     border-radius: 3px;
-    box-shadow: 1px 2px 7px black;
+    box-shadow: 1px 1px 5px black;
     background: #fff;
     max-width: 200px;
+    z-index: 1000;
   }
 
 /* END RASHAD EDITS */
