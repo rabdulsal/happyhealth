@@ -215,6 +215,7 @@ GEM
       rails
     wkhtmltopdf-binary (0.9.9.1)
     wkhtmltopdf-heroku (1.0.0)
+    yaml_db (0.2.3)
     yard (0.8.5.2)
     yelpster (1.1.2)
       json (>= 1.1.1)
@@ -252,4 +253,5 @@ DEPENDENCIES
   wicked_pdf
   wkhtmltopdf-binary
   wkhtmltopdf-heroku
+  yaml_db
   yelpster
