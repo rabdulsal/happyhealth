@@ -76,8 +76,11 @@ gem 'yelpster'
 #Phaxio
 gem 'phaxio'
 
+# Saving db to yaml file
 gem 'yaml_db'
 
+# Activity Feed
+gem 'public_activity'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

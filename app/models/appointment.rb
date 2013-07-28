@@ -1,4 +1,6 @@
 class Appointment < ActiveRecord::Base
+  include PublicActivity::Common
+
   attr_accessible :appt_date,
                   :doctor_phone,
                   :user_id,
@@ -15,5 +17,5 @@ class Appointment < ActiveRecord::Base
   def office
     Office.find_by_id(self.office_id)
   end
-  
+
 end

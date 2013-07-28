@@ -8,9 +8,12 @@ class UsersController < ApplicationController
     if @user.form.nil?
       redirect_to new_user_form_path(@user.id)
     end
-    @user.notes.sort!{|a,b|b.updated_at <=> a.updated_at}
-    @appointments = @user.appointments.select{|a| a.appt_date.cweek == Date.today.cweek}
-    @appointments.sort!{|a,b| a.appt_date <=> b.appt_date}
+
+    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: @user.id, owner_type: "User")
+
+    # @user.notes.sort!{|a,b|b.updated_at <=> a.updated_at}
+    # @appointments = @user.appointments.select{|a| a.appt_date.cweek == Date.today.cweek}
+    # @appointments.sort!{|a,b| a.appt_date <=> b.appt_date}
   end
 
 

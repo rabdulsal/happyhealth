@@ -1,9 +1,9 @@
 class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
-  
+
   before_filter :correct_user
-  
+
   def index
     @user = User.find_by_id(params[:user_id])
     @notes = @user.notes.order('updated_at desc').page(params[:page]).per(8)       #sort{|a,b| b.updated_at <=> a.updated_at}
@@ -44,7 +44,7 @@ class NotesController < ApplicationController
   # GET /notes/1/edit
   def edit
     @note = Note.find(params[:id])
-    
+
     respond_to do |format|
       format.html
       format.js
@@ -59,13 +59,14 @@ class NotesController < ApplicationController
     @note.user_id = @user.id
     respond_to do |format|
       if @note.save
+        @note.create_activity :create, owner: @note.user
         format.js
         format.html { redirect_to @user, notice: 'Note was successfully created.' }
-        format.json { render json: @note, status: :created, location: @note }        
+        format.json { render json: @note, status: :created, location: @note }
       else
         format.html { render action: "new" }
         format.json { render json: @note.errors, status: :unprocessable_entity }
-      end      
+      end
     end
   end
 
@@ -73,16 +74,17 @@ class NotesController < ApplicationController
   # PUT /notes/1.json
   def update
     @note = Note.find(params[:id])
-    
+
     respond_to do |format|
       if @note.update_attributes(params[:note])
+        @note.create_activity :update, owner: @note.user
         format.js
         format.html { redirect_to @note, notice: 'Note was successfully updated.' }
-        format.json { head :no_content }        
+        format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @note.errors, status: :unprocessable_entity }
-      end      
+      end
     end
   end
 
@@ -92,6 +94,8 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     @user = User.find_by_id(@note.user_id)
     @note.destroy
+
+    @note.create_activity :destroy , owner: @note.user
 
     respond_to do |format|
       format.html { redirect_to user_notes_path(current_user.id) }

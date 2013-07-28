@@ -1,5 +1,3 @@
-
-
 class FormsController < ApplicationController
 
   before_filter :correct_user
@@ -27,18 +25,15 @@ class FormsController < ApplicationController
       @form.user_id = params[:user_id]
       @form.personal = Personal.new
       2.times { @form.emergencies << Emergency.new }
-      insurance =  Insurance.create(:title => "Primary")
-      # @form.insurances << Insurance.create(:title => "Secondary")
-      insurance.dental = Dental.new #=> started adding here, but not 100% sure on getting things right
-      insurance.vision = Vision.new
-      @form.insurances << insurance
-      @form.insurances = Insurance.new
-      @form.insurances.dental << Dental.new
-      @form.insurances.vision << Vision.new 
+      @form.insurances <<  Insurance.create(:title => "Primary")
+      @form.insurances << Insurance.create(:title => "Secondary")
+      @form.dental << Dental.new
+      @form.vision << Vision.new
       @form.responsible = Responsible.new
       @form.medical = Medical.new
       3.times { @form.medical.allergies << Allergy.new }
       3.times { @form.medical.medications << Medication.new }
+      3.times { @form.medical.immunizations << Immunization.new }
       @form.save
     end
 
@@ -55,7 +50,7 @@ class FormsController < ApplicationController
   end
 
   def create
-    @form = Form.new(params[:form])     
+    @form = Form.new(params[:form])
 
     respond_to do |format|
       if @form.save
@@ -71,38 +66,34 @@ class FormsController < ApplicationController
   def update
     @form = Form.find(params[:id])
     @user = User.find_by_id(@form.user_id)
-
     respond_to do |format|
-      if @form.update_attributes(params[:form])
 
-        # Auto-update Insurance "Self" Policy Holder with Personal Info
-        if (@form.insurances[0].relationship_to_patient).downcase == "self"
+      @form.update_activity params
 
-          pers = @user.form.personal       
-            
-          @form.insurances[0].update_attributes(
-            subscribers_last_name: pers.last_name, 
-            subscribers_first_name: pers.first_name, 
-            middle_initial: nil, 
-            subscribers_address: pers.address, 
-            subscribers_city: pers.city, 
-            subscribers_state: pers.state, 
-            subscribers_zipcode: pers.zip_code, 
-            social_security: "", 
-            birthdate: pers.date_of_birth, 
-            sex: pers.gender, 
-            subscribers_phone: pers.home_phone, 
-            subscribers_employer: pers.employer
-          )
+      # Auto-update Insurance "Self" Policy Holder with Personal Info
+      if (@form.insurances[0].relationship_to_patient).downcase == "self"
 
-        end
+        pers = @user.form.personal
 
-        format.html { redirect_to user_form_path(current_user.id), notice: 'Your HappyHealth Form was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @form.errors, status: :unprocessable_entity }
+        @form.insurances[0].update_attributes(
+          subscribers_last_name: pers.last_name,
+          subscribers_first_name: pers.first_name,
+          middle_initial: nil,
+          subscribers_address: pers.address,
+          subscribers_city: pers.city,
+          subscribers_state: pers.state,
+          subscribers_zipcode: pers.zip_code,
+          social_security: "",
+          birthdate: pers.date_of_birth,
+          sex: pers.gender,
+          subscribers_phone: pers.home_phone,
+          subscribers_employer: pers.employer
+        )
+
       end
+
+      format.html { redirect_to user_form_path(current_user.id), notice: 'Your HappyHealth Form was successfully updated.' }
+      format.json { head :no_content }
     end
   end
 
@@ -134,21 +125,21 @@ class FormsController < ApplicationController
 
     # respond_to do |format|
     #   html = render_to_string(
-    #     :layout => "pdf.html.erb" , 
-    #     :action => "printout.html.erb", 
-    #     :formats => [:html], 
+    #     :layout => "pdf.html.erb" ,
+    #     :action => "printout.html.erb",
+    #     :formats => [:html],
     #     :handler => [:erb]
     #   )
     #   kit = PDFKit.new(html)
     #   kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/happy_health.css.scss.erb"
-    #   send_data(kit.to_pdf, 
-    #     :filename => "#{@user.to_s}_Health_Form.pdf", 
+    #   send_data(kit.to_pdf,
+    #     :filename => "#{@user.to_s}_Health_Form.pdf",
     #     :type => 'application/pdf'
     #     )
-    #   return # to avoid double render call 
-    # end 
+    #   return # to avoid double render call
+    # end
 
-    
+
     #Send Fax, receive confirmation
     # @fax = Phaxio.send_fax(to: '15555555555', string_data: "hello world")
     # Phaxio.get_fax_status(id: @fax["faxId"])
@@ -157,7 +148,7 @@ class FormsController < ApplicationController
     # @pdf = Phaxio.get_fax_file(id: @fax["faxId"], type: "p")
     # File.open("received_test.pdf", "w") do |file|
     #   file << @pdf
-    # end 
-    
+    # end
+
   end
 end

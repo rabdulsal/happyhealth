@@ -18,11 +18,11 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username,
-                  :email, 
-                  :password, 
-                  :password_confirmation, 
+                  :email,
+                  :password,
+                  :password_confirmation,
                   :remember_me,
-                  :name                  
+                  :name
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -35,6 +35,8 @@ class User < ActiveRecord::Base
   has_one :form
   has_many :offices, through: :appointments
   has_many :receipts
+
+  include PublicActivity::Common
 
   #Override authentication to user :username
 
@@ -74,7 +76,7 @@ class User < ActiveRecord::Base
       age = now.year - bday.year - ((now.month > bday.month || (now.month == bday.month && now.day >= bday.day)) ? 0 : 1)
 
       if age == 0
-        
+
       else
         age
       end

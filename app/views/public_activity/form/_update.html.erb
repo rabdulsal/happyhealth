@@ -1,0 +1,19 @@
+<% count = 0 %>
+<% profiles = [] %>
+
+<% activity.parameters.keys.each do |profile| %>
+	<% count += activity.parameters[profile].keys.count %>
+<% end %>
+
+<p><%= "#{count} changes made to health profile ( #{activity.parameters.keys.join(", ")} )" %></p>
+
+<p class="toggle_activity" style="text-decoration: underline; cursor:pointer;">See More</p>
+
+<div style="display: none;" class="profile_changes">
+	<% activity.parameters.keys.each do |profile| %>
+		<h2><%= profile %></h2>
+		<% activity.parameters[profile].keys.each do |param| %>
+			<p><%= "Changed #{param.gsub(/[0-9]/i, '').split("_").join(" ")} from #{activity.parameters[profile][param][0] || '-' } to #{activity.parameters[profile][param][1] || '-'}" %></p>
+		<% end %>
+	<% end %>
+</div>
