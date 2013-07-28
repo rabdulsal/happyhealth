@@ -1,4 +1,8 @@
-$("div#notes").prepend("<%= j(render @note) %>"); // ## Adds newly constructed Note container to the top of the Notes Index
-$("p#note_<%= @note.id %>").slideDown().effect('highlight');
-
+if($('article h1')[0].innerHTML == "Notes"){
+	$("div#notes").prepend("<%= j(render @note) %>"); // ## Adds newly constructed Note container to the top of the Notes Index
+	$("p#note_<%= @note.id %>").slideDown().effect('highlight');
+}
+else{
+	$('div.dashAppointments').prepend("<%= j(render 'activity', :activity => PublicActivity::Activity.last) %>");
+}
 $("#note_info").val(""); // ** Clears out form
