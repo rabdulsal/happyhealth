@@ -1,6 +1,6 @@
 class Doctor < ActiveRecord::Base
-  attr_accessible :office_id, :title
-  
+	attr_accessible :office_id, :title
+
   belongs_to :office
   has_many :appointments
   has_many :users, through: :appointments

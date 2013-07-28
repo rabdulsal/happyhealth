@@ -1,10 +1,10 @@
-<%# index = 0%>
+<% index = 0%>
 
 <%= f.fields_for :insurances, form.insurances do |builder| %>
 
 	<fieldset class="demoBackground">
-	<legend><%= "#{form.insurances[0].title} Insurance "%></legend>
-	
+	<legend><%= "#{form.insurances[index].title} Insurance "%></legend>
+
 		<li>
 			<table>
 				<tr class="table_row_half">
@@ -16,21 +16,21 @@
 					<!-- </li>
 					 <li> -->
 					 </td>
-					 <td>						
+					 <td>
 						<label>Insurance Address</label>
 						<%= builder.text_field :address, :class => "form_field_length" %>
 					</td>
 				</tr>
 			</table>
-		</li> 
+		</li>
 		<!--<li>
 			<%#= builder.label :insurance_holder_relationship_to_patient %>
 			Self: <%#= builder.check_box :relationship_to_patient %>
-			If other than yourself: <%#= builder.text_field :relationship_to_patient %>			
-		</li>-->		
+			If other than yourself: <%#= builder.text_field :relationship_to_patient %>
+		</li>-->
 
 		<li class="table_row_full">
-			
+
 		</li>
 		<li>
 			<table>
@@ -88,7 +88,7 @@
 
 		<div class="panel">
 			<label>Are you the Insurance Policy Holder?</label>
-			
+
 			<a href="#" class="panel-tab submit-button">No (click to <span class="panel-text">Open</span>)</a> <br /><br />
 			<div class="panel-stage hidden">
 				<li>
@@ -149,7 +149,7 @@
 					</table>
 				</li>
 				<li>
-					
+
 				</li>
 				<li>
 					<table>
@@ -159,7 +159,7 @@
 								<%= builder.text_field :birthdate, :class => "form_field_length" %>
 							<!-- </li>
 							<li> -->
-							</td>					
+							</td>
 							<td>
 								<label>Subscriber's Phone</label>
 								<%= builder.text_field :subscribers_phone, :class => "form_field_length" %>
@@ -171,75 +171,75 @@
 								<%= builder.text_field :subscribers_employer, :class => "form_field_length" %>
 							</td>
 					</table>
-				</li>	
+				</li>
 			</div>
 
 			Yes: <%= builder.radio_button :relationship_to_patient, "Self", id: "insurance-relationship-radio" %>
 		</div>
 
 	</fieldset>
-	<%# index = 1%>
+	<% index = 1%>
+
+<% end %>
 
 	<!-- ************** DENTAL & VISION INSURANCE BELOW *************** -->
 
-	<%= builder.fields_for :dental do |dental| %>
-		<fieldset class="demoBackground">
-			<legend>Dental Insurance</legend>
-			<ul>
-				<li>
-					<%= dental.label :dent_company, "Company Name" %>
-					<%= dental.text_field :dent_company %>
-				</li>
-				<li>
-					<%= dental.label :eff_date, "Effective Date" %>
-					<%= dental.text_field :eff_date %>
-				</li>
-				<li>
-					<%= dental.label :group_name, "Group Name" %>
-					<%= dental.text_field :group_name %>
-				</li>
-				<li>
-					<%= dental.label :group_number, "Group Number" %>
-					<%= dental.text_field :group_number %>
-				</li>
-				<li>
-					<%= dental.label :policy_number, "Policy Number" %>
-					<%= dental.text_field :policy_number %>
-				</li>
-			</ul>
+<%= f.fields_for :dental do |dental| %>
+	<fieldset class="demoBackground">
+		<legend>Dental Insurance</legend>
+		<ul>
+			<li>
+				<%= dental.label :dent_company, "Company Name" %>
+				<%= dental.text_field :dent_company %>
+			</li>
+			<li>
+				<%= dental.label :eff_date, "Effective Date" %>
+				<%= dental.text_field :eff_date %>
+			</li>
+			<li>
+				<%= dental.label :group_name, "Group Name" %>
+				<%= dental.text_field :group_name %>
+			</li>
+			<li>
+				<%= dental.label :group_number, "Group Number" %>
+				<%= dental.text_field :group_number %>
+			</li>
+			<li>
+				<%= dental.label :policy_number, "Policy Number" %>
+				<%= dental.text_field :policy_number %>
+			</li>
+		</ul>
 
-				<%= dental.hidden_field :insurance_id %>
-		</fieldset>
-	<% end %>
+			<%= dental.hidden_field :form_id %>
+	</fieldset>
+<% end %>
 
-	<%= builder.fields_for :vision do |vision| %>
-		<fieldset class="demoBackground">
-			<legend>Vision Insurance</legend>
-			<ul>
-				<li>
-					<%= vision.label :vision_company, "Company Name"%>
-					<%= vision.text_field :vision_company %>
-				</li>
-				<li>
-					<%= vision.label :eff_date, "Effective Date" %>
-					<%= vision.text_field :eff_date %>
-				</li>
-				<li>
-					<%= vision.label :group_name, "Group Name" %>
-					<%= vision.text_field :group_name %>
-				</li>
-				<li>
-					<%= vision.label :group_number, "Group Number" %>
-					<%= vision.text_field :group_number %>
-				</li>
-				<li>
-					<%= vision.label :policy_number, "Policy Number" %>
-					<%= vision.text_field :policy_number %>
-				</li>
-			</ul>
+<%= f.fields_for :vision do |vision| %>
+	<fieldset class="demoBackground">
+		<legend>Vision Insurance</legend>
+		<ul>
+			<li>
+				<%= vision.label :vision_company, "Company Name"%>
+				<%= vision.text_field :vision_company %>
+			</li>
+			<li>
+				<%= vision.label :eff_date, "Effective Date" %>
+				<%= vision.text_field :eff_date %>
+			</li>
+			<li>
+				<%= vision.label :group_name, "Group Name" %>
+				<%= vision.text_field :group_name %>
+			</li>
+			<li>
+				<%= vision.label :group_number, "Group Number" %>
+				<%= vision.text_field :group_number %>
+			</li>
+			<li>
+				<%= vision.label :policy_number, "Policy Number" %>
+				<%= vision.text_field :policy_number %>
+			</li>
+		</ul>
 
-				<%= vision.hidden_field :insurance_id %>
-		</fieldset>
-	<% end %>
-
+			<%= vision.hidden_field :form_id %>
+	</fieldset>
 <% end %>

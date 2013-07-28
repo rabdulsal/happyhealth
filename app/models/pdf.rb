@@ -1,6 +1,7 @@
 class Pdf < ActiveRecord::Base
-
-  attr_accessible :form_name, :office_id, :pdf_form
+  attr_accessible :form_name,
+                  :office_id,
+                  :pdf_form
 
   has_attached_file :pdf_form, styles: {
                                           small: "150x150>",
@@ -10,7 +11,7 @@ class Pdf < ActiveRecord::Base
   					# default_url: ActionController::Base.helpers.asset_path("/missing/:style.png"
   					url: "/app/assets/images/:attachment/:id/:style/:basename.:extension",
             path: ":rails_root:url"
-  					
+
 
   # belongs_to :office, dependent: :destroy
 

@@ -1,0 +1,6 @@
+<p>Created a new note</p>
+<% if activity.trackable %>
+	<%= "\"#{activity.trackable.info}\"" %>
+<% else %>
+  which has since been removed
+<% end %>

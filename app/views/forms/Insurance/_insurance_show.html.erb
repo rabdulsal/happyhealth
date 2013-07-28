@@ -107,59 +107,58 @@
             </tr>
         </table>
 	</fieldset>
-
-    <!-- <fieldset class="demoBackground">
-        <legend>Dental Insurance</legend>
-
-        <table class="show-table">
-            <tr>
-                    <th class="right-align">Company Name</th>
-                    <td class="left-align"> <%#= insurance.dental.dent_company %></td>
-            </tr>
-            <tr>
-                    <th class="right-align">Effective Date</th>
-                    <td class="left-align"> <%#= insurance.dental.eff_date %></td>
-            </tr>
-            <tr>
-                    <th class="right-align">Group Name</th>
-                    <td class="left-align"> <%#= insurance.dental.group_name %></td>
-            </tr>
-            <tr>
-                    <th class="right-align">Group Number</th>
-                    <td class="left-align"> <%#= insurance.dental.group_number %></td>
-            </tr>
-            <tr>
-                    <th class="right-align">Policy Number</th>
-                    <td class="left-align"> <%#= insurance.dental.policy_number %></td>
-            </tr>
-        </table>
-    </fieldset>
-
-    <fieldset class="demoBackground">
-        <legend>Vision Insurance</legend>
-
-        <table class="show-table">
-            <tr>
-                    <th class="right-align">Company Name</th>
-                    <td class="left-align"> <%#= insurance.vision.vision_company %></td>
-            </tr>
-            <tr>
-                    <th class="right-align">Effective Date</th>
-                    <td class="left-align"> <%#= insurance.vision.eff_date %></td>
-            </tr>
-            <tr>
-                    <th class="right-align">Group Name</th>
-                    <td class="left-align"> <%#= insurance.vision.group_name %></td>
-            </tr>
-            <tr>
-                    <th class="right-align">Group Number</th>
-                    <td class="left-align"> <%#= insurance.vision.group_number %></td>
-            </tr>
-            <tr>
-                    <th class="right-align">Policy Number</th>
-                    <td class="left-align"> <%#= insurance.vision.policy_number %></td>
-            </tr>
-        </table>
-    </fieldset>-->
-
 <% end %>
+
+ <fieldset class="demoBackground">
+    <legend>Dental Insurance</legend>
+
+    <table class="show-table">
+        <tr>
+                <th class="right-align">Company Name</th>
+                <td class="left-align"> <%= form.dental.dent_company %></td>
+        </tr>
+        <tr>
+                <th class="right-align">Effective Date</th>
+                <td class="left-align"> <%= form.dental.eff_date %></td>
+        </tr>
+        <tr>
+                <th class="right-align">Group Name</th>
+                <td class="left-align"> <%= form.dental.group_name %></td>
+        </tr>
+        <tr>
+                <th class="right-align">Group Number</th>
+                <td class="left-align"> <%= form.dental.group_number %></td>
+        </tr>
+        <tr>
+                <th class="right-align">Policy Number</th>
+                <td class="left-align"> <%= form.dental.policy_number %></td>
+        </tr>
+    </table>
+</fieldset>
+
+<fieldset class="demoBackground">
+    <legend>Vision Insurance</legend>
+
+    <table class="show-table">
+        <tr>
+                <th class="right-align">Company Name</th>
+                <td class="left-align"> <%= form.vision.vision_company %></td>
+        </tr>
+        <tr>
+                <th class="right-align">Effective Date</th>
+                <td class="left-align"> <%= form.vision.eff_date %></td>
+        </tr>
+        <tr>
+                <th class="right-align">Group Name</th>
+                <td class="left-align"> <%= form.vision.group_name %></td>
+        </tr>
+        <tr>
+                <th class="right-align">Group Number</th>
+                <td class="left-align"> <%= form.vision.group_number %></td>
+        </tr>
+        <tr>
+                <th class="right-align">Policy Number</th>
+                <td class="left-align"> <%= form.vision.policy_number %></td>
+        </tr>
+    </table>
+</fieldset>

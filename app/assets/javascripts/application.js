@@ -111,7 +111,7 @@ $(function() {
 	// Auto-closes all the Form Dialog boxes that are rendered
 
 	$("#accordion a").on("click", function() {
-		var formABRV = $(this).data("abrv");	
+		var formABRV = $(this).data("abrv");
 			$("#pdf_container." + formABRV).dialog({
 				autoOpen: false,
 				show: "blind",
@@ -119,14 +119,14 @@ $(function() {
 				modal: true
 		});
 	});
-	
+
 	// $(".mada").dialog({
 	// 	autoOpen: false,
 	// 	show: "blind",
 	// 	hide: "slide",
 	// 	modal: true
 	// });
-	
+
 	// ************** JQUERY PDF FETCH ******************
 
 	// GET http-request for pdf name and opens it
@@ -175,19 +175,28 @@ $(function() {
 	// Insurance Form logic => open Form if Profile-owner is != Insurance Policy Holder
 
     $('.panel-tab').on('click', function(event){
-	  event.preventDefault(); 
+	  event.preventDefault();
 	  $(this).closest('.panel').find('.panel-stage').slideToggle('slow', function(event){
 		var panel = $(this).closest('.panel').find('.panel-text');
 		var button = $(this).closest(".panel").find("#insurance-relationship-radio");
-		if($(this).is(':visible')){					
+		if($(this).is(':visible')){
 			panel.html('Close');
 			button.attr({"disabled": true, "checked": false});
 		} else {
 			panel.html('Open');
-			button.removeAttr('disabled');			
+			button.removeAttr('disabled');
 		}
 	  });
-	});	
+	});
+
+  $('.toggle_activity').on("click", function(e){
+  	console.log(e.target.innerHTML)
+  	$(e.target).next().toggle();
+  	if(e.target.innerHTML == "Hide details")
+  		e.target.innerHTML = "See more"
+  	else
+  		e.target.innerHTML = "Hide details"
+  });
 
     // TOOLTIPS
 

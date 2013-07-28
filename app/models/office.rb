@@ -21,7 +21,6 @@ class Office < ActiveRecord::Base
 
   has_many :users, through: :appointments
 
-
   def sorted_doctors
     self.doctors.sort {|a,b| a.title <=> b.title}
   end
