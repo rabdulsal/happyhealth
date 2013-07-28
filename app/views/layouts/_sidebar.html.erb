@@ -9,29 +9,30 @@
 		<th>
 			Tammy Lee
 		</th>
-		<th>BMI <span class="vitals-tip" title="BMI is an estimate of body fatness. In general, the higher your BMI, the greater your risk for health problems like high blood pressure, diabetes, high cholesterol and heart disease.">?</span></th>
-		<th>Weight<span class="vitals-tip" title="Doctors suggest you should weigh yourself once a week at the same time of day for consistent results.">?</span></th>
+		<th>Biometrics</th>		
 		<th>Cholesterol</th>
 		<th>Blood Pressure</th>
-		<th>Hemoglobin A1c<span class="vitals-tip" title="Hemoglobin measures how much blood sugar is in your blood over the past 2 to 3 months. If your results are in the above normal or high range, see your doctor for more testing.">?</span></th>
-		<th>BloodType<span class="vitals-tip" title="Your blood type is a classification of blood based on the presence or absence of inherited antigenic substances on the surface of red blood cells. During blood transfusion, patients should ideally receive their own blood or type-specific blood products to minimize the chance of a transfusion reaction.">?</span></th>
+		<th>Hemoglobin A1c</th>
+		<th>BloodType</th>
 	</thead>
 	<tbody>
 		<tr>
-			<td>
-				<ul class="inline-block">
-					<li><%= image_tag "patient_photo.jpg", class: "user-panel-image" %></li>
+			<td class="user-panel-image">
+				<ul class="inline-block margin-top">
+					<li class="left"><%= image_tag "patient_photo.jpg" %></li>
 					<li>
-						<p>Female</p>
-						<p>34 years old</p>		
+						<p><strong><u>Conditions:</u></strong></p>
+						<p>Diabetes</p>
+						<p>Hyperlipidemia</p>
+						<p>Hypertension</p>								
 					</li>
 				</ul>	
 			</td>
 			<td>
-				<span class="mid-risk">26.3</span>
-			</td>
-			<td>
-				<span class="mid-risk">202.6</span> lbs
+				<ul>
+					<li>Height: <span class="normal">5</span> ft. <span class="normal">5</span> in.</li>				
+					<li>Weight: <span class="mid-risk">202.6</span> lbs<span class="vitals-tip" title="Doctors suggest you should weigh yourself once a week at the same time of day for consistent results.">?</span> </li>
+					<li>BMI: <span class="mid-risk">26.3</span><span class="vitals-tip" title="BMI is an estimate of body fatness. In general, the higher your BMI, the greater your risk for health problems like high blood pressure, diabetes, high cholesterol and heart disease.">?</span></li>
 			</td>
 			<td>	
 				<ul>
@@ -56,10 +57,10 @@
 				</ul>
 			</td>
 			<td>
-				<h2 class="normal">4.9</h2>
+				<h2 class="normal">4.9<span class="vitals-tip" title="Hemoglobin measures how much blood sugar is in your blood over the past 2 to 3 months. If your results are in the above normal or high range, see your doctor for more testing.">?</span></h2>
 			</td>
 			<td>
-				<h2>O+</h2>
+				<h2>O+<span class="vitals-tip" title="Your blood type is a classification of blood based on the presence or absence of inherited antigenic substances on the surface of red blood cells. During blood transfusion, patients should ideally receive their own blood or type-specific blood products to minimize the chance of a transfusion reaction.">?</span></h2>
 			</td>
 		</tr>
 	</tbody>
@@ -135,13 +136,13 @@
 		<li>
 			<span class="icon"><%= image_tag "encounters_small.gif" %></span><span><h2 class="inline">Appointments</h2></span>
 			<fieldset class="dashAppointments">
-				<legend>09:00 am | Aug 17, 2013</legend>	
+				<legend>8:00 AM | <%= @user.appointments.last.appt_date.strftime("%b %d, %Y") %></legend>	
 				<dl>
 					<dt>Location:</dt>
-					<dd>Rush University Medical Center</dd>
+					<dd><%= @user.appointments.last.office.name %></dd>
 				
 					<dt>Physician:</dt>
-					<dd>Dr. Timothy O'Toole</dd>
+					<dd><%= @user.appointments.last.doctor.title %></dd>
 				</dl>
 				<!-- Placeholder for database-backed content -->
 				<a href="#" class="see-more">See more</a>
@@ -153,7 +154,7 @@
 			<fieldset class="dashAppointments">
 				<legend>Tonight - 9:00PM</legend>	
 				<dl>
-					<dt>Lunesta:</dt>
+					<dt><%= @user.form.medical.medications.last.info %></dt>
 					<dd>1 tablet per mouth.</dd>
 				
 					<dt>Notes:</dt>

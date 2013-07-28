@@ -148,16 +148,18 @@ a:hover, .link a:hover {
 }
     .top-panel thead {        
         vertical-align: top;        
-        font-weight: bold;    
+        font-weight: bold;
+        background: #4d7ca8;  
+        color: #fff;  
     }
     .top-panel tbody {
         color: #4d7ca8;
     }
     .top-panel td, .top-panel th {
         border-right: 1px solid #c7d7e5;
-        width: 14.3%;
+        width: 16.66666666667%;
         text-align: center;
-        padding: 0 5px;
+        padding: 0 5px;        
     }
     .top-panel h2 {
         font-size: 2em;
@@ -174,6 +176,7 @@ a:hover, .link a:hover {
 .vitals-tip {
     font-size: 8px;
     color: #aaa;
+    font-weight: bold;
     border: 1px solid #aaa;
     border-radius: 50%;
     padding: 2px 3px;
@@ -181,6 +184,7 @@ a:hover, .link a:hover {
     position: relative;
     top: -2px;
     left: 1px;
+    background: white;    
     /*box-shadow: 0 1px 0 #555;*/
 }
 
@@ -230,10 +234,26 @@ a:hover, .link a:hover {
 }
 
 .user-panel-image {
-    border-radius: 50%;
-    height: 70px;
-    width: 63px;
-}
+    vertical-align: top;
+}    
+    .user-panel-image p {
+        color: #4d7ca8;
+        text-align: left;
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    .user-panel-image img {
+        border-radius: 50%;
+        height: 70px;
+        width: 63px;
+    }
+    .user-panel-image ul {
+        margin-top: 5px;
+    }
+    .user-panel-image li {
+        position: relative;
+        top: 0;
+    }
 
 article {    
    /* width: 620px;
