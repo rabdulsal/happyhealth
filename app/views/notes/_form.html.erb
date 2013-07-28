@@ -1,12 +1,12 @@
 <!-- ************* FORM PARTIAL FOR ENTERING A NEW NOTE *************** -->
 
-<%= form_for(@note, :url => user_notes_path, :remote => true) do |f| %>
-  <% if @note.errors.any? %>
+<%= form_for(note, :url => {:controller => 'notes', :action => "create"}, :remote => true) do |f| %>
+  <% if note.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+      <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
 
       <ul>
-      <% @note.errors.full_messages.each do |msg| %>
+      <% note.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -15,21 +15,21 @@
 
   <!--<div class="note_field">-->
   <div>
-   	
 
-    
+
+
   </div>
 
 <!-- MUST CHANGE FROM A TABLE TO FLOATING ELEMENTS FOR RESPONSIVE DESIGN & MOBILE UI -->
 
-  <div class="note-field margin-top clearfix">    
+  <div class="note-field margin-top clearfix">
     <div class="inline">
       <%= f.text_area :info, :placeholder => "How do you feel right now?", class: "two_third_width note-text" %>
     </div>
-    
+
       <%#= link_to 'Add New Note', '#', :class=> 'createButton' %>
       <%= f.submit "Post", class: "action-button note-button right" %>
-       
-  </div>  
+
+  </div>
 
 <% end %>

@@ -1,0 +1,5 @@
+<fieldset class="dashBackground">
+	<%#= activity.owner if activity.owner %>
+	<%= render_activity activity %>
+	<legend><%= activity.created_at.localtime.strftime("%I:%M %P | %b %d, %Y") %></legend>
+</fieldset>
