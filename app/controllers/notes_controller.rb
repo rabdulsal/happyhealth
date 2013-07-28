@@ -7,6 +7,7 @@ class NotesController < ApplicationController
   def index
     @user = User.find_by_id(params[:user_id])
     @notes = @user.notes.order('updated_at desc').page(params[:page]).per(8)       #sort{|a,b| b.updated_at <=> a.updated_at}
+    @current_page = "notes_show"
     # @notes = notes.sort!{|a,b| b.updated_at <=> a.updated_at}
     # @notes = Note.page(params[:page]).per(8)
     @note = Note.new
@@ -20,8 +21,7 @@ class NotesController < ApplicationController
   # GET /notes/1.json
   def show
     @note = Note.find(params[:id])
-    @current_page = "notes_show"
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @note }
