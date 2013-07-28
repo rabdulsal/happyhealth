@@ -1,4 +1,4 @@
 <fieldset class="dashBackground" id="note_<%= note.id %>">
 	<legend><%= note.updated_at.localtime.strftime("%I:%M %P | %b %d, %Y") %></legend>
-	<p id="note_<%= note.id %>"><%= note.info %></p>
+	<div id="note_<%= note.id %>"><p class="left feed_icon"><%= image_tag "notes_small.gif" %></p><p class="feed_content"><%= note.info %></p></div>
 </fieldset>

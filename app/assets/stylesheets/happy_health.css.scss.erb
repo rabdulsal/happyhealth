@@ -105,7 +105,7 @@ xmp {
   /*box-shadow: 0 10px 20px black;*/
   min-height: 500px;
   overflow: hidden;    
-  position: relative;
+  position: relative;  
 }
 
 ol,
@@ -148,15 +148,18 @@ a:hover, .link a:hover {
 }
     .top-panel thead {        
         vertical-align: top;        
-        font-weight: bold;    
+        font-weight: bold;
+        background: #4d7ca8;  
+        color: #fff;  
     }
     .top-panel tbody {
         color: #4d7ca8;
     }
     .top-panel td, .top-panel th {
         border-right: 1px solid #c7d7e5;
-        width: 14.3%;
+        width: 16.66666666667%;
         text-align: center;
+        padding: 0 5px;        
     }
     .top-panel h2 {
         font-size: 2em;
@@ -165,10 +168,15 @@ a:hover, .link a:hover {
     .top-panel h3 {
         font-size: 16px;
     }
+    .top-panel .patient-descriptor {
+        text-align: left;
+        margin-left: 5px;
+    }
 
 .vitals-tip {
     font-size: 8px;
     color: #aaa;
+    font-weight: bold;
     border: 1px solid #aaa;
     border-radius: 50%;
     padding: 2px 3px;
@@ -176,6 +184,7 @@ a:hover, .link a:hover {
     position: relative;
     top: -2px;
     left: 1px;
+    background: white;    
     /*box-shadow: 0 1px 0 #555;*/
 }
 
@@ -197,20 +206,53 @@ a:hover, .link a:hover {
 
 .left-panel, .right-panel {
     margin: 0;   
-    margin-right: 1%;  /*20px/980px = .0208081632653061 */
-    
+    margin-right: 1%;  /*20px/980px = .0208081632653061 */    
     width: 32.65306122449%;  /* 320px/980px = .3265306122449 */
-    width: 18%;
-    font-size: 15px;
-    min-height: 500px;
-    overflow: hidden;
-    
+    width: 18%;    
+    height: 100%;
+    overflow: hidden;    
 }
 
 .right-panel {
     margin-right: 0;
     margin-left: 1%;
 }
+
+#right-panel-title {
+    color: #273e54;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.icon {
+    position: relative;
+    top: -2px;
+    
+    margin-right: 5px;
+    display: inline-block;
+}  
+
+.user-panel-image {
+    vertical-align: top;
+}    
+    .user-panel-image p {
+        color: #4d7ca8;
+        text-align: left;
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    .user-panel-image img {
+        border-radius: 50%;
+        height: 70px;
+        width: 63px;
+    }
+    .user-panel-image ul {
+        margin-top: 5px;
+    }
+    .user-panel-image li {
+        position: relative;
+        top: 0;
+    }
 
 article {    
    /* width: 620px;
@@ -219,8 +261,7 @@ article {
     width: 65.30612245%; /*640px 980px = .63636363 */
     width: 62%;
     font-size: 12px;
-    margin: 0 auto; 
-    
+    margin: 0 auto;    
     /*background: #f1f1f4;*/  
 }
 
@@ -286,6 +327,10 @@ img {
 
 .left {
     float: left;
+}
+
+.equal-margin {
+    margin: 0 auto;
 }
 
 .margin-left {
@@ -537,7 +582,7 @@ p.signup-title {
     border: 1px solid #aaa;
     border: 1px solid #c7d7e5;
     text-shadow: 0 1px 3px black;
-    box-shadow: 0 2px 2px grey;
+    box-shadow: 0 1px 1px #aaa;
 }
 
 .button, .submit-button {
@@ -921,37 +966,45 @@ a.appt-title{
 }
 
 #nav-tab a {
-    display: block;
-    
-    border: 1px solid #ccc;
+    /*display: block; */   
+    /*border: 1px solid #ccc;
     border: 1px solid #c7d7e5;
-    border-radius: 5px;
+    border-radius: 5px;*/
     color: #555;
     color: #273e54;
     text-transform: uppercase;
     font-weight: bold;
     background: #fff;
-    text-align: center;
-    padding: 3px 0;
-    
+    /*text-align: center;*/
+    padding: 3px 0;    
 }
+    #nav-tab li {
+        padding: 5px;
+    }
 
-#nav-tab a:hover {
-    text-decoration: none;       
-    color: #f25d07; 
-    /*-webkit-transform: scale(1.07);
-       -moz-transform: scale(1.07);
-        -ms-transform: scale(1.07);*/
-}
+    #nav-tab a:hover {
+        text-decoration: none;       
+        color: #f25d07;
+    }
 
-#nav-tab .tab-open {
-    -webkit-transform: scale(1.07);
-    color: white;
-    background: #006;
-}
+    #nav-tab .tab-open {
+        -webkit-transform: scale(1.07);
+        color: white;
+        background: #006;
+    }
 
-#nav-tab .profile_show_profile a, #nav-tab .office_index_offices a, #nav-tab .notes_show_list {
-    background: #f1f1f4;
+    #nav-tab .profile_show_profile, #nav-tab .profile_show_profile a, 
+    #nav-tab .office_index_offices, #nav-tab .office_index_offices a, 
+    #nav-tab .notes_show_list, #nav-tab .notes_show_list a {
+        background: #f1f1f4;
+    }
+    #nav-tab .icon {
+        min-width: 25px;
+    }
+
+.nav-tab-link {
+    position: relative;
+    left: 5px;
 }
 
 .beta_tag {
@@ -1116,11 +1169,11 @@ aside .form-save {
     font-weight: bold;
     color: #555;
     color: #4d7ca8;
-    font-size: 16px
+    font-size: 13px
 }
 
-.noteBackground legend {
-    font-size: 13px;
+.demoBackground legend {
+    font-size: 16px;
 }
 
 .noteBackground textarea {
@@ -1470,19 +1523,22 @@ input#appointment_appt_date{
 
 /* ----------------- DASHBOARD CSS --------------------- */
 
-.widget{
-    width: auto;
+.widget li {
+    width: auto;    
+    margin-bottom: 20px;
     /*height: 100%;
     color: #37241E;*/
 }
 
+.widget li:last-child {    
+}
+
 .widget h2 {
     text-align: left;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
-    border-bottom: 1px dotted #c7d7e5;
-    margin: 10px 0;
-    padding: 0 0 10px 0;
+    
+    padding: 0;
     color: #4d7ca8;    
 }
 
@@ -1499,6 +1555,7 @@ input#appointment_appt_date{
     .dashAppointments dt {
        font-weight: bold;
        font-size: 14px;
+       color: #4d7ca8;
     }
     .dashAppointments dd {
         font-size: 13px;
@@ -1511,19 +1568,9 @@ input#appointment_appt_date{
         margin-bottom: 10px;
     }
 
-fieldset.dashBackground {
-    /*position: relative;
-    border: 1px solid #006;
-    border-radius: 10px;
-    background: #D6E3B5;
-    margin: 10px 10px;
-    padding: 5px 5px 5px 5px;
-    width: 300px;*/
-    /*color: #555;
-    background: #eee;*/
+fieldset.dashBackground {    
     padding: 5px;
-    margin-bottom: 10px;
-    /*border-radius: 5px;*/
+    margin-bottom: 10px;    
     border-bottom: 1px solid #d6d6d6;
 }
 
@@ -1540,7 +1587,7 @@ fieldset.dashBackground:last-child, .dashBackground p:last-child {
     color: #006;
     color: #94B3C8;
     color: #37241E;
-    color: grey;
+    color: #4d7ca8;
     font-size: 10px;
     float: right;
 }
@@ -1553,6 +1600,10 @@ a.see-more{
     font-size: 11px;
     float: right;
     text-decoration: underline;
+}
+
+.feed_content {    
+    margin-left: 30px;
 }
 
 /* ----------------- FOOTER CSS ------------------------ */

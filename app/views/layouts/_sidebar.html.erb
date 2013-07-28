@@ -1,76 +1,33 @@
-<table class="top-panel">
-	<!-- <ul class="panel-content inline">
-		<li>Profile pic</li>
-		<li></li>
-		<li></li>
-	</ul>-->
-
-	<thead>
-		<th>
-			Name + Pic
-		</th>
-		<th>BMI <span class="vitals-tip" title="BMI is an estimate of body fatness. In general, the higher your BMI, the greater your risk for health problems like high blood pressure, diabetes, high cholesterol and heart disease.">?</span></th>
-		<th>Weight<span class="vitals-tip" title="Doctors suggest you should weigh yourself once a week at the same time of day for consistent results.">?</span></th>
-		<th>Cholesterol</th>
-		<th>Blood Pressure</th>
-		<th>Hemoglobin A1c<span class="vitals-tip" title="Hemoglobin measures how much blood sugar is in your blood over the past 2 to 3 months. If your results are in the above normal or high range, see your doctor for more testing.">?</span></th>
-		<th>BloodType<span class="vitals-tip" title="Your blood type is a classification of blood based on the presence or absence of inherited antigenic substances on the surface of red blood cells. During blood transfusion, patients should ideally receive their own blood or type-specific blood products to minimize the chance of a transfusion reaction.">?</span></th>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Test data</td>
-			<td>
-				<span class="mid-risk">26.3</span>
-			</td>
-			<td>
-				<span class="mid-risk">202.6</span> lbs
-			</td>
-			<td>	
-				<ul>
-					<li>
-						Triglycerides: 
-						<span class="normal">82</span><span class="vitals-tip" title="One particular type of fat in the body. Being overweight, physically inactive, drinking too much alcohol, or eating a diet very high in carbohydrates can raise triglycerides.">?</span>
-					</li>
-					<li>
-						LDL: 
-						<span class="high-risk">121</span><span class="vitals-tip" title="The 'bad' cholesterol. Too much can lead to fat build-up in blood levels. Your LDL target range depends on your personal risk factors. Talk to your doctor to learn more about your target range.">?</span>
-					</li>
-					<li>
-						HDL: 
-						<span class="normal">44</span><span class="vitals-tip" title="The 'good' cholesterol. It helps remove 'bad' cholesterol from your body. The higher your HDL, the lower your chance of getting heart disease -> higher is better.">?</span>
-					</li>
-				</ul>
-			</td>
-			<td>
-				<ul>
-					<li>Systolic: <span class="normal">98</span><span class="vitals-tip" title="Blood pressure is written as two numbers. The top number called systolic is the pressure as your heart beats and pushes blood through the blood vessels. The high range for blood pressure numbers is different for people with diabetes.">?</span></li>
-					<li>Diastolic: <span class="normal">60</span><span class="vitals-tip" title="The bottom number called diastolic is the pressure against your blood vessel walls between heartbeats. The high range for blood pressure numbers is different for people with different diseases.">?</span></li>
-				</ul>
-			</td>
-			<td>
-				<h2 class="normal">4.9</h2>
-			</td>
-			<td>
-				<h2>O+</h2>
-			</td>
-		</tr>
-	</tbody>
-</table>
+<%= render 'layouts/top-panel' %>
 
 
 
-<aside class="left-panel left">
+<aside class="left-panel left margin-top">
 	<ul id="nav-tab">
         <% if current_user.form %>
-			<li class="fluid-hide <%=@current_page%>_profile margin-bottom"><%= link_to "Display Health Profile", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %></li>
+			<li class="fluid-hide <%=@current_page%>_profile margin-bottom">
+				<span class="icon"><%= image_tag "health_prof_small.gif" %>
+				</span>
+				<span class="nav-tab-link"><%= link_to "Profile", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %>
+				</span>
+			</li>
 		<% else %>
-			<li class="fluid-hide <%=@current_page%>_profile margin-bottom"><%= link_to "Fill-out Health Profile", new_user_form_path(current_user.id), :class => "new_form" %></li>
+			<li class="fluid-hide <%=@current_page%>_profile margin-bottom">
+				<span class="icon"><%= image_tag "health_prof_small.gif" %>
+				</span>
+				<span class="nav-tab-link"><%= link_to "Fill-out Profile", new_user_form_path(current_user.id), :class => "new_form" %>
+				</span>
+			</li>
 		<% end %>
 		<li class="fluid-hide <%=@current_page%>_offices margin-bottom">
-        	<%= link_to "View Office Registry", offices_path %>
+			<span class="icon"><%= image_tag "offices_small.gif" %>
+			</span>
+			<span class="nav-tab-link">
+        		<%= link_to "Offices", offices_path %>
+        	</span>
         </li>
         <li class="<%=@current_page%>_list">
-			<%= link_to "View Notes", user_notes_path(current_user.id) %>
+			<span class="icon"><%= image_tag "notes_small.gif" %></span><span class="nav-tab-link"><%= link_to "Notes", user_notes_path(current_user.id) %></span>
 		</li>               
 
 <!-- ******** COMMENT OUT FOR BETA *************
@@ -100,32 +57,15 @@
 		
 	<%# end %> -->
 
-	<ul class="margin-top border-top padding-top">
-		<li>
-			<%= link_to 'Edit Profile', edit_user_form_path(current_user.id, current_user.form.id), :class => 'createButton inline-block' %>
-		</li><br />
-		<!-- <li>
-			<%#= link_to "Delete Profile", user_form_path(current_user.id, current_user.form.id), :method => 'delete',  data: { confirm: 'Are you sure you want to delete your profile #{user.form.personal.first_name}? You will lose all your saved data.' }, :class => 'removeButton block' %>
-		</li> -->
-		<li>
-			<%= link_to "Download PDF", printout_user_form_path(current_user.id, current_user.form.id), class: "submit-button inline-block margin-top" %>
-		</li>
-	</ul>
+<% unless @current_page != "office_index" %>
+	<%= render 'layouts/office_request' %>
+<% end %>
 
-	<ul class="margin-top border-top padding-top">
-	    <li class="office_request_text margin-bottom">
-	      <p>
-	      	Don't see your particular office? Contact us at least 3 days before your visit, and we'll add it to our system. Try it!
-	      </p>
-	    </li>
-	    <li>
-	      <a href="mailto:info@happyhealth.me?subject=New%20Office%20Request&amp;body=Hi%20HappyHealth.%20My%20name%20is%20[name]%0D%0A%0D%0ACan%20you%20please%20add%20the%20following%20Office%20information%20to%20your%20site?%0D%0A%0D%0AOffice%20name:%20[office_name]%0D%0AOffice%20phone%20number:%20[phone_number]%0D%0AMy%20appointment%20Date:%20[appt_date]%0D%0A%0D%0AContact%20Email:%20[email]%0D%0A%0D%0AThanks%20so%20much%20and%20keep%20rocking%20on!" title="Request adding a new Doctor's Office" class="action-button inline-block">New Office Request</a>
-	    </li>
-	  </ul>
+
 
 </aside>
 
-<article class="left">
+<article class="left margin-top">
 	<% if notice.present? %>
 		<p id="notice" class="success"><%= notice %><span class="close">X</span></p>
 	<% end %>
@@ -133,31 +73,31 @@
 	<%= yield %>
 </article>
 
-<aside class="right-panel right">
-	<ul>
-		<h2 id="signup-text">Your Care Plan</h2>
-		<li class="widget">
-			<h2>Upcoming Appointments</h2>
+<aside class="right-panel right margin-top">
+	<ul class="widget">
+		<h2 id="right-panel-title" class="margin-bottom">Your Care Plan</h2>
+		<li>
+			<span class="icon"><%= image_tag "encounters_small.gif" %></span><span><h2 class="inline">Appointments</h2></span>
 			<fieldset class="dashAppointments">
-				<legend>Saturday - August 17, 2013</legend>	
+				<legend>8:00 AM | <%= @user.appointments.last.appt_date.strftime("%b %d, %Y") %></legend>	
 				<dl>
 					<dt>Location:</dt>
-					<dd>Rush University Medical Center</dd>
+					<dd><%= @user.appointments.last.office.name %></dd>
 				
 					<dt>Physician:</dt>
-					<dd>Dr. Timothy O'Toole</dd>
+					<dd><%= @user.appointments.last.doctor.title %></dd>
 				</dl>
 				<!-- Placeholder for database-backed content -->
 				<a href="#" class="see-more">See more</a>
 	
 			</fieldset>
 		</li>
-		<li class="widget">
-			<h2>Next Medication</h2>
+		<li>
+			<span class="icon"><%= image_tag "medication_small.gif" %></span><span><h2 class="inline">Medications</h2></span>
 			<fieldset class="dashAppointments">
 				<legend>Tonight - 9:00PM</legend>	
 				<dl>
-					<dt>Lunesta:</dt>
+					<dt><%= @user.form.medical.medications.last.info %></dt>
 					<dd>1 tablet per mouth.</dd>
 				
 					<dt>Notes:</dt>
