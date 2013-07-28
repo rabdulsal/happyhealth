@@ -7,7 +7,7 @@
 
 	<thead>
 		<th>
-			Name + Pic
+			Tammy Lee
 		</th>
 		<th>BMI <span class="vitals-tip" title="BMI is an estimate of body fatness. In general, the higher your BMI, the greater your risk for health problems like high blood pressure, diabetes, high cholesterol and heart disease.">?</span></th>
 		<th>Weight<span class="vitals-tip" title="Doctors suggest you should weigh yourself once a week at the same time of day for consistent results.">?</span></th>
@@ -18,7 +18,15 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td>Test data</td>
+			<td>
+				<ul class="inline-block">
+					<li><%= image_tag "patient_photo.jpg", class: "user-panel-image" %></li>
+					<li>
+						<p>Female</p>
+						<p>34 years old</p>		
+					</li>
+				</ul>	
+			</td>
 			<td>
 				<span class="mid-risk">26.3</span>
 			</td>
@@ -59,7 +67,7 @@
 
 
 
-<aside class="left-panel left">
+<aside class="left-panel left margin-top">
 	<ul id="nav-tab">
         <% if current_user.form %>
 			<li class="fluid-hide <%=@current_page%>_profile margin-bottom"><%= link_to "Display Health Profile", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %></li>
@@ -101,18 +109,6 @@
 	<%# end %> -->
 
 	<ul class="margin-top border-top padding-top">
-		<li>
-			<%= link_to 'Edit Profile', edit_user_form_path(current_user.id, current_user.form.id), :class => 'createButton inline-block' %>
-		</li><br />
-		<!-- <li>
-			<%#= link_to "Delete Profile", user_form_path(current_user.id, current_user.form.id), :method => 'delete',  data: { confirm: 'Are you sure you want to delete your profile #{user.form.personal.first_name}? You will lose all your saved data.' }, :class => 'removeButton block' %>
-		</li> -->
-		<li>
-			<%= link_to "Download PDF", printout_user_form_path(current_user.id, current_user.form.id), class: "submit-button inline-block margin-top" %>
-		</li>
-	</ul>
-
-	<ul class="margin-top border-top padding-top">
 	    <li class="office_request_text margin-bottom">
 	      <p>
 	      	Don't see your particular office? Contact us at least 3 days before your visit, and we'll add it to our system. Try it!
@@ -125,7 +121,7 @@
 
 </aside>
 
-<article class="left">
+<article class="left margin-top">
 	<% if notice.present? %>
 		<p id="notice" class="success"><%= notice %><span class="close">X</span></p>
 	<% end %>
@@ -133,13 +129,13 @@
 	<%= yield %>
 </article>
 
-<aside class="right-panel right">
-	<ul>
-		<h2 id="signup-text">Your Care Plan</h2>
-		<li class="widget">
-			<h2>Upcoming Appointments</h2>
+<aside class="right-panel right margin-top">
+	<ul class="widget">
+		<h2 id="right-panel-title" class="margin-bottom">Your Care Plan</h2>
+		<li>
+			<span class="icon"><%= image_tag "encounters_small.gif" %></span><span><h2 class="inline">Appointments</h2></span>
 			<fieldset class="dashAppointments">
-				<legend>Saturday - August 17, 2013</legend>	
+				<legend>09:00 am | Aug 17, 2013</legend>	
 				<dl>
 					<dt>Location:</dt>
 					<dd>Rush University Medical Center</dd>
@@ -152,8 +148,8 @@
 	
 			</fieldset>
 		</li>
-		<li class="widget">
-			<h2>Next Medication</h2>
+		<li>
+			<span class="icon"><%= image_tag "medication_small.gif" %></span><span><h2 class="inline">Medications</h2></span>
 			<fieldset class="dashAppointments">
 				<legend>Tonight - 9:00PM</legend>	
 				<dl>

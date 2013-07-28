@@ -157,6 +157,7 @@ a:hover, .link a:hover {
         border-right: 1px solid #c7d7e5;
         width: 14.3%;
         text-align: center;
+        padding: 0 5px;
     }
     .top-panel h2 {
         font-size: 2em;
@@ -164,6 +165,10 @@ a:hover, .link a:hover {
     
     .top-panel h3 {
         font-size: 16px;
+    }
+    .top-panel .patient-descriptor {
+        text-align: left;
+        margin-left: 5px;
     }
 
 .vitals-tip {
@@ -210,6 +215,24 @@ a:hover, .link a:hover {
 .right-panel {
     margin-right: 0;
     margin-left: 1%;
+}
+
+#right-panel-title {
+    color: #273e54;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.icon {
+    position: relative;
+    top: -2px;
+    margin-right: 5px;
+}
+
+.user-panel-image {
+    border-radius: 50%;
+    height: 70px;
+    width: 63px;
 }
 
 article {    
@@ -1116,11 +1139,11 @@ aside .form-save {
     font-weight: bold;
     color: #555;
     color: #4d7ca8;
-    font-size: 16px
+    font-size: 13px
 }
 
-.noteBackground legend {
-    font-size: 13px;
+.demoBackground legend {
+    font-size: 16px;
 }
 
 .noteBackground textarea {
@@ -1470,19 +1493,22 @@ input#appointment_appt_date{
 
 /* ----------------- DASHBOARD CSS --------------------- */
 
-.widget{
-    width: auto;
+.widget li {
+    width: auto;    
+    margin-bottom: 20px;
     /*height: 100%;
     color: #37241E;*/
 }
 
+.widget li:last-child {    
+}
+
 .widget h2 {
     text-align: left;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
-    border-bottom: 1px dotted #c7d7e5;
-    margin: 10px 0;
-    padding: 0 0 10px 0;
+    
+    padding: 0;
     color: #4d7ca8;    
 }
 
@@ -1499,6 +1525,7 @@ input#appointment_appt_date{
     .dashAppointments dt {
        font-weight: bold;
        font-size: 14px;
+       color: #4d7ca8;
     }
     .dashAppointments dd {
         font-size: 13px;
@@ -1511,19 +1538,9 @@ input#appointment_appt_date{
         margin-bottom: 10px;
     }
 
-fieldset.dashBackground {
-    /*position: relative;
-    border: 1px solid #006;
-    border-radius: 10px;
-    background: #D6E3B5;
-    margin: 10px 10px;
-    padding: 5px 5px 5px 5px;
-    width: 300px;*/
-    /*color: #555;
-    background: #eee;*/
+fieldset.dashBackground {    
     padding: 5px;
-    margin-bottom: 10px;
-    /*border-radius: 5px;*/
+    margin-bottom: 10px;    
     border-bottom: 1px solid #d6d6d6;
 }
 
@@ -1540,7 +1557,7 @@ fieldset.dashBackground:last-child, .dashBackground p:last-child {
     color: #006;
     color: #94B3C8;
     color: #37241E;
-    color: grey;
+    color: #4d7ca8;
     font-size: 10px;
     float: right;
 }
@@ -1553,6 +1570,10 @@ a.see-more{
     font-size: 11px;
     float: right;
     text-decoration: underline;
+}
+
+.feed_content {    
+    margin-left: 30px;
 }
 
 /* ----------------- FOOTER CSS ------------------------ */

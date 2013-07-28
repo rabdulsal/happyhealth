@@ -2,13 +2,27 @@
 
 <h1>Your HappyHealth Form</h1>
 
-<div id="tabs">
+<div class="margin-bottom">
+	<ul class="inline padding-top right">
+		<li>
+			<%= link_to 'Edit Profile', edit_user_form_path(current_user.id, current_user.form.id), :class => 'submit-button' %>
+		</li>
+		<!-- <li>
+			<%#= link_to "Delete Profile", user_form_path(current_user.id, current_user.form.id), :method => 'delete',  data: { confirm: 'Are you sure you want to delete your profile #{user.form.personal.first_name}? You will lose all your saved data.' }, :class => 'removeButton block' %>
+		</li> -->
+		<li>
+			<%= link_to "Download PDF", printout_user_form_path(current_user.id, current_user.form.id), class: "submit-button" %>
+		</li>
+	</ul>
+</div>
+
+<div id="tabs" class="margin-top clear">
 	<ul class="form-tabs">
-		<li><a href="#tabs-1">Personal</a></li>
+		<li><a href="#tabs-1"><%= image_tag "health_prof_small.gif", class: "icon" %>Personal</a></li>
 		<!--<li><a href="#tabs-2">Responsible Party</a></li>-->
-		<li><a href="#tabs-3">Emergency</a></li>
-		<li><a href="#tabs-4">Insurance</a></li>
-		<li><a href="#tabs-5">Medical</a></li>		
+		<li><a href="#tabs-3"><%= image_tag "emergency.gif", class: "icon" %>Emergency</a></li>
+		<li><a href="#tabs-4"><%= image_tag "ins_card_small.gif", class: "icon" %>Insurance</a></li>
+		<li><a href="#tabs-5"><%= image_tag "vitals.gif", class: "icon" %>Medical</a></li>		
 	</ul>
 
 	<div id="tabs-1">
