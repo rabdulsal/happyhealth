@@ -122,6 +122,7 @@ class FormsController < ApplicationController
   def printout
     @user = User.find_by_id params[:id]
     @form = Form.find_by_id params[:user_id]
+    @current_page = "printout"
 
     @personal = @user.form.personal
     @med_1 = @user.form.medical.medications[0]

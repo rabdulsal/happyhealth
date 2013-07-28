@@ -235,7 +235,7 @@ a:hover, .link a:hover {
 .user-panel-image {
     vertical-align: top;
 }    
-    .user-panel-image p {
+    .user-panel-image p, .printout-name {
         color: #4d7ca8;
         text-align: left;
         margin-left: 10px;
@@ -253,6 +253,7 @@ a:hover, .link a:hover {
         position: relative;
         top: 0;
     }
+
 
 article {    
    /* width: 620px;
@@ -1271,16 +1272,26 @@ aside .form-save {
 
  /* ----------------- FORM PRINTOUTS ------------------- */
 
- #form_printout {
-    min-height: 1000px;    
+ #form_printout table {
+    min-width: 100%;    
  }
     #form_printout thead {
         background: #4d7ca8;
         color: #fff;
-    } 
+    }     
     #form_printout th, #form_printout td {
         padding: 10px;
         vertical-align: top;
+    }
+    #form_printout td {
+        border-right: 1px solid #4d7ca8;
+        min-width: 40px;
+    }
+    #form_printout td:last-child {
+        border-right: none;
+    }
+    #form_printout h2 {
+        font-size: 14px;
     }
 
 /*.printout_container { 
