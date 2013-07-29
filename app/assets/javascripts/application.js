@@ -198,6 +198,13 @@ $(function() {
   		e.target.innerHTML = "Hide details"
   });
 
+  $('.form-tabs li').on("click",function(e){
+  	if($('article h1')[0].innerHTML == "Your HappyHealth Form"){
+	  	var id = $('li.ui-tabs-active')[0].children[0].href.split("#").pop();
+			$('a#edit-form')[0].href = $('a#edit-form')[0].href.split("#")[0] += "#" + id;
+	  }
+  });
+
     // TOOLTIPS
 
     $(document).tooltip();
