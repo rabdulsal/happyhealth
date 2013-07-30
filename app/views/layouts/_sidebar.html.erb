@@ -1,6 +1,6 @@
-<%= render 'layouts/top-panel' %>
-
 <% unless @current_page == 'printout' %>
+
+	<%= render 'layouts/top-panel' %>
 
 	<aside class="left-panel left margin-top">
 		<ul id="nav-tab">
@@ -92,7 +92,7 @@
 						<dd><%= @user.appointments.last.doctor.title %></dd>
 					</dl>
 					<!-- Placeholder for database-backed content -->
-					<a href="#" class="see-more">See more</a>
+					<a href="#" class="right see-more">See more</a>
 		
 				</fieldset>
 			</li>
@@ -108,7 +108,7 @@
 						<dd>Take 1 hour before bedtime.</dd>
 					</dl>
 					<!-- Placeholder for database-backed content -->
-					<a href="#" class="see-more">See more</a>
+					<a href="#" class="right see-more">See more</a>
 		
 				</fieldset>
 			</li>

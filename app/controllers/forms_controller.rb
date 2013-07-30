@@ -121,6 +121,7 @@ class FormsController < ApplicationController
     @allergies = @user.form.medical.allergies
     @contact_1 = @user.form.emergencies[0]
     @contact_2 = @user.form.emergencies[1]
+    @appt = @user.appointments
 
 
     # respond_to do |format|

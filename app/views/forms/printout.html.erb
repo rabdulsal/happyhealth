@@ -105,19 +105,7 @@
 						</ul>
 					</td>
 				</tr>
-				<tr>
-					<td>
-						
-					</td>
-					
-					
-				</tr>
-				<tr>
-					
-					<td></td>
-					<td> </td>
-					
-				</tr>
+				
 			</tbody>
 			
 		</table>
@@ -139,15 +127,30 @@
 					</td>	
 					<td rowspan="2">
 						<ul>
-							<h2>Lumbar Fusion w/ Screws and Rods</h2>
+							<h2>Lumbar Spine Surgery</h2>
 							<li>Date: 1/1/2013</li>
 							<li>Facility: Rush University Medical Center</li>
 							<li>Provider: Dr. Christopher Dewald</li>
 						</ul>
 
 					</td>
-					<td>Immunization type: </td>
-					<td>Encounter type: </td>
+					<td rowspan="2">						
+						<ul>
+							<h2>Influenza virus vaccine</h2>
+							<li>Sept 15, 2012 </li>
+							<li>Condition</li>
+							<li>Note:</li>
+						</ul>
+					</td>
+					<td rowspan="2">						
+						<ul>
+							<h2>Encounter type:</h2>
+							<li><%= @appt[0].appt_date.strftime("%b %d, %Y") %>
+							</li>
+							<li></li>
+							<li><strong>Provider:</strong> <%= @appt[0].doctor.title %></li>
+						</ul>
+					</td>
 				</tr>
 				<tr>
 					<td><h2><%= @allergies[1].info %></h2>
@@ -156,8 +159,8 @@
 							<li>Reaction</li>
 						</ul>
 					</td>
-					<td>Date: </td>
-					<td>Date: </td>
+					
+					
 				</tr>
 				<tr>
 					<td><h2><%= @allergies[2].info %></h2>
@@ -172,24 +175,26 @@
 							<li>Date: 1/1/2013</li>
 							<li>Facility: Rush University Medical Center</li>
 							<li>Provider: Dr. Elena Koogan</li>
-						</ul>
+						 </ul>
 
 					</td>
-					<td>Condition: </td>
-					<td>Facility: </td>
+					<td rowspan="2">
+						<h2>Tetnus</h2>
+							<ul>
+								<li>June 9, 2012 </li>
+								<li>Condition</li>
+								<li>Note:</li>
+							</ul>
+					</td>
+					<td rowspan="2"> 
+						<ul>
+							<h2>Encounter type</h2>
+							<li></li>
+							<li></li>
+						</ul>
+					</td>
 				</tr>
-				<tr>
-					<td></td>
-					
-					<td>Dose: </td>
-					<td>Provider: </td>
-				</tr>
-				<tr>
-					<td></td>
-					<td> </td>
-					<td>Note: </td>
-					<td> </td>
-				</tr>
+							
 			</tbody>
 		</table>
 	</div>

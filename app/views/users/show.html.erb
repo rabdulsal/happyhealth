@@ -5,8 +5,9 @@
 <!-- <div>
 	<button class="submit-button right" title="Tooltip test">Update</button>
 </div> -->
-
-<%= render "notes/form", :note => Note.new(:user_id => @user.id) %>
+<div class="margin-bottom">
+	<%= render "notes/form", :note => Note.new(:user_id => @user.id) %>
+</div>
 
 <div class="widget" id="two">
 	<div class="dashAppointments">

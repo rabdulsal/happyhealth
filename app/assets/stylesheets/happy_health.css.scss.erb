@@ -224,13 +224,17 @@ a:hover, .link a:hover {
     font-size: 16px;
 }
 
-.icon {
+.icon, .feed_icon {
     position: relative;
     top: -2px;
     
     margin-right: 5px;
     display: inline-block;
 }  
+
+.feed_icon {
+    min-width: 25px;
+}
 
 .user-panel-image {
     vertical-align: top;
@@ -1282,10 +1286,10 @@ aside .form-save {
     #form_printout th, #form_printout td {
         padding: 10px;
         vertical-align: top;
+        max-width: 25%;
     }
     #form_printout td {
-        border-right: 1px solid #4d7ca8;
-        min-width: 40px;
+        border-right: 1px solid #4d7ca8;        
     }
     #form_printout td:last-child {
         border-right: none;
@@ -1607,14 +1611,14 @@ fieldset.dashBackground:last-child, .dashBackground p:last-child {
     clear: both;
 }
 
-a.see-more{
+.see-more{
     font-size: 11px;
-    float: right;
     text-decoration: underline;
 }
 
-.feed_content {    
-    margin-left: 30px;
+.lifecycle-verb {    
+    color: #4d7ca8;
+    font-size: 12px;
 }
 
 /* ----------------- FOOTER CSS ------------------------ */

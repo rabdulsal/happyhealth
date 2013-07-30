@@ -190,6 +190,7 @@ $(function() {
 	});
 
   $('.toggle_activity').on("click", function(e){
+  	e.preventDefault();
   	console.log(e.target.innerHTML)
   	$(e.target).next().toggle();
   	if(e.target.innerHTML == "Hide details")
