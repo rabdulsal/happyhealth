@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
 
   include PublicActivity::Common
 
+  #Follow functionality
+  acts_as_followable
+  acts_as_follower
+
   #Override authentication to user :username
 
   def self.find_first_by_auth_conditions(warden_conditions)
