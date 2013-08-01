@@ -1,7 +1,31 @@
 <fieldset class="demoBackground">
 	<legend>Medical Information</legend>
 	
-	<table class="show-table-short">
+	<table class="show-table-horizontal">
+		<thead>
+			<th>Conditions</th>
+			<th>Age of onset</th>
+			<th>Status</th>
+		</thead>
+	
+		<% if form.medical.problems[0].condition? %>
+			<% form.medical.problems.each do |problem| %>
+			
+				<tr>
+					<td><%= problem.condition %></td>
+					<td><%= problem.age_onset %></td>
+					<td><%= problem.status %></td>
+				</tr>
+
+			<% end %>
+					
+		<% else %>
+			<i>You have no conditions listed</i>
+		<% end %>
+	
+	</table>
+
+	<table class="show-table-short margin-top">
 		<tr>
 			<th rowspan="<%=@total_allergies%>">Allergies</th>
 

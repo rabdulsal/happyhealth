@@ -33,7 +33,7 @@ class FormsController < ApplicationController
       @form.medical = Medical.new
       3.times { @form.medical.allergies << Allergy.new }
       3.times { @form.medical.medications << Medication.new }
-      3.times { @form.medical.immunizations << Immunization.new }
+      3.times { @form.medical.problems << Problem.new }
       @form.save
     end
 

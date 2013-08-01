@@ -44,7 +44,7 @@ HappyHealth::Application.routes.draw do
 
   #********************** DOWNLOAD PDF BUTTON ****************************
 
-  get "/appointment/download/:appointment_id" => 'appointments#show_pdf', :as => :pdf
+  get "/appointment/download/:appointment_id" => 'offices#show', :as => :pdf
   get "/office/download/:office_id" => 'offices#show_pdf', :as => :office_pdf
 
   #########################################################################
@@ -56,4 +56,8 @@ HappyHealth::Application.routes.draw do
   get "/doctors" => 'appointments#doctors', :as => :doctors
 
   match "/officeforms/new" =>'pdfs#new'
+
+  # BlueButton Direct CCDA Attachment Routing
+  post "/incoming/ccda/for/:to" => 'bluebutton#attachment'
+
 end

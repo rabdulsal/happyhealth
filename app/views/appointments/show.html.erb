@@ -1,20 +1,17 @@
-<p id="notice"><%= notice %>
-
-
 <h1>Appointment Details</h1>
 
-<ul class="appointment">
-	<li><%= link_to '<< Back to Calendar', user_appointments_path(current_user.id), :class => "backButton" %>
+<ul class="appointment inline-block right">
+	<li><%= link_to '<< Back to Calendar', user_appointments_path(current_user.id), :class => "submit-button block" %>
 	</li>
 	<li>
-		<%= link_to 'Edit Appointment', edit_user_appointment_path(current_user.id, @appointment.id), :class => 'createButton' %>
+		<%= link_to 'Edit Appointment', edit_user_appointment_path(current_user.id, @appointment.id), :class => 'submit-button block' %>
 	</li>
 	<li>
-		<%= link_to "Remove Appointment", user_appointment_path(current_user.id, @appointment.id), :method => 'delete', :class => 'removeButton'%>
+		<%= link_to "Remove Appointment", user_appointment_path(current_user.id, @appointment.id), :method => 'delete', :class => 'removeButton block'%>
 	</li>
 	<!-- Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF -->
 	<li>
-		<%= link_to "Download PDF", pdf_path(@appointment.id, :office => @appointment.office.abrv, :format => "pdf"), :class => "pdfButton" %>
+		<%= link_to "Download Office Form", pdf_path(@appointment.id, :office_id => @appointment.office.id, :format => "pdf"), :class => "pdfButton block" %>
 	</li>
 
 	<!-- Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
@@ -23,10 +20,10 @@
 	</li>
 </ul>
 
-<div class="widget">
+<div class="widget clear">
 <!-- <%= image_tag('dualnote.jpg').html_safe %>-->
-	<h1>Office Details</h1>
-		<dl class="dashAppointments">
+	<h2 class="left">Office Details</h2>
+		<dl class="dashAppointments clear">
 			<dt>Office</dt>
 			<dd>
 				<%= Office.find_by_id(@appointment.office_id).name %>
@@ -41,14 +38,12 @@
 		<p>
 			<% if current_user.is_admin == true %>
 				<%= link_to "New Insurance Query", new_insurance_query_url(controller: 'insurance_queries') %>
-			<% else %>
-
 			<% end %>
 		</p>
 </div>
 <div class="widget">
-	<h1>Contact Information</h1>
-	<dl class="dashAppointments">
+	<h2 class="left">Contact Information</h2>
+	<dl class="dashAppointments clear">
 		<dt>Address</dt>
 		<dd><%= @appointment.office.address%></dd>
 		<dd>

@@ -61,9 +61,29 @@
 			<%= render 'layouts/office_request' %>
 		<% end %>
 
+		<ul class="widget">
+			<h3 class="margin-top">YOUR CARE TEAM</h3>
+			
+				<% current_user.doctors.each do |doctor| %>
+					<% doc_name = doctor.title.slice(0..(doctor.title.index(','))) %>
+					<fieldset class="dashAppointments">
+						<h2 class="inline"><%= doc_name.delete(',') %></h3>
+						<dl>
+							<dt><%= doctor.office.name %></dt>
+							<dd><%= doctor.office.address %></dd>
+							<dd><%= "#{doctor.office.city }, #{doctor.office.state } #{doctor.office.zipcode}" %></dd>
+							<dd><%= doctor.office.phone %></dd>
+						</dl>
+					</fieldset>
+				<% end %>
+			
+		</ul>
+
 	</aside>
 
 <% end %>
+
+<!-- **************** MAIN ARTICLE CONTAINER ******************** -->
 
 	<article class="left margin-top">
 		<% if notice.present? %>
@@ -73,35 +93,41 @@
 		<%= yield %>
 	</article>
 
-
+<!-- ************************************************************ -->
 
 <% unless @current_page == 'printout' %>
 
 	<aside class="right-panel right margin-top">
 		<ul class="widget">
-			<h2 id="right-panel-title" class="margin-bottom">Your Care Plan</h2>
+			<h2 class="panel-title" class="margin-bottom">Your Care Plan</h2>
 			<li>
-				<span class="icon"><%= image_tag "encounters_small.gif" %></span><span><h2 class="inline">Appointments</h2></span>
+				<span class="icon"><%= image_tag "encounters_small.gif" %></span><span><h3 class="inline">Appointments</h3></span>
 				<fieldset class="dashAppointments">
-					<legend>8:00 AM | <%= @user.appointments.last.appt_date.strftime("%b %d, %Y") %></legend>	
+					<legend>8:00 AM | <%= current_user.appointments.last.appt_date.strftime("%b %d, %Y") %></legend>	
 					<dl>
 						<dt>Location:</dt>
-						<dd><%= @user.appointments.last.office.name %></dd>
+						<dd><%= current_user.appointments.last.office.name %></dd>
 					
 						<dt>Physician:</dt>
-						<dd><%= @user.appointments.last.doctor.title %></dd>
+						<dd><%= current_user.appointments.last.doctor.title %></dd>
 					</dl>
 					<!-- Placeholder for database-backed content -->
-					<a href="#" class="right see-more">See more</a>
+					<ul class="inline right">
+						<li><%= link_to "View Details", user_appointment_path(current_user, current_user.appointments.last), class: "see-more" %></li> |
+						<li>
+							<%= link_to "View all", user_appointments_path(current_user.id), class: "see-more" %>
+						</li>
+					</ul>
+					<!-- <a href="#" class="right see-more">See more</a> -->
 		
 				</fieldset>
 			</li>
 			<li>
-				<span class="icon"><%= image_tag "medication_small.gif" %></span><span><h2 class="inline">Medications</h2></span>
+				<span class="icon"><%= image_tag "medication_small.gif" %></span><span><h3 class="inline">Medications</h3></span>
 				<fieldset class="dashAppointments">
 					<legend>Tonight - 9:00PM</legend>	
 					<dl>
-						<dt><%= @user.form.medical.medications.last.info %></dt>
+						<dt><%= current_user.form.medical.medications.last.info %></dt>
 						<dd>1 tablet per mouth.</dd>
 					
 						<dt>Notes:</dt>
