@@ -34,18 +34,18 @@ users:
     - 
     - 
     - 
-    - 75
-    - '2013-07-25 01:08:43.940195'
-    - '2013-07-19 18:21:21.737576'
+    - 80
+    - '2013-07-28 16:30:28.747009'
+    - '2013-07-28 02:14:25.230324'
     - 127.0.0.1
     - 127.0.0.1
     - '2013-03-30 18:00:42.711010'
-    - '2013-07-27 15:04:11.633748'
+    - '2013-07-28 22:14:01.503235'
     - 
     - true
     - 
-    - 7ph1fw1oNttkJYZNTaWs
-    - '2013-07-27 15:04:11.629911'
+    - z69K8fohNemxwcq8LTvn
+    - '2013-07-28 22:14:01.502388'
     - 
     - 
     - 
@@ -106,10 +106,15 @@ notes:
     - '2013-07-20 01:59:11.384449'
     - '2013-07-20 01:59:11.384449'
     - 1
-  - - 65
-    - Test note with new layout.
-    - '2013-07-27 13:16:39.959436'
-    - '2013-07-27 13:16:39.959436'
+  - - 72
+    - Feeling pretty good about this workflow
+    - '2013-07-28 22:12:04.261056'
+    - '2013-07-28 22:12:04.261056'
+    - 1
+  - - 73
+    - This is super awesome
+    - '2013-07-28 22:13:41.253266'
+    - '2013-07-28 22:13:50.065361'
     - 1
 
 ---
@@ -151,7 +156,7 @@ personals:
   records: 
   - - 1
     - '2013-03-30 18:08:34.971393'
-    - '2013-07-16 01:48:52.918987'
+    - '2013-07-28 20:40:43.485683'
     - John
     - Doe
     - ''
@@ -251,24 +256,24 @@ emergencies:
   - - 1
     - Jane Doe
     - Wife
-    - (555) wife-num
+    - (630) 123 4567
     - 12345 wife home street
     - Cliffside Park
-    - NJ
+    - NH
     - '07010'
     - '2013-03-30 18:08:35.005374'
-    - '2013-07-02 15:32:39.677724'
+    - '2013-07-28 20:40:43.491592'
     - 1
   - - 2
     - Gramma Doe
     - Grandmother
     - (555) gra-ndma
     - 12345 Grandma Lane
-    - Cliffside Park
-    - NJ
-    - '07010'
+    - Cliffside Hill
+    - NH
+    - '07012'
     - '2013-03-30 18:08:35.008168'
-    - '2013-07-02 15:32:39.685498'
+    - '2013-07-28 20:18:16.897386'
     - 1
   - - 3
     - ''
@@ -292,6 +297,31 @@ emergencies:
     - '2013-03-30 20:57:44.687460'
     - '2013-03-30 20:58:24.233911'
     - 2
+
+---
+appointments:
+  columns:
+  - id
+  - doctor
+  - appt_date
+  - doctor_phone
+  - user_id
+  - created_at
+  - updated_at
+  - office_id
+  - doctor_id
+  - tos_priv
+  records: 
+  - - 1
+    - 
+    - '2013-07-27'
+    - 
+    - 1
+    - '2013-07-27 16:19:23.252510'
+    - '2013-07-27 16:20:21.377899'
+    - 1
+    - 1
+    - false
 
 ---
 insurances:
@@ -387,12 +417,12 @@ insurances:
     - Cigna
     - BCBS NY Street Lane
     - New York
-    - NY
+    - NH
     - '10057'
     - BCBSNY1
     - BCBSNY
-    - '2013-01-01'
-    - BCBSPolicy1
+    - '2013-01-02'
+    - BCBSPolicy2
     - Doe
     - John
     - 
@@ -406,7 +436,7 @@ insurances:
     - (555) 555-home
     - Gold's Gym
     - '2013-03-30 18:08:34.800695'
-    - '2013-07-26 20:13:16.511363'
+    - '2013-07-28 20:59:26.601608'
     - 1
     - 
   - - 4
@@ -415,7 +445,7 @@ insurances:
     - ''
     - ''
     - ''
-    - NY
+    - NH
     - ''
     - ''
     - ''
@@ -434,7 +464,7 @@ insurances:
     - ''
     - ''
     - '2013-03-30 18:08:34.810359'
-    - '2013-07-02 13:15:56.476844'
+    - '2013-07-28 20:40:43.501559'
     - 1
     - 
   - - 5
@@ -618,15 +648,15 @@ allergies:
     - penicillin
     - 1
     - '2013-03-30 18:08:35.001009'
-    - '2013-07-25 05:20:47.873235'
-    - ''
+    - '2013-07-28 20:35:59.229951'
+    - headache
     - 
     - 
   - - 3
     - latex
     - 1
     - '2013-03-30 18:08:35.002450'
-    - '2013-07-25 05:20:47.877160'
+    - '2013-07-28 20:18:16.919798'
     - ''
     - 
     - 
@@ -672,10 +702,10 @@ medications:
   - indication
   records: 
   - - 1
-    - sleep aid
+    - sleeping
     - 1
     - '2013-03-30 18:08:34.987201'
-    - '2013-04-01 05:21:12.481449'
+    - '2013-07-28 20:40:43.523111'
     - Lunesta / 3mg
     - 
     - 
@@ -687,8 +717,8 @@ medications:
     - heart medication
     - 1
     - '2013-03-30 18:08:34.989768'
-    - '2013-05-19 05:19:04.467579'
-    - Nexium / 20mg
+    - '2013-07-28 20:18:55.426696'
+    - Nexium / 24mg
     - 
     - 
     - 
@@ -699,8 +729,8 @@ medications:
     - hypothyroidism
     - 1
     - '2013-03-30 18:08:34.991249'
-    - '2013-07-02 14:07:10.439452'
-    - Synthroid / 25mg
+    - '2013-07-28 20:35:59.237444'
+    - Synthroid / 15mg
     - 
     - 
     - 
@@ -4565,3 +4595,189 @@ receipts:
     - 1
     - '2013-07-04 20:14:29.246153'
     - '2013-07-04 20:14:29.246153'
+
+---
+immunizations:
+  columns:
+  - id
+  - vaccination
+  - vaccination_date
+  - status
+  - medical_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 
+    - 
+    - 
+    - 1
+    - '2013-07-28 19:21:54.452268'
+    - '2013-07-28 19:21:54.452268'
+  - - 2
+    - 
+    - 
+    - 
+    - 1
+    - '2013-07-28 19:21:56.110825'
+    - '2013-07-28 19:21:56.110825'
+  - - 3
+    - 
+    - 
+    - 
+    - 1
+    - '2013-07-28 19:21:56.862908'
+    - '2013-07-28 19:21:56.862908'
+
+---
+activities:
+  columns:
+  - id
+  - trackable_id
+  - trackable_type
+  - owner_id
+  - owner_type
+  - key
+  - parameters
+  - recipient_id
+  - recipient_type
+  - created_at
+  - updated_at
+  records: 
+  - - 14
+    - 1
+    - Form
+    - 1
+    - User
+    - form.update
+    - ! "---\nPersonal: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  last_name:\n
+      \ - Sapra\n  - Doe\n  zip_code:\n  - 60564\n  - 7010\nEmergency Contact 1: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n
+      \ phone_number:\n  - (555) 123 4567\n  - (630) 123 4567\nPrimary Insurance:
+      !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n  eff_date:\n  - 2013-01-01\n
+      \ - 2013-01-02\nSecondary Insurance: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n
+      \ state:\n  - NY\n  - NH\nMedical:\n  reason0:\n  - sleep aid\n  - sleeping\n"
+    - 
+    - 
+    - '2013-07-28 20:40:43.532415'
+    - '2013-07-28 20:40:43.532415'
+  - - 23
+    - 71
+    - Note
+    - 1
+    - User
+    - note.destroy
+    - '---
+
+      :info: Stomach hurts. Might not be eating enough fiber
+
+'
+    - 
+    - 
+    - '2013-07-28 22:10:48.488397'
+    - '2013-07-28 22:10:48.488397'
+  - - 24
+    - 70
+    - Note
+    - 1
+    - User
+    - note.destroy
+    - '---
+
+      :info: Stomach hurts. Might not be eating enough fiber
+
+'
+    - 
+    - 
+    - '2013-07-28 22:11:53.187360'
+    - '2013-07-28 22:11:53.187360'
+  - - 25
+    - 72
+    - Note
+    - 1
+    - User
+    - note.create
+    - '---
+
+      :info: Feeling pretty good about this workflow
+
+'
+    - 
+    - 
+    - '2013-07-28 22:12:04.266371'
+    - '2013-07-28 22:12:04.266371'
+  - - 26
+    - 73
+    - Note
+    - 1
+    - User
+    - note.create
+    - '---
+
+      :info: This is really awesome
+
+'
+    - 
+    - 
+    - '2013-07-28 22:13:41.257841'
+    - '2013-07-28 22:13:41.257841'
+  - - 27
+    - 73
+    - Note
+    - 1
+    - User
+    - note.update
+    - '---
+
+      :info: This is super awesome
+
+'
+    - 
+    - 
+    - '2013-07-28 22:13:50.070700'
+    - '2013-07-28 22:13:50.070700'
+
+---
+dentals:
+  columns:
+  - id
+  - eff_date
+  - dent_company
+  - policy_number
+  - group_number
+  - group_name
+  - created_at
+  - updated_at
+  - form_id
+  records: 
+  - - 1
+    - 
+    - ''
+    - 
+    - 
+    - ''
+    - '2013-07-28 19:03:18.736159'
+    - '2013-07-28 20:59:26.578035'
+    - 1
+
+---
+visions:
+  columns:
+  - id
+  - eff_date
+  - vision_company
+  - policy_number
+  - group_number
+  - group_name
+  - created_at
+  - updated_at
+  - form_id
+  records: 
+  - - 1
+    - 
+    - 
+    - 
+    - 
+    - 
+    - '2013-07-28 19:03:41.603450'
+    - '2013-07-28 19:03:41.603450'
+    - 1
