@@ -61,23 +61,27 @@
 			<%= render 'layouts/office_request' %>
 		<% end %>
 
-		<ul class="widget">
-			<h3 class="margin-top">YOUR CARE TEAM</h3>
+		<h2 class="margin-top panel-title border-top padding-top">Your Care Team</h2>
 			
-				<% current_user.doctors.each do |doctor| %>
-					<% doc_name = doctor.title.slice(0..(doctor.title.index(','))) %>
-					<fieldset class="dashAppointments">
-						<h2 class="inline"><%= doc_name.delete(',') %></h3>
-						<dl>
-							<dt><%= doctor.office.name %></dt>
-							<dd><%= doctor.office.address %></dd>
-							<dd><%= "#{doctor.office.city }, #{doctor.office.state } #{doctor.office.zipcode}" %></dd>
-							<dd><%= doctor.office.phone %></dd>
-						</dl>
-					</fieldset>
-				<% end %>
-			
-		</ul>
+			<% current_user.doctors.each do |doctor| %>
+				
+				<div class="widget panel margin-top care-team clear">
+					<div class="left team-photo">
+						<%= image_tag 'medication_small.gif', class: "left" %>
+					</div>					
+					<div class="panel-tab team-info">
+						<h3>Dr. <%= doctor.name %></h3>		
+						<p class="care-team-doc"><strong><%= doctor.office.name %></strong></p>
+					
+						<ul class="panel-stage hidden">
+							<li><%= doctor.office.address %></li>
+							<li><%= "#{doctor.office.city }, #{doctor.office.state } #{doctor.office.zipcode}" %></li>
+							<li><u>P:</u> <%= doctor.office.phone %></li>
+						</ul>
+					</div>
+									
+				</div>					
+			<% end %>
 
 	</aside>
 
@@ -98,9 +102,11 @@
 <% unless @current_page == 'printout' %>
 
 	<aside class="right-panel right margin-top">
-		<ul class="widget">
-			<h2 class="panel-title" class="margin-bottom">Your Care Plan</h2>
-			<li>
+
+		<h2 class="panel-title" class="margin-bottom">Your Care Plan</h2>
+
+		<ul class="widget">			
+			<li class="widget-list">
 				<span class="icon"><%= image_tag "encounters_small.gif" %></span><span><h3 class="inline">Appointments</h3></span>
 				<fieldset class="dashAppointments">
 					<legend>8:00 AM | <%= current_user.appointments.last.appt_date.strftime("%b %d, %Y") %></legend>	
@@ -122,7 +128,7 @@
 		
 				</fieldset>
 			</li>
-			<li>
+			<li class="widget-list">
 				<span class="icon"><%= image_tag "medication_small.gif" %></span><span><h3 class="inline">Medications</h3></span>
 				<fieldset class="dashAppointments">
 					<legend>Tonight - 9:00PM</legend>	
