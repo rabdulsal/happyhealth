@@ -60,6 +60,7 @@ HappyHealth::Application.routes.draw do
   match "/officeforms/new" =>'pdfs#new'
 
   # BlueButton Direct CCDA Attachment Routing
-  post "/incoming/ccda/for/:to" => 'bluebutton#attachment'
+  post "/incoming/ccda/for/:to" => 'bluebutton#receive_attachment'
+  get "/my/ccda/summary" => 'bluebutton#ccda_summary'
 
 end
