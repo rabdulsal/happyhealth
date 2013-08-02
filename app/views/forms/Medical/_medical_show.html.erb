@@ -1,5 +1,5 @@
 <fieldset class="demoBackground">
-	<legend>Medical Information</legend>
+	<legend>Health Problems</legend>
 	
 	<table class="show-table-horizontal">
 		<thead>
@@ -24,27 +24,37 @@
 		<% end %>
 	
 	</table>
+</fieldset>
 
-	<table class="show-table-short margin-top">
-		<tr>
-			<th rowspan="<%=@total_allergies%>">Allergies</th>
+<fieldset class="demoBackground">
+	<legend>Allergies</legend>
+	<table class="show-table-horizontal">
+		<thead>
+			<th>Allergen</th>
+			<th>Reaction</th>
+			<th>Severity</th>
+		</head>
 
 		<% if form.medical.allergies[0].info? %>		
 			<% form.medical.allergies.each do |allergy| %>
-				<td>
-					<%= allergy.info %>
-				</td>
-		</tr>
+				<tr>
+					<td>
+						<%= allergy.info %>
+					</td>
+				</tr>
 			<% end %>
 		<% else %>
 			<tr><td><i>No allergies listed</i></td></tr>
 		<% end %>
 		
 	</table><br />
-	
+</fieldset>
+
+<fieldset class="demoBackground">	
+	<legend>Medications</legend>
 	<table class="show-table-horizontal">
 		<thead>
-			<th>Medications</th>
+			<th>Medication</th>
 			<th>Reason for Taking</th>
 		</thead>
 	

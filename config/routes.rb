@@ -1,5 +1,7 @@
 HappyHealth::Application.routes.draw do
 
+  get "blue_button/receive_attachment"
+
   captcha_route
 
   # get "users/show" => 'users#show'
