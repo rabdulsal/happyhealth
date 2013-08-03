@@ -27,7 +27,6 @@ $(function() {
 	// NOTES TOGGLES *****************************
 
 	// $("#new_note.new_note").hide();
-
 	// $("a.createButton").on("click", function() {
 	// 	$("form").toggle("slow");
 	// 	$(".reminder").hide();

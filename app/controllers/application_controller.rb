@@ -205,6 +205,21 @@ class ApplicationController < ActionController::Base
       reason: "hypothyroidism",       
       info: "Synthroid / 25mg"
       )
+
+    #Test Notes
+    user = User.find(1)    
+    user.notes.destroy_all
+
+    user.notes.create(
+      info: "Problem - Medication side-effect: I feel nauseous. don't want to think about food."
+      )
+    user.notes.create(
+      info: "Update - Still no real appetite after a few days, particularly in the mornings. also feeling dizzy lately."
+      )
+    user.notes.create(
+      info: "Reminder - Ask doctor about adjusting the medication, or other alternatives due to these strong side-effects."
+      )
+
     if current_user.form
       user_form_path(current_user.id, current_user.form.id)
     end

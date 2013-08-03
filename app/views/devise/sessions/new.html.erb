@@ -34,8 +34,9 @@ background: #f6f6f6;*/
 		  <%# if devise_mapping.rememberable? -%>
 		    <div> <label><input type="checkbox" /> Remember me</label></div>
 		  <%# end -%> -->
-
-		  <div class="margin-top"><%= f.submit "Sign in" , :class => 'createButton full_width' %></div>
+		<div class="margin-top">
+		  	<%= f.submit "Sign in" , :class => 'createButton full_width margin-top' %>
+		</div>
 		<% end %>
 		
 		<%#= render "devise/shared/links" %>
