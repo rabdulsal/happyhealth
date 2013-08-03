@@ -61,8 +61,9 @@
 			<%= render 'layouts/office_request' %>
 		<% end %>
 
-		<h2 class="margin-top panel-title border-top padding-top">Your Care Team</h2>
-			
+		<div>
+			<h2 class="margin-top panel-title border-top padding-top"><span class="feed_icon"><%= image_tag "care_team_small.gif" %></span>Your Care Team</h2>
+		</div>	
 			<% current_user.doctors.each do |doctor| %>
 				
 				<div class="widget panel margin-top care-team clear">
