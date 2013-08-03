@@ -91,7 +91,7 @@ class OfficesController < ApplicationController
   # GET /offices/1
   # GET /offices/1.json
   def show
-    @office = Office.find(params[:id])
+    @office = Office.find(params[:office_id])
     @abrv = @office.abrv
     @partial_abrv = "#{@abrv}.pdf.html.erb"    
     logger.debug "Partial name = #{@partial_abrv} | CSS => #{get_stylesheet}"
@@ -117,7 +117,7 @@ class OfficesController < ApplicationController
   end
 
   def get_stylesheet
-    office = Office.find(params[:id])
+    office = Office.find(params[:office_id])
     abrv = office.abrv
     if Rails.env.production?
       "#{Rails.root}/app/assets/stylesheets/#{abrv}.css.scss.erb"

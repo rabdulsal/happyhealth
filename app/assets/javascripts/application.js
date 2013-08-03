@@ -109,22 +109,43 @@ $(function() {
 
 	// Auto-closes all the Form Dialog boxes that are rendered
 
-	$("#accordion a").on("click", function() {
-		var formABRV = $(this).data("abrv");
-			$("#pdf_container." + formABRV).dialog({
-				autoOpen: false,
-				show: "blind",
-				hide: "slide",
-				modal: true
-		});
+	// $("#accordion a").on("click", function() {
+	// 	var formABRV = $(this).data("abrv");
+	// 		$("#pdf_container." + formABRV).dialog({
+	// 			autoOpen: false,
+	// 			show: "blind",
+	// 			hide: "slide",
+	// 			modal: true
+	// 	});
+	// });
+
+	$(".mada").dialog({
+		autoOpen: false,
+		show: "blind",
+		hide: "slide",
+		modal: true
 	});
 
-	// $(".mada").dialog({
-	// 	autoOpen: false,
-	// 	show: "blind",
-	// 	hide: "slide",
-	// 	modal: true
-	// });
+	$(".clsma").dialog({
+		autoOpen: false,
+		show: "blind",
+		hide: "slide",
+		modal: true
+	});
+
+	$(".mhc").dialog({
+		autoOpen: false,
+		show: "blind",
+		hide: "slide",
+		modal: true
+	});
+
+	$(".sawlani_demographics").dialog({
+		autoOpen: false,
+		show: "blind",
+		hide: "slide",
+		modal: true
+	});
 
 	// ************** JQUERY PDF FETCH ******************
 
@@ -151,14 +172,24 @@ $(function() {
 
 	// When View Form is clicked, find the id and render the pdf
 
+	// $("button#appt.createButton").on("click", function() {
+	// 	if($('select#appointment_office_id').val() != null){
+	// 		var officeId = $('select#appointment_office_id').val();
+	// 		// Used in the form process
+	// 	}
+	// 	else{
+	// 		var officeId = this.value; // Accessing value attribute of button
+	// 	}
+ //    	getPdf(officeId);
+	// 	return false;
+	// });
+	
+	// Switching back to old code
+	
 	$("button#appt.createButton").on("click", function() {
-		if($('select#appointment_office_id').val() != null){
-			var officeId = $('select#appointment_office_id').val();
-			// Used in the form process
-		}
-		else{
-			var officeId = this.value; // Accessing value attribute of button
-		}
+		$('#edit-form').fadeIn("slow");
+		$('input#appt.createButton').fadeIn("slow");
+		var officeId = $('select#appointment_office_id').val();
     	getPdf(officeId);
 		return false;
 	});
@@ -189,6 +220,7 @@ $(function() {
 	});
 
   $('.toggle_activity').on("click", function(e){
+  	e.preventDefault();
   	console.log(e.target.innerHTML)
   	$(e.target).next().toggle();
   	if(e.target.innerHTML == "Hide details")

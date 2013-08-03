@@ -7,13 +7,16 @@
 
 <p><%= "#{count} changes made to health profile ( #{activity.parameters.keys.join(", ")} )" %></p>
 
-<p class="toggle_activity" style="text-decoration: underline; cursor:pointer;">See More</p>
+<a href="#" class="toggle_activity see-more">See More</a>
 
-<div style="display: none;" class="profile_changes">
+<div style="display: none;" class="profile_changes margin-bottom margin-top">
 	<% activity.parameters.keys.each do |profile| %>
-		<h2><%= profile %></h2>
+		<h2 class="margin-bottom"><%= profile %></h2>
 		<% activity.parameters[profile].keys.each do |param| %>
-			<p><%= "Changed #{param.gsub(/[0-9]/i, '').split("_").join(" ")} from #{activity.parameters[profile][param][0] || '-' } to #{activity.parameters[profile][param][1] || '-'}" %></p>
+			<p>
+				<span class="feed_icon"><%= image_tag "health_prof_small.gif" %></span>
+				<span class="lifecycle-verb"><%= "Changed #{param.gsub(/[0-9]/i, '').split("_").join(" ")} from #{activity.parameters[profile][param][0] || '-' } to #{activity.parameters[profile][param][1] || '-'}" %></span>
+			</p>
 		<% end %>
 	<% end %>
 </div>

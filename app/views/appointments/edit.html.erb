@@ -86,10 +86,12 @@
   
   <br /><br />
 
-	<%= render 'appointments/forms/html/clsma', :user => current_user %>
-	
-	<%= render 'appointments/forms/html/mada', :user => current_user %>
+	<%= render 'appointments/forms/clsma.pdf.html.erb', :user => current_user %>
+	 
+  <%= render 'appointments/forms/mada.pdf.html.erb', :user => current_user %>
 
-	<%= render 'appointments/forms/html/mhc', :user => current_user %>
+  <%= render 'appointments/forms/mhc.pdf.html.erb', :user => current_user %>
+
+  <%= render 'appointments/forms/sawlani_demographics.pdf.html.erb', user: current_user %>
 
 <% end %>

@@ -10,4 +10,9 @@ class Doctor < ActiveRecord::Base
   	Doctor.where(office_id: office_id)
   end
 
+  def name
+  	doc_name = self.title.slice(0..(self.title.index(',')))
+  	doc_name.delete(',')
+  end
+
 end

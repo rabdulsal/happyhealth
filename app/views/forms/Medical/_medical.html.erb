@@ -3,6 +3,26 @@
 
 
 	<%= f.fields_for :medical do |medical| %>
+
+		<h2>Problems</h2>
+		<table>
+			<thead>
+				<th>Condition</th>
+				<th>Age of Onset</th>
+				<th>Status</th>
+			</thead>
+
+			<tbody>
+				<%= medical.fields_for :problems, form.medical.problems do |builder| %>
+					<tr class="table_row_third">
+						<td><%= builder.text_field :condition, :class => "form_field_length margin-bottom"%></td>
+						<td><%= builder.text_field :age_onset, :class => "form_field_length margin-bottom" %></td>
+						<td><%= builder.text_field :status, :class => "form_field_length margin-bottom" %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+
 		<h2>Allergies</h2>
 		<ul class="inline">
 			<%= medical.fields_for :allergies, form.medical.allergies do |builder| %>

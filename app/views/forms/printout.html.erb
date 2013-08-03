@@ -11,7 +11,18 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><%= @user.to_s %> <%= @personal.last_name %></td>
+					<td class="user-panel-image" rowspan="2">		
+						
+						<ul class="inline-block margin-top">
+							<li class="left"><%= image_tag "patient_photo.jpg" %></li>
+							<li>
+								<h2 class="printout-name"><%= @user.to_s %> <%= @personal.last_name %></h2>			
+								<p><%= @personal.gender %></p>
+								<p><%= @user.age %></p>
+								<p>Hypertension</p>								
+							</li>
+						</ul>
+					</td>
 					<td rowspan="2">
 						<ul>							
 							<li>
@@ -26,7 +37,7 @@
 					<td rowspan="2">
 						<ul>							
 							<li>
-								<%= @contact_1.name %>
+								<h2><%= @contact_1.name %></h2>
 							</li>
 							<li>
 								<%= @contact_1.relationship_to_patient %>
@@ -41,7 +52,7 @@
 					</td>
 					<td rowspan="2">
 						<ul>
-							Office Consult
+							<h2>Office Consult</h2>
 							<li>Instructions: Diabetes management consultation</li>
 							<li>Facility: Rush University Medical Center</li>
 							<li>Provider: Dr. George Katsoyannis</li>
@@ -50,12 +61,19 @@
 
 				</tr>
 				<tr>
-					<td>Gender: <%= @personal.gender %></td>
+					
 					
 					
 				</tr>
 				<tr>
-					<td>Age: <%= @user.age %></td>
+					<td>
+						<h2>Conditions: </h2>
+							<ul>
+								<li>Diabetes</li>
+								<li>Hyperlipidemia</li>
+								<li>Hypertension</li>
+							</ul>
+					</td>
 					<td rowspan="2">
 						<ul>							
 							<li>
@@ -68,7 +86,9 @@
 					</td>
 					<td rowspan="2">
 						<ul>							
-							<li><%= @contact_2.name %></li>
+							<li>
+								<h2><%= @contact_2.name %></h2>
+							</li>
 							<li><%= @contact_2.relationship_to_patient %></li>
 							<li><%= @contact_2.address %></li>
 							<li>
@@ -79,90 +99,102 @@
 					</td>
 					<td rowspan="2">
 						<ul>
-							Sputuum Culture
+							<h2>Sputuum Culture</h2>
 							<li>Date: 6/16/2012</li>
 							<li>Facility: Lutheran General</li>						
 						</ul>
 					</td>
 				</tr>
-				<tr>
-					<td>
-						<ul>
-							Allergen: Severity:
-							<% @allergies.each do |allergen| %>
-							<li>
-								<%= allergen.info %>
-							</li>
-							<% end %>
-						</ul>
-					</td>
-					
-					
-				</tr>
-				<tr>
-					<td>Conditions: </td>
-					<td></td>
-					<td> </td>
-					
-				</tr>
+				
 			</tbody>
 			
 		</table>
 
 		<table>
 			<thead>
-				<th>Problems</th>
+				<th>Allergies</th>
 				<th>Procedures</th>
 				<th>Immunizations</th>
 				<th>Encounters</th>
 			</thead>
 			<tbody>
 				<tr>
-					<td>Ankle Sprain</td>
+					<td><h2><%= @allergies[0].info %></h2>
+						<ul>
+							<li>Severity</li>
+							<li>Reaction</li>
+						</ul>
+					</td>	
 					<td rowspan="2">
 						<ul>
-							Lumbar Fusion w/ Screws and Rods
+							<h2>Lumbar Spine Surgery</h2>
 							<li>Date: 1/1/2013</li>
 							<li>Facility: Rush University Medical Center</li>
 							<li>Provider: Dr. Christopher Dewald</li>
 						</ul>
 
 					</td>
-					<td>Immunization type: </td>
-					<td>Encounter type: </td>
+					<td rowspan="2">						
+						<ul>
+							<h2>Influenza virus vaccine</h2>
+							<li>Sept 15, 2012 </li>
+							<li>Condition</li>
+							<li>Note:</li>
+						</ul>
+					</td>
+					<td rowspan="2">						
+						<ul>
+							<h2>Encounter type:</h2>
+							<li><%= @appt[0].appt_date.strftime("%b %d, %Y") %>
+							</li>
+							<li></li>
+							<li><strong>Provider:</strong> <%= @appt[0].doctor.title %></li>
+						</ul>
+					</td>
 				</tr>
 				<tr>
-					<td>Active</td>
+					<td><h2><%= @allergies[1].info %></h2>
+						<ul>
+							<li>Severity</li>
+							<li>Reaction</li>
+						</ul>
+					</td>
 					
-					<td>Date: </td>
-					<td>Date: </td>
+					
 				</tr>
 				<tr>
-					<td>Slipped on ice and fell</td>
+					<td><h2><%= @allergies[2].info %></h2>
+						<ul>
+							<li>Severity</li>
+							<li>Reaction</li>
+						</ul>
+					</td>
 					<td rowspan="2">
 						<ul>
-							Cesarian Section
+							<h2>Cesarian Section</h2>
 							<li>Date: 1/1/2013</li>
 							<li>Facility: Rush University Medical Center</li>
 							<li>Provider: Dr. Elena Koogan</li>
-						</ul>
+						 </ul>
 
 					</td>
-					<td>Condition: </td>
-					<td>Facility: </td>
+					<td rowspan="2">
+						<h2>Tetnus</h2>
+							<ul>
+								<li>June 9, 2012 </li>
+								<li>Condition</li>
+								<li>Note:</li>
+							</ul>
+					</td>
+					<td rowspan="2"> 
+						<ul>
+							<h2>Encounter type</h2>
+							<li></li>
+							<li></li>
+						</ul>
+					</td>
 				</tr>
-				<tr>
-					<td>Last occurence</td>
-					
-					<td>Dose: </td>
-					<td>Provider: </td>
-				</tr>
-				<tr>
-					<td></td>
-					<td> </td>
-					<td>Note: </td>
-					<td> </td>
-				</tr>
+							
 			</tbody>
 		</table>
 	</div>

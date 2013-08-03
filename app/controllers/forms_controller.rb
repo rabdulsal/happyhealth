@@ -33,7 +33,7 @@ class FormsController < ApplicationController
       @form.medical = Medical.new
       3.times { @form.medical.allergies << Allergy.new }
       3.times { @form.medical.medications << Medication.new }
-      3.times { @form.medical.immunizations << Immunization.new }
+      3.times { @form.medical.problems << Problem.new }
       @form.save
     end
 
@@ -113,6 +113,7 @@ class FormsController < ApplicationController
   def printout
     @user = User.find_by_id params[:id]
     @form = Form.find_by_id params[:user_id]
+    @current_page = "printout"
 
     @personal = @user.form.personal
     @med_1 = @user.form.medical.medications[0]
@@ -120,6 +121,7 @@ class FormsController < ApplicationController
     @allergies = @user.form.medical.allergies
     @contact_1 = @user.form.emergencies[0]
     @contact_2 = @user.form.emergencies[1]
+    @appt = @user.appointments
 
 
     # respond_to do |format|

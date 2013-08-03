@@ -38,6 +38,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments/1
   # GET /appointments/1.json
   def show
+    @user = User.find params[:user_id]
     @appointment = Appointment.find(params[:id])
     @office = Office.find_by_id(@appointment.office_id)
     respond_to do |format|
@@ -128,30 +129,69 @@ class AppointmentsController < ApplicationController
     end
   end
 
+  # def show_pdf
+  #   appointment = Appointment.find_by_id(params[:appointment_id])
+  #   @office = Office.find_by_id(appointment.office.id)
+  #   # @pdf = @office.pdfs
+  #   @abrv = params[:office] # => yields name of PDF form, _pdf.css.erb file must match this name
+  #   partial = "appointments/forms/#{@abrv}"
+  #   logger.debug "ABRV: #{@abrv}"
+
+  #   respond_to do |format|
+  #     format.pdf do
+  #         @file = render_to_string :pdf => "#{@office.name}", #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
+  #         #render :pdf => "#{@office.name}", #Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
+  #                :template => "#{partial}.pdf.html.erb",
+  #                :layout => "pdf.html",
+  #                :page_size => "A4",
+  #                :encoding => "UTF-8",
+  #                :show_as_html => params[:debug].present?
+
+  #         send_data(@file, :filename => @office.name,  :type=>"application/pdf") #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
+
+
+  #         # For debugging, use
+  #         # http://localhost:3000/appointments/9.pdf?office=mada&debug=1
+
+  #     end
+  #   end
+  # end
+
   def show_pdf
     appointment = Appointment.find_by_id(params[:appointment_id])
-    @office = Office.find_by_id(params[:office_id])
-    @pdf = @office.pdf
-    @abrv = params[:office] # => yields name of PDF form, _pdf.css.erb file must match this name
-    logger.debug "ABRV: #{@abrv}"
-
+    @office = Office.find_by_id(appointment.office.id)
+    @abrv = @office.abrv
+    @partial_abrv = "#{@abrv}.pdf.html.erb"    
+    logger.debug "Partial name = #{@partial_abrv} | CSS => #{get_stylesheet}"
     respond_to do |format|
-      format.pdf do
-          @file = render_to_string :pdf => "#{@office.name}", #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
-          #render :pdf => "#{@office.name}", #Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
-                 :template => "/appointments/_office_form.pdf.html.erb",
-                 :layout => "pdf.html",
-                 :page_size => "A4",
-                 :encoding => "UTF-8",
-                 :show_as_html => params[:debug].present?
+      format.html # show.html.erb
+      format.json { render json: @office } 
+      format.pdf {
+        html = render_to_string(
+          :layout => "pdf.html.erb" , 
+          :action => "show.html.erb", 
+          :formats => [:html], 
+          :handler => [:erb]
+          )
+        kit = PDFKit.new(html)
+        kit.stylesheets << get_stylesheet
+        send_data(kit.to_pdf, 
+                  :filename => "#{@office.name}.pdf", 
+                  :type => 'application/pdf'
+                  )
+        return # to avoid double render call
+      }     
+    end
+  end
 
-          send_data(@file, :filename => @office.name,  :type=>"application/pdf") #Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF
-
-
-          # For debugging, use
-          # http://localhost:3000/appointments/9.pdf?office=mada&debug=1
-
-      end
+  def get_stylesheet
+    appointment = Appointment.find_by_id params[:appointment_id]
+    office = Office.find_by_id(appointment.office.id)
+    abrv = office.abrv
+    if Rails.env.production?
+      "#{Rails.root}/app/assets/stylesheets/#{abrv}.css.scss.erb"
+    else
+      "#{Rails.root}/app/assets/stylesheets/#{abrv}.css.scss.erb"
     end
   end
 end
