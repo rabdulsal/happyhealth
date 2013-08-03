@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  age_onset: 2013-07-20
+  status: MyString
+  condition: MyString
+
+two:
+  age_onset: 2013-07-20
+  status: MyString
+  condition: MyString

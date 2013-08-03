@@ -2,8 +2,8 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
 
-  before_filter :correct_user 
-  
+  before_filter :correct_user
+
   def doctors
     @offices = Office.all
   end
@@ -59,7 +59,7 @@ class AppointmentsController < ApplicationController
     @offices.each do |office|
       @office_form_partials << "appointments/forms/#{office.abrv}.pdf.html.erb"
     end
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @appointment }
@@ -89,6 +89,7 @@ class AppointmentsController < ApplicationController
     @appointment.user_id = @user.id
     respond_to do |format|
       if @appointment.save
+        @appointment.create_activity :create, owner: @user
         format.html { redirect_to user_appointment_path(current_user.id, @appointment.id), notice: 'Appointment was successfully created.' }
         format.json { render json: @appointment, status: :created, location: @appointment }
       else
@@ -105,6 +106,7 @@ class AppointmentsController < ApplicationController
     @user = User.find_by_id(params[:user_id])
     respond_to do |format|
       if @appointment.update_attributes(params[:appointment])
+        @appointment.create_activity :update, owner: @user
         format.html { redirect_to user_appointment_path(@user.id, @appointment.id), notice: 'Appointment was successfully updated.' }
         format.json { head :no_content }
       else
@@ -119,7 +121,7 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
-
+    @appointment.create_activity :destroy, owner: current_user
     respond_to do |format|
       format.html { redirect_to user_appointments_path(current_user.id) }
       format.json { head :no_content }

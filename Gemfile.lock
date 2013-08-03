@@ -137,6 +137,11 @@ GEM
     phaxio (0.4.0)
       httmultiparty (~> 0.3.8)
     polyglot (0.3.3)
+    public_activity (1.1.0)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      i18n (>= 0.5.0)
+      railties (~> 3.0)
     rack (1.4.4)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -215,6 +220,7 @@ GEM
       rails
     wkhtmltopdf-binary (0.9.9.1)
     wkhtmltopdf-heroku (1.0.0)
+    yaml_db (0.2.3)
     yard (0.8.5.2)
     yelpster (1.1.2)
       json (>= 1.1.1)
@@ -242,6 +248,7 @@ DEPENDENCIES
   pdfkit
   pg
   phaxio
+  public_activity
   rails (= 3.2.11)
   rails_email_validator
   sass-rails (~> 3.2.3)
@@ -252,4 +259,5 @@ DEPENDENCIES
   wicked_pdf
   wkhtmltopdf-binary
   wkhtmltopdf-heroku
+  yaml_db
   yelpster

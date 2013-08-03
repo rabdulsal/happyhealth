@@ -1,43 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Your Care Plan</h1>
+<h1>Your Lifecycle</h1>
 
-<h2>See your Care Plan, including previous encounters, upcoming appointments, and more.</h2>
+<h2>See a realtime feed of all the latest updates regarding your personal health.</h2>
 
-<div class="widget" id="one">
-	<!-- New Title: Upcoming -->
-	<h2>Upcoming Appointments</h2>
-	<div class="dashAppointments">
-		<% if @appointments != [] %>
-			<% @appointments.each do |appointment| %>
-				<%= render 'appointment', :appointment => appointment %>
-	    	<% end %>
-		<% else %>
-			<i>You don't have any appointments scheduled this week.</i>
-		<% end %>
-	</div>
-</div>
+<!-- <div>
+	<button class="submit-button right" title="Tooltip test">Update</button>
+</div> -->
 
-<!-- *****************************************
+<%= render "notes/form", :note => Note.new(:user_id => @user.id) %>
 
-	COMMENTED OUT FOR BETA!
-
-	******************************************* -->
-	
 <div class="widget" id="two">
-	<!-- New Title: Previous -->
-	<h2>Latest Notes</h2>
 	<div class="dashAppointments">
-		<% if @user.notes != []%>
-			<% @user.notes[0..2].each do |note| %>
-				<%= render 'note', :note => note%>
-			<% end %>		
-		<% else %>
-			<i>You do not have any current notes. Make one now!</i>
+		<% @activities.each do |activity| %>
+  		<fieldset class="dashBackground">
+	  		<%#= activity.owner if activity.owner %>
+	  		<%= render_activity activity %>
+	  		<legend><%= activity.created_at.localtime.strftime("%I:%M %P | %b %d, %Y") %></legend>
+	  	</fieldset>
 		<% end %>
 	</div>
 </div>
 
-
-
-
+<%= paginate @activities %>

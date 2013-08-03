@@ -1,15 +1,33 @@
-<aside class="left">
+<%= render 'layouts/top-panel' %>
+
+
+
+<aside class="left-panel left margin-top">
 	<ul id="nav-tab">
         <% if current_user.form %>
-			<li class="<%=@current_page%>_profile margin-bottom"><%= link_to "Display Health Profile", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %></li>
+			<li class="fluid-hide <%=@current_page%>_profile margin-bottom">
+				<span class="icon"><%= image_tag "health_prof_small.gif" %>
+				</span>
+				<span class="nav-tab-link"><%= link_to "Profile", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %>
+				</span>
+			</li>
 		<% else %>
-			<li class="fluid-hide <%=@current_page%>_profile margin-bottom"><%= link_to "Fill-out Health Profile", new_user_form_path(current_user.id), :class => "new_form" %></li>
+			<li class="fluid-hide <%=@current_page%>_profile margin-bottom">
+				<span class="icon"><%= image_tag "health_prof_small.gif" %>
+				</span>
+				<span class="nav-tab-link"><%= link_to "Fill-out Profile", new_user_form_path(current_user.id), :class => "new_form" %>
+				</span>
+			</li>
 		<% end %>
 		<li class="fluid-hide <%=@current_page%>_offices margin-bottom">
-        	<%= link_to "View Office Registry", offices_path %>
+			<span class="icon"><%= image_tag "offices_small.gif" %>
+			</span>
+			<span class="nav-tab-link">
+        		<%= link_to "Offices", offices_path %>
+        	</span>
         </li>
         <li class="<%=@current_page%>_list">
-			<%= link_to "View Notes", user_notes_path(current_user.id) %>
+			<span class="icon"><%= image_tag "notes_small.gif" %></span><span class="nav-tab-link"><%= link_to "Notes", user_notes_path(current_user.id) %></span>
 		</li>               
 
 <!-- ******** COMMENT OUT FOR BETA *************
@@ -38,12 +56,58 @@
 		</ul>
 		
 	<%# end %> -->
+
+<% unless @current_page != "office_index" %>
+	<%= render 'layouts/office_request' %>
+<% end %>
+
+
+
 </aside>
 
-<article>
+<article class="left margin-top">
 	<% if notice.present? %>
 		<p id="notice" class="success"><%= notice %><span class="close">X</span></p>
 	<% end %>
 	<%= flash[:error] %>
 	<%= yield %>
 </article>
+
+<aside class="right-panel right margin-top">
+	<ul class="widget">
+		<h2 id="right-panel-title" class="margin-bottom">Your Care Plan</h2>
+		<li>
+			<span class="icon"><%= image_tag "encounters_small.gif" %></span><span><h2 class="inline">Appointments</h2></span>
+			<fieldset class="dashAppointments">
+				<legend>8:00 AM | <%= @user.appointments.last.appt_date.strftime("%b %d, %Y") %></legend>	
+				<dl>
+					<dt>Location:</dt>
+					<dd><%= @user.appointments.last.office.name %></dd>
+				
+					<dt>Physician:</dt>
+					<dd><%= @user.appointments.last.doctor.title %></dd>
+				</dl>
+				<!-- Placeholder for database-backed content -->
+				<a href="#" class="see-more">See more</a>
+	
+			</fieldset>
+		</li>
+		<li>
+			<span class="icon"><%= image_tag "medication_small.gif" %></span><span><h2 class="inline">Medications</h2></span>
+			<fieldset class="dashAppointments">
+				<legend>Tonight - 9:00PM</legend>	
+				<dl>
+					<dt><%= @user.form.medical.medications.last.info %></dt>
+					<dd>1 tablet per mouth.</dd>
+				
+					<dt>Notes:</dt>
+					<dd>Take 1 hour before bedtime.</dd>
+				</dl>
+				<!-- Placeholder for database-backed content -->
+				<a href="#" class="see-more">See more</a>
+	
+			</fieldset>
+		</li>
+		<li></li>
+	</ul>
+</aside>

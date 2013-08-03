@@ -1,23 +1,23 @@
 <fieldset id="personal-info" class="demoBackground">
 <legend>Personal Information</legend>
 <%= f.fields_for :personal do |builder| %>
-	
+
 		<li>
 			<table>
 				<tr class="table_row_third">
-					<td>	
+					<td>
 						<label>First Name</label>
 						<%= builder.text_field :first_name, :placeholder => "John", :class => "form_field_length" %>
 					</td>
 					<!-- </li>
 					<li> -->
-					<td>	
+					<td>
 						<label>Middle Init.</label>
 						<%= builder.text_field :middle_initial, :placeholder => "M", :class => "form_field_length" %>
 					</td>
 					<!-- </li>
 					<li> -->
-					<td>	
+					<td>
 						<label>Last Name</label>
 						<%= builder.text_field :last_name, :placeholder => "Doe", :class => "form_field_length" %>
 					</td>
@@ -40,7 +40,7 @@
 					<li> -->
 					</td>
 					<td>
-						<%= builder.label :gender %> 
+						<%= builder.label :gender %>
 						Male: <%= builder.radio_button :gender, "Male" %>
 						Female: <%= builder.radio_button :gender,  "Female" %>
 					</td>
@@ -50,9 +50,9 @@
 		<!-- <li class="table_row_full">
 			<label>Social Security Number (optional)</label>
 						<%#= builder.text_field :ss_number, class: "form_field_length_full", :placeholder => "123-45-6789" %>
-			
+
 		</li> -->
-		<li class="table_row_full"><%= builder.label :address %><%= builder.text_field :address, :class => "form_field_length_full" %></li>	
+		<li class="table_row_full"><%= builder.label :address %><%= builder.text_field :address, :class => "form_field_length_full" %></li>
 		<li>
 			<table>
 				<tr class="table_row_third">
@@ -145,7 +145,7 @@
 						<%= builder.radio_button :race,  "I prefer not to answer" %>I prefer not to answer
 						<%#= builder.label :other %>
 						<%#= builder.text_field :race, :class => "employer" %>
-					</td>	
+					</td>
 					<td>
 						<%= builder.label :ethnicity %>
 						<%= builder.radio_button :ethnicity,  "Hispanic" %>Hispanic<br />
@@ -154,7 +154,7 @@
 						<%= builder.radio_button :ethnicity,  "I prefer not to answer" %>I prefer not to answer
 					</td>
 					<!-- </li>
-					<li> -->					
+					<li> -->
 				</tr>
 			</table>
 		</li>
@@ -231,7 +231,7 @@
 			<%#= builder.label :relationship_to_responsible_party %>
 			<%#= builder.text_field :relationship_to_responsible_party %>
 	</li> MOVE TO 'RESPONSIBLE PARTY PAGE'-->
-	
-	
+
+
 <% end %>
 </fieldset>

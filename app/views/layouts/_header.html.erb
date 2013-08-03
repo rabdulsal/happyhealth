@@ -8,27 +8,25 @@
 	        		<a href="http://www.happyhealth.me" title="Go back to the consumer site">HappyHealth</a><span class="beta_tag">beta</span>
 	        	<% end %>
 	        </li>
-        	<% if user_signed_in? %>
-				<li class="nav-links">
-					<%=link_to "Sign out", destroy_user_session_path, method: "delete" %>
-				</li>
-			<% else %>
-				<li class="nav-links">
-					<%=link_to "Sign In", new_user_session_path %>
-				</li>
-			<% end %>
+        	<li class="nav-links">
+        		<% if user_signed_in? %>
+							<%=link_to "Sign out", destroy_user_session_path, method: "delete" %>
+						<% else %>
+							<%=link_to "Sign In", new_user_session_path %>
+					 	<% end %>
+					</li>
 				<!-- <li class="nav-links fluid-hide">
 					<%#=link_to "About Us", about_path%>
-				</li> -->				
-			<% if user_signed_in? %>	
+				</li> -->
+			<% if user_signed_in? %>
 				<!-- <li class="nav-links">
 					<%#=link_to "Dashboard", root_path %>
 				</li> -->
 				<li class="nav-links greeting">
 					<%#= link_to "Hello #{current_user.to_s}", edit_user_registration_path  %>
-					<%= "Hello #{current_user.to_s}" %>
+					<%= link_to "Hello #{current_user.to_s}", current_user %>
 				</li>
-			<% end %>				
-	     </ul>   
+			<% end %>
+	     </ul>
 	</header>
 </div>

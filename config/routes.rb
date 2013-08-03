@@ -7,7 +7,7 @@ HappyHealth::Application.routes.draw do
   resources :notes
 
   get '/users/sign_up' => 'static_pages#home'
-  
+
   root to: "static_pages#home"
 
   get "/help" => 'static_pages#help'
@@ -20,7 +20,7 @@ HappyHealth::Application.routes.draw do
   resources :users do
     resources :notes
     resources :forms do
-      member do 
+      member do
         get 'printout'
       end
     end
@@ -33,7 +33,7 @@ HappyHealth::Application.routes.draw do
 
   #Yelp Office Search
   match "/yelp" => "offices#yelp_search"
-  
+
 
   # InsuranceQuery GET resources & requests
   resources :insurance_queries do

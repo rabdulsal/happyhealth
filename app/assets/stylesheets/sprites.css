@@ -1,0 +1,46 @@
+.sharing_small, .ins_card_small, .health_prof_small, .allergies_small, .encounters_small, .notes_small, .medication_small{
+	background: url(sprites.png) no-repeat;
+}
+
+.sharing_small{
+	background-position: 0 0;
+	width: 17px;
+	height: 16px;
+}
+
+.ins_card_small{
+	background-position: -21px 0;
+	width: 25px;
+	height: 15px;
+}
+
+.health_prof_small{
+	background-position: -50px 0;
+	width: 16px;
+	height: 20px;
+}
+
+.allergies_small{
+	background-position: -68px 0;
+	width: 16px;
+	height: 17px;
+}
+
+.encounters_small{
+	background-position: -87px 0;
+	width: 16px;
+	height: 16px;
+}
+
+.notes_small{
+	background-position: -106px 0;
+	width: 25px;
+	height: 16px;
+}
+
+.medication_small{
+	background-position: -135px 0;
+	width: 16px;
+	height: 16px;
+}
+

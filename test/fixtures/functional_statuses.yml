@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  functional_condition: MyText
+  effective_dates: 2013-07-20
+  status: MyString
+
+two:
+  functional_condition: MyText
+  effective_dates: 2013-07-20
+  status: MyString

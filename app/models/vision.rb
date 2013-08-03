@@ -3,8 +3,8 @@ class Vision < ActiveRecord::Base
   				  			:eff_date,
   				  			:group_name,
   				  			:group_number,
-  				  			:insurance_id,
+  				  			:form_id,
   				  			:policy_number
 
-  belongs_to :insurance
+  belongs_to :form
 end
