@@ -101,8 +101,15 @@
 <% end %>
 
 <!-- **************** MAIN ARTICLE CONTAINER ******************** -->
+<% if @current_page == "printout" %>
+
+	<article class="left <%=@long_height%>">
+
+<% else %>
 
 	<article class="left">
+
+<% end %>
 		<% if notice.present? %>
 			<p id="notice" class="success"><%= notice %><span class="close">X</span></p>
 		<% end %>

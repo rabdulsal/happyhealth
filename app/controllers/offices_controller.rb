@@ -87,7 +87,7 @@ class OfficesController < ApplicationController
       }
     end
   end
-
+ 
   # GET /offices/1
   # GET /offices/1.json
   def show
