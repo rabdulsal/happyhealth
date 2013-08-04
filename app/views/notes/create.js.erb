@@ -5,4 +5,5 @@ if($('article h1')[0].innerHTML == "Notes"){
 else{
 	$('div.dashAppointments').prepend("<%= j(render 'activity', :activity => PublicActivity::Activity.last) %>");
 }
+
 $("#note_info").val(""); // ** Clears out form

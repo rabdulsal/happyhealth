@@ -145,10 +145,10 @@
 					<td rowspan="2">						
 						<ul>
 							<h2>Encounter type:</h2>
-							<li><%= @appt[0].appt_date.strftime("%b %d, %Y") %>
+							<li><%= @appt.last.appt_date.strftime("%b %d, %Y") %>
 							</li>
 							<li></li>
-							<li><strong>Provider:</strong> <%= @appt[0].doctor.title %></li>
+							<li><strong>Provider:</strong> <%= @appt.last.doctor.title %></li>
 						</ul>
 					</td>
 				</tr>
