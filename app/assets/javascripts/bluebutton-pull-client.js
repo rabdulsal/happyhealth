@@ -136,4 +136,58 @@
       empty: EMPTY
     };})(); 
 
+    // ***********************************************
+
+    // Additional code from Josh Mandel tutorial
+
+    // ***********************************************
+
+    // OAuth2 client and registry list configuration
+
+    var client = {
+      "client_name": "Growth-tastic",
+      "client_uri": "http://growth.bluebuttonpl.us",
+      "logo_uri": "http://growth.bluebuttonpl.us/static/growth_charts/img/icon.png",
+      "contacts": [ "info@growth.bluebuttonpl.us" ],
+      "redirect_uris": [ "http://growth.bluebuttonpl.us/static/growth_charts/" ],
+      "response_types": ["token"],
+      "grant_types": ["implicit"],
+      "token_endpoint_auth_method": "none",
+      "scope":  "summary"
+    };
+
+    var registries = ["https://bbplus-static-registry.aws.af.cm"];
+
+    // List of BBClient Providers
+
+    BBClient.providers(registries, function(providers){
+      $.each(providers, function(i,v){
+
+        var p = $("<li><a href='"+v.oauth2.authorize_uri+"'> " +
+                  v.name+"</a> " + 
+                  "<em>"+v.description+"</em></li>");
+        p.click(choose(v));
+        $('#provider-select').append(p);
+      });
+    });
+
+    // Select data provider authorization
+
+    function choose(p){
+      return function(event){
+        event.preventDefault();
+        BBClient.authorize({
+          client: client,
+          provider:p
+        });
+      };
+    };
+
+    // Retrieve summary document via OAuth2-protected RESTful endpoint
+
+    BBClient.summary()
+    .fail(fail)
+    .success(extractVitals);
+
+
 }(window));
