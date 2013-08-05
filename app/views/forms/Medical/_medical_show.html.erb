@@ -1,16 +1,16 @@
 <fieldset class="demoBackground">
 	<legend>Health Problems</legend>
-	
+
 	<table class="show-table-horizontal">
 		<thead>
 			<th>Conditions</th>
 			<th>Age of onset</th>
 			<th>Status</th>
 		</thead>
-	
+
 		<% if form.medical.problems[0].condition? %>
 			<% form.medical.problems.each do |problem| %>
-			
+
 				<tr>
 					<td><%= problem.condition %></td>
 					<td><%= problem.age_onset %></td>
@@ -18,11 +18,11 @@
 				</tr>
 
 			<% end %>
-					
+
 		<% else %>
 			<i>You have no conditions listed</i>
 		<% end %>
-	
+
 	</table>
 </fieldset>
 
@@ -35,7 +35,7 @@
 			<th>Severity</th>
 		</head>
 
-		<% if form.medical.allergies[0].info? %>		
+		<% if form.medical.allergies[0].info? %>
 			<% form.medical.allergies.each do |allergy| %>
 				<tr>
 					<td>
@@ -46,33 +46,33 @@
 		<% else %>
 			<tr><td><i>No allergies listed</i></td></tr>
 		<% end %>
-		
+
 	</table><br />
 </fieldset>
 
-<fieldset class="demoBackground">	
+<fieldset class="demoBackground">
 	<legend>Medications</legend>
 	<table class="show-table-horizontal">
 		<thead>
 			<th>Medication</th>
 			<th>Reason for Taking</th>
 		</thead>
-	
+
 		<% if form.medical.medications[0].info? %>
 			<% form.medical.medications.each do |medication| %>
-			
+
 				<tr>
 					<td><%= medication.info %></td>
 					<td><%= medication.reason %></td>
 				</tr>
 
 			<% end %>
-					
+
 		<% else %>
 			<i>No medications listed</i>
 		<% end %>
-	
+
 	</table>
 </fieldset>
-		
-	
+
+

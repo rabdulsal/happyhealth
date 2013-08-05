@@ -108,6 +108,64 @@ class FormsController < ApplicationController
     end
   end
 
+  def add_medication
+    @form = Form.find(params[:form_id])
+    @medication = Medication.new
+    @form.medical.medications << @medication
+
+    respond_to do |format|
+      format.js { render "forms/Medical/Medication/add_medication" }
+    end
+  end
+
+  def remove_medication
+    @medication = Medication.find(params[:medication_id])
+    @medication.medical.form.create_activity :remove_medical, parameters: {:info => @medication.info, :reason => @medication.reason}, owner: @medication.medical.form.user, recipient: @medication
+    @medication.destroy
+
+    respond_to do |format|
+      format.js { render "forms/Medical/Medication/remove_medication" }
+    end
+  end
+
+  def add_allergy
+    @form = Form.find(params[:form_id])
+    @allergy = Allergy.new
+    @form.medical.allergies << @allergy
+    respond_to do |format|
+      format.js { render "forms/Medical/Allergy/add_allergy" }
+    end
+  end
+
+  def remove_allergy
+    @allergy = Allergy.find(params[:allergy_id])
+    @allergy.medical.form.create_activity :remove_medical, parameters: {:info => @allergy.info, :reason => @allergy.reaction, :severity => @allergy.severity}, owner: @allergy.medical.form.user, recipient: @allergy
+    @allergy.destroy
+
+    respond_to do |format|
+      format.js { render "forms/Medical/Allergy/remove_allergy" }
+    end
+  end
+
+  def add_problem
+    @form = Form.find(params[:form_id])
+    @problem = Problem.new
+    @form.medical.problems << @problem
+    respond_to do |format|
+      format.js { render "forms/Medical/Problem/add_problem" }
+    end
+  end
+
+  def remove_problem
+    @problem = Problem.find(params[:problem_id])
+    @problem.medical.form.create_activity :remove_medical, parameters: {:condition => @problem.condition, :status => @problem.status, :age_onset => @problem.age_onset}, owner: @problem.medical.form.user, recipient: @problem
+    @problem.destroy
+
+    respond_to do |format|
+      format.js { render "forms/Medical/Problem/remove_problem" }
+    end
+  end
+
   # **************** FORM PRINTOUTS ******************
 
   def printout

@@ -208,7 +208,7 @@ class ApplicationController < ActionController::Base
       )
 
     #Test Notes
-    user = User.find(1)    
+    user = User.find(1)
     user.notes.destroy_all
 
     user.notes.create(

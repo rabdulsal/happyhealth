@@ -1,4 +1,5 @@
 class Medication < ActiveRecord::Base
+  include PublicActivity::Common
   attr_accessible 	:medical_id,
                     :reason,
                     :info,

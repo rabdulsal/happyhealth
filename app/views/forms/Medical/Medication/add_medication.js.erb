@@ -1,0 +1,6 @@
+var id = Number($('#medications input').last()[0].id.match(/\d+/g)[0]);
+var new_id = id + 1;
+
+var row = '<tr class="table_row_half" id="<%= @medication.id %>"><td><input autocomplete="off" class="form_field_length margin-bottom" id="form_medical_attributes_medications_attributes_' + new_id + '_info" name="form[medical_attributes][medications_attributes][' + new_id + '][info]" size="30" type="text" ></td><td><input autocomplete="off" class="form_field_length margin-bottom" id="form_medical_attributes_medications_attributes_' + new_id + '_reason" name="form[medical_attributes][medications_attributes][' + new_id + '][reason]" size="30" type="text" ></td><td><a href="/remove_medication?medication_id=<%=@medication.id%>" data-remote="true">x</a></td></tr>'
+
+$('#medications tbody').append(row);

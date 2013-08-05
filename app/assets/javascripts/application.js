@@ -88,7 +88,6 @@ $(function() {
 	// Open up TOS and Privacy Policy Agreement when 'Download' button is clicked
 
 	$('.office-form-download').on("click", function(){
-		console.log(this.id);
 		id = this.id.split("_")[1]
 		$('div.accordion_' + id)[0].style.height = "258px";
 		$('input#tos_' + id)[0].checked = false;
@@ -160,7 +159,6 @@ $(function() {
 		        data: {'office_id': val},
 		 		type: 'GET',
 		    success: function(data){
-		    	console.log(data);
 				$('.' + data).dialog("open");
 		    },
 		    error: function(){
@@ -183,9 +181,9 @@ $(function() {
  //    	getPdf(officeId);
 	// 	return false;
 	// });
-	
+
 	// Switching back to old code
-	
+
 	$("button#appt.createButton").on("click", function() {
 		$('#edit-form').fadeIn("slow");
 		$('input#appt.createButton').fadeIn("slow");
@@ -221,7 +219,6 @@ $(function() {
 
   $('.toggle_activity').on("click", function(e){
   	e.preventDefault();
-  	console.log(e.target.innerHTML)
   	$(e.target).next().toggle();
   	if(e.target.innerHTML == "Hide details")
   		e.target.innerHTML = "See more"
