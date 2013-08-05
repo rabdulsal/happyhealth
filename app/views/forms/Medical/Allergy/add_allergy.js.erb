@@ -1,0 +1,6 @@
+var id = Number($('#allergies input').last()[0].id.match(/\d+/g)[0]);
+var new_id = id + 1;
+
+var row = '<tr class="table_row_third" id="<%=@allergy.id%>"><td><input autocomplete="off" class="form_field_length margin-bottom" id="form_medical_attributes_allergies_attributes_' + new_id + '_info" name="form[medical_attributes][allergies_attributes][' + new_id + '][info]" size="30" type="text"></td><td><input autocomplete="off" class="form_field_length margin-bottom" id="form_medical_attributes_allergies_attributes_' + new_id + '_reaction" name="form[medical_attributes][allergies_attributes][' + new_id + '][reaction]" size="30" type="text"></td><td><input autocomplete="off" class="form_field_length margin-bottom" id="form_medical_attributes_allergies_attributes_' + new_id + '_severity" name="form[medical_attributes][allergies_attributes][' + new_id + '][severity]" size="30" type="text"></td><td><a href="/remove_allergy?allergy_id=<%=@allergy.id%>" data-remote="true">x</a></td></tr>'
+
+$('#allergies tbody').append(row);

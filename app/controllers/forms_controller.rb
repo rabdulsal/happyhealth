@@ -1,6 +1,7 @@
 class FormsController < ApplicationController
 
   before_filter :correct_user
+  before_filter :printout, only: :print
 
   def show
     @form = Form.find_by_user_id(params[:user_id])
@@ -169,8 +170,8 @@ class FormsController < ApplicationController
   # **************** FORM PRINTOUTS ******************
 
   def printout
-    @user = User.find_by_id params[:id]
-    @form = Form.find_by_id params[:user_id]
+    @user = User.find_by_id params[:user_id]
+    @form = Form.find_by_id params[:id]
     @current_page = "printout"
 
     @personal = @user.form.personal
@@ -180,23 +181,33 @@ class FormsController < ApplicationController
     @contact_1 = @user.form.emergencies[0]
     @contact_2 = @user.form.emergencies[1]
     @appt = @user.appointments
+  end
 
-
-    # respond_to do |format|
-    #   html = render_to_string(
-    #     :layout => "pdf.html.erb" ,
-    #     :action => "printout.html.erb",
-    #     :formats => [:html],
-    #     :handler => [:erb]
-    #   )
-    #   kit = PDFKit.new(html)
-    #   kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/happy_health.css.scss.erb"
-    #   send_data(kit.to_pdf,
-    #     :filename => "#{@user.to_s}_Health_Form.pdf",
-    #     :type => 'application/pdf'
-    #     )
-    #   return # to avoid double render call
+  def print
+    @long_height = "long-height"
+    get_stylesheet = "#{Rails.root}/app/assets/stylesheets/happy_health.css.scss.erb"
+    # if Rails.env.production?
+    #   get_stylesheet = "#{Rails.root}/app/assets/stylesheets/#{abrv}.css.scss.erb"
+    # else
+    #   get_stylesheet = "#{Rails.root}/app/assets/stylesheets/#{abrv}.css.scss.erb"
     # end
+    
+    respond_to do |format|
+      html = render_to_string(
+        :layout => "pdf.html.erb" ,
+        :action => "print.html.erb",
+        :formats => [:html],
+        :handler => [:erb]
+      )
+      kit = PDFKit.new(html)
+      kit.stylesheets << get_stylesheet
+      send_data(kit.to_pdf,
+        :filename => "#{@user.to_s}_Health_Form.pdf",
+        :type => 'application/pdf'
+        )
+      return # to avoid double render call
+    end
+  end
 
 
     #Send Fax, receive confirmation
@@ -208,6 +219,4 @@ class FormsController < ApplicationController
     # File.open("received_test.pdf", "w") do |file|
     #   file << @pdf
     # end
-
-  end
 end

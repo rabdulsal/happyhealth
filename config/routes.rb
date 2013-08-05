@@ -30,8 +30,9 @@ HappyHealth::Application.routes.draw do
     resources :notes
     resources :forms do
       member do
-        get 'printout'
+        get 'printout'          
       end
+      get 'print', on: :member
     end
     resources :appointments
   end

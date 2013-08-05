@@ -1,16 +1,4 @@
-<%#= wicked_pdf_stylesheet_link_tag 'mpd' %>
-
-<ul class="margin-bottom inline">
-	<li>
-		<%= link_to '<< Back to Health Profile', user_form_path(current_user.id, current_user.form.id), class: "submit-button" %>
-	</li>
-	<li>
-		<%= link_to image_tag("BlueButton_Icon.gif", class: "icon") + "Download",  print_user_form_path(current_user.id, current_user.form.id), class: "submit-button" %>
-	</li>
-
-</ul>
-
-<div id="form_printout" class="margin-top clear">
+<div id="form_printout" class="printout_container">
 	
 	<div>
 		<table>
@@ -30,7 +18,7 @@
 								<h2 class="printout-name"><%= @user.to_s %> <%= @personal.last_name %></h2>			
 								<p><%= @personal.gender %></p>
 								<p><%= @user.age %></p>
-																
+								<p>Hypertension</p>								
 							</li>
 						</ul>
 					</td>
@@ -210,6 +198,3 @@
 		</table>
 	</div>
 </div>
-
-
-

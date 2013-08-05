@@ -38,9 +38,9 @@
 		<% if form.medical.allergies[0].info? %>
 			<% form.medical.allergies.each do |allergy| %>
 				<tr>
-					<td>
-						<%= allergy.info %>
-					</td>
+					<td><%= allergy.info %></td>
+					<td><%= allergy.reaction %></td>
+					<td><%= allergy.severity %></td>
 				</tr>
 			<% end %>
 		<% else %>

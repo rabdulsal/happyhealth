@@ -28,18 +28,26 @@
 		<%= link_to 'Add problem', add_problem_path(form_id: form.id), remote: true %><br /><br/>
 
 		<h2>Allergies</h2>
-		<ul class="inline">
-			<%= medical.fields_for :allergies, form.medical.allergies do |builder| %>
-				<li class="table_row_half">
-					<label>Allergen:</label>
-					<%= builder.text_field :info, class: "form_field_length_full" %>
-				</li>
-				<li class="table_row_half">
-					<label>Reaction:</label>
-					<%= builder.text_field :reaction, class: "form_field_length_full" %>
-				</li>
-			<% end %>
-		</ul>
+		<table id="allergies">
+			<thead>
+				<th>Allergen</th>
+				<th>Reaction</th>
+				<th>Severity</th>
+			</thead>
+
+			<tbody>
+				<% form.medical.allergies.each do |allergy| %>
+					<%= medical.fields_for :allergies, allergy do |builder| %>
+						<tr class="table_row_third" id=<%=allergy.id%>>
+							<td><%= builder.text_field :info, :class => "form_field_length margin-bottom"%></td>
+							<td><%= builder.text_field :reaction, :class => "form_field_length margin-bottom" %></td>
+							<td><%= builder.text_field :severity, :class => "form_field_length margin-bottom" %></td>
+							<td><%= link_to "x", remove_allergy_path(allergy_id: allergy.id), remote: true %></td>
+						</tr>
+					<% end %>
+				<% end %>
+			</tbody>
+		</table>
 
 		<%= link_to "Add allergy", add_allergy_path(form_id: form.id), remote: true %><br /><br />
 
