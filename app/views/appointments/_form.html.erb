@@ -10,93 +10,91 @@
       </ul>
     </div>
   <% end %>
-  
+   
   <table class="appointment-table">
-	
-	 <tr class="row1">
-  	    <td class="appt-column">
-			<div>
-				<p>Step 1</p>
-			</div>
-		</td>
+	<tbody>
+		 <tr class="row1">
+	  	    <td class="appt-column">
+				<div>
+					<p>Step 1</p>
+				</div>
+			</td>
 
-		<div class="field">
-				<td>
-					<label class="doctor-column">Choose your doctor's office</label>
+			<div class="field">
+					<td>
+						<label class="doctor-column">Choose your doctor's office</label>
+						<div class="office">
+							<%= f.collection_select :office_id, Office.all, :id, :name, :prompt => "Select an office"%>
+						</div>
+					</td>
+		  	</div>
+		</tr>
+		
+		<tr class="row2">
+			<td class="appt-column">
+				<div>
+					<p>Step 2</p>
+				</div>
+			</td>
+			<div class="doctor-field">
+				<td><label class="doctor-column">Select your doctor</label>
 					<div class="office">
-						<%= f.collection_select :office_id, Office.all, :id, :name, :prompt => "Select an office"%>
+						<%= f.collection_select :doctor, Doctor.all, :title, :title, :prompt => "Please select a doctor" %>
 					</div>
 				</td>
-	  	</div>
-	</tr>
-	
-	<tr class="row2">
-		<td class="appt-column">
-			<div>
-				<p>Step 2</p>
 			</div>
-		</td>
-		<div class="doctor-field">
-			<td><label class="doctor-column">Select your doctor</label>
-				<div class="office">
-					<%= f.collection_select :doctor, Doctor.all, :title, :title, :prompt => "Please select a doctor" %>
+		</tr>
+		
+		<tr class="row3">
+	  		<td class="appt-column">
+				<div>
+					<p>Step 3</p>
 				</div>
 			</td>
-		</div>
-	</tr>
-	
-	<tr class="row3">
-  		<td class="appt-column">
-			<div>
-				<p>Step 3</p>
-			</div>
-		</td>
-  		<div class="date-field">
+	  		<div class="date-field">
+				<td>
+					<label class="doctor-column">Tell us your appointment date</label>
+					<div class="office">
+						<%= f.text_field :appt_date %>
+					</div>
+				</td>
+	  		</div>
+		</tr>
+		
+		<tr class="row4">
+	  		<td class="appt-column">
+				<div>
+					<p>Step 4</p>
+				</div>
+			</td>
+	  		<div class="view-form">
+				<td class=
+				"pad-bot">
+					<label class="doctor-column">
+						View this office's form
+					</label>
+					<button class="createButton appt-button" id="appt">
+						View Form
+					</button>				
+				</td>
+	  		</div>
+		</tr>	
+		<tr>
+			<td></td>			
 			<td>
-				<label class="doctor-column">Tell us your appointment date</label>
-				<div class="office">
-					<%= f.text_field :appt_date %>
-				</div>
+				<!-- <ul id="edit-form">
+					<li>						
+						<%#= link_to "Edit Form", edit_user_form_path(current_user.id, current_user.form.id), class: "submit-button hidden" %>				
+					</li>
+					<li>
+						<%#= f.submit 'Save Appointment', :class => 'createButton short', :id => 'appt' %>  			
+			  		</li> -->
+			  		
+	  			</ul>
+	  			<%= f.submit 'Save Appointment', :class => 'action-button appt-button hidden', :id => 'appt' %>
 			</td>
-  		</div>
-	</tr>
-	
-	<tr class="row4">
-  		<td class="appt-column">
-			<div>
-				<p>Step 4</p>
-			</div>
-		</td>
-  		<div class="view-form">
-			<td class=
-			"pad-bot">
-				<div class="form-button">
-					<label class="doctor-column">View this office's form</label>
-					<button class="createButton appt-button" id="appt">View Form</button>
-				</div>
-					<h3 class="warning margin-top">
-						Press the 'Esc' button to Exit the Form View!
-					</h3>
-			</td>
-  		</div>
-	</tr>	
-	<tr>
-		<td></td>
-		<td>
-			<ul class="appt_tab inline-block">
-				<li class="left margin-top">
-					<p id="edit-form">
-						<%= link_to "Edit Form", edit_user_form_path(current_user.id, current_user.form.id), class: "submit-button short" %>
-					</p>
-				</li>
-				<li class="left margin-top">
-					<p class="actions">
-		    			<%= f.submit 'Save Appointment', :class => 'createButton short', :id => 'appt' %>
-		  			</p>
-		  		</li>
-  			</ul>
-		</td>
-	</tr>
+		</tr>
+	</tbody>
   </table>
 
   <% f.hidden_field :user_id, :value => current_user.id %>

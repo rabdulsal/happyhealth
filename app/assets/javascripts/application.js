@@ -35,11 +35,11 @@ $(function() {
 	// ********************************************
 
 	$('select#appointment_doctor').change(function(e){
-		$('.row3').fadeIn("slow");
+		$('.row3').fadeIn();
 	});
 
 	$('#appointment_appt_date').change(function(e){
-		$('.row4').fadeIn("slow");
+		$('.row4').fadeIn();
 	});
 
 	$("#appointment_appt_date").datepicker({ minDate: +0 });
@@ -48,8 +48,9 @@ $(function() {
 	    getDoctors($(this).val());
 	});
 
+	
 	// Rendering the individual office PDFs in the background
-
+ 
 	// GET request for list of doctors
 
 	function getDoctors(val){
@@ -184,11 +185,11 @@ $(function() {
 	// 	return false;
 	// });
 	
-	// Switching back to old code
+	// Switching back to old code for View Form
 	
 	$("button#appt.createButton").on("click", function() {
-		$('#edit-form').fadeIn("slow");
-		$('input#appt.createButton').fadeIn("slow");
+		$('#edit-form').fadeIn();
+		$('input#appt.action-button').fadeIn();
 		var officeId = $('select#appointment_office_id').val();
     	getPdf(officeId);
 		return false;

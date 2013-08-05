@@ -5,7 +5,7 @@
 		<%= link_to '<< Back to Health Profile', user_form_path(current_user.id, current_user.form.id), class: "submit-button" %>
 	</li>
 	<li>
-		<%= link_to image_tag("BlueButton_Icon.gif", class: "icon") + "Print",  print_user_form_path(current_user.id, current_user.form.id), class: "submit-button" %>
+		<%= link_to image_tag("BlueButton_Icon.gif", class: "icon") + "Download",  print_user_form_path(current_user.id, current_user.form.id), class: "submit-button" %>
 	</li>
 
 </ul>

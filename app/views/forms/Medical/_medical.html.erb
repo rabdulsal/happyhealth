@@ -24,18 +24,21 @@
 		</table>
 
 		<h2>Allergies</h2>
-		<ul class="inline">
-			<%= medical.fields_for :allergies, form.medical.allergies do |builder| %>
-				<li class="table_row_half">
-					<label>Allergen:</label>
-					<%= builder.text_field :info, class: "form_field_length_full" %>
-				</li>
-				<li class="table_row_half">
-					<label>Reaction:</label>
-					<%= builder.text_field :reaction, class: "form_field_length_full" %>
-				</li>
-			<% end %>
-		</ul>
+		<table>
+			<thead>
+				<th>Allergen</th>
+				<th>Reaction</th>
+			</thead>
+
+			<tbody>
+				<%= medical.fields_for :allergies, form.medical.allergies do |builder| %>
+					<tr class="table_row_half">
+						<td><%= builder.text_field :info, :class => "form_field_length margin-bottom"%></td>
+						<td><%= builder.text_field :reaction, :class => "form_field_length margin-bottom" %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>		
 
 		<%#= link_to "Add allergy", '#'%><br /><br />
 
