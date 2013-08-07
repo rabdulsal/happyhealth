@@ -57,10 +57,7 @@ module ApplicationHelper
         {:state => 'Wyoming', :abrv =>  'WY'}
       ]
   end
-  
-  def doctors
-    
-    
-  end
+
+
 
 end

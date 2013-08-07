@@ -2,9 +2,6 @@
 
 <h2>See a realtime feed of all the latest updates regarding your personal health.</h2>
 
-<!-- <div>
-	<button class="submit-button right" title="Tooltip test">Update</button>
-</div> -->
 <div class="margin-bottom">
 	<%= render "notes/form", :note => Note.new(:user_id => @user.id) %>
 </div>
@@ -12,11 +9,12 @@
 <div class="widget" id="two">
 	<div class="dashAppointments">
 		<% @activities.each do |activity| %>
-  		<fieldset class="dashBackground">
-	  		<%#= activity.owner if activity.owner %>
-	  		<%= render_activity activity %>
-	  		<legend><%= activity.created_at.localtime.strftime("%I:%M %P | %b %d, %Y") %></legend>
-	  	</fieldset>
+			<% if values_of_activity_hash(activity.parameters) != []%>
+  			<fieldset class="dashBackground">
+		  		<%= render_activity activity %>
+		  		<legend><%= activity.created_at.localtime.strftime("%I:%M %P | %b %d, %Y") %></legend>
+	  		</fieldset>
+	  	<% end %>
 		<% end %>
 	</div>
 </div>
