@@ -22,9 +22,10 @@
 					<li class="left"><%= image_tag "patient_photo.jpg" %></li>
 					<li>
 						<p><strong><u>Conditions:</u></strong></p>
-						<p>Diabetes</p>
-						<p>Hyperlipidemia</p>
-						<p>Hypertension</p>								
+						<p>
+							<%= current_user.form.medical.problems[0].condition %>
+						</p>
+														
 					</li>
 				</ul>	
 			</td>

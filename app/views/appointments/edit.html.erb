@@ -59,7 +59,7 @@
 					<label class="doctor-column">
 						View this office's form
 					</label>
-					<button class="createButton" id="appt">View Form</button>
+					<button class="createButton appt-button" id="appt">View Form</button>
 				</div>
 				<h3 class="warning margin-top">
 					Press the 'Esc' button to Exit the Form View!
@@ -70,12 +70,12 @@
 	<tr>
 		<td class="pad-top"></td>
 		<td>
-			<ul class="appt_tab inline-block">
+			<ul>
 				<li>
-					<%= link_to "Edit Form", edit_user_form_path(current_user.id, current_user.form.id), class: "submit-button short margin-top" %>			
+					<%= link_to "Edit Form", edit_user_form_path(current_user.id, current_user.form.id), class: "submit-button appt-button", id: "appt" %>			
 				</li>
 				<li class="actions">
-					<%= f.submit 'Save Appointment', :class => 'createButton short' %>		  			
+					<%= f.submit 'Save Appointment', id: "appt", :class => 'action-button appt-button' %>		  			
 		  		</li>
   			</ul>
 		</td>

@@ -104,7 +104,7 @@ xmp {
   clear: both;
   /*box-shadow: 0 10px 20px black;*/
   min-height: 500px;
-  /*overflow: hidden; */   
+  overflow: hidden;  
   position: relative;  
 }
 
@@ -584,7 +584,7 @@ p.signup-title {
 
 /* ------------------------ BUTTONS ------------------------------ */
 
-.button, .submit-button, .button a, .remove-form, .create, #new_user_submit, #login_submit, .saveButton a, .nextButton a {
+.button, .submit-button, .submit-button a, .button a, .remove-form, .create, #new_user_submit, #login_submit, .saveButton a, .nextButton a {
     /*display: block;*/
     color: white;
     font-weight: bold;
@@ -599,7 +599,7 @@ p.signup-title {
     box-shadow: 0 1px 1px #aaa;
 }
 
-.button, .submit-button {
+.button, .submit-button, .submit-button a {
     color: #555;
     color: #4d7ca8;
     background: -webkit-linear-gradient(top, #fff, #ececec);
@@ -607,7 +607,7 @@ p.signup-title {
     background:     -ms-linear-gradient(top, #fff, #ececec);
     text-shadow: 0 1px 3px white;
     font-size: 13px !important;
-    height: 30px;
+    height: 100%;
 }
 
 .navi {
@@ -623,7 +623,7 @@ p.signup-title {
     width: 100px;
 }
 
-.button:hover, .submit-button:hover, .button a:hover {
+.button:hover, .submit-button:hover, .submit-button a:hover, .button a:hover {
     text-decoration: none;
     background: -webkit-linear-gradient(top, #ececec, #fff);
     background:    -moz-linear-gradient(top, #ececec, #fff);
@@ -699,7 +699,7 @@ p.signup-title {
     color: white;
 }
 
-#appt.createButton, input.createButton, .pdfButton, input.action-button{
+#appt.createButton, #appt.submit-button, input.createButton, .pdfButton, input.action-button{
 	cursor: pointer;	
     height: 34px;
     margin: 0;
