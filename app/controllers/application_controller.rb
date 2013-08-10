@@ -105,12 +105,12 @@ class ApplicationController < ActionController::Base
 
     #Test Personal
     user.personal.update_attributes(
-      first_name: "John",
-      last_name: "Doe",
+      first_name: "Tammy",
+      last_name: "Lee",
       middle_initial: "",
-      date_of_birth: "6-11-1960",
-      age: 52,
-      gender: "Male",
+      date_of_birth: "6-11-1970",
+      age: 43,
+      gender: "Female",
       address: "12345 Home Street",
       city: "Cliffside Park",
       state: "NJ",
@@ -121,10 +121,10 @@ class ApplicationController < ActionController::Base
       email_address: "you@email.com",
       marital_status: "Married",
       ethnicity: "Non-Hispanic",
-      race: "White/Caucasian",
-      employer: "Gold's Gym",
+      race: "Asian",
+      employer: "ABC Solutions",
       employment_status: "Full-time",
-      occupation: "Personal Trainer",
+      occupation: "HR Manager",
       work_address: "12345 Work Lane",
       number_of_dependents: nil,
       employer_phone: "(555) job-5555",
@@ -162,18 +162,36 @@ class ApplicationController < ActionController::Base
       subscribers_employer: user.personal.employer
       )
 
+    #Test Dental
+    user.dental.update_attributes(
+      eff_date: "2013-01-01",
+      dent_company: "Guardian",
+      policy_number: 1,
+      group_number: 2,
+      group_name: "Employee Plan"
+      )
+
+    #Test Vision
+    user.dental.update_attributes(
+      eff_date: "2013-01-01",
+      dent_company: "VSP",
+      policy_number: 10,
+      group_number: 20,
+      group_name: "Employee Vision Plan"
+      )
+
     #Test Emergency
     user.emergencies[0].update_attributes(
-      name: "Jane Doe",
-      relationship_to_patient: "Wife",
-      phone_number: "(555) wife-num",
-      address: "12345 wife home street",
+      name: "Johnny Lee",
+      relationship_to_patient: "Husband",
+      phone_number: "(555) husb-num",
+      address: "12345 husband home street",
       city: "Cliffside Park",
       state: "NJ",
       zipcode: "07010",
       )
     user.emergencies[1].update_attributes(
-      name: "Gramma Doe",
+      name: "Gramma Lee",
       relationship_to_patient: "Grandmother",
       phone_number: "(555) gra-ndma",
       address: "12345 Grandma Lane",
@@ -182,15 +200,38 @@ class ApplicationController < ActionController::Base
       zipcode: "07010"
       )
 
+    #Test Problems
+    user.medical.problems[0].update_attributes(
+      condition: "diabetes",
+      age_onset: 30,
+      status: "active" 
+      )
+    user.medical.problems[1].update_attributes(
+      condition: "hypertension",
+      age_onset: 30,
+      status: "active"
+      )
+    user.medical.problems[2].update_attributes(
+      condition: "hyperlipidemia",
+      age_onset: 30,
+      status: "active"
+      )
+
     #Test Allergies
     user.medical.allergies[0].update_attributes(
-      info: "silk tape"
+      info: "silk tape",
+      reaction: "skin rash",
+      severity: "mild"
       )
     user.medical.allergies[1].update_attributes(
-      info: "penicillin"
+      info: "penicillin",
+      reaction: "swollen face",
+      severity: "severe"
       )
     user.medical.allergies[2].update_attributes(
-      info: "latex"
+      info: "latex",
+      reaction: "itchy skin",
+      severity: "mild"
       )
 
     #Test Medications

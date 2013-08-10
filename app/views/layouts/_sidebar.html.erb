@@ -4,37 +4,46 @@
 
 	<aside class="left-panel left margin-top">
 		<ul id="nav-tab">
+			<li class="<%=@current_page%>_lifecycle margin-bottom">
+				<span class="icon"><%= image_tag "lifecycle_icon.gif" %></span>
+				<span class="nav-tab-link"><%= link_to "Dashboard", user_path(current_user.id) %></span>
+			</li>
 	        <% if current_user.form %>
 				<li class="fluid-hide <%=@current_page%>_profile margin-bottom">
 					<span class="icon"><%= image_tag "health_prof_small.gif" %>
 					</span>
-					<span class="nav-tab-link"><%= link_to "Profile", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %>
+					<span class="nav-tab-link"><%= link_to "Your Health Profile", user_form_path(current_user.id, current_user.form.id), :class => "show_form" %>
 					</span>
 				</li>
 			<% else %>
 				<li class="fluid-hide <%=@current_page%>_profile margin-bottom">
 					<span class="icon"><%= image_tag "health_prof_small.gif" %>
 					</span>
-					<span class="nav-tab-link"><%= link_to "Fill-out Profile", new_user_form_path(current_user.id), :class => "new_form" %>
+					<span class="nav-tab-link"><%= link_to "Fill-out Health Profile", new_user_form_path(current_user.id), :class => "new_form" %>
 					</span>
 				</li>
-			<% end %>
-			<li class="fluid-hide <%=@current_page%>_offices margin-bottom">
-				<span class="icon"><%= image_tag "offices_small.gif" %>
-				</span>
+			<% end %>			
+	        <li class="fluid-hide <%=@current_page%>_appointment margin-bottom">
+				<span class="icon"><%= image_tag "encounters_small.gif" %></span>
 				<span class="nav-tab-link">
-	        		<%= link_to "Offices", offices_path %>
-	        	</span>
-	        </li>
+					<%= link_to "New Appointment", new_user_appointment_path(current_user.id)%>
+				</span>
+			</li>
 	        <li class="<%=@current_page%>_list">
-				<span class="icon"><%= image_tag "notes_small.gif" %></span><span class="nav-tab-link"><%= link_to "Notes", user_notes_path(current_user.id) %></span>
+				<span class="icon"><%= image_tag "notes_small.gif" %></span>
+				<span class="nav-tab-link"><%= link_to "Your Notes", user_notes_path(current_user.id) %></span>
 			</li>               
 
 	<!-- ******** COMMENT OUT FOR BETA *************
 			
-			<li class="fluid-hide">
-				<%#= link_to "New Appointment", new_user_appointment_path(current_user.id)%>
-			</li>
+			<li class="fluid-hide <%=@current_page%>_offices margin-bottom">
+				<span class="icon"><%#= image_tag "offices_small.gif" %>
+				</span>
+				<span class="nav-tab-link">
+	        		<%#= link_to "Offices", offices_path %>
+	        	</span>
+	        </li>
+			
 	      	<li class="fluid-hide">
 	      		<%#= link_to "Scheduled Appointments", user_appointments_path(current_user.id) %>
 	      	</li>
