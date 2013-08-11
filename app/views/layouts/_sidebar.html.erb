@@ -70,40 +70,42 @@
 			<%= render 'layouts/office_request' %>
 		<% end %>
 
-		<div>
-			<h2 class="margin-top panel-title border-top padding-top"><span class="feed_icon"><%= image_tag "care_team_small.gif" %></span>Your Care Team</h2>
-		</div>	
-
-		<div>
-			<ul class="margin-top">
-			    <li class="margin-bottom">
-			      <p>
-			      	Invite a new doctor, hospital or clinic to join your Care Team via email, and view your health profile.
-			      </p>
-			    </li>
-			    <li>
-			      <a href="mailto:your.doctor@your.doctor.email.com?subject=Invite%20to%20View%20[Your_Name]'s%20HappyHealth%20Medical%20Profile&amp;body=Hi%20[doctor_or_office_contact's_name].%20I%20am%20your%20patient%20[your_name],%20and%20I%20want%20to%20invite%20you%20to%20join%20my%20Care%20Team%20on%20HappyHealth%20and%20view%20my%20health%20profile%20online%20to%20better%20manage%20my%20chealth.%0D%0A%0D%0ACan%20you%20please%20add%20the%20following%20Office%20information%20to%20your%20site?%0D%0A%0D%0AOffice%20name:%20[office_name]%0D%0AOffice%20phone%20number:%20[phone_number]%0D%0AMy%20appointment%20Date:%20[appt_date]%0D%0A%0D%0AContact%20Email:%20[email]%0D%0A%0D%0AThanks%20so%20much%20and%20keep%20rocking%20on!" title="The Invite will automatically open your email client" class="action-button block">Invite!</a>
-			    </li>
-			</ul>
-		</div>
-			<% current_user.doctors.each do |doctor| %>
-				
-				<div class="widget panel margin-top care-team clear">
-					<div class="left team-photo">
-						<%= image_tag 'medication_small.gif', class: "left" %>
+		<ul class="care-team-box">
+			<li>
+				<h2 class="margin-top panel-title border-top padding-top"><span class="feed_icon"><%= image_tag "care_team_small.gif" %></span>Your Care Team</h2>
+			</li>			
+			<li>
+				<ul class="margin-top">
+				    <li class="margin-bottom">
+				      <p>
+				      	Invite a new doctor, hospital or clinic to join your Care Team via email, and view your health profile.
+				      </p>
+				    </li>
+				    <li>
+				      <a href="mailto:your.doctor@your.doctor.email.com?subject=Invite%20to%20View%20[Your_Name]'s%20HappyHealth%20Medical%20Profile&amp;body=Hi%20[doctor_or_office_contact's_name].%20I%20am%20your%20patient%20[your_name],%20and%20I%20want%20to%20invite%20you%20to%20join%20my%20Care%20Team%20on%20HappyHealth%20and%20view%20my%20health%20profile%20online%20to%20better%20manage%20my%20chealth.%0D%0A%0D%0ACan%20you%20please%20add%20the%20following%20Office%20information%20to%20your%20site?%0D%0A%0D%0AOffice%20name:%20[office_name]%0D%0AOffice%20phone%20number:%20[phone_number]%0D%0AMy%20appointment%20Date:%20[appt_date]%0D%0A%0D%0AContact%20Email:%20[email]%0D%0A%0D%0AThanks%20so%20much%20and%20keep%20rocking%20on!" title="The Invite will automatically open your email client" class="action-button block">Invite!</a>
+				    </li>
+				</ul>
+			</li>
+				<% current_user.doctors.each do |doctor| %>
+			<li>		
+					<div class="widget panel margin-top care-team clear">
+						<div class="left team-photo">
+							<%= image_tag 'medication_small.gif', class: "left" %>
+						</div>					
+						<div class="panel-tab team-info">
+							<h3>Dr. <%= doctor.name %></h3>		
+							<p class="care-team-doc"><strong><%= doctor.office.name %></strong></p>
+						
+							<ul class="panel-stage hidden">
+								<li><%= doctor.office.address %></li>
+								<li><%= "#{doctor.office.city }, #{doctor.office.state } #{doctor.office.zipcode}" %></li>
+								<li><u>P:</u> <%= doctor.office.phone %></li>
+							</ul>
+						</div>									
 					</div>					
-					<div class="panel-tab team-info">
-						<h3>Dr. <%= doctor.name %></h3>		
-						<p class="care-team-doc"><strong><%= doctor.office.name %></strong></p>
-					
-						<ul class="panel-stage hidden">
-							<li><%= doctor.office.address %></li>
-							<li><%= "#{doctor.office.city }, #{doctor.office.state } #{doctor.office.zipcode}" %></li>
-							<li><u>P:</u> <%= doctor.office.phone %></li>
-						</ul>
-					</div>									
-				</div>					
-			<% end %>
+				<% end %>
+			</li>
+		</ul>
 
 	</aside>
 

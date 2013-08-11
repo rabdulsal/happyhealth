@@ -2,10 +2,10 @@
 
 <div class="margin-bottom right">
 	<ul class="appointment inline-block right">
-		<li>
+		<li class="margin-right">
 			<%= link_to 'Edit Appointment', edit_user_appointment_path(current_user.id, @appointment.id), :class => 'submit-button' %>
 		</li>
-		<li>
+		<li class="margin-right">
 			<%= link_to "Remove Appointment", user_appointment_path(current_user.id, @appointment.id), :method => 'delete', :class => 'submit-button'%>
 		</li>
 	</ul>
@@ -53,11 +53,11 @@
 </div>
 
 <ul class="inline-block right margin-bottom">
-		<li>
+		<li class="margin-right">
 			<%= link_to '<< Back to Calendar', user_appointments_path(current_user.id), :class => "submit-button" %>
 		</li>
 		<!-- Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF -->
-		<li>
+		<li class="margin-right">
 			<%= link_to "Download Office Form", pdf_path(@appointment.id, :office_id => @appointment.office.id, :format => "pdf"), :class => "submit-button" %>
 		</li>
 

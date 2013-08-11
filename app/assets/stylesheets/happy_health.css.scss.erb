@@ -603,32 +603,6 @@ p.signup-title {
 
 /* ------------------------ BUTTONS ------------------------------ */
 
-.button, .submit-button, .submit-button a, .button a, .remove-form, .create, #new_user_submit, #login_submit, .saveButton a, .nextButton a {
-    /*display: block;*/
-    color: white;
-    font-weight: bold;
-    margin-right: 10px;
-    padding: 5px;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid #aaa;
-    border: 1px solid #c7d7e5;
-    text-shadow: 0 1px 3px black;
-    box-shadow: 0 1px 1px #aaa;
-}
-
-.button, .submit-button, .submit-button a {
-    color: #555;
-    color: #4d7ca8;
-    background: -webkit-linear-gradient(top, #fff, #ececec);
-    background:    -moz-linear-gradient(top, #fff, #ececec);
-    background:     -ms-linear-gradient(top, #fff, #ececec);
-    text-shadow: 0 1px 3px white;
-    font-size: 13px !important;
-    height: 100%;
-}
-
 .navi {
     display: inline-block;
     width: 150px;
@@ -640,13 +614,6 @@ p.signup-title {
 
 .short {
     width: 100px;
-}
-
-.button:hover, .submit-button:hover, .submit-button a:hover, .button a:hover {
-    text-decoration: none;
-    background: -webkit-linear-gradient(top, #ececec, #fff);
-    background:    -moz-linear-gradient(top, #ececec, #fff);
-    background:     -ms-linear-gradient(top, #ececec, #fff);    
 }
 
 .remove-form {
@@ -697,7 +664,7 @@ p.signup-title {
 
 /* ------------------------- SHAAN'S BUTTONS ---------------------- */
 
-.createButton, .backButton, .pdfButton, .action-button, #edit-form.pdfButton, .removeButton {
+.button, .createButton, .backButton, .pdfButton, .submit-button, .action-button, #edit-form.pdfButton, .removeButton {
     /*display: block;*/ 
     background: -webkit-linear-gradient(top, #08f, #06f);
     background:    -moz-linear-gradient(top, #08f, #06f);
@@ -725,6 +692,10 @@ p.signup-title {
     padding: 0;
 }
 
+#appt.submit-button {
+    line-height: 250%;
+}
+
 .pull-right {
     margin-right: -10px;
 }
@@ -750,6 +721,23 @@ p.signup-title {
     background: -webkit-linear-gradient(top, #3A0, #3c3);
     background:    -moz-linear-gradient(top, #3A0, #3c3);
     background:            -ms-gradient(top, #3A0, #3c3);
+}
+
+.button, .submit-button {
+    color: #555;
+    color: #4d7ca8;
+    border: 1px solid #c7d7e5;
+    background: -webkit-linear-gradient(top, #fff, #ececec);
+    background:    -moz-linear-gradient(top, #fff, #ececec);
+    background:     -ms-linear-gradient(top, #fff, #ececec);
+    text-shadow: 0 1px 3px white;    
+}
+
+.button:hover, .submit-button:hover {
+    text-decoration: none;
+    background: -webkit-linear-gradient(top, #ececec, #fff);
+    background:    -moz-linear-gradient(top, #ececec, #fff);
+    background:     -ms-linear-gradient(top, #ececec, #fff);    
 }
 
 .removeButton{
@@ -831,19 +819,6 @@ ul.form {
 
 ul.form li {
     float: right;
-}
-
-ul.appointment{
-    /*position: relative;
-    width: 250px;
-    top: 160px;
-    left: -635px;
-    float: right;
-    margin-bottom: -200px;*/
-}
-
-ul.appointment li{
-    float:right;
 }
 
 label.remember{
@@ -1406,7 +1381,7 @@ aside .form-save {
     width: 93%;
     line-height: 150%;
     border-collapse: collapse;
-    margin: 20px 0 0 40px;
+    margin: 20px 0 0 40px;    
 }
     .appointment-table p {
         color: #fff;
@@ -1418,7 +1393,7 @@ aside .form-save {
     margin-top: 30px;
 }
 
-td.appt-column{
+.appt-column{
     font-variant: small-caps;
     background: #273e54;
     font-weight: bold;
@@ -1431,6 +1406,10 @@ td.appt-column{
 
 .appt-column p{
     padding-top: 24px;
+}
+
+.appt-field {
+    overflow: hidden;
 }
 
 .office{
@@ -1587,11 +1566,16 @@ input#appointment_appt_date{
     color: #4d7ca8;    
 }
 
+/*.care-team-box {
+    border: 1px solid black;    
+}*/
+
 .care-team {
     border: 1px solid #c7d7e5;
     border-radius: 3px;
     background: #f8f8f8;
-    padding: 5px;    
+    padding: 5px; 
+    width: 95%;    
 }
 
 .team-photo {
@@ -1740,11 +1724,11 @@ footer ul li:last-child, footer a {
 
 @media all and (max-width: 480px) {
     article, aside, form, footer,
-    .demoBackground,
+    .demoBackground, .left-panel,
     .dashAppointments, .dashBackground,
     #note_info, .widget, .description,
     .splash-page, .signin, .signup, .fluid-form, p a.pdfButton, 
-    .right {
+    .right, .appointment-table, .appt-column, #appt.appt-button {
         float: none;
         
         width: 100%;
@@ -1752,10 +1736,26 @@ footer ul li:last-child, footer a {
     }
 
     .noteBackground {        
-        width: 92%;
+        width: 91%;       
+    }  
+
+    .appointment-table {
+        margin: 0;
     }
 
-    textarea#note_info {
+    .appointment-table li {
+        margin-bottom: 10px;
+    }
+
+    .appt-column {
+        height: 100%;
+    }
+
+    .appt-column p {
+        padding: 10px;
+    }
+
+    textarea#note_info, .appt-column, .appt-field, .widget, .care-team-box li {
         width: 98%;
     }
 
@@ -1771,8 +1771,8 @@ footer ul li:last-child, footer a {
     .fluid-hide {
         display: none !important;
     }
-    .container_12, #header-content {
-        width: 95.8333333333333333%;    
+    .container_12, #header-content, .widget-list {
+        width: 95%;    
     }
     .container_12 {
         background: #fff !important;  
@@ -1787,8 +1787,7 @@ footer ul li:last-child, footer a {
         margin-top: 10px;
     }
 
-
-    .full_width, input.createButton, .action-button {
+    .full_width, input.createButton {
         width: 93.9393939393939393%;
         margin: 0 2.08333%;
     }

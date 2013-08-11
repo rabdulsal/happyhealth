@@ -13,74 +13,59 @@
     </div>
   <% end %>
   
-  <table class="appointment-table">
-	<tr>
-  	    <td class="appt-column">
-			<div>
-				<p>Step 1</p>
-			</div>
-		</td>
-
-		<div class="field">
-				<td><label class="doctor-column">Choose your doctor's office</label><div class="office"><%= f.collection_select :office_id, Office.all, :id, :name, :prompt => "Select an office"%><%#= image_tag("ok.png") %></div></td>
-	  	</div>
-	</tr>
-	<tr>
-		<td class="appt-column">
-			<div>
+  <div class="appointment-table">
+	<ul>
+  	    <li class="appt-column left">			
+			<p>Step 1</p>			
+		</li>
+		<li class="field appt-field">
+				<div><label class="doctor-column">Choose your doctor's office</label><div class="office"><%= f.collection_select :office_id, Office.all, :id, :name, :prompt => "Select an office"%><%#= image_tag("ok.png") %></div></div>
+	  	</li>
+	</ul>
+	<ul>
+		<li class="appt-column left">
+			
 				<p>Step 2</p>
-			</div>
-		</td>
-		<div class="doctor-field">
-			<td><label class="doctor-column">Select your doctor</label><div class="office"><%= f.collection_select :doctor_id, Doctor.office(@appointment.office_id), :id, :title, :prompt => "Please select a doctor" %></div></td>
-		</div>
-	</tr>
+			
+		</li>
+		<li class="doctor-field appt-field">
+			<div><label class="doctor-column">Select your doctor</label><div class="office"><%= f.collection_select :doctor_id, Doctor.office(@appointment.office_id), :id, :title, :prompt => "Please select a doctor" %></div></div>
+		</li>
+	</ul>
 
-	<tr>
-  		<td class="appt-column">
+	<ul>
+  		<li class="appt-column left">
 			<div>
 				<p>Step 3</p>
 			</div>
-		</td>
-  		<div class="date-field">
-			<td><label class="doctor-column">Tell us your appointment date</label><div class="office"><%= f.text_field :appt_date, :value => @appointment.appt_date %></div></td>
-  		</div>
-	</tr>
-
-	<tr class="margin-bottom">
-  		<td class="appt-column">
-			<div>
-				<p>Step 4</p>
-			</div>
-		</td>
-  		<div class="view-form">
-			<td class="pad-bot">
-				<div class="form-button">
+		</li>
+  		<li class="date-field appt-field">
+			<div><label class="doctor-column">Tell us your appointment date</label><div class="office"><%= f.text_field :appt_date, :value => @appointment.appt_date %></div></div>
+  		</li>
+	</ul>
+	<ul class="margin-bottom">
+  		<li class="appt-column left">			
+			<p>Step 4</p>			
+		</li>
+  		<li class="view-form appt-field">
+			<ul>
+				<li class="margin-bottom fluid-hide">
 					<label class="doctor-column">
 						View this office's form
 					</label>
 					<button class="createButton appt-button" id="appt">View Form</button>
-				</div>
-				<h3 class="warning margin-top">
-					Press the 'Esc' button to Exit the Form View!
-				</h3>
-			</td>
-  		</div>  		
-	</tr>
-	<tr>
-		<td class="pad-top"></td>
-		<td>
-			<ul>
-				<li>
-					<%= link_to "Edit Form", edit_user_form_path(current_user.id, current_user.form.id), class: "submit-button appt-button", id: "appt" %>			
+				</li>
+				<li class="margin-bottom fluid-hide">
+					<%= link_to "Edit Form", edit_user_form_path(current_user.id, current_user.form.id), id: "appt", class: "submit-button appt-button inline-block" %>			
 				</li>
 				<li class="actions">
 					<%= f.submit 'Save Appointment', id: "appt", :class => 'action-button appt-button' %>		  			
-		  		</li>
-  			</ul>
-		</td>
-	</tr>
-  </table>
+		  		</li>				
+			</ul>
+  		</li>   				
+	</ul>
+	
+  </div>
 
   <% f.hidden_field :user_id, :value => current_user.id %>
   
