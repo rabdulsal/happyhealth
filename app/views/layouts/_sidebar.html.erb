@@ -23,7 +23,7 @@
 					</span>
 				</li>
 			<% end %>			
-	        <li class="fluid-hide <%=@current_page%>_appointment margin-bottom">
+	        <li class="<%=@current_page%>_appointment margin-bottom">
 				<span class="icon"><%= image_tag "encounters_small.gif" %></span>
 				<span class="nav-tab-link">
 					<%= link_to "New Appointment", new_user_appointment_path(current_user.id)%>
@@ -171,7 +171,7 @@
 						<dd>Take 1 hour before bedtime.</dd>
 					</dl>
 					<!-- Placeholder for database-backed content -->
-					<a href="#" class="right see-more">See more</a>
+					<%= link_to "See more", "/users/1/forms/1/edit#tabs-4", class: "right see-more" %>
 		
 				</fieldset>
 			</li>

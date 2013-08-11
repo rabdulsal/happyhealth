@@ -1,5 +1,5 @@
 <h1>Editing appointment</h1>
-
+ 
 <%= form_for(@appointment, :url => {:controller => 'appointments', :action => 'update'}) do |f| %>
   <% if @appointment.errors.any? %>
     <div id="error_explanation">
@@ -19,17 +19,27 @@
 			<p>Step 1</p>			
 		</li>
 		<li class="field appt-field">
-				<div><label class="doctor-column">Choose your doctor's office</label><div class="office"><%= f.collection_select :office_id, Office.all, :id, :name, :prompt => "Select an office"%><%#= image_tag("ok.png") %></div></div>
+				<div>
+					<label class="doctor-column">Choose your doctor's office</label>
+					<div class="office">
+						<%= f.collection_select :office_id, Office.all, :id, :name, :prompt => "Select an office"%><%#= image_tag("ok.png") %>
+					</div>
+				</div>
 	  	</li>
 	</ul>
 	<ul>
-		<li class="appt-column left">
-			
-				<p>Step 2</p>
-			
+		<li class="appt-column left">			
+			<p>Step 2</p>			
 		</li>
 		<li class="doctor-field appt-field">
-			<div><label class="doctor-column">Select your doctor</label><div class="office"><%= f.collection_select :doctor_id, Doctor.office(@appointment.office_id), :id, :title, :prompt => "Please select a doctor" %></div></div>
+			<div>
+				<label class="doctor-column">Select your doctor</label>
+				<!--<div class="office"><%#= f.collection_select :doctor_id, Doctor.office(@appointment.office_id), :id, :title, :prompt => "Please select a doctor" %>
+				</div>-->
+				<div class="office">
+					<%= f.collection_select :doctor, Doctor.all, :title, :title, :prompt => "Please select a doctor" %>
+				</div>
+			</div>
 		</li>
 	</ul>
 
