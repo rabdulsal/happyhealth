@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130731223132) do
+ActiveRecord::Schema.define(:version => 20130805043910) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -301,12 +301,12 @@ ActiveRecord::Schema.define(:version => 20130731223132) do
   end
 
   create_table "problems", :force => true do |t|
-    t.date     "age_onset"
     t.string   "status"
     t.string   "condition"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "medical_id"
+    t.integer  "age_onset"
   end
 
   create_table "procedures", :force => true do |t|

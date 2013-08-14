@@ -1,7 +1,7 @@
 body {
         font: 13px/1.5 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
 }
-
+ 
 a,
 abbr,
 acronym,
@@ -104,7 +104,7 @@ xmp {
   clear: both;
   /*box-shadow: 0 10px 20px black;*/
   min-height: 500px;
-  overflow: hidden;    
+  overflow: hidden;  
   position: relative;  
 }
 
@@ -165,6 +165,10 @@ body, p {
     font-size: 13px;
     color: #555;
     color: #273e54;
+}
+
+.small-font {
+    font-size: 11px;
 }
 
 #main {
@@ -277,6 +281,21 @@ ul#static.inline-block{
 .clear {
     clear: both;
 }
+
+/* */
+
+.bluebutton-banner {
+    padding: 8px;
+    background: #f25d07;
+    margin: 20px 0;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+}
+    .bluebutton-banner a {
+        color: #273e54;     
+    }
 
 /* ------------------------ SPLASH PAGE ------------------------------ */
 
@@ -584,32 +603,6 @@ p.signup-title {
 
 /* ------------------------ BUTTONS ------------------------------ */
 
-.button, .submit-button, .button a, .remove-form, .create, #new_user_submit, #login_submit, .saveButton a, .nextButton a {
-    /*display: block;*/
-    color: white;
-    font-weight: bold;
-    margin-right: 10px;
-    padding: 5px;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid #aaa;
-    border: 1px solid #c7d7e5;
-    text-shadow: 0 1px 3px black;
-    box-shadow: 0 1px 1px #aaa;
-}
-
-.button, .submit-button {
-    color: #555;
-    color: #4d7ca8;
-    background: -webkit-linear-gradient(top, #fff, #ececec);
-    background:    -moz-linear-gradient(top, #fff, #ececec);
-    background:     -ms-linear-gradient(top, #fff, #ececec);
-    text-shadow: 0 1px 3px white;
-    font-size: 13px !important;
-    height: 30px;
-}
-
 .navi {
     display: inline-block;
     width: 150px;
@@ -621,13 +614,6 @@ p.signup-title {
 
 .short {
     width: 100px;
-}
-
-.button:hover, .submit-button:hover, .button a:hover {
-    text-decoration: none;
-    background: -webkit-linear-gradient(top, #ececec, #fff);
-    background:    -moz-linear-gradient(top, #ececec, #fff);
-    background:     -ms-linear-gradient(top, #ececec, #fff);    
 }
 
 .remove-form {
@@ -678,7 +664,7 @@ p.signup-title {
 
 /* ------------------------- SHAAN'S BUTTONS ---------------------- */
 
-.createButton, .backButton, .pdfButton, .action-button, #edit-form.pdfButton, .removeButton {
+.button, .createButton, .backButton, .pdfButton, .submit-button, .action-button, #edit-form.pdfButton, .removeButton {
     /*display: block;*/ 
     background: -webkit-linear-gradient(top, #08f, #06f);
     background:    -moz-linear-gradient(top, #08f, #06f);
@@ -699,11 +685,15 @@ p.signup-title {
     color: white;
 }
 
-#appt.createButton, input.createButton, .pdfButton, input.action-button{
+#appt.createButton, #appt.submit-button, input.createButton, .pdfButton, input.action-button{
 	cursor: pointer;	
     height: 34px;
     margin: 0;
     padding: 0;
+}
+
+#appt.submit-button {
+    line-height: 250%;
 }
 
 .pull-right {
@@ -731,6 +721,23 @@ p.signup-title {
     background: -webkit-linear-gradient(top, #3A0, #3c3);
     background:    -moz-linear-gradient(top, #3A0, #3c3);
     background:            -ms-gradient(top, #3A0, #3c3);
+}
+
+.button, .submit-button {
+    color: #555;
+    color: #4d7ca8;
+    border: 1px solid #c7d7e5;
+    background: -webkit-linear-gradient(top, #fff, #ececec);
+    background:    -moz-linear-gradient(top, #fff, #ececec);
+    background:     -ms-linear-gradient(top, #fff, #ececec);
+    text-shadow: 0 1px 3px white;    
+}
+
+.button:hover, .submit-button:hover {
+    text-decoration: none;
+    background: -webkit-linear-gradient(top, #ececec, #fff);
+    background:    -moz-linear-gradient(top, #ececec, #fff);
+    background:     -ms-linear-gradient(top, #ececec, #fff);    
 }
 
 .removeButton{
@@ -814,19 +821,6 @@ ul.form li {
     float: right;
 }
 
-ul.appointment{
-    /*position: relative;
-    width: 250px;
-    top: 160px;
-    left: -635px;
-    float: right;
-    margin-bottom: -200px;*/
-}
-
-ul.appointment li{
-    float:right;
-}
-
 label.remember{
     width: 13px;
     height: 13px;
@@ -838,16 +832,16 @@ label.remember{
 /*      *overflow: hidden;*/
 }
 
-#appt.appt-button, .appt_tab {
-    margin-left: 129px;
+#appt.appt-button {
     font-size: 13px;
-    width: 268px;
+    width: 268px;    
 }
 
 .appt_tab {
     width: 276px;
-    border-top: 1px dotted #000;
+    border-top: 1px dotted #c7d7e5;
     margin-top: 10px;
+    background: #273e54;
 }
 
 a.createButton{
@@ -1307,12 +1301,17 @@ aside .form-save {
         font-size: 14px;
     }
 
-/*.printout_container { 
+.printout_container { 
     -webkit-transform-origin: 0 0;   
-    -webkit-transform: rotate(-90deg) translateX(-500px);
-       -moz-transform: rotate(-90deg) translateX(-500px);
-        -ms-transform: rotate(-90deg) translateX(-500px);    
-    }*/
+    -webkit-transform: rotate(-90deg) translateX(-650px);
+       -moz-transform: rotate(-90deg) translateX(-650px);
+        -ms-transform: rotate(-90deg) translateX(-650px);    
+    }
+
+.long-height {
+    min-width: 2000px;
+    
+}    
 /* ------------------- FORMS TABLES -------------------- */
 
 .table_row_full {
@@ -1379,33 +1378,37 @@ aside .form-save {
 
 .appointment-table{
     text-align: center;
-    width: 100%;
+    width: 93%;
     line-height: 150%;
     border-collapse: collapse;
-    margin: 20px 0 0 40px;
+    margin: 20px 0 0 40px;    
 }
+    .appointment-table p {
+        color: #fff;
+        font-size: 17px;
+    }
 
 .row1{
-    margin-bottom: 30px;
     margin-top: 30px;
 }
 
-td.appt-column{
+.appt-column{
     font-variant: small-caps;
-    background-color: #696969;
-    color: white;
+    background: #273e54;
     font-weight: bold;
-    font-size: 25px;
-    font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
     height: 72px;
     display: block;
     vertical-align: middle;
     border-radius: 5px;
-/*  padding-bottom: 10px;*/
+    width: 80px;
 }
 
 .appt-column p{
     padding-top: 24px;
+}
+
+.appt-field {
+    overflow: hidden;
 }
 
 .office{
@@ -1562,11 +1565,16 @@ input#appointment_appt_date{
     color: #4d7ca8;    
 }
 
+/*.care-team-box {
+    border: 1px solid black;    
+}*/
+
 .care-team {
     border: 1px solid #c7d7e5;
     border-radius: 3px;
     background: #f8f8f8;
-    padding: 5px;    
+    padding: 5px; 
+    width: 95%;    
 }
 
 .team-photo {
@@ -1715,11 +1723,11 @@ footer ul li:last-child, footer a {
 
 @media all and (max-width: 480px) {
     article, aside, form, footer,
-    .demoBackground,
+    .demoBackground, .left-panel,
     .dashAppointments, .dashBackground,
     #note_info, .widget, .description,
     .splash-page, .signin, .signup, .fluid-form, p a.pdfButton, 
-    .right {
+    .right, .appointment-table, .appt-column, #appt.appt-button {
         float: none;
         
         width: 100%;
@@ -1727,10 +1735,26 @@ footer ul li:last-child, footer a {
     }
 
     .noteBackground {        
-        width: 92%;
+        width: 91%;       
+    }  
+
+    .appointment-table {
+        margin: 0;
     }
 
-    textarea#note_info {
+    .appointment-table li {
+        margin-bottom: 10px;
+    }
+
+    .appt-column {
+        height: 100%;
+    }
+
+    .appt-column p {
+        padding: 10px;
+    }
+
+    textarea#note_info, .appt-column, .appt-field, .widget, .care-team-box li, .dashAppointments {
         width: 98%;
     }
 
@@ -1746,8 +1770,8 @@ footer ul li:last-child, footer a {
     .fluid-hide {
         display: none !important;
     }
-    .container_12, #header-content {
-        width: 95.8333333333333333%;    
+    .container_12, #header-content, .widget-list {
+        width: 95%;    
     }
     .container_12 {
         background: #fff !important;  
@@ -1758,12 +1782,11 @@ footer ul li:last-child, footer a {
         padding: 0 15px 20px 15px;
         margin-top: 20px;
     }
-    .signin h2, .signup h2 {
+    .signin h2, .signup h2, article, .right-panel {
         margin-top: 10px;
     }
 
-
-    .full_width, input.createButton, .action-button {
+    .full_width, input.createButton {
         width: 93.9393939393939393%;
         margin: 0 2.08333%;
     }

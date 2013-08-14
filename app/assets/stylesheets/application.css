@@ -19,7 +19,7 @@
 .hidden, #TOS, .row2, .row3, .row4, input#appt.createButton, .appt_tab, .tos_agreement {
 	display: none;
 }
-
+ 
 #pdf_container p {
 	color: #36f;
 	padding: 0;

@@ -5,7 +5,7 @@
 	<%= f.fields_for :medical do |medical| %>
 
 		<h2>Problems</h2>
-		<table>
+		<table id="problems">
 			<thead>
 				<th>Condition</th>
 				<th>Age of Onset</th>
@@ -13,49 +13,66 @@
 			</thead>
 
 			<tbody>
-				<%= medical.fields_for :problems, form.medical.problems do |builder| %>
-					<tr class="table_row_third">
-						<td><%= builder.text_field :condition, :class => "form_field_length margin-bottom"%></td>
-						<td><%= builder.text_field :age_onset, :class => "form_field_length margin-bottom" %></td>
-						<td><%= builder.text_field :status, :class => "form_field_length margin-bottom" %></td>
-					</tr>
+				<% form.medical.problems.each do |problem| %>
+					<%= medical.fields_for :problems, problem do |builder| %>
+						<tr class="table_row_third" id=<%=problem.id%>>
+							<td><%= builder.text_field :condition, :class => "form_field_length margin-bottom"%></td>
+							<td><%= builder.text_field :age_onset, :class => "form_field_length margin-bottom" %></td>
+							<td><%= builder.text_field :status, :class => "form_field_length margin-bottom" %></td>
+							<td><%= link_to "x", remove_problem_path(problem_id: problem.id), remote: true %></td>
+						</tr>
+					<% end %>
 				<% end %>
 			</tbody>
 		</table>
+		<%= link_to 'Add problem', add_problem_path(form_id: form.id), remote: true %><br /><br/>
 
 		<h2>Allergies</h2>
-		<ul class="inline">
-			<%= medical.fields_for :allergies, form.medical.allergies do |builder| %>
-				<li class="table_row_half">
-					<label>Allergen:</label>
-					<%= builder.text_field :info, class: "form_field_length_full" %>
-				</li>
-				<li class="table_row_half">
-					<label>Reaction:</label>
-					<%= builder.text_field :reaction, class: "form_field_length_full" %>
-				</li>
-			<% end %>
-		</ul>
-
-		<%#= link_to "Add allergy", '#'%><br /><br />
-
-		<h2>Medications</h2>
-		<table>
+		<table id="allergies">
 			<thead>
-				<th>Medication/Dose</th>
-				<th>Reason For Taking</th>
+				<th>Allergen</th>
+				<th>Reaction</th>
+				<th>Severity</th>
 			</thead>
 
 			<tbody>
-				<%= medical.fields_for :medications, form.medical.medications do |builder| %>
-					<tr class="table_row_half">
-						<td><%= builder.text_field :info, :class => "form_field_length margin-bottom"%></td>
-						<td><%= builder.text_field :reason, :class => "form_field_length margin-bottom" %></td>
-					</tr>
+				<% form.medical.allergies.each do |allergy| %>
+					<%= medical.fields_for :allergies, allergy do |builder| %>
+						<tr class="table_row_third" id=<%=allergy.id%>>
+							<td><%= builder.text_field :info, :class => "form_field_length margin-bottom"%></td>
+							<td><%= builder.text_field :reaction, :class => "form_field_length margin-bottom" %></td>
+							<td><%= builder.text_field :severity, :class => "form_field_length margin-bottom" %></td>
+							<td><%= link_to "x", remove_allergy_path(allergy_id: allergy.id), remote: true %></td>
+						</tr>
+					<% end %>
 				<% end %>
 			</tbody>
 		</table>
-		<%#= link_to "Add medication", '#'%>
+
+		<%= link_to "Add allergy", add_allergy_path(form_id: form.id), remote: true %><br /><br />
+
+		<h2>Medications</h2>
+		<table id="medications">
+			<thead>
+				<th>Medication/Dose</th>
+				<th>Reason For Taking</th>
+				<th></th>
+			</thead>
+
+			<tbody>
+				<% form.medical.medications.each do |medication| %>
+					<%= medical.fields_for :medications, medication do |builder| %>
+						<tr class="table_row_half" id=<%=medication.id%>>
+							<td><%= builder.text_field :info, :class => "form_field_length margin-bottom"%></td>
+							<td><%= builder.text_field :reason, :class => "form_field_length margin-bottom" %></td>
+							<td><%= link_to "x", remove_medication_path(medication_id: medication.id), remote: true %></td>
+						</tr>
+					<% end %>
+				<% end %>
+			</tbody>
+		</table>
+		<%= link_to 'Add medication', add_medication_path(form_id: form.id), remote: true %>
+
 	<% end %>
 
 </fieldset>

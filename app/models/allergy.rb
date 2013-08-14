@@ -1,4 +1,5 @@
 class Allergy < ActiveRecord::Base
+	include PublicActivity::Common
 	attr_accessible		:info,
 										:reaction,
 										:severity,

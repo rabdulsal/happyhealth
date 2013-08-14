@@ -51,6 +51,12 @@ class Form < ActiveRecord::Base
       medical_changes.merge!(Hash[m_changes.map {|k, v| [k + attr_id, v] }])
     end
 
+    problems_attributes = params[:form][:medical_attributes][:problems_attributes]
+    problems_attributes.keys.each do |attr_id|
+      p_status, pr_changes = medical.problems[attr_id.to_i].update_attributes_changed(problems_attributes[attr_id])
+      medical_changes.merge!(Hash[pr_changes.map {|k, v| [k + attr_id, v] }])
+    end
+
     changes = {"Personal" => p_changes,
                "Emergency Contact 1" => e0_changes,
                "Emergency Contact 2" => e1_changes,
@@ -58,7 +64,7 @@ class Form < ActiveRecord::Base
                "Secondary Insurance" => i1_changes,
                "Dental Insurance" => d_changes,
                "Vision Insurance" => v_changes,
-               "Medical" => medical_changes
+               "Medical" => medical_changes,
               }
 
     changes.keys.each do |key|

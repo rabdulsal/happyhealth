@@ -1,6 +1,7 @@
 class FormsController < ApplicationController
 
   before_filter :correct_user
+  before_filter :printout, only: :print
 
   def show
     @form = Form.find_by_user_id(params[:user_id])
@@ -108,11 +109,69 @@ class FormsController < ApplicationController
     end
   end
 
+  def add_medication
+    @form = Form.find(params[:form_id])
+    @medication = Medication.new
+    @form.medical.medications << @medication
+
+    respond_to do |format|
+      format.js { render "forms/Medical/Medication/add_medication" }
+    end
+  end
+
+  def remove_medication
+    @medication = Medication.find(params[:medication_id])
+    @medication.medical.form.create_activity :remove_medical, parameters: {:info => @medication.info, :reason => @medication.reason}, owner: @medication.medical.form.user, recipient: @medication
+    @medication.destroy
+
+    respond_to do |format|
+      format.js { render "forms/Medical/Medication/remove_medication" }
+    end
+  end
+
+  def add_allergy
+    @form = Form.find(params[:form_id])
+    @allergy = Allergy.new
+    @form.medical.allergies << @allergy
+    respond_to do |format|
+      format.js { render "forms/Medical/Allergy/add_allergy" }
+    end
+  end
+
+  def remove_allergy
+    @allergy = Allergy.find(params[:allergy_id])
+    @allergy.medical.form.create_activity :remove_medical, parameters: {:info => @allergy.info, :reason => @allergy.reaction, :severity => @allergy.severity}, owner: @allergy.medical.form.user, recipient: @allergy
+    @allergy.destroy
+
+    respond_to do |format|
+      format.js { render "forms/Medical/Allergy/remove_allergy" }
+    end
+  end
+
+  def add_problem
+    @form = Form.find(params[:form_id])
+    @problem = Problem.new
+    @form.medical.problems << @problem
+    respond_to do |format|
+      format.js { render "forms/Medical/Problem/add_problem" }
+    end
+  end
+
+  def remove_problem
+    @problem = Problem.find(params[:problem_id])
+    @problem.medical.form.create_activity :remove_medical, parameters: {:condition => @problem.condition, :status => @problem.status, :age_onset => @problem.age_onset}, owner: @problem.medical.form.user, recipient: @problem
+    @problem.destroy
+
+    respond_to do |format|
+      format.js { render "forms/Medical/Problem/remove_problem" }
+    end
+  end
+
   # **************** FORM PRINTOUTS ******************
 
   def printout
-    @user = User.find_by_id params[:id]
-    @form = Form.find_by_id params[:user_id]
+    @user = User.find_by_id params[:user_id]
+    @form = Form.find_by_id params[:id]
     @current_page = "printout"
 
     @personal = @user.form.personal
@@ -122,23 +181,33 @@ class FormsController < ApplicationController
     @contact_1 = @user.form.emergencies[0]
     @contact_2 = @user.form.emergencies[1]
     @appt = @user.appointments
+  end
 
-
-    # respond_to do |format|
-    #   html = render_to_string(
-    #     :layout => "pdf.html.erb" ,
-    #     :action => "printout.html.erb",
-    #     :formats => [:html],
-    #     :handler => [:erb]
-    #   )
-    #   kit = PDFKit.new(html)
-    #   kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/happy_health.css.scss.erb"
-    #   send_data(kit.to_pdf,
-    #     :filename => "#{@user.to_s}_Health_Form.pdf",
-    #     :type => 'application/pdf'
-    #     )
-    #   return # to avoid double render call
+  def print
+    @long_height = "long-height"
+    get_stylesheet = "#{Rails.root}/app/assets/stylesheets/happy_health.css.scss.erb"
+    # if Rails.env.production?
+    #   get_stylesheet = "#{Rails.root}/app/assets/stylesheets/#{abrv}.css.scss.erb"
+    # else
+    #   get_stylesheet = "#{Rails.root}/app/assets/stylesheets/#{abrv}.css.scss.erb"
     # end
+    
+    respond_to do |format|
+      html = render_to_string(
+        :layout => "pdf.html.erb" ,
+        :action => "print.html.erb",
+        :formats => [:html],
+        :handler => [:erb]
+      )
+      kit = PDFKit.new(html)
+      kit.stylesheets << get_stylesheet
+      send_data(kit.to_pdf,
+        :filename => "#{@user.to_s}_Health_Form.pdf",
+        :type => 'application/pdf'
+        )
+      return # to avoid double render call
+    end
+  end
 
 
     #Send Fax, receive confirmation
@@ -150,6 +219,4 @@ class FormsController < ApplicationController
     # File.open("received_test.pdf", "w") do |file|
     #   file << @pdf
     # end
-
-  end
 end

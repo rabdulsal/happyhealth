@@ -13,10 +13,13 @@
 	<% activity.parameters.keys.each do |profile| %>
 		<h2 class="margin-bottom"><%= profile %></h2>
 		<% activity.parameters[profile].keys.each do |param| %>
-			<p>
-				<span class="feed_icon"><%= image_tag "health_prof_small.gif" %></span>
-				<span class="lifecycle-verb"><%= "Changed #{param.gsub(/[0-9]/i, '').split("_").join(" ")} from #{activity.parameters[profile][param][0] || '-' } to #{activity.parameters[profile][param][1] || '-'}" %></span>
-			</p>
+			<% if activity.parameters[profile][param][0] && activity.parameters[profile][param][1] %>
+				<p><span class="feed_icon"><%= image_tag "health_prof_small.gif" %></span>
+					 <span class="lifecycle-verb"><%= "Changed #{param.gsub(/[0-9]/i, '').split("_").join(" ")} from #{activity.parameters[profile][param][0]} to #{activity.parameters[profile][param][1]}" %></span>
+			<% elsif !activity.parameters[profile][param][1].to_s.empty? %>
+				<p><span class="feed_icon"><%= image_tag "health_prof_small.gif" %></span>
+					 <span class="lifecycle-verb"><%= "Added #{param.gsub(/[0-9]/i, '').split("_").join(" ")}: #{activity.parameters[profile][param][1]}" %></span></p>
+			<% end %>
 		<% end %>
 	<% end %>
 </div>

@@ -1,4 +1,4 @@
-<table class="top-panel">
+<table class="top-panel fluid-hide">
 	<!-- <ul class="panel-content inline">
 		<li>Profile pic</li>
 		<li></li>
@@ -7,7 +7,7 @@
 
 	<thead>
 		<th>
-			Tammy Lee
+			<%= "#{current_user.form.personal.first_name}" "#{current_user.form.personal.last_name}" %>
 		</th>
 		<th>Biometrics</th>		
 		<th>Cholesterol</th>
@@ -21,17 +21,43 @@
 				<ul class="inline-block margin-top">
 					<li class="left"><%= image_tag "patient_photo.jpg" %></li>
 					<li>
-						<p><strong><u>Conditions:</u></strong></p>
-						<p>Diabetes</p>
-						<p>Hyperlipidemia</p>
-						<p>Hypertension</p>								
+						<p>
+							<strong><u>Conditions:</u></strong> 
+							<span class="small-font">(<%= link_to "Edit", "/users/1/forms/1/edit#tabs-4" %>)</span>
+						</p>
+						
+						<% unless current_user.form.medical.problems[0].nil? %>
+							<p>
+								<%= current_user.form.medical.problems[0].condition %>
+							</p>
+						<% end %>						
+						<% unless current_user.form.medical.problems[1].nil? %>
+							<p>
+								<%= current_user.form.medical.problems[1].condition %>
+							</p>
+						<% end %>						
+						<% unless current_user.form.medical.problems[2].nil? %>
+							<p>
+								<%= current_user.form.medical.problems[2].condition %>
+							</p>
+						<% end %>						
+						<% unless current_user.form.medical.problems[3].nil? %>
+							<p>
+								<%= current_user.form.medical.problems[3].condition %>
+							</p>
+						<% end %>
+						<% unless current_user.form.medical.problems[4].nil? %>
+							<p>
+								<%= current_user.form.medical.problems[4].condition %>
+							</p>
+						<% end %>														
 					</li>
 				</ul>	
 			</td>
 			<td>
 				<ul>
 					<li>Height: <span class="normal">5</span> ft. <span class="normal">5</span> in.</li>				
-					<li>Weight: <span class="mid-risk">202.6</span> lbs<span class="vitals-tip" title="Doctors suggest you should weigh yourself once a week at the same time of day for consistent results.">?</span> </li>
+					<li>Weight: <span class="mid-risk">160</span> lbs<span class="vitals-tip" title="Doctors suggest you should weigh yourself once a week at the same time of day for consistent results.">?</span> </li>
 					<li>BMI: <span class="mid-risk">26.3</span><span class="vitals-tip" title="BMI is an estimate of body fatness. In general, the higher your BMI, the greater your risk for health problems like high blood pressure, diabetes, high cholesterol and heart disease.">?</span></li>
 			</td>
 			<td>	

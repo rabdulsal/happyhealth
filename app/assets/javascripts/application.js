@@ -35,11 +35,11 @@ $(function() {
 	// ********************************************
 
 	$('select#appointment_doctor').change(function(e){
-		$('.row3').fadeIn("slow");
+		$('.row3').fadeIn();
 	});
 
 	$('#appointment_appt_date').change(function(e){
-		$('.row4').fadeIn("slow");
+		$('.row4').fadeIn();
 	});
 
 	$("#appointment_appt_date").datepicker({ minDate: +0 });
@@ -47,6 +47,7 @@ $(function() {
 	$('select#appointment_office_id').change(function(e){
 	    getDoctors($(this).val());
 	});
+
 
 	// Rendering the individual office PDFs in the background
 
@@ -88,7 +89,6 @@ $(function() {
 	// Open up TOS and Privacy Policy Agreement when 'Download' button is clicked
 
 	$('.office-form-download').on("click", function(){
-		console.log(this.id);
 		id = this.id.split("_")[1]
 		$('div.accordion_' + id)[0].style.height = "258px";
 		$('input#tos_' + id)[0].checked = false;
@@ -160,7 +160,6 @@ $(function() {
 		        data: {'office_id': val},
 		 		type: 'GET',
 		    success: function(data){
-		    	console.log(data);
 				$('.' + data).dialog("open");
 		    },
 		    error: function(){
@@ -183,12 +182,9 @@ $(function() {
  //    	getPdf(officeId);
 	// 	return false;
 	// });
-	
-	// Switching back to old code
-	
 	$("button#appt.createButton").on("click", function() {
-		$('#edit-form').fadeIn("slow");
-		$('input#appt.createButton').fadeIn("slow");
+		$('#edit-form').fadeIn();
+		$('input#appt.action-button').fadeIn();
 		var officeId = $('select#appointment_office_id').val();
     	getPdf(officeId);
 		return false;
@@ -221,7 +217,6 @@ $(function() {
 
   $('.toggle_activity').on("click", function(e){
   	e.preventDefault();
-  	console.log(e.target.innerHTML)
   	$(e.target).next().toggle();
   	if(e.target.innerHTML == "Hide details")
   		e.target.innerHTML = "See more"

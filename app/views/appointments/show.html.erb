@@ -1,26 +1,18 @@
 <h1>Appointment Details</h1>
 
-<ul class="appointment inline-block right">
-	<li><%= link_to '<< Back to Calendar', user_appointments_path(current_user.id), :class => "submit-button block" %>
-	</li>
-	<li>
-		<%= link_to 'Edit Appointment', edit_user_appointment_path(current_user.id, @appointment.id), :class => 'submit-button block' %>
-	</li>
-	<li>
-		<%= link_to "Remove Appointment", user_appointment_path(current_user.id, @appointment.id), :method => 'delete', :class => 'removeButton block'%>
-	</li>
-	<!-- Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF -->
-	<li>
-		<%= link_to "Download Office Form", pdf_path(@appointment.id, :office_id => @appointment.office.id, :format => "pdf"), :class => "pdfButton block" %>
-	</li>
+<div class="margin-bottom right">
+	<ul class="appointment inline-block right">
+		<li class="margin-right">
+			<%= link_to 'Edit Appointment', edit_user_appointment_path(current_user.id, @appointment.id), :class => 'submit-button' %>
+		</li>
+		<li class="margin-right">
+			<%= link_to "Remove Appointment", user_appointment_path(current_user.id, @appointment.id), :method => 'delete', :class => 'submit-button'%>
+		</li>
+	</ul>
+	
+</div>
 
-	<!-- Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
-	<li>
-		<%#= link_to "View PDF", pdf_path(@appointment.id, :office => @appointment.office.pdf.form_name, :format => "pdf"), :class => "pdfButton", target: "_blank" %> -->
-	</li>
-</ul>
-
-<div class="widget clear">
+<div class="widget clear margin-top">
 <!-- <%= image_tag('dualnote.jpg').html_safe %>-->
 	<h2 class="left">Office Details</h2>
 		<dl class="dashAppointments clear">
@@ -59,3 +51,18 @@
 		<% end %>
 	</dl>
 </div>
+
+<ul class="inline-block right margin-bottom">
+		<li class="margin-right">
+			<%= link_to '<< Back to Calendar', user_appointments_path(current_user.id), :class => "submit-button" %>
+		</li>
+		<!-- Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF -->
+		<li class="margin-right">
+			<%= link_to "Download Office Form", pdf_path(@appointment.id, :office_id => @appointment.office.id, :format => "pdf"), :class => "submit-button" %>
+		</li>
+
+		<!-- Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
+		<li>
+			<%#= link_to "View PDF", pdf_path(@appointment.id, :office => @appointment.office.pdf.form_name, :format => "pdf"), :class => "pdfButton", target: "_blank" %> -->
+		</li>
+	</ul>

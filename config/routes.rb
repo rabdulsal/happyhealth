@@ -17,14 +17,22 @@ HappyHealth::Application.routes.draw do
 
   post "/agree" => "offices#save_receipt", as: :receipt
 
+  get "/add_medication" => 'forms#add_medication', as: :add_medication
+  get "/remove_medication" => 'forms#remove_medication', as: :remove_medication
+  get "/add_allergy" => 'forms#add_allergy', as: :add_allergy
+  get "/remove_allergy" => 'forms#remove_allergy', as: :remove_allergy
+  get "/add_problem" => 'forms#add_problem', as: :add_problem
+  get "/remove_problem" => 'forms#remove_problem', as: :remove_problem
+
   devise_for :users
 
   resources :users do
     resources :notes
     resources :forms do
       member do
-        get 'printout'
+        get 'printout'          
       end
+      get 'print', on: :member
     end
     resources :appointments
   end
