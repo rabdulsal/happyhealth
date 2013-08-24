@@ -38,7 +38,7 @@
 			<tbody>
 				<% form.medical.allergies.each do |allergy| %>
 					<%= medical.fields_for :allergies, allergy do |builder| %>
-						<tr class="table_row_third" id=<%=allergy.id%>>
+						<tr class="table_row_third" id="<%=allergy.id%>">
 							<td><%= builder.text_field :info, :class => "form_field_length margin-bottom"%></td>
 							<td><%= builder.text_field :reaction, :class => "form_field_length margin-bottom" %></td>
 							<td><%= builder.text_field :severity, :class => "form_field_length margin-bottom" %></td>

@@ -55,6 +55,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new
     #@appointment.doctor = Doctor.new
     @appointment.user_id = @user.id
+    @appointment.referral_reason = ReferralReason.new
 
     @office_form_partials = []
     @offices.each do |office|
@@ -81,6 +82,8 @@ class AppointmentsController < ApplicationController
     @appointment.office_id = params[:appointment][:office_id]
     @appointment.appt_date = params[:appointment][:appt_date]
     @appointment.user_id = params[:appointment][:user_id]
+    @appointment.referral_reason = ReferralReason.new params[:appointment][:referral_reason_attributes]
+    #@appointment.appt_time = params[:appointment][:appt_time]
     @appointment.doctor_id = Doctor.find_by_title(params[:appointment][:doctor]).id
     @appointment.save
     split_date = params[:appointment][:appt_date].split("/")
@@ -106,7 +109,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     @user = User.find_by_id(params[:user_id])
     respond_to do |format|
-      if @appointment.update_attributes(params[:appointment])
+      if  @appointment.update_attributes(params[:appointment])
         @appointment.create_activity :update, owner: @user
         format.html { redirect_to user_appointment_path(@user.id, @appointment.id), notice: 'Appointment was successfully updated.' }
         format.json { head :no_content }

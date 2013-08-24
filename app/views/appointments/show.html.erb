@@ -14,19 +14,28 @@
 
 <div class="widget clear margin-top">
 <!-- <%= image_tag('dualnote.jpg').html_safe %>-->
-	<h2 class="left">Office Details</h2>
+	<h2 class="left">Appointment Information</h2>
 		<dl class="dashAppointments clear">
 			<dt>Office</dt>
-			<dd>
-				<%= Office.find_by_id(@appointment.office_id).name %>
-			</dd>
+				<dd>
+					<%= Office.find_by_id(@appointment.office_id).name %>
+				</dd>
 			<dt>Doctor</dt>
-			<dd><%= @appointment.doctor.title %></dd>
-			<dt>Appointment Date</dt>
-			<dd>
-				<%= @appointment.appt_date.strftime("%B %d, %Y") %>
-			</dd>
-		</dl>
+				<dd><%= @appointment.doctor.title %></dd>
+			<dt>Appointment Date and Time</dt>
+				<dd>
+					<%= @appointment.appt_date.strftime("%B %d, %Y") %>
+					<%#= @appointment.appt_date %>
+				</dd>
+				<dd>
+					<%#= @appointment.appt_time.strftime("%l:%M") %>
+					<%= @appointment.appt_time %>
+				</dd>
+			<dt>Reason for Visit</dt>
+				<dd>
+					<%= @appointment.referral_reason.visit_reason %>
+				</dd>
+		</dl> 
 		<p>
 			<% if current_user.is_admin == true %>
 				<%= link_to "New Insurance Query", new_insurance_query_url(controller: 'insurance_queries') %>
@@ -34,7 +43,7 @@
 		</p>
 </div>
 <div class="widget">
-	<h2 class="left">Contact Information</h2>
+	<h2 class="left">Office Details</h2>
 	<dl class="dashAppointments clear">
 		<dt>Address</dt>
 		<dd><%= @appointment.office.address%></dd>

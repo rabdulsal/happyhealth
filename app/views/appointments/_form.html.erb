@@ -31,6 +31,7 @@
 			<p>Step 2</p>			
 		</li>
 		<li class="doctor-field appt-field">
+			<%= params %>
 			<div>
 				<label class="doctor-column">Select your doctor</label>
 				<div class="office">
@@ -50,6 +51,10 @@
 				<div class="office">
 					<%= f.text_field :appt_date %>
 				</div>
+				<!-- <div>
+					<label class="doctor-column">Appointment Time</label>
+					<%#= f.time_select :appt_time, {prompt: true, ampm: true, minute_step: 15} %>
+				</div> -->
 			</div>
   		</li>		
 	</ul>
@@ -59,6 +64,15 @@
 		</li>
 		<li class="view-form appt-field">
 			<ul>
+				<li>
+					<%= f.fields_for :referral_reason do |referral| %>
+						
+						<label class="doctor-column">Reason for Visit</label>
+						<div class="office">
+							<%= referral.text_area :visit_reason %>
+						</div>
+					<% end %>
+				</li>
 		  		<li class="margin-bottom">
 					
 						<label class="doctor-column">

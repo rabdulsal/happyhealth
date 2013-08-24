@@ -143,10 +143,12 @@
 					<legend>8:00 AM | <%= current_user.appointments.last.appt_date.strftime("%b %d, %Y") %></legend>	
 					<dl>
 						<dt>Location:</dt>
-						<dd><%= current_user.appointments.last.office.name %></dd>
+							<dd><%= current_user.appointments.last.office.name %></dd>
 					
 						<dt>Physician:</dt>
-						<dd><%= current_user.appointments.last.doctor.title %></dd>
+							<dd><%= current_user.appointments.last.doctor.title %></dd>
+						<dt>Reason for Visit</dt>
+							<dd><%= current_user.appointments.last.referral_reason.visit_reason %></dd>
 					</dl>
 					<!-- Placeholder for database-backed content -->
 					<ul class="inline right">

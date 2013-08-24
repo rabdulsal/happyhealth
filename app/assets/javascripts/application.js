@@ -48,7 +48,7 @@ $(function() {
 	    getDoctors($(this).val());
 	});
 
-
+ 
 	// Rendering the individual office PDFs in the background
 
 	// GET request for list of doctors
