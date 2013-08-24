@@ -8,7 +8,7 @@
 
 require 'nokogiri'
 require 'open-uri'
-
+ 
 Pdf.destroy_all
 Office.destroy_all
 Doctor.destroy_all
