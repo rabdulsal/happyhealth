@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130824035255) do
+ActiveRecord::Schema.define(:version => 20130825131735) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -236,6 +236,8 @@ ActiveRecord::Schema.define(:version => 20130824035255) do
     t.string   "email"
     t.integer  "npi"
     t.string   "abrv"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "old_passwords", :force => true do |t|

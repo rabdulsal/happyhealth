@@ -12,53 +12,67 @@
 	
 </div>
 
-<div class="widget clear margin-top">
+<!-- <div id="map-canvas">
+  <div>
+    <input id="address" type="textbox" value="Chicago, IL">
+    <input type="button" value="Encode" onclick="codeAddress()">
+  </div>
+</div> -->
+
+<div class="widget clear margin-top dashAppointments">
 <!-- <%= image_tag('dualnote.jpg').html_safe %>-->
-	<h2 class="left">Appointment Information</h2>
-		<dl class="dashAppointments clear">
-			<dt>Office</dt>
-				<dd>
-					<%= Office.find_by_id(@appointment.office_id).name %>
-				</dd>
-			<dt>Doctor</dt>
-				<dd><%= @appointment.doctor.title %></dd>
-			<dt>Appointment Date and Time</dt>
-				<dd>
-					<%= @appointment.appt_date.strftime("%B %d, %Y") %>
-					<%#= @appointment.appt_date %>
-				</dd>
-				<dd>
-					<%#= @appointment.appt_time.strftime("%l:%M") %>
-					<%= @appointment.appt_time %>
-				</dd>
-			<dt>Reason for Visit</dt>
-				<dd>
-					<%= @appointment.referral_reason.visit_reason %>
-				</dd>
+	<div class="right margin-bottom">
+		<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@appointment.office_lat},#{@appointment.office_long}&zoom=15&size=400x300&maptype=roadmap
+	&markers=color:red%7Ccolor:red%7Clabel:A%7C#{@appointment.office_lat},#{@appointment.office_long}&sensor=false" %>
+	</div>
+
+	<div class="half_width">
+		<dl>
+			<h2 class="panel-title">Appointment Information</h2>
+				<dt>Office</dt>
+					<dd>
+						<%= Office.find_by_id(@appointment.office_id).name %>
+					</dd>
+				<dt>Doctor</dt>
+					<dd><%= @appointment.doctor.title %></dd>
+				<dt>Appointment Date and Time</dt>
+					<dd>
+						<%= @appointment.appt_date.strftime("%B %d, %Y") %>
+						<%#= @appointment.appt_date %>
+					</dd>
+					<dd>
+						<%#= @appointment.appt_time.strftime("%l:%M") %>
+						<%#= @appointment.appt_time %>
+					</dd>
+				<dt>Reason for Visit</dt>
+					<dd>
+						<%= @appointment.referral_reason.visit_reason %>
+					</dd>
 		</dl> 
+
+		<dl>
+			<h2 class="panel-title">Office Details</h2>	
+				<dt>Address</dt>
+					<dd>
+						<%= @appointment.office.full_address %>
+					</dd>
+				<dt>Phone Number</dt>
+					<dd><%= @appointment.office.phone %></dd>
+				<dt>Fax Number</dt>
+					<dd><%= @appointment.office.fax %></dd>
+					<% if @appointment.office.email %>
+						<dt>Email</dt>
+						<dd><%= @appointment.office.email %></dd>
+					<% end %>
+		</dl>
+
 		<p>
 			<% if current_user.is_admin == true %>
 				<%= link_to "New Insurance Query", new_insurance_query_url(controller: 'insurance_queries') %>
 			<% end %>
 		</p>
-</div>
-<div class="widget">
-	<h2 class="left">Office Details</h2>
-	<dl class="dashAppointments clear">
-		<dt>Address</dt>
-		<dd><%= @appointment.office.address%></dd>
-		<dd>
-			<%= "#{@appointment.office.city}, #{@appointment.office.state} #{@appointment.office.zipcode}"%>
-		</dd>
-		<dt>Phone Number</dt>
-		<dd><%= @appointment.office.phone %></dd>
-		<dt>Fax Number</dt>
-		<dd><%= @appointment.office.fax %></dd>
-		<% if @appointment.office.email %>
-			<dt>Email</dt>
-			<dd><%= @appointment.office.email %></dd>
-		<% end %>
-	</dl>
+	</div>		
+	
 </div>
 
 <ul class="inline-block right margin-bottom">

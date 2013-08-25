@@ -148,7 +148,9 @@
 						<dt>Physician:</dt>
 							<dd><%= current_user.appointments.last.doctor.title %></dd>
 						<dt>Reason for Visit</dt>
-							<dd><%= current_user.appointments.last.referral_reason.visit_reason %></dd>
+							<dd>
+								<%= current_user.appointments.last.referral_reason.visit_reason %>
+							</dd>
 					</dl>
 					<!-- Placeholder for database-backed content -->
 					<ul class="inline right">

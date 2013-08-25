@@ -9,7 +9,12 @@ class Office < ActiveRecord::Base
                   :fax,
                   :email,
                   :pdfs_attributes,
-                  :abrv
+                  :abrv,
+                  :latitude,
+                  :longitude
+
+  geocoded_by :full_address
+  after_validation :geocode
 
   validates :name, :address, :city, :state, :presence => true
 
@@ -24,6 +29,11 @@ class Office < ActiveRecord::Base
 
   def sorted_doctors
     self.doctors.sort {|a,b| a.title <=> b.title}
+  end
+
+  def full_address
+    arry = [self.address, self.city, self.state, self.zipcode]
+    arry.join(" ")
   end
 
 end

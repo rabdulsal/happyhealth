@@ -23,4 +23,12 @@ class Appointment < ActiveRecord::Base
     Office.find_by_id(self.office_id)
   end
 
+  def office_lat
+    self.office.latitude
+  end
+
+  def office_long
+    self.office.longitude
+  end
+
 end

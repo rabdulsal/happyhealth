@@ -85,6 +85,9 @@ gem 'public_activity'
 #Enable Following
 gem 'acts_as_follower'
 
+#Geocoder for Maps
+gem 'geocoder'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

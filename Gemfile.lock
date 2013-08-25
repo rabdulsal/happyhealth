@@ -96,6 +96,7 @@ GEM
       nokogiri (~> 1.5.0)
       ruby-hmac
     formatador (0.2.4)
+    geocoder (1.1.8)
     gs (0.1.4)
     hike (1.2.1)
     httmultiparty (0.3.10)
@@ -240,6 +241,7 @@ DEPENDENCIES
   devise
   devise_security_extension
   easy_captcha
+  geocoder
   gs
   jquery-rails (= 2.2.1)
   kaminari (= 0.13.0)
