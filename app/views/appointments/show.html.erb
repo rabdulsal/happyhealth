@@ -5,7 +5,7 @@
 		<li class="margin-right">
 			<%= link_to 'Edit Appointment', edit_user_appointment_path(current_user.id, @appointment.id), :class => 'submit-button' %>
 		</li>
-		<li class="margin-right">
+		<li>
 			<%= link_to "Remove Appointment", user_appointment_path(current_user.id, @appointment.id), :method => 'delete', :class => 'submit-button'%>
 		</li>
 	</ul>
@@ -21,10 +21,15 @@
 
 <div class="widget clear margin-top dashAppointments">
 <!-- <%= image_tag('dualnote.jpg').html_safe %>-->
-	<div class="right margin-bottom">
-		<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@appointment.office_lat},#{@appointment.office_long}&zoom=15&size=400x300&maptype=roadmap
+	<ul class="right margin-bottom">
+		<li>
+			<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@appointment.office_lat},#{@appointment.office_long}&zoom=15&size=400x300&maptype=roadmap
 	&markers=color:red%7Ccolor:red%7Clabel:A%7C#{@appointment.office_lat},#{@appointment.office_long}&sensor=false" %>
-	</div>
+		</li>
+		<li class="margin-top right">
+			<%= link_to "Download Office Form", pdf_path(@appointment.id, :office_id => @appointment.office.id, :format => "pdf"), :class => "block action-button" %>
+		</li>
+	</ul>
 
 	<div class="half_width">
 		<dl>
@@ -76,13 +81,11 @@
 </div>
 
 <ul class="inline-block right margin-bottom">
-		<li class="margin-right">
+		<li>
 			<%= link_to '<< Back to Calendar', user_appointments_path(current_user.id), :class => "submit-button" %>
 		</li>
 		<!-- Comment-out to enable 'View in separate tab' functionality; un-comment for direct-download of PDF -->
-		<li class="margin-right">
-			<%= link_to "Download Office Form", pdf_path(@appointment.id, :office_id => @appointment.office.id, :format => "pdf"), :class => "submit-button" %>
-		</li>
+		
 
 		<!-- Comment-out for direct-download of PDF functionality; un-comment to view PDF in separate window
 		<li>
