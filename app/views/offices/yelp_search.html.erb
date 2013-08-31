@@ -1,9 +1,22 @@
 <h1>Yelp Responses</h1>
 
-<table>
-	<tr>
-		<td>
-			<%= @response %>
-		</td>
-	</tr>
-</table>
+<h2>Yelp Stats</h2>
+<p>
+	<strong>Average Rating: </strong><img src="<%=@response['businesses'][1]['rating_img_url']%>" />
+</p>
+<p>
+	<strong>Total Reviews: </strong><%= @response["businesses"][1]["review_count"] %> 
+</p>
+<p>
+	<%= @response["businesses"][1]["reviews"][0]["text_excerpt"] %> <%= link_to "Read more", @response["businesses"][1]["reviews"][0]["url"], target: "_blank" %>
+</p>
+<p>
+	<%= @response["businesses"][1]["reviews"][1]["text_excerpt"] %> <%= link_to "Read more", @response["businesses"][1]["reviews"][1]["url"], target: "_blank" %>
+</p>
+<p>
+	<%= @response["businesses"][1]["reviews"][2]["text_excerpt"] %> <%= link_to "Read more", @response["businesses"][1]["reviews"][2]["url"], target: "_blank" %>
+</p>
+<p>
+	<%= link_to "See all reviews", @response["businesses"][1]["url"], target: "_blank" %>
+</p>
+	

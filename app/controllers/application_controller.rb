@@ -10,6 +10,24 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  def yelp_search
+
+    
+    appt_office_phone = Appointment.find(params[:id]).office.phone
+    logger
+    client = Yelp::Client.new
+    request = Yelp::V1::Phone::Request::Number.new(
+      :phone_number => "#{appt_office_phone}",
+        
+      :yws_id => 'IjuGGlLHcxI94_kxNNQ63w'
+      )
+    
+    @response = client.search(request)
+
+      
+    
+  end
+
   protected
 
   # force_ssl if: :ssl_configured?
@@ -271,5 +289,7 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     "http://www.happyhealth.me"
   end
+
+  
 
 end

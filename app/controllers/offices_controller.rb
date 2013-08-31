@@ -139,20 +139,19 @@ class OfficesController < ApplicationController
   end
 
   def yelp_search
-      client = Yelp::Client.new
-      request = Yelp::V1::Review::Request::Location.new(
-        :address => '1650 W. Harrison',
-        :city => 'Chicago',
-        :state => 'IL',
-        :term => 'doctor',
-        :radius => 2,
-        :yws_id => 'IjuGGlLHcxI94_kxNNQ63w')
-      @response = client.search(request)
+    client = Yelp::Client.new
+    request = Yelp::V1::Phone::Request::Number.new(
+      :phone_number => "3129229595",
+        
+      :yws_id => 'IjuGGlLHcxI94_kxNNQ63w'
+      )
+    
+    @response = client.search(request)
 
-      respond_to do |format|
-        format.html
-        format.json { render json: @response }      
-      end
+    respond_to do |format|
+      format.html
+      format.json { render json: @response }      
+    end
   end
 
   # GET /offices/1/edit

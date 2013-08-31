@@ -26,12 +26,24 @@
 			<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?center=#{@appointment.office_lat},#{@appointment.office_long}&zoom=15&size=400x300&maptype=roadmap
 	&markers=color:red%7Ccolor:red%7Clabel:A%7C#{@appointment.office_lat},#{@appointment.office_long}&sensor=false" %>
 		</li>
-		<li class="margin-top right">
-			<%= link_to "Download Office Form", pdf_path(@appointment.id, :office_id => @appointment.office.id, :format => "pdf"), :class => "block action-button" %>
-		</li>
+		<li class="margin-top">
+			<p class="right">
+				<%= link_to "Download Office Form", pdf_path(@appointment.id, :office_id => @appointment.office.id, :format => "pdf"), :class => "block action-button" %>
+			</p>
+			<p>
+				<strong>Average Yelp Rating:</strong><br />
+				<img src="<%=@response['businesses'][1]['rating_img_url']%>" />
+			</p>
+			<p>
+				<strong>Total Reviews: </strong><%= @response["businesses"][1]["review_count"] %> 
+			</p>
+			<p>
+				<%= link_to "See all reviews", @response["businesses"][1]["url"], target: "_blank" %>
+			</p>
+		</li>		
 	</ul>
 
-	<div class="half_width">
+	<div class="team-info">
 		<dl>
 			<h2 class="panel-title">Appointment Information</h2>
 				<dt>Office</dt>
