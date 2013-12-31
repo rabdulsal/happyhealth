@@ -18,5 +18,10 @@ class UsersController < ApplicationController
     # @appointments.sort!{|a,b| a.appt_date <=> b.appt_date}
   end
 
+  def sign_in
+    @user = User.find_by_id params[:id]
+    @personal = @user.form.personal
+  end
+
 
 end

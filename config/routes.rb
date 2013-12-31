@@ -37,6 +37,8 @@ HappyHealth::Application.routes.draw do
     resources :appointments
   end
 
+  match "/users/:id/sign_in" => "users#sign_in"
+
   resources :offices do
     resources :pdfs
   end
