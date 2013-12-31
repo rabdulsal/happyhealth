@@ -1,0 +1,46 @@
+<div id="form_printout">
+	<table>
+		<thead>
+			<th>Patient</th>
+			<th>Appointment</th>
+			<th>Visit</th>
+			<th>Payment</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="user-panel-image">				
+					<ul class="inline-block margin-top">
+						<li class="left"><%= image_tag "https://d12g1y8tkz7wxd.cloudfront.net/assets/patient_photo-b07786dfea2328749bcec1676fb45157.jpg" %></li>
+						<li>
+							<h2 class="printout-name"><%= @user.to_s %> <%= @personal.last_name %></h2>			
+							<p><%= @personal.race %></p>
+							<p><%= @user.age %></p>
+							<p>English-speaking</p>							
+						</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>Scheduled time:</li>
+						<li>Arrival time:</li>
+						<li>Early/Late:</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>Doctor to see:</li>
+						<li>Visit Reason:</li>
+					</ul>
+				</td>
+				<td>
+					<ul>
+						<li>Insurance Company:</li>
+						<li>Balance:</li>
+						<li>Paid Co-pay?</li>
+						<li>Verfiy Insurance:</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>	
