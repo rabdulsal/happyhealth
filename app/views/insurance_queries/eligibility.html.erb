@@ -6,7 +6,7 @@
 	<table class="show-table">
 		<p class="dot-bottom">
 			<%= @eligibility %>
-		</p>
+	["error"].nil?>
 
 		<% if @eligibility["error"].present? %> 
 
@@ -15,83 +15,103 @@
 		<% else %>		
 			<tr>
 				<th>
-					Timestamp:
-				</th> 
+					Coverage Status:
+				</th>
+				<% unless @eligibility["plan"]["coverage_status_label"].blank? %> 
 				<td>
-					<%= @eligibility["timestamp"] %>
+					<%= @eligibility["plan"]["coverage_status_label"] %>
 				</td>
+				<% end %>
 			</tr>
 			<tr>
 				<th>
-					Primary Insurance: 
+					Effective Date: 
 				</th>
+				<% unless @eligibility["plan"]["dates"][1]["date_value"].nil? %> 
 				<td>
-					<%= @eligibility["primary_insurance"]["name"] %>
+					<%= @eligibility["plan"]["dates"][1]["date_value"] %>
 				</td>
+				<% end %>
 			</tr>
 			<tr>
 				<th>
 					Group Name: 
 				</th>
+				<% unless @eligibility["plan"].nil? %> 
 				<td>
-					<%= @eligibility["primary_insurance"]["group_name"] %>
+					<%= @eligibility["plan"]["group_name"] %>
 				</td>
+				<% end %>
 			</tr>
 			<tr>
 				<th>
 					Plan: 
 				</th>
+				<% unless @eligibility["primary_insurance"].nil? %> 
 				<td>
 					<%= @eligibility["primary_insurance"]["comments"][0] %>
 				</td>
+				<% end %>
 			</tr>
 			<tr>
 				<th>
 					Deductible Total (In): 
 				</th>
+				<% unless @eligibility["deductible_in_network"].nil? %> 
 				<td>
 					<%= number_to_currency(@eligibility["deductible_in_network"]["individual"]["base_period"]) %>
 				</td>
+				<% end %>
 			</tr>
 			<tr>
 				<th>
 					Deductible Remaining (In): 
 				</th>
+				<% unless @eligibility["deductible_in_network"].nil? %> 
 				<td>
 					<%= number_to_currency(@eligibility["deductible_in_network"]["individual"]["remaining"]) %>
 				</td>
+				<% end %>
 			</tr>
 			<tr>
 				<th>
 					Incidentals (In): 
 				</th>
+				<% unless @eligibility["deductible_in_network"].nil? %> 
 				<td>
 					<%= @eligibility["deductible_in_network"]["individual"]["comments"] %>
 				</td>
+				<% end %>
 			</tr>
 			<tr>
 				<th>
 					Deductible Total (Out): 
 				</th>
+				<% unless @eligibility["stop_loss_in_network"].nil? %> 
 				<td>
 					<%= number_to_currency(@eligibility["stop_loss_in_network"]["individual"]["base_period"]) %>
 				</td>
+				<% end %>
 			</tr>
 			<tr>
 				<th>
 					Deductible Remaining (Out): 
 				</th>
+				<% unless @eligibility["stop_loss_in_network"].nil? %> 
 				<td>
 					<%= number_to_currency(@eligibility["stop_loss_in_network"]["individual"]["remaining"]) %>
 				</td>
+				<% end %>
 			</tr>
 			<tr>
 				<th>
 					Incidentals (Out): 
 				</th>
+				<% unless @eligibility["stop_loss_in_network"].nil? %> 
 				<td>
 					<%= @eligibility["stop_loss_in_network"]["individual"]["comments"] %>
 				</td>
+				<% end %>
 			</tr>
 		<% end %>
 	</table>	

@@ -14,19 +14,20 @@ class User < ActiveRecord::Base
           :session_limitable,
           :expirable,
           :security_questionable
-          # :authentication_keys => [:login]
+          #:authentication_keys => [:login]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username,
                   :email,
                   :password,
                   :password_confirmation,
-                  :remember_me,
-                  :name
+                  :remember_me                  
+                  #:name
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
-  attr_accessor :login
+  # attr_accessor :login
+  # attr_accessible :login
 
   has_many :notes
   has_many :appointments
@@ -44,14 +45,14 @@ class User < ActiveRecord::Base
 
   #Override authentication to user :username
 
-  def self.find_first_by_auth_conditions(warden_conditions)
-      conditions = warden_conditions.dup
-      if login = conditions.delete(:login)
-        where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-      else
-        where(conditions).first
-      end
-    end
+  # def self.find_first_by_auth_conditions(warden_conditions)
+  #   conditions = warden_conditions.dup
+  #   if login = conditions.delete(:login)
+  #     where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+  #   else
+  #     where(conditions).first
+  #   end
+  # end
 
   def to_s
     if self.form && self.form.personal.first_name != "" && self.form.personal.first_name != nil
@@ -86,6 +87,6 @@ class User < ActiveRecord::Base
       end
 
       # now.year - bday.year - ((now.month > bday.month || (now.month == bday.month && now.day >= bday.day)) ? 0 : 1)
-  end
+  end  
 
 end

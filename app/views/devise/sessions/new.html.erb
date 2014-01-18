@@ -14,20 +14,20 @@ background: #f6f6f6;*/
 	<div>
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 		  
-		  <div><label class="sign">Login</label><%= f.text_field :login, class: "fluid-form form_field_length_full fat" %></div>
+		  <!--<div><label class="sign">Login</label><%#= f.text_field :login, class: "fluid-form form_field_length_full fat" %></div>
 
-		  <!-- Comment-out for :username login
+		   Comment-out for :username login -->
 
-		  <div><label class="sign">Email</label><%#= f.email_field :email, class: "fluid-form fat" %></div>
+		  <div><label class="sign">Email</label><%= f.email_field :email, class: "fluid-form fat" %></div>
 
-		  <div><label class="sign">Password</label><%#= f.password_field :password, class: "fluid-form fat" %></div> -->
+		  <div><label class="sign">Password</label><%= f.password_field :password, class: "fluid-form fat" %></div>
 
 		  <!-- Test Demo Passwords -->
-		 <% if Rails.env.production? %>
-		  	<%= f.hidden_field :password, value: "password" %>	   
-		<% else %>
-			<%= f.hidden_field :password, value: "Rashad1980" %>
-		<% end %>
+		 <%# if Rails.env.production? %>
+		  	<%#= f.hidden_field :password, value: "password" %>	   
+		<%# else %>
+			<%#= f.hidden_field :password, value: "Rashad1980" %>
+		<%# end %>
 			  
 
 		  <!-- Comment-out "Remember Me" for Security

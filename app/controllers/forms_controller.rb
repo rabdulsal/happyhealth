@@ -28,8 +28,10 @@ class FormsController < ApplicationController
       2.times { @form.emergencies << Emergency.new }
       @form.insurances <<  Insurance.create(:title => "Primary")
       @form.insurances << Insurance.create(:title => "Secondary")
-      @form.dental << Dental.new
-      @form.vision << Vision.new
+      # @form.dental << Dental.new
+      @form.dental = Dental.new
+      # @form.vision << Vision.new
+      @form.vision = Vision.new
       @form.responsible = Responsible.new
       @form.medical = Medical.new
       3.times { @form.medical.allergies << Allergy.new }

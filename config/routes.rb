@@ -8,7 +8,8 @@ HappyHealth::Application.routes.draw do
 
   resources :notes
 
-  get '/users/sign_up' => 'static_pages#home'
+  #get '/users/sign_up' => 'static_pages#home'
+
 
   root to: "static_pages#home"
 
@@ -25,6 +26,9 @@ HappyHealth::Application.routes.draw do
   get "/remove_problem" => 'forms#remove_problem', as: :remove_problem
 
   devise_for :users
+
+  #Route to destroy session via URL
+  devise_for :users do get '/users/:user_id/sign_out' => 'devise/sessions#destroy' end
 
   resources :users do
     resources :notes

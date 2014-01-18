@@ -23,7 +23,7 @@
 					<li>
 						<p>
 							<strong><u>Conditions:</u></strong> 
-							<span class="small-font">(<%= link_to "Edit", "/users/1/forms/1/edit#tabs-4" %>)</span>
+							<span class="small-font">(<%= link_to "Edit", "/users/#{current_user.id}/forms/#{current_user.form.id}/edit#tabs-4" %>)</span>
 						</p>
 						
 						<% unless current_user.form.medical.problems[0].nil? %>

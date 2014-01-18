@@ -86,25 +86,41 @@
 				    </li>
 				</ul>
 			</li>
-				<% current_user.doctors.each do |doctor| %>
+
+		<% if current_user.doctors.nil? || current_user.doctors == [] %>
+
+			<fieldset class="margin-top dashAppointments">
+				<%= "You currently have no Doctors in your Care Team. Set an appointment to add a doctor to your Team." %>
+
+				<%= link_to "New Appointment", new_user_appointment_path(current_user.id), class: "margin-top see-more right" %>
+			</fieldset>
+
+		<% else %>
+
+			<% current_user.doctors.each do |doctor| %>
+			
 			<li>		
-					<div class="widget panel margin-top care-team clear">
-						<div class="left team-photo">
-							<%= image_tag 'medication_small.gif', class: "left" %>
-						</div>					
-						<div class="panel-tab team-info">
-							<h3>Dr. <%= doctor.name %></h3>		
-							<p class="care-team-doc"><strong><%= doctor.office.name %></strong></p>
-						
-							<ul class="panel-stage hidden">
-								<li><%= doctor.office.address %></li>
-								<li><%= "#{doctor.office.city }, #{doctor.office.state } #{doctor.office.zipcode}" %></li>
-								<li><u>P:</u> <%= doctor.office.phone %></li>
-							</ul>
-						</div>									
+				<div class="widget panel margin-top care-team clear">
+					<div class="left team-photo">
+						<%= image_tag 'medication_small.gif', class: "left" %>
 					</div>					
-				<% end %>
+					<div class="panel-tab team-info">
+						<h3>Dr. <%= doctor.name %></h3>		
+						<p class="care-team-doc"><strong><%= doctor.office.name %></strong></p>
+					
+						<ul class="panel-stage hidden">
+							<li><%= doctor.office.address %></li>
+							<li><%= "#{doctor.office.city }, #{doctor.office.state } #{doctor.office.zipcode}" %></li>
+							<li><u>P:</u> <%= doctor.office.phone %></li>
+						</ul>
+					</div>									
+				</div>
 			</li>
+
+			<% end %>
+
+		<% end %>
+
 		</ul>
 
 	</aside>
@@ -140,40 +156,64 @@
 			<li class="widget-list">
 				<span class="icon"><%= image_tag "encounters_small.gif" %></span><span><h3 class="inline">Appointments</h3></span>
 				<fieldset class="dashAppointments">
-					<legend>8:00 AM | <%= current_user.appointments.last.appt_date.strftime("%b %d, %Y") %></legend>	
-					<dl>
-						<dt>Location:</dt>
-						<dd><%= current_user.appointments.last.office.name %></dd>
-					
-						<dt>Physician:</dt>
-						<dd><%= current_user.appointments.last.doctor.title %></dd>
-					</dl>
-					<!-- Placeholder for database-backed content -->
-					<ul class="inline right">
-						<li><%= link_to "View Details", user_appointment_path(current_user, current_user.appointments.last), class: "see-more" %></li> |
-						<li>
-							<%= link_to "View all", user_appointments_path(current_user.id), class: "see-more" %>
-						</li>
-					</ul>
-					<!-- <a href="#" class="right see-more">See more</a> -->
+
+					<% if current_user.appointments.nil? || current_user.appointments == [] %>
+
+						<p>
+							<%= "You currently have no Appointments set. Set an appointment to see an up-coming appointment here." %>
+						</p>
+						<p class="margin-top">
+							<%= link_to "New Appointment", new_user_appointment_path(current_user.id), class: "right see-more" %>
+						</p>
+
+					<% else %>
+
+						<legend>8:00 AM | <%= current_user.appointments.last.appt_date.strftime("%b %d, %Y") %></legend>	
+						<dl>
+							<dt>Location:</dt>
+							<dd><%= current_user.appointments.last.office.name %></dd>
+						
+							<dt>Physician:</dt>
+							<dd><%= current_user.appointments.last.doctor.title %></dd>
+						</dl>
+						<!-- Placeholder for database-backed content -->
+						<ul class="inline right">
+							<li><%= link_to "View Details", user_appointment_path(current_user, current_user.appointments.last), class: "see-more" %></li> |
+							<li>
+								<%= link_to "View all", user_appointments_path(current_user.id), class: "see-more" %>
+							</li>
+						</ul>
+						<!-- <a href="#" class="right see-more">See more</a> -->
+
+					<% end %>
+
 		
 				</fieldset>
 			</li>
 			<li class="widget-list">
 				<span class="icon"><%= image_tag "medication_small.gif" %></span><span><h3 class="inline">Medications</h3></span>
-				<fieldset class="dashAppointments">
-					<legend>Tonight - 9:00PM</legend>	
-					<dl>
-						<dt><%= current_user.form.medical.medications.last.info %></dt>
-						<dd>1 tablet per mouth.</dd>
-					
-						<dt>Notes:</dt>
-						<dd>Take 1 hour before bedtime.</dd>
-					</dl>
-					<!-- Placeholder for database-backed content -->
-					<%= link_to "See more", "/users/1/forms/1/edit#tabs-4", class: "right see-more" %>
-		
-				</fieldset>
+
+				<% if current_user.form.medical.nil? || current_user.form.medical == [] %>
+
+					<%= "You currently have no Medications to list. Add some medications to your profile to see a list of them here." %>
+
+				<% else %>
+
+					<fieldset class="dashAppointments">
+						<legend>Tonight - 9:00PM</legend>	
+						<dl>
+							<dt><%= current_user.form.medical.medications.last.info %></dt>
+							<dd>1 tablet per mouth.</dd>
+						
+							<dt>Notes:</dt>
+							<dd>Take 1 hour before bedtime.</dd>
+						</dl>
+						<!-- Placeholder for database-backed content -->
+						<%= link_to "See more", "/users/#{current_user.id}/forms/#{current_user.form.id}/edit#tabs-4", class: "right see-more" %>
+			
+					</fieldset>
+
+				<% end %>
 			</li>
 			<li></li>
 		</ul>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130805043910) do
+ActiveRecord::Schema.define(:version => 20130825131735) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20130805043910) do
     t.integer  "office_id"
     t.integer  "doctor_id"
     t.boolean  "tos_priv",     :default => false
+    t.time     "appt_time"
   end
 
   create_table "care_plans", :force => true do |t|
@@ -235,6 +236,8 @@ ActiveRecord::Schema.define(:version => 20130805043910) do
     t.string   "email"
     t.integer  "npi"
     t.string   "abrv"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "old_passwords", :force => true do |t|
@@ -328,8 +331,9 @@ ActiveRecord::Schema.define(:version => 20130805043910) do
 
   create_table "referral_reasons", :force => true do |t|
     t.text     "visit_reason"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "appointment_id"
   end
 
   create_table "responsibles", :force => true do |t|

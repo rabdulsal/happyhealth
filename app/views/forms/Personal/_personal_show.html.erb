@@ -20,7 +20,13 @@
             </tr>
             <tr>
                 <th class="right-align">Age: </th>
-                <td class="left-align"><%= @user.age %></td>                            
+                <td class="left-align">
+                    <% if @user.form.personal.age.nil? %>
+
+                    <% else %>
+                        <%= @user.age %>
+                    <% end %>
+                </td>                            
             </tr>
             <!-- <tr>
                 <th class="right-align">
