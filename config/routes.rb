@@ -1,4 +1,4 @@
-HappyHealth::Application.routes.draw do
+ HappyHealth::Application.routes.draw do
  
   get "blue_button/receive_attachment"
 

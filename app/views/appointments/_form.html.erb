@@ -83,20 +83,20 @@
   
   <br /><br />
   
-  <!-- ***************************** CAN BE DRYER! ********************************** -->
+  <!-- ************ Invisibly render all the individual Office Form partials ************** -->
 
-  	<!-- <div class="hidden">
-		<%#= @office_form_partials.each do |partial| %>
-	    	<%#= render partial %>
-	  	<%# end %>
-	</div> -->
+  	<div class="hidden">
+		<%= @office_form_partials.each do |partial| %>
+	    	<%= render partial, user: current_user, office_abrv: @office_abrv %>
+	  	<% end %>
+	</div> 
 
-  <%= render 'appointments/forms/clsma.pdf.html.erb', :user => current_user %>
+  <%#= render 'appointments/forms/clsma.pdf.html.erb', :user => current_user %>
 	 
-  <%= render 'appointments/forms/mada.pdf.html.erb', :user => current_user %>
+  <%#= render 'appointments/forms/mada.pdf.html.erb', :user => current_user %>
 
-  <%= render 'appointments/forms/mhc.pdf.html.erb', :user => current_user %>
+  <%#= render 'appointments/forms/mhc.pdf.html.erb', :user => current_user %>
 
-  <%= render 'appointments/forms/sawlani_demographics.pdf.html.erb', user: current_user %>  
+  <%#= render 'appointments/forms/sawlani_demographics.pdf.html.erb', user: current_user %>  
 	
 <% end %>

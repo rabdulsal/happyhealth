@@ -58,7 +58,9 @@ class AppointmentsController < ApplicationController
 
     @office_form_partials = []
     @offices.each do |office|
+      # offices_hash = { office_id => }
       @office_form_partials << "appointments/forms/#{office.abrv}.pdf.html.erb"
+      @office_abrv = office.abrv
     end
 
     respond_to do |format|

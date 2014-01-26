@@ -119,33 +119,40 @@ $(function() {
 	// 	});
 	// });
 
-	$(".mada").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
-	});
+	// $(".office_abrv").dialog({
+	// 	autoOpen: false,
+	// 	show: "blind",
+	// 	hide: "slide",
+	// 	modal: true
+	// });
 
-	$(".clsma").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
-	});
+	// $(".mada").dialog({
+	// 	autoOpen: false,
+	// 	show: "blind",
+	// 	hide: "slide",
+	// 	modal: true
+	// });
 
-	$(".mhc").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
-	});
+	// $(".clsma").dialog({
+	// 	autoOpen: false,
+	// 	show: "blind",
+	// 	hide: "slide",
+	// 	modal: true
+	// });
 
-	$(".sawlani_demographics").dialog({
-		autoOpen: false,
-		show: "blind",
-		hide: "slide",
-		modal: true
-	});
+	// $(".mhc").dialog({
+	// 	autoOpen: false,
+	// 	show: "blind",
+	// 	hide: "slide",
+	// 	modal: true
+	// });
+
+	// $(".sawlani_demographics").dialog({
+	// 	autoOpen: false,
+	// 	show: "blind",
+	// 	hide: "slide",
+	// 	modal: true
+	// });
 
 	// ************** JQUERY PDF FETCH ******************
 
@@ -160,7 +167,8 @@ $(function() {
 		        data: {'office_id': val},
 		 		type: 'GET',
 		    success: function(data){
-				$('.' + data).dialog("open");
+				// $('.' + data).dialog("open"); Old Code
+				$('.office_' + val).dialog("open");
 		    },
 		    error: function(){
 		        alert('error');
@@ -187,6 +195,12 @@ $(function() {
 		$('input#appt.action-button').fadeIn();
 		var officeId = $('select#appointment_office_id').val();
     	getPdf(officeId);
+    	$(".office_" + officeId).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "slide",
+			modal: true
+		});
 		return false;
 	});
 
