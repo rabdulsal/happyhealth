@@ -119,35 +119,7 @@ $(function() {
 	// 	});
 	// });
 
-	// $(".office_abrv").dialog({
-	// 	autoOpen: false,
-	// 	show: "blind",
-	// 	hide: "slide",
-	// 	modal: true
-	// });
-
 	// $(".mada").dialog({
-	// 	autoOpen: false,
-	// 	show: "blind",
-	// 	hide: "slide",
-	// 	modal: true
-	// });
-
-	// $(".clsma").dialog({
-	// 	autoOpen: false,
-	// 	show: "blind",
-	// 	hide: "slide",
-	// 	modal: true
-	// });
-
-	// $(".mhc").dialog({
-	// 	autoOpen: false,
-	// 	show: "blind",
-	// 	hide: "slide",
-	// 	modal: true
-	// });
-
-	// $(".sawlani_demographics").dialog({
 	// 	autoOpen: false,
 	// 	show: "blind",
 	// 	hide: "slide",
