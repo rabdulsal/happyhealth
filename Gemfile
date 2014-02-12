@@ -15,6 +15,9 @@ gem 'autocomplete-off'
 gem 'rails_email_validator'
 gem 'easy_captcha'
 
+# Model Encryption
+gem 'strongbox'
+
 # Used for calendar
 gem "watu_table_builder", :require => "table_builder"
 
