@@ -22,7 +22,8 @@ class User < ActiveRecord::Base
                   :password,
                   :password_confirmation,
                   :remember_me,
-                  :name
+                  :name,
+                  :login
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'

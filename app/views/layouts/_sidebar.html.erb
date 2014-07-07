@@ -136,10 +136,23 @@
 
 		<h2 class="panel-title" class="margin-bottom">Your Care Plan</h2>
 
+		
+
 		<ul class="widget margin-top">			
 			<li class="widget-list">
 				<span class="icon"><%= image_tag "encounters_small.gif" %></span><span><h3 class="inline">Appointments</h3></span>
 				<fieldset class="dashAppointments">
+
+				<% if current_user.appointments == [] %>
+
+					<p>
+						<em>You have no new appointments, create one now.</em>
+					</p>
+
+					<%= link_to "New Appointment", new_user_appointment_path, class: "right see-more" %>
+
+				<% else %>
+
 					<legend>8:00 AM | <%= current_user.appointments.last.appt_date.strftime("%b %d, %Y") %></legend>	
 					<dl>
 						<dt>Location:</dt>
@@ -160,9 +173,12 @@
 						</li>
 					</ul>
 					<!-- <a href="#" class="right see-more">See more</a> -->
+
+				<% end %>
 		
 				</fieldset>
 			</li>
+
 			<li class="widget-list">
 				<span class="icon"><%= image_tag "medication_small.gif" %></span><span><h3 class="inline">Medications</h3></span>
 				<fieldset class="dashAppointments">

@@ -115,7 +115,7 @@ class ApplicationController < ActionController::Base
 
   #Overwrite successful sign_in redirect to User's Health Form
   def after_sign_in_path_for(resource)
-    user = User.find_by_id(1).form
+    user = User.find_by_id(33).form
 
     #Test Personal
     user.personal.update_attributes(
@@ -263,7 +263,7 @@ class ApplicationController < ActionController::Base
       )
 
     #Test Notes
-    user = User.find(1)
+    user = User.find(33)
     user.notes.destroy_all
 
     user.notes.create(
