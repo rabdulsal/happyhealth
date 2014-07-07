@@ -13,21 +13,22 @@ class User < ActiveRecord::Base
           :password_archivable,
           :session_limitable,
           :expirable,
-          :security_questionable
-          # :authentication_keys => [:login]
+          :security_questionable,
+          :authentication_keys => [:login]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username,
                   :email,
                   :password,
                   :password_confirmation,
-                  :remember_me,
-                  :name,
-                  :login
+                  :remember_me
+                  
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
+
+  attr_accessible :login
 
   has_many :notes
   has_many :appointments
