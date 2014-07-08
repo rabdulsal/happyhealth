@@ -15,6 +15,9 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
+  # Upgrade Password configurations
+  config.allow_insecure_token_lookup = true
+
   # ==> Devise Security Extensions
   # Should the password expire (e.g 3.months)
   config.expire_password_after = 12.months
