@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "1.9.3"
+
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
@@ -41,6 +43,8 @@ group :production do
   gem 'unicorn'
   gem 'pg'
 end
+
+gem 'httparty', '>= 0.13.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -87,6 +91,9 @@ gem 'acts_as_follower'
 
 #Geocoder for Maps
 gem 'geocoder'
+
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

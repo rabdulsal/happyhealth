@@ -243,6 +243,7 @@ DEPENDENCIES
   easy_captcha
   geocoder
   gs
+  httparty (>= 0.11.0)
   jquery-rails (= 2.2.1)
   kaminari (= 0.13.0)
   nested_form
