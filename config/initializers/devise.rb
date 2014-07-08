@@ -16,7 +16,8 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
   # Upgrade Password configurations
-  config.allow_insecure_token_lookup = true
+  #config.allow_insecure_token_lookup = true
+  config.secret_key = '4aab476770a19db69a9f64ac9d1ea49d31616ed0dfab5c7f7884a49af89110d38171ef5060f92d9d646e4c1fe5a98950f4a5c3b85be97dd18e991e55b49060f1'
 
   # ==> Devise Security Extensions
   # Should the password expire (e.g 3.months)
