@@ -4,10 +4,10 @@
 
 	<aside class="left-panel left margin-top">
 		<ul id="nav-tab">
-			<li class="<%=@current_page%>_lifecycle margin-bottom">
-				<span class="icon"><%= image_tag "lifecycle_icon.gif" %></span>
-				<span class="nav-tab-link"><%= link_to "Dashboard", user_path(current_user.id) %></span>
-			</li>
+			<!--<li class="<%#=@current_page%>_lifecycle margin-bottom">
+				<span class="icon"><%#= image_tag "lifecycle_icon.gif" %></span>
+				<span class="nav-tab-link"><%#= link_to "Dashboard", user_path(current_user.id) %></span>
+			</li>-->
 	        <% if current_user.form %>
 				<li class="fluid-hide <%=@current_page%>_profile margin-bottom">
 					<span class="icon"><%= image_tag "health_prof_small.gif" %>
