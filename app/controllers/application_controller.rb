@@ -39,12 +39,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
-  helper_method :current_user
-
   def get_user
     @user = current_user
   end
@@ -101,6 +95,12 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  helper_method :current_user
 
   #Overwrite successful sign_in redirect to User's Health Form
   def after_sign_in_path_for(resource)

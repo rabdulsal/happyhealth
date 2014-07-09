@@ -34,7 +34,7 @@ class Form < ActiveRecord::Base
     p_status, e0_changes = emergencies[0].update_attributes_changed(params[:form][:emergencies_attributes]["0"])
     p_status, e1_changes = emergencies[1].update_attributes_changed(params[:form][:emergencies_attributes]["1"])
     p_status, i0_changes = insurances[0].update_attributes_changed(params[:form][:insurances_attributes]["0"])
-    p_status, i1_changes = insurances[1].update_attributes_changed(params[:form][:insurances_attributes]["1"])
+    # p_status, i1_changes = insurances[1].update_attributes_changed(params[:form][:insurances_attributes]["1"])
     p_status, d_changes = dental.update_attributes_changed(params[:form][:dental_attributes])
     p_status, v_changes = vision.update_attributes_changed(params[:form][:vision_attributes]["1"])
 
@@ -61,7 +61,7 @@ class Form < ActiveRecord::Base
                "Emergency Contact 1" => e0_changes,
                "Emergency Contact 2" => e1_changes,
                "Primary Insurance" => i0_changes,
-               "Secondary Insurance" => i1_changes,
+               # "Secondary Insurance" => i1_changes,
                "Dental Insurance" => d_changes,
                "Vision Insurance" => v_changes,
                "Medical" => medical_changes,
