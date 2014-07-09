@@ -41,7 +41,7 @@ HappyHealth::Application.routes.draw do
   end
 
   #Session Routes
-  get "sessions/new"
+  get "enter" => 'sessions#new', as: 'enter'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   resources :sessions
