@@ -2,14 +2,14 @@
 	<header id="header-content">
 	     <ul>
 	        <li id="site-name">
-	        	<% if user_signed_in? %>
-	        		<%= link_to "HappyHealth", destroy_user_session_path, method: "delete", confirm: "This will log you out of the registration platform, and take you back to the consumer site.", title: "Logout and go back to the consumer site" %><span class="beta_tag">beta</span>
+	        	<% if current_user %>
+	        		<%= link_to "HappyHealth", logout_path, confirm: "This will log you out of the registration platform, and take you back to the consumer site.", title: "Logout and go back to the consumer site" %><span class="beta_tag">beta</span>
 	        	<% else %>
 	        		<a href="http://www.happyhealth.me" title="Go back to the consumer site">HappyHealth</a><span class="beta_tag">beta</span>
 	        	<% end %>
 	        </li>
         	<li class="nav-links">
-        		<% if user_signed_in? %>
+        		<% if current_user %>
 							<%=link_to "Sign out", logout_path %>
 						<% else %>
 							<%=link_to "Sign In", new_session_path %>
@@ -18,7 +18,7 @@
 				<!-- <li class="nav-links fluid-hide">
 					<%#=link_to "About Us", about_path%>
 				</li> -->
-			<% if user_signed_in? %>
+			<% if current_user %>
 				<!-- <li class="nav-links">
 					<%#=link_to "Dashboard", root_path %>
 				</li> -->
