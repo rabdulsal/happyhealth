@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
   # GET /appointments.json
 
   before_filter :current_user
-  before_filter :yelp_search, only: :show
+  #before_filter :yelp_search, only: :show
 
   def doctors
     @offices = Office.all

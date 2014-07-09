@@ -30,8 +30,10 @@
 			<p class="right">
 				<%= link_to "Download Office Form", pdf_path(@appointment.id, :office_id => @appointment.office.id, :format => "pdf"), :class => "block action-button" %>
 			</p>
+			<% if @response %>
 			<p>
 				<strong>Average Yelp Rating:</strong><br />
+				
 				<img src="<%=@response['businesses'][1]['rating_img_url']%>" />
 			</p>
 			<p>
@@ -40,6 +42,7 @@
 			<p>
 				<%= link_to "See all reviews", @response["businesses"][1]["url"], target: "_blank" %>
 			</p>
+				<% end %>
 		</li>		
 	</ul>
 
