@@ -8,14 +8,34 @@
 
 <div class="widget" id="two">
 	<div class="dashAppointments">
-		<% @activities.each do |activity| %>
-			<% if values_of_activity_hash(activity.parameters) != []%>
-  			<fieldset class="dashBackground">
-		  		<%= render_activity activity %>
-		  		<legend><%= activity.created_at.localtime.strftime("%I:%M %P | %b %d, %Y") %></legend>
-	  		</fieldset>
-	  	<% end %>
+		<fieldset class="dashBackground">
+
+		<% if @activities != [] %>
+
+			<% @activities.each do |activity| %>
+
+			
+				<%# if values_of_activity_hash(activity.parameters) != []%>
+	  			
+			  		<%= render_activity activity %>
+			  		<legend>
+			  			<%= activity.created_at.localtime.strftime("%I:%M %P | %b %d, %Y") %>
+			  		</legend>
+		  		
+		  		<%# end %>
+		  	<% end %>	  	
+
+	  	<% else %>
+	  		
+	  		<p>You currently have no activities. Try one of the following:</p><br />
+		  		<ul class="no-activities">
+		  			<li>Edit your <%= link_to "Health Profile", edit_user_form_path(current_user.id, current_user.form.id) %></li>
+		  			<li>Set an <%= link_to "Appointment", new_user_appointment_path(current_user.id)%>, and auto-fill the office forms</li>
+		  			<li>Leave yourself a quick <%= link_to "Note", user_notes_path(current_user.id) %> about your health</li>
+		  		</ul>
+
 		<% end %>
+		</fieldset>
 	</div>
 </div>
 

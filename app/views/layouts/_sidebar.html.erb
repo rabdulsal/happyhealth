@@ -149,7 +149,7 @@
 						<em>You have no new appointments, create one now.</em>
 					</p>
 
-					<%= link_to "New Appointment", new_user_appointment_path, class: "right see-more" %>
+					<%= link_to "New Appointment", new_user_appointment_path(current_user.id), class: "right see-more" %>
 
 				<% else %>
 

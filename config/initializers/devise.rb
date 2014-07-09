@@ -17,8 +17,9 @@ Devise.setup do |config|
 
   # Upgrade Password configurations
   #config.allow_insecure_token_lookup = true
-  config.secret_key = '4aab476770a19db69a9f64ac9d1ea49d31616ed0dfab5c7f7884a49af89110d38171ef5060f92d9d646e4c1fe5a98950f4a5c3b85be97dd18e991e55b49060f1'
-
+  if Rails.env.production?
+    config.secret_key = '4aab476770a19db69a9f64ac9d1ea49d31616ed0dfab5c7f7884a49af89110d38171ef5060f92d9d646e4c1fe5a98950f4a5c3b85be97dd18e991e55b49060f1'
+  end
   # ==> Devise Security Extensions
   # Should the password expire (e.g 3.months)
   config.expire_password_after = 12.months
@@ -30,7 +31,7 @@ Devise.setup do |config|
   config.password_archiving_count = 2
 
   # Deny old password (true, false, count)
-  config.deny_old_passwords = true
+  config.deny_old_passwords = false
 
   # captcha integration for recover form
   # config.captcha_for_recover = true

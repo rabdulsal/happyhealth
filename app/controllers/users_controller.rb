@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  before_filter :correct_user
+  before_filter :current_user
 
-  def show
+  def show # => User's Lifecycle Dashboard
     @user = User.find_by_id(params[:id])
     #redirect_to user_form_url(@user.id, @user.id)
     if @user.form.nil?
@@ -23,5 +23,21 @@ class UsersController < ApplicationController
     @personal = @user.form.personal
   end
 
+  # Devise Over-rides
+  def new
+    @user = User.new
+  end
+
+  
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_form_path(@user.id), notice: "Thank you for signing up!"
+    else
+      render "new"
+    end
+  end
+  
 
 end

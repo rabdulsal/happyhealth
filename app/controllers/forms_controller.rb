@@ -1,6 +1,6 @@
 class FormsController < ApplicationController
 
-  before_filter :correct_user
+  before_filter :current_user
   before_filter :printout, only: :print
 
   def show

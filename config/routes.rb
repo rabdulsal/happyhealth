@@ -1,5 +1,7 @@
 HappyHealth::Application.routes.draw do
 
+  
+
   get "blue_button/receive_attachment"
 
   captcha_route
@@ -24,7 +26,8 @@ HappyHealth::Application.routes.draw do
   get "/add_problem" => 'forms#add_problem', as: :add_problem
   get "/remove_problem" => 'forms#remove_problem', as: :remove_problem
 
-  devise_for :users
+# Override Devise login
+#  devise_for :users
 
   resources :users do
     resources :notes
@@ -36,6 +39,12 @@ HappyHealth::Application.routes.draw do
     end
     resources :appointments
   end
+
+  #Session Routes
+  get "sessions/new"
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+  resources :sessions
 
   match "/users/:id/sign_in" => "users#sign_in"
 

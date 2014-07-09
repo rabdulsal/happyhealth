@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
 
-  before_filter :correct_user
+  before_filter :current_user
 
   def index
     @user = User.find_by_id(params[:user_id])

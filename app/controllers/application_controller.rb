@@ -39,22 +39,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def correct_user
-
-    if(params[:user_id])
-      unless current_user == User.find_by_id(params[:user_id])
-        flash[:error] = "Unauthorized Access"
-        redirect_to root_path
-        false
-      end
-    elsif(params[:id])
-      unless current_user == User.find_by_id(params[:id])
-        flash[:error] = "Unauthorized Access"
-        redirect_to root_path
-        false
-      end
-    end
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+
+  helper_method :current_user
 
   def get_user
     @user = current_user
@@ -115,7 +104,7 @@ class ApplicationController < ActionController::Base
 
   #Overwrite successful sign_in redirect to User's Health Form
   def after_sign_in_path_for(resource)
-    user = User.find_by_id(33).form
+    user = User.find_by_id(current_user.id).form
 
     #Test Personal
     user.personal.update_attributes(

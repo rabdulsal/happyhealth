@@ -1,0 +1,32 @@
+
+<h1>Welcome to HappyHealth WebApp</h1>
+
+<div class="signin">
+	
+	<%= form_tag sessions_path do %>
+
+	 <!--  <div class="field">
+	    <%#= f.label "Sign-in Code" %><br />
+	    <%#= f.text_field :username, params[:username] %>
+	  </div> -->
+
+	  <% if Rails.env.production? %>
+		<%= hidden_field_tag :user_id, 1 %>
+		<% else %>
+			<%= hidden_field_tag :user_id, 33 %>
+		<% end %>
+	  
+
+	  <p>
+	  	The HappyHealth WebApp is a personal project of mine originially designed to decrease the registration paperwork often required during doctor's visits.
+	  </p>
+	  <br />
+	  <p>
+	  	Enter below and try out the App while logged-in with Test User data, and have fun entering your own data and seeing the office forms filled out for you!
+	  </P>
+	  <br />
+	  <div>
+	  	<%= submit_tag "Enter", class: "createButton full_width" %>
+	  </div>
+	<% end %>
+</div>
