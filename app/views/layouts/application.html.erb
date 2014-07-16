@@ -12,9 +12,13 @@
   		<%= csrf_meta_tags %>  		
 	</head>
 
-	<body id="main">
+	<body id="main" class="<%= @enterpage %>">
+
+		<% unless @enterpage %>
 	
 		<%= render 'layouts/header' %>
+
+		<% end %>
 			
 		<div class="container_12">
 
@@ -25,8 +29,18 @@
 		<% end %>
 		</div>	
 		
-		<%= render 'layouts/footer'	%>
-			
+		<% if @enterpage %>
+
+			<div class="signin-footer clearfix">
+				<p class="right margin-right enter-text">
+					Built by <a href="http://rashadsalaam.com" title="Rashad's Website" target="_blank">Rashad</a>
+				</p>
+			</div>
+
+		<% else %>
+			<%= render 'layouts/footer'	%>
+		<% end %>
+
 	</body>
 	
 </html>

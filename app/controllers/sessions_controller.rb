@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @enterpage = "signin-background"
   end
 
   def create

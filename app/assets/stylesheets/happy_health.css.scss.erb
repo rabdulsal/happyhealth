@@ -103,7 +103,7 @@ xmp {
 html { height: 100% }
 
 .container_12 { /*--- id for the grand table housing all the data ---*/
-  background: #fff;
+  
   margin: 0 auto;
   width: 98%;
   clear: both;
@@ -179,8 +179,8 @@ body, p {
 #main {
     /*background: url('/images/wood.png');
     background-color: #e6e6e6;
-    background: url("https://s3.amazonaws.com/happyhealthapp/assets/wood.png");*/
-    background: #fff;           
+    background: url("https://s3.amazonaws.com/happyhealthapp/assets/wood.png");
+    background: #fff; */          
 }
 
 label {
@@ -213,6 +213,10 @@ img {
 
 .center {
     margin: 0 auto;    
+}
+
+.center-text {
+    text-align: center;
 }
 
 .right {
@@ -401,16 +405,60 @@ ul#static.inline-block{
     color: #555;
 }
 
-.signin, .signup {
+.signup {
     padding: 30px 48px;
     background-color: #f8f8f8;
     box-shadow: 0 2px 5px grey;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 280px;    
-    height: 100%;
+    width: 280px;
     display: block;    
     margin: 170px auto;
+}
+
+.signin {
+    background-color: rgba(0,0,0,0.5);
+    max-width: 350px;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10% auto 0;
+
+}
+    .signin h2 {
+        color: #fff;
+    }
+
+.signin-background {
+    background: url("Healthcarebrochure_Kimball_05.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.signin-footer {
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    padding: 5px 0;
+    position: fixed;
+    bottom: 0;
+    margin: auto;
+}
+
+    .signin-footer p {
+        color: #fff;
+    }
+
+.enter-button {
+    color: #fff;
+    font-size: 30px;
+    padding: 20px;
+    border: 5px solid #fff;
+    background-color: rgba(0,0,0,0);
+}
+
+.enter-button:hover {
+    cursor: pointer;
 }
 
 .signup {
